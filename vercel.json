@@ -3,6 +3,6 @@
   "buildCommand": "npm run build",
   "installCommand": "npm install",
   "env": {
-    "PUBLIC_API_BASE": "https://YOUR-RENDER-API-URL"
+    "PUBLIC_API_BASE": "https://portfoliobackend-navy.vercel.app/"
   }
 }
