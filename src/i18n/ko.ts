@@ -43,37 +43,37 @@ const ko: I18n = {
   },
   caseStudy: {
     badge: '사례 연구',
-    title: 'KDSX 랜딩 페이지',
+    title: 'Octopos 랜딩 페이지',
     subtitle: '4주 만에 복잡한 제품을 명확한 전환형 랜딩 페이지로 구현했습니다.',
     meta: [
-      { label: '클라이언트', value: 'KDSX' },
+      { label: '클라이언트', value: 'Octopos' },
       { label: '역할', value: '제품 디자이너 · 소프트웨어 엔지니어' },
       { label: '기간', value: '4주 · 2025년' },
       { label: '기술 스택', value: 'Astro, Tailwind, Vercel, Resend' }
     ],
     problem: {
       title: '도전 과제',
-      body: 'KDSX는 제품 가치를 명확히 설명하고 사용해 보도록 유도하는 현대적인 랜딩 페이지가 필요했습니다. 이전 버전은 구식이었고 가치 전달이 약했으며 모바일 친화적이지 않았습니다.'
+      body: 'Octopos는 제품 가치를 명확히 설명하고 사용해 보도록 유도하는 현대적인 랜딩 페이지가 필요했습니다. 이전 버전은 구식이었고 가치 전달이 약했으며 모바일 친화적이지 않았습니다.'
     },
     research: {
       title: '수행 역할',
       bullets: [
         '더 빠르고, 시각적이며, 이해하기 쉽도록 전체 웹사이트를 처음부터 다시 디자인하고 재구축했습니다.',
-        '방문자가 도구가 실제로 어떻게 작동하는지 볼 수 있도록 iMac, iPad, iPhone 프레임 안에 KDSX 앱의 맞춤형 목업을 만들었습니다.',
-        '사용자 정보를 수집하고 KDSX의 세 가지 주요 앱 무료 평가판에 즉시 액세스할 수 있는 간단한 마법사 양식을 구축했습니다.'
+        '방문자가 도구가 실제로 어떻게 작동하는지 볼 수 있도록 iMac, iPad, iPhone 프레임 안에 Octopos 앱의 맞춤형 목업을 만들었습니다.',
+        '사용자 정보를 수집하고 Octopos의 세 가지 주요 앱 무료 평가판에 즉시 액세스할 수 있는 간단한 마법사 양식을 구축했습니다.'
       ]
     },
     design: {
       title: '결과',
       bullets: [
-        '새로운 사이트는 깔끔하고, 빠르며, 전문적인 느낌을 주어 사용자들이 KDSX를 몇 초 만에 파악하고 더 많은 방문자가 사용해 보도록 동기를 부여하는 데 도움이 되었습니다.'
+        '새로운 사이트는 깔끔하고, 빠르며, 전문적인 느낌을 주어 사용자들이 Octopos를 몇 초 만에 파악하고 더 많은 방문자가 사용해 보도록 동기를 부여하는 데 도움이 되었습니다.'
       ]
     },
     images: [
-      { src: '/images/projects/before.png', alt: '재디자인 전 KDSX 랜딩 페이지 원본', caption: '재디자인 전 원본 MVP 화면 — 빽빽한 문구, 낮은 대비, 명확한 행동 유도 버튼 부재.' },
-      { src: '/images/projects/kdsx.png', alt: 'KDSX 랜딩 페이지 스크린샷', caption: '재작업된 히어로 섹션, 사용 사례, 소셜 프루프를 강조하는 고해상도 데스크톱 화면.' }
+      { src: '/images/projects/before.png', alt: '재디자인 전 Octopos 랜딩 페이지 원본', caption: '재디자인 전 원본 MVP 화면 — 빽빽한 문구, 낮은 대비, 명확한 행동 유도 버튼 부재.' },
+      { src: '/images/projects/octopos.png', alt: 'Octopos 랜딩 페이지 스크린샷', caption: '재작업된 히어로 섹션, 사용 사례, 소셜 프루프를 강조하는 고해상도 데스크톱 화면.' }
     ],
-    cta: { label: '라이브 사이트 방문', href: 'https://kdsx.uz' }
+    cta: { label: '라이브 사이트 방문', href: 'https://octopos.uz' }
   },
   skills: {
     title: '사용 기술',

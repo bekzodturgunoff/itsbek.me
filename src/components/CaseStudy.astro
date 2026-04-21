@@ -28,7 +28,7 @@ const data = getDictionary(lang).caseStudy;
       {data.meta.map((item) => (
         <div class="rounded-2xl border border-black/10 dark:border-white/10 bg-white dark:bg-white/5 px-4 py-4 sm:py-5">
           <div class="text-[11px] uppercase tracking-[0.18em] text-neutral-500 dark:text-neutral-400">{item.label}</div>
-          <div class="mt-2 text-sm font-medium text-neutral-900 dark:text-neutral-100">{item.value}</div>
+          <div class="mt-2 text-sm font-medium text-neutral-900 dark:text-neutral-100"><span class="replace-year">{item.value}</span></div>
         </div>
       ))}
     </div>

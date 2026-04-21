@@ -43,17 +43,17 @@ const en: I18n = {
   },
   caseStudy: {
     badge: 'Case Study',
-    title: 'KDSX Landing Page',
+    title: 'Octopos Landing Page',
     subtitle: 'Turning a complex knowledge platform into a high-converting launch in four weeks.',
     meta: [
-      { label: 'Client', value: 'KDSX' },
+      { label: 'Client', value: 'Octopos' },
       { label: 'Role', value: 'Product Designer · Software Engineer' },
       { label: 'Timeline', value: '4 weeks · 2025' },
       { label: 'Stack', value: 'Astro, Tailwind, Vercel, Resend' }
     ],
     problem: {
       title: 'The challenge',
-      body: 'KDSX needed a modern landing page that clearly explained its product and encouraged users to try it. The previous version looked outdated, didn’t show product value well, and wasn’t friendly on mobile.'
+      body: 'Octopos needed a modern landing page that clearly explained its product and encouraged users to try it. The previous version looked outdated, didn’t show product value well, and wasn’t friendly on mobile.'
     },
     research: {
       title: 'What I did',
@@ -66,14 +66,14 @@ const en: I18n = {
     design: {
       title: 'Results',
       bullets: [
-        'The new site feels clean, fast, and professional, helping people grasp KDSX in seconds and motivating more visitors to try it.'
+        'The new site feels clean, fast, and professional, helping people grasp Octopos in seconds and motivating more visitors to try it.'
       ]
     },
     images: [
-      { src: '/images/projects/before.png', alt: 'Original KDSX landing page before redesign', caption: 'Original MVP screen before the redesign — dense copy, low contrast, and no clear call to action.' },
-      { src: '/images/projects/kdsx.png', alt: 'Screenshot of the KDSX landing page', caption: 'High-fidelity desktop screen highlighting the reworked hero, use cases, and social proof.' }
+      { src: '/images/projects/before.png', alt: 'Original Octopos landing page before redesign', caption: 'Original MVP screen before the redesign — dense copy, low contrast, and no clear call to action.' },
+      { src: '/images/projects/octopos.png', alt: 'Screenshot of the Octopos landing page', caption: 'High-fidelity desktop screen highlighting the reworked hero, use cases, and social proof.' }
     ],
-    cta: { label: 'Visit live site', href: 'https://kdsx.uz' }
+    cta: { label: 'Visit live site', href: 'https://octopos.uz' }
   },
   skills: {
     title: 'What I Work With',

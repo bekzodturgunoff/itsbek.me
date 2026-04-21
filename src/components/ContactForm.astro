@@ -58,9 +58,9 @@ const t = getDictionary(lang);
   </form>
 </div>
 
-<script>
-  const form = document.getElementById('contact-form') as HTMLFormElement;
-  const status = document.getElementById('form-status') as HTMLSpanElement;
+<script type="module">
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
 
   if (form && status) {
     form.addEventListener('submit', async (e) => {
@@ -76,23 +76,61 @@ const t = getDictionary(lang);
       status.textContent = 'Sending...';
       status.className = 'text-sm text-neutral-600 dark:text-neutral-400';
 
-      try {
-        const API_BASE = (import.meta as any).env?.PUBLIC_API_BASE || 'http://localhost:5000';
-        const response = await fetch(`${API_BASE}/api/contact`, {
+      const API_BASE = (import.meta.env && import.meta.env.PUBLIC_API_BASE) || 'http://localhost:5001';
+
+      const sendTo = async (base) => {
+        const baseTrim = (base || '').replace(/\/$/, '');
+        const finalUrl = baseTrim ? `${baseTrim}/api/contact` : '/api/contact';
+        return fetch(finalUrl, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data),
         });
+      };
 
-        if (!response.ok) {
+      try {
+        let response = null;
+        try {
+          response = await sendTo(API_BASE);
+        } catch (err) {
+          response = null;
+        }
+
+        if (!response || !response.ok) {
+          // try same-origin fallback
+          try {
+            const fallback = await sendTo('');
+            if (fallback.ok) {
+              status.textContent = '✓ Message sent!';
+              status.className = 'text-sm text-emerald-600 dark:text-emerald-400';
+              form.reset();
+              setTimeout(() => { status.textContent = ''; }, 5000);
+              return;
+            } else {
+              let bodyText = '';
+              try { bodyText = await fallback.text(); } catch {}
+              console.error('Contact form failed (fallback)', {
+                status: fallback.status,
+                statusText: fallback.statusText,
+                body: bodyText,
+              });
+            }
+          } catch (err2) {
+            console.error('Contact form fallback error:', err2);
+          }
+
           let bodyText = '';
-          try { bodyText = await response.text(); } catch {}
-          console.error('Contact form failed', {
-            status: response.status,
-            statusText: response.statusText,
-            body: bodyText,
-            apiBase: API_BASE,
-          });
+          if (response) {
+            try { bodyText = await response.text(); } catch {}
+            console.error('Contact form failed', {
+              status: response.status,
+              statusText: response.statusText,
+              body: bodyText,
+              apiBase: API_BASE,
+            });
+          } else {
+            console.error('Contact form network error, no response from', API_BASE);
+          }
           throw new Error('Failed to send');
         }
 

@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "start:api": "node server/contact-server.cjs"
   },
   "dependencies": {
     "@astrojs/tailwind": "^5.1.0",

@@ -1,12 +1,12 @@
 ---
 const projects = [
   { 
-    title: 'KDSX Landing Page', 
+    title: 'Octopos Landing Page', 
     year: '2025', 
     tags: ['ASTRO','DESIGN','FORMS'], 
-    href: 'https://kdsx.uz',
+    href: 'https://octopos.uz',
     description: 'Built with Astro and a sharp, conversion-focused design — fast load, clean flow, and clear CTAs.',
-    image: '/images/projects/kdsx.png'
+    image: '/images/projects/octopos.png'
   },
   { 
     title: 'GitHub Projects', 
@@ -32,9 +32,9 @@ const projects = [
             />
           </div>
           <div class="p-5 sm:p-6 flex flex-col gap-3">
-            <div class="flex items-center justify-between text-sm text-neutral-500 dark:text-neutral-400">
+              <div class="flex items-center justify-between text-sm text-neutral-500 dark:text-neutral-400">
               <span class="font-medium text-neutral-700 dark:text-neutral-200">{p.title}</span>
-              <span>{p.year}</span>
+              <span class="replace-year">{p.year}</span>
             </div>
             <p class="text-[15px] text-neutral-600 dark:text-neutral-400 leading-relaxed">{p.description}</p>
             <div class="flex flex-wrap items-center gap-2">
