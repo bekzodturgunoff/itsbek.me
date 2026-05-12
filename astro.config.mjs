@@ -1,16 +1,16 @@
-import tailwind from '@astrojs/tailwind';
-import vercel from '@astrojs/vercel/static';
+import tailwind from "@astrojs/tailwind";
+import vercel from "@astrojs/vercel/static";
 
 export default {
-  site: 'https://itsbek.vercel.app',
+  site: "https://itsbek.me",
   adapter: vercel(),
-  devToolbar: { enabled: false },
-  integrations: [tailwind({}),],
+  devToolbar: {enabled: false},
+  integrations: [tailwind({})],
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'ru', 'ko'],
+    defaultLocale: "en",
+    locales: ["en", "ru", "ko"],
     routing: {
-      prefixDefaultLocale: false
-    }
-  }
+      prefixDefaultLocale: false,
+    },
+  },
 };
