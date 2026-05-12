@@ -2,10 +2,10 @@
 ---
 <div id="three-bg" class="fixed inset-0 z-[-1] pointer-events-none transition-colors duration-700 bg-neutral-100 dark:bg-black"></div>
 
-<button id="music-btn" class="fixed bottom-6 lg:bottom-10 right-6 lg:right-10 z-50 h-16 w-16 rounded-full bg-black/90 dark:bg-white/90 text-white dark:text-black shadow-2xl backdrop-blur-md hover:scale-110 transition-transform duration-300 flex items-center justify-center focus:outline-none ring-2 ring-transparent hover:ring-brand-500/50" aria-label="Toggle Background Music">
-  <svg id="ico-play" class="w-6 h-6 ml-1 transition-transform" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6V4z"/></svg>
-  <svg id="ico-pause" class="w-6 h-6 hidden transition-transform" fill="currentColor" viewBox="0 0 20 20"><path d="M5 4h3v12H5V4zm7 0h3v12h-3V4z"/></svg>
-  <svg id="ico-loading" class="w-6 h-6 hidden animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+<button id="music-btn" class="fixed bottom-6 lg:bottom-10 right-6 lg:right-10 z-50 h-12 w-12 rounded-full bg-black/90 dark:bg-white/90 text-white dark:text-black shadow-2xl backdrop-blur-md hover:scale-110 transition-transform duration-300 flex items-center justify-center focus:outline-none ring-2 ring-transparent hover:ring-brand-500/50" aria-label="Toggle Background Music">
+  <svg id="ico-play" class="w-5 h-5 transition-transform" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6V4z"/></svg>
+  <svg id="ico-pause" class="w-5 h-5 hidden transition-transform" fill="currentColor" viewBox="0 0 20 20"><path d="M5 4h3v12H5V4zm7 0h3v12h-3V4z"/></svg>
+  <svg id="ico-loading" class="w-5 h-5 hidden animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
 </button>
 
 <script>
@@ -26,68 +26,46 @@
 
     // --- THREE.JS SETUP ---
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
-    camera.position.z = 200;
+    // Tilt the camera for a cinematic perspective over a terrain
+    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1500);
+    camera.position.set(0, 80, 200);
 
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(window.innerWidth, window.innerHeight);
     container.appendChild(renderer.domElement);
 
-    // Subtle Particle Background
-    const particleCount = 600;
-    const geometry = new THREE.BufferGeometry();
-    const positions = new Float32Array(particleCount * 3);
-    const opacities = new Float32Array(particleCount);
-
-    for (let i = 0; i < particleCount; i++) {
-        positions[i * 3] = (Math.random() - 0.5) * 400; // x
-        positions[i * 3 + 1] = (Math.random() - 0.5) * 400; // y
-        positions[i * 3 + 2] = (Math.random() - 0.5) * 400; // z
-        opacities[i] = Math.random();
+    // Dynamic Audio-Reactive Wireframe Terrain
+    const segs = 60;
+    const size = 600;
+    const geometry = new THREE.PlaneGeometry(size, size, segs, segs);
+    geometry.rotateX(-Math.PI / 2); // Lay flat
+    
+    // Store original Y positions
+    const pos = geometry.attributes.position;
+    const originalYs = new Float32Array(pos.count);
+    for (let i = 0; i < pos.count; i++) {
+        originalYs[i] = pos.getY(i);
     }
 
-    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    geometry.setAttribute('aOpacity', new THREE.BufferAttribute(opacities, 1));
-
-    // Custom shader material for soft glowing dots
-    const vertexShader = `
-      attribute float aOpacity;
-      varying float vOpacity;
-      void main() {
-        vOpacity = aOpacity;
-        vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
-        gl_PointSize = (10.0 / -mvPosition.z) * 8.0;
-        gl_Position = projectionMatrix * mvPosition;
-      }
-    `;
-
-    const fragmentShader = `
-      varying float vOpacity;
-      uniform vec3 color;
-      void main() {
-        float r = 0.0;
-        vec2 cxy = 2.0 * gl_PointCoord - 1.0;
-        r = dot(cxy, cxy);
-        if (r > 1.0) discard;
-        float alpha = (1.0 - r) * vOpacity;
-        gl_FragColor = vec4(color, alpha * 0.5);
-      }
-    `;
-
-    const material = new THREE.ShaderMaterial({
-      uniforms: {
-        color: { value: new THREE.Color(0x888888) }
-      },
-      vertexShader,
-      fragmentShader,
-      transparent: true,
-      depthWrite: false,
-      blending: THREE.AdditiveBlending
+    const material = new THREE.MeshStandardMaterial({
+        color: 0x888888,
+        wireframe: true,
+        transparent: true,
+        opacity: 0.15,
+        emissive: 0x111111,
     });
+    const mesh = new THREE.Mesh(geometry, material);
+    // Center mesh
+    mesh.position.y = -50; 
+    scene.add(mesh);
 
-    const particleSystem = new THREE.Points(geometry, material);
-    scene.add(particleSystem);
+    // subtle lighting
+    const light = new THREE.DirectionalLight(0xffffff, 1);
+    light.position.set(0, 200, 100);
+    scene.add(light);
+    const ambientInfo = new THREE.AmbientLight(0xffffff, 0.4);
+    scene.add(ambientInfo);
 
     // Mouse Interaction
     let targetX = 0;
@@ -101,72 +79,100 @@
     // Theme integration
     const updateTheme = () => {
         const isDark = document.documentElement.classList.contains('dark');
-        material.uniforms.color.value = isDark ? new THREE.Color(0xaaaaaa) : new THREE.Color(0x555555);
-        material.blending = isDark ? THREE.AdditiveBlending : THREE.NormalBlending;
+        material.color.setHex(isDark ? 0xaaaaaa : 0x555555);
+        material.emissive.setHex(isDark ? 0x222222 : 0x111111);
+        material.opacity = isDark ? 0.2 : 0.15;
     };
     updateTheme();
     const observer = new MutationObserver(updateTheme);
     observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
 
     // --- AUDIO HANDLING ---
-    const audio = new Audio();
-    audio.crossOrigin = "anonymous";
-    const targetAudioUrl = '/music.mp3';
-    // Deep chill background track
-    const fallbackAudioUrl = 'https://assets.mixkit.co/music/preview/mixkit-sleepy-cat-135.mp3';
-
-    let usingFallback = false;
-    audio.addEventListener('error', () => {
-        if (!usingFallback) {
-            console.log('Local music fetch failed. Trying fallback...');
-            usingFallback = true;
-            audio.src = fallbackAudioUrl;
-        }
-    });
-
-    audio.src = targetAudioUrl;
-    audio.loop = true;
-
-    // Set up Web Audio API connected to the HTMLAudioElement
-    // We defer actual context creation until click to follow autoplay policies strictly
     let audioCtx: AudioContext | null = null;
     let analyser: AnalyserNode | null = null;
     let source: MediaElementAudioSourceNode | null = null;
     let dataArray: Uint8Array | null = null;
 
+    const audio = new Audio();
+    // Enable crossOrigin BEFORE setting src so CORS policy is respected properly
+    audio.crossOrigin = 'anonymous';
+    audio.loop = true;
+    audio.volume = 0.5;
+
+    const fallbackUrl = 'https://raw.githubusercontent.com/rafaelreis-hotmart/Audio-Sample-files/master/sample.mp3';
+    let fallbackUsed = false;
+
+    // Helper: prefer local copy if available, otherwise fallback. Use HEAD then GET for diagnostics.
+    const chooseAudioSource = async () => {
+      try {
+        const head = await fetch('/music.mp3', { method: 'HEAD' });
+        if (head && head.ok) {
+          const ct = head.headers.get('content-type') || '';
+          if (ct.startsWith('audio')) {
+            console.log('Using local /music.mp3 (HEAD OK, type:', ct + ')');
+            audio.src = '/music.mp3';
+            return;
+          }
+        }
+      } catch (e) {
+        console.warn('HEAD check for /music.mp3 failed:', e);
+      }
+
+      // Try a full GET as a second check (some servers block HEAD)
+      try {
+        const get = await fetch('/music.mp3');
+        if (get && get.ok) {
+          const ct = get.headers.get('content-type') || '';
+          console.log('Using local /music.mp3 (GET OK, type:', ct + ')');
+          audio.src = '/music.mp3';
+          return;
+        }
+      } catch (e) {
+        console.warn('GET check for /music.mp3 failed:', e);
+      }
+
+      // If we reach here, fall back to the remote sample
+      fallbackUsed = true;
+      console.warn('Local /music.mp3 not available — falling back to remote sample.');
+      audio.src = fallbackUrl;
+    };
+
+    chooseAudioSource();
+
+    audio.addEventListener('error', (ev) => {
+      console.error('Audio element error event:', ev);
+      if (!fallbackUsed) {
+        fallbackUsed = true;
+        console.warn('Switching to fallback audio due to element error.');
+        audio.src = fallbackUrl;
+      }
+    });
+
     let isPlaying = false;
-    let audioReady = false;
 
     const iconPlay = document.getElementById('ico-play');
     const iconPause = document.getElementById('ico-pause');
     const iconLoading = document.getElementById('ico-loading');
 
     btn.addEventListener('click', async () => {
+      // Lazy-init AudioContext to comply with browser autoplay gesture requirements
       if (!audioCtx) {
         audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
         analyser = audioCtx.createAnalyser();
-        analyser.fftSize = 256;
+        analyser.fftSize = 128;
         dataArray = new Uint8Array(analyser.frequencyBinCount);
+
+        try {
+          source = audioCtx.createMediaElementSource(audio);
+          source.connect(analyser);
+          analyser.connect(audioCtx.destination);
+        } catch (err) {
+          console.error("Audio Routing Error (CORS usually):", err);
+        }
       }
 
       if (audioCtx.state === 'suspended') {
         await audioCtx.resume();
-      }
-
-      if (!audioReady) {
-        iconPlay?.classList.add('hidden');
-        iconLoading?.classList.remove('hidden');
-
-        try {
-          if (!source) {
-              source = audioCtx.createMediaElementSource(audio);
-              source.connect(analyser!);
-              analyser!.connect(audioCtx.destination);
-          }
-          audioReady = true;
-        } catch(e) {
-          console.error("Audio Context Setup Error:", e);
-        }
       }
 
       if (isPlaying) {
@@ -174,19 +180,19 @@
         isPlaying = false;
         iconPause?.classList.add('hidden');
         iconPlay?.classList.remove('hidden');
-        iconLoading?.classList.add('hidden');
         btn.classList.remove('shadow-[0_0_40px_rgba(150,150,150,0.4)]');
       } else {
+        iconPlay?.classList.add('hidden');
+        iconLoading?.classList.remove('hidden');
         try {
           await audio.play();
           isPlaying = true;
-          iconPlay?.classList.add('hidden');
           iconPause?.classList.remove('hidden');
           iconLoading?.classList.add('hidden');
           btn.classList.add('shadow-[0_0_40px_rgba(150,150,150,0.4)]');
         } catch (e) {
           console.error("Audio Playback Error:", e);
-          alert("Audio couldn't play. Please try again.");
+          alert("Audio couldn't play. Check file path or permissions.");
           iconLoading?.classList.add('hidden');
           iconPlay?.classList.remove('hidden');
         }
@@ -200,30 +206,48 @@
         requestAnimationFrame(render);
         const time = clock.getElapsedTime();
 
-        // Very slow, gentle rotation
-        particleSystem.rotation.y += 0.001;
-        particleSystem.rotation.x += 0.0005;
-
         // Smooth camera follow for parallax effect
-        camera.position.x += (targetX * 50 - camera.position.x) * 0.05;
-        camera.position.y += (-targetY * 50 - camera.position.y) * 0.05;
+        camera.position.x += (targetX * 100 - camera.position.x) * 0.05;
         camera.lookAt(scene.position);
 
-        // Gentle scale wobble on audio beat
+        // Terrain morphing and audio reactivity
+        const posAttr = geometry.attributes.position;
+        let avgFrequency = 0;
+
         if (isPlaying && analyser && dataArray) {
             analyser.getByteFrequencyData(dataArray);
-            let bassSum = 0;
-            for (let i = 0; i < 5; i++) bassSum += dataArray[i];
-            const bass = bassSum / 5;
+        }
+
+        for (let i = 0; i < posAttr.count; i++) {
+            const x = posAttr.getX(i);
+            const z = posAttr.getZ(i);
+
+            // Create gentle rolling hills based on noise (simulated with sine waves)
+            let newY = Math.sin(x * 0.02 + time) * 10 + Math.cos(z * 0.02 + time * 1.5) * 10;
             
-            // Subtly scale the whole system
-            const scale = 1 + (bass / 255.0) * 0.05;
-            particleSystem.scale.set(scale, scale, scale);
-        } else {
-            // Restore scale
-            particleSystem.scale.x += (1 - particleSystem.scale.x) * 0.1;
-            particleSystem.scale.y += (1 - particleSystem.scale.y) * 0.1;
-            particleSystem.scale.z += (1 - particleSystem.scale.z) * 0.1;
+            // Apply Audio reactivity
+            if (isPlaying && dataArray) {
+                // Map the vertex's distance from center to a frequency bin
+                const dist = Math.sqrt(x*x + z*z);
+                const maxDist = size / 2;
+                const normalizeDist = Math.max(0, Math.min(1, dist / maxDist));
+                // Inverse map: low frequencies in center, high on edges
+                const binIndex = Math.floor((1 - normalizeDist) * (dataArray.length * 0.8));
+                
+                const freq = dataArray[binIndex] || 0;
+                // Add sharp displacement based on beat
+                newY += (freq / 255.0) * 45;
+            }
+
+            posAttr.setY(i, newY);
+        }
+        posAttr.needsUpdate = true;
+        
+        // Slowly advance the mesh towards the camera
+        mesh.position.z += 0.5;
+        // Loop the terrain seamlessly
+        if (mesh.position.z > (size / segs)) {
+            mesh.position.z = 0;
         }
 
         renderer.render(scene, camera);
