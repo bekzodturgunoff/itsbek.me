@@ -5,7 +5,7 @@ const ko: I18n = {
     links: { about: '소개', skills: '기술', caseStudy: '사례 연구', work: '포트폴리오', contact: '연락처', resume: '이력서' },
   },
   hero: {
-  name: 'Bekzod',
+  name: 'itsbek.me',
     titleTop: '소프트웨어 엔지니어',
     titleBottom: '사용자 경험과 신뢰성에 집중',
     description: `2년+ 경험의 소프트웨어 엔지니어로, React와 Astro로 빠르고 접근성 높은 제품을 만듭니다. 디자인·백엔드와 긴밀히 협업하며 JavaScript/TypeScript, Python, C 레벨 문제 해결에 익숙합니다.`,
@@ -89,7 +89,7 @@ const ko: I18n = {
     github: 'GitHub',
     telegram: '텔레그램',
     resume: '이력서',
-  bandName: 'Bekzod',
+  bandName: 'itsbek.me',
     maintenance: '사랑과 카페인, 그리고 약간의 미스터리한 오류로 만들어졌습니다. 뭔가 고장 났다면, 제가 또 하나 배운 거예요. (곧 수정할게요… 아마도요.)',
   }
 };

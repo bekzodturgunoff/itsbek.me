@@ -5,7 +5,7 @@ const en: I18n = {
     links: { about: 'About', skills: 'Skills', caseStudy: 'Case Study', work: 'Work', contact: 'Contact', resume: 'Resume' },
   },
   hero: {
-  name: 'Bekzod',
+  name: 'itsbek.me',
   titleTop: 'Software Engineer',
   titleBottom: 'focused on User Experience',
     description: `Software engineer with 4+ years building responsive, accessible products in React and Astro. I ship fast, reliable interfaces, collaborate across design and backend, and work comfortably in JavaScript/TypeScript, Python, and C-level problem solving.`,
@@ -89,7 +89,7 @@ const en: I18n = {
     github: 'GitHub',
     telegram: 'Telegram',
     resume: 'Resume',
-  bandName: 'Bekzod',
+  bandName: 'itsbek.me',
     maintenance: 'Built with love, caffeine, and a few mysterious errors. If it breaks, I probably learned something new. (Fix incoming… soonish.)',
   }
 };

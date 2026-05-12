@@ -1,0 +1,243 @@
+---
+---
+<div id="three-bg" class="fixed inset-0 z-[-1] pointer-events-none transition-colors duration-700 bg-neutral-100 dark:bg-black"></div>
+
+<button id="music-btn" class="fixed bottom-6 lg:bottom-10 right-6 lg:right-10 z-50 h-16 w-16 rounded-full bg-black/90 dark:bg-white/90 text-white dark:text-black shadow-2xl backdrop-blur-md hover:scale-110 transition-transform duration-300 flex items-center justify-center focus:outline-none ring-2 ring-transparent hover:ring-brand-500/50" aria-label="Toggle Background Music">
+  <svg id="ico-play" class="w-6 h-6 ml-1 transition-transform" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6V4z"/></svg>
+  <svg id="ico-pause" class="w-6 h-6 hidden transition-transform" fill="currentColor" viewBox="0 0 20 20"><path d="M5 4h3v12H5V4zm7 0h3v12h-3V4z"/></svg>
+  <svg id="ico-loading" class="w-6 h-6 hidden animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+</button>
+
+<script>
+  import * as THREE from 'three';
+
+  if (!(window as any).__three_initialized) {
+    (window as any).__three_initialized = false;
+  }
+
+  const init = () => {
+    if ((window as any).__three_initialized) return;
+    
+    const container = document.getElementById('three-bg');
+    const btn = document.getElementById('music-btn');
+    if (!container || !btn) return;
+    
+    (window as any).__three_initialized = true;
+
+    // --- THREE.JS SETUP ---
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
+    camera.position.z = 200;
+
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    container.appendChild(renderer.domElement);
+
+    // Subtle Particle Background
+    const particleCount = 600;
+    const geometry = new THREE.BufferGeometry();
+    const positions = new Float32Array(particleCount * 3);
+    const opacities = new Float32Array(particleCount);
+
+    for (let i = 0; i < particleCount; i++) {
+        positions[i * 3] = (Math.random() - 0.5) * 400; // x
+        positions[i * 3 + 1] = (Math.random() - 0.5) * 400; // y
+        positions[i * 3 + 2] = (Math.random() - 0.5) * 400; // z
+        opacities[i] = Math.random();
+    }
+
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    geometry.setAttribute('aOpacity', new THREE.BufferAttribute(opacities, 1));
+
+    // Custom shader material for soft glowing dots
+    const vertexShader = `
+      attribute float aOpacity;
+      varying float vOpacity;
+      void main() {
+        vOpacity = aOpacity;
+        vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+        gl_PointSize = (10.0 / -mvPosition.z) * 8.0;
+        gl_Position = projectionMatrix * mvPosition;
+      }
+    `;
+
+    const fragmentShader = `
+      varying float vOpacity;
+      uniform vec3 color;
+      void main() {
+        float r = 0.0;
+        vec2 cxy = 2.0 * gl_PointCoord - 1.0;
+        r = dot(cxy, cxy);
+        if (r > 1.0) discard;
+        float alpha = (1.0 - r) * vOpacity;
+        gl_FragColor = vec4(color, alpha * 0.5);
+      }
+    `;
+
+    const material = new THREE.ShaderMaterial({
+      uniforms: {
+        color: { value: new THREE.Color(0x888888) }
+      },
+      vertexShader,
+      fragmentShader,
+      transparent: true,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending
+    });
+
+    const particleSystem = new THREE.Points(geometry, material);
+    scene.add(particleSystem);
+
+    // Mouse Interaction
+    let targetX = 0;
+    let targetY = 0;
+
+    window.addEventListener('mousemove', (e) => {
+        targetX = (e.clientX - window.innerWidth / 2) * 0.0005;
+        targetY = (e.clientY - window.innerHeight / 2) * 0.0005;
+    });
+
+    // Theme integration
+    const updateTheme = () => {
+        const isDark = document.documentElement.classList.contains('dark');
+        material.uniforms.color.value = isDark ? new THREE.Color(0xaaaaaa) : new THREE.Color(0x555555);
+        material.blending = isDark ? THREE.AdditiveBlending : THREE.NormalBlending;
+    };
+    updateTheme();
+    const observer = new MutationObserver(updateTheme);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
+    // --- AUDIO HANDLING ---
+    const audio = new Audio();
+    audio.crossOrigin = "anonymous";
+    const targetAudioUrl = '/music.mp3';
+    // Deep chill background track
+    const fallbackAudioUrl = 'https://assets.mixkit.co/music/preview/mixkit-sleepy-cat-135.mp3';
+
+    let usingFallback = false;
+    audio.addEventListener('error', () => {
+        if (!usingFallback) {
+            console.log('Local music fetch failed. Trying fallback...');
+            usingFallback = true;
+            audio.src = fallbackAudioUrl;
+        }
+    });
+
+    audio.src = targetAudioUrl;
+    audio.loop = true;
+
+    // Set up Web Audio API connected to the HTMLAudioElement
+    // We defer actual context creation until click to follow autoplay policies strictly
+    let audioCtx: AudioContext | null = null;
+    let analyser: AnalyserNode | null = null;
+    let source: MediaElementAudioSourceNode | null = null;
+    let dataArray: Uint8Array | null = null;
+
+    let isPlaying = false;
+    let audioReady = false;
+
+    const iconPlay = document.getElementById('ico-play');
+    const iconPause = document.getElementById('ico-pause');
+    const iconLoading = document.getElementById('ico-loading');
+
+    btn.addEventListener('click', async () => {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
+        analyser = audioCtx.createAnalyser();
+        analyser.fftSize = 256;
+        dataArray = new Uint8Array(analyser.frequencyBinCount);
+      }
+
+      if (audioCtx.state === 'suspended') {
+        await audioCtx.resume();
+      }
+
+      if (!audioReady) {
+        iconPlay?.classList.add('hidden');
+        iconLoading?.classList.remove('hidden');
+
+        try {
+          if (!source) {
+              source = audioCtx.createMediaElementSource(audio);
+              source.connect(analyser!);
+              analyser!.connect(audioCtx.destination);
+          }
+          audioReady = true;
+        } catch(e) {
+          console.error("Audio Context Setup Error:", e);
+        }
+      }
+
+      if (isPlaying) {
+        audio.pause();
+        isPlaying = false;
+        iconPause?.classList.add('hidden');
+        iconPlay?.classList.remove('hidden');
+        iconLoading?.classList.add('hidden');
+        btn.classList.remove('shadow-[0_0_40px_rgba(150,150,150,0.4)]');
+      } else {
+        try {
+          await audio.play();
+          isPlaying = true;
+          iconPlay?.classList.add('hidden');
+          iconPause?.classList.remove('hidden');
+          iconLoading?.classList.add('hidden');
+          btn.classList.add('shadow-[0_0_40px_rgba(150,150,150,0.4)]');
+        } catch (e) {
+          console.error("Audio Playback Error:", e);
+          alert("Audio couldn't play. Please try again.");
+          iconLoading?.classList.add('hidden');
+          iconPlay?.classList.remove('hidden');
+        }
+      }
+    });
+
+    // --- RENDER LOOP ---
+    const clock = new THREE.Clock();
+
+    const render = () => {
+        requestAnimationFrame(render);
+        const time = clock.getElapsedTime();
+
+        // Very slow, gentle rotation
+        particleSystem.rotation.y += 0.001;
+        particleSystem.rotation.x += 0.0005;
+
+        // Smooth camera follow for parallax effect
+        camera.position.x += (targetX * 50 - camera.position.x) * 0.05;
+        camera.position.y += (-targetY * 50 - camera.position.y) * 0.05;
+        camera.lookAt(scene.position);
+
+        // Gentle scale wobble on audio beat
+        if (isPlaying && analyser && dataArray) {
+            analyser.getByteFrequencyData(dataArray);
+            let bassSum = 0;
+            for (let i = 0; i < 5; i++) bassSum += dataArray[i];
+            const bass = bassSum / 5;
+            
+            // Subtly scale the whole system
+            const scale = 1 + (bass / 255.0) * 0.05;
+            particleSystem.scale.set(scale, scale, scale);
+        } else {
+            // Restore scale
+            particleSystem.scale.x += (1 - particleSystem.scale.x) * 0.1;
+            particleSystem.scale.y += (1 - particleSystem.scale.y) * 0.1;
+            particleSystem.scale.z += (1 - particleSystem.scale.z) * 0.1;
+        }
+
+        renderer.render(scene, camera);
+    };
+    render();
+
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  };
+
+  document.addEventListener('astro:page-load', init);
+  document.addEventListener('DOMContentLoaded', init);
+  setTimeout(init, 500);
+</script>

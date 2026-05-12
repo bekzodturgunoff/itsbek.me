@@ -5,7 +5,7 @@ const ru: I18n = {
     links: { about: 'Обо мне', skills: 'Навыки', caseStudy: 'Кейс-стади', work: 'Портфолио', contact: 'Контакты', resume: 'Резюме' },
   },
   hero: {
-  name: 'Bekzod',
+  name: 'itsbek.me',
     titleTop: 'Софтуэр-инженер',
     titleBottom: 'с фокусом на UX и надежность',
     description: `Софтуэр-инженер с 4+ годами опыта. Делаю быстрые и доступные продукты на React и Astro, работаю в тесной связке с дизайном и бэкендом. Уверенно использую JavaScript/TypeScript, Python и подхожу к задачам на уровне C/системного мышления.`,
@@ -89,7 +89,7 @@ const ru: I18n = {
     github: 'GitHub',
     telegram: 'Telegram',
     resume: 'Резюме',
-  bandName: 'Bekzod',
+  bandName: 'itsbek.me',
     maintenance: 'Сделано с любовью, кофеином и парой загадочных ошибок. Если что-то сломалось — значит, я чему-то научился. (Исправление уже в пути… почти.)',
   }
 };
