@@ -32,9 +32,9 @@ const meta = {
       <div class="rounded-3xl border border-black/5 dark:border-white/5 bg-white/40 dark:bg-black/40 backdrop-blur-md p-6 sm:p-10 lg:p-12 transition-all duration-300 hover:border-brand-500/30">
         <p class="max-w-prose text-neutral-700 dark:text-neutral-300 leading-relaxed text-lg">{t.about.intro}</p>
         <div class="mt-6 text-[13px] text-neutral-500 dark:text-neutral-400">
-          <span>{t.about.basedIn} · </span>
+          <span>{t.about.basedIn}<span class="hidden sm:inline"> · </span></span>
           <a
-            class="underline underline-offset-4 decoration-neutral-400/60 dark:decoration-white/40 hover:text-neutral-800 dark:hover:text-neutral-100 transition-colors"
+            class="block sm:inline underline underline-offset-4 decoration-neutral-400/60 dark:decoration-white/40 hover:text-neutral-800 dark:hover:text-neutral-100 transition-colors break-all"
             href="mailto:bekzodturgunoff@gmail.com"
           >
             bekzodturgunoff@gmail.com

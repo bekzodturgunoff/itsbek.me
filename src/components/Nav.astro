@@ -9,7 +9,7 @@ interface Props {
 
 const { lang = defaultLang } = Astro.props;
 const t = getDictionary(lang);
-const homeHref = lang ? `/${lang}` : '/';
+const homeHref = lang ? `/${lang}/` : '/';
 const links = [
   { href: '#about', label: t.nav.links.about },
   { href: '#skills', label: t.nav.links.skills },
