@@ -67,35 +67,39 @@ const prefetchTargets = languageCodes
     <title>{title}</title>
     <script is:inline>
       (() => {
-        const applyTheme = () => {
+        const applySystemTheme = () => {
           try {
-            const stored = localStorage.getItem('theme');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            const dark = stored ? stored === 'dark' : prefersDark;
+            const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
             document.documentElement.classList.toggle('dark', dark);
             document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+            localStorage.setItem('theme', dark ? 'dark' : 'light');
           } catch {}
         };
 
-        const handleSystemChange = () => {
-          try {
-            if (localStorage.getItem('theme')) return;
-          } catch {}
-          applyTheme();
-        };
+        try {
+          const stored = localStorage.getItem('theme');
+          if (stored) {
+            const dark = stored === 'dark';
+            document.documentElement.classList.toggle('dark', dark);
+            document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+          } else {
+            applySystemTheme();
+          }
+        } catch {
+          applySystemTheme();
+        }
 
         try {
           const media = window.matchMedia('(prefers-color-scheme: dark)');
           if (typeof media.addEventListener === 'function') {
-            media.addEventListener('change', handleSystemChange);
+            media.addEventListener('change', applySystemTheme);
           } else if (typeof media.addListener === 'function') {
-            media.addListener(handleSystemChange);
+            media.addListener(applySystemTheme);
           }
         } catch {}
 
-        applyTheme();
-        document.addEventListener('astro:after-swap', applyTheme);
-        document.addEventListener('astro:page-load', applyTheme);
+        document.addEventListener('astro:after-swap', applySystemTheme);
+        document.addEventListener('astro:page-load', applySystemTheme);
       })();
     </script>
     <ViewTransitions />
@@ -112,7 +116,6 @@ const prefetchTargets = languageCodes
 </style>
 
 <script>
-  // @ts-ignore
   window.__toggleTheme = () => {
     const isDark = document.documentElement.classList.toggle('dark');
     document.documentElement.dataset.theme = isDark ? 'dark' : 'light';
@@ -120,3 +123,5 @@ const prefetchTargets = languageCodes
     return isDark;
   };
 </script>
+
+

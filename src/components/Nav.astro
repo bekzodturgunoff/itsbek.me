@@ -1,4 +1,5 @@
 ---
+
 import { Sun, Moon } from 'lucide-astro';
 import { getDictionary, defaultLang } from '../i18n';
 import LanguageSwitcher from './LanguageSwitcher.astro';
@@ -32,7 +33,7 @@ const links = [
         ))}
       </ul>
   <a href="/resume/resume_Bekzod.docx" download class="inline-block uppercase text-[11px] tracking-[0.18em] hover:-translate-y-0.5 transition-all whitespace-nowrap flex-shrink-0" aria-label="Download resume">{t.nav.links.resume}</a>
-  <div class="flex-shrink-0">
+      <div class="flex-shrink-0">
         <LanguageSwitcher lang={lang} />
       </div>
       <button

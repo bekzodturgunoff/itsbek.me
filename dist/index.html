@@ -1,34 +1,38 @@
 <!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Software engineer crafting fast, reliable web products with React, Astro, and TypeScript. Based in Seoul, collaborating end to end to ship accessible, high-performing experiences."><meta name="color-scheme" content="light dark"><link rel="icon" type="image/x-icon" href="/images/itsbek_brand_identity/favicon_io/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="/images/itsbek_brand_identity/favicon_io/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/images/itsbek_brand_identity/favicon_io/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/images/itsbek_brand_identity/favicon_io/apple-touch-icon.png"><link rel="manifest" href="/images/itsbek_brand_identity/favicon_io/site.webmanifest"><link rel="canonical" href="https://itsbek.me/"><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://itsbek.me/"><meta property="og:title" content="Bekzod — Software Engineer"><meta property="og:description" content="Software engineer crafting fast, reliable web products with React, Astro, and TypeScript. Based in Seoul, collaborating end to end to ship accessible, high-performing experiences."><meta property="og:image" content="https://itsbek.me/og-image.png"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://itsbek.me/"><meta property="twitter:title" content="Bekzod — Software Engineer"><meta property="twitter:description" content="Software engineer crafting fast, reliable web products with React, Astro, and TypeScript. Based in Seoul, collaborating end to end to ship accessible, high-performing experiences."><meta property="twitter:image" content="https://itsbek.me/og-image.png"><!-- Additional SEO --><meta name="author" content="Bekzod"><meta name="keywords" content="software engineer, web developer, React, Astro, Tailwind CSS, Seoul, portfolio"><link rel="prefetch" href="/ko" as="document"><link rel="prefetch" href="/ru" as="document"><title>Bekzod — Software Engineer</title><script>
       (() => {
-        const applyTheme = () => {
+        const applySystemTheme = () => {
           try {
-            const stored = localStorage.getItem('theme');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            const dark = stored ? stored === 'dark' : prefersDark;
+            const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
             document.documentElement.classList.toggle('dark', dark);
             document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+            localStorage.setItem('theme', dark ? 'dark' : 'light');
           } catch {}
         };
 
-        const handleSystemChange = () => {
-          try {
-            if (localStorage.getItem('theme')) return;
-          } catch {}
-          applyTheme();
-        };
+        try {
+          const stored = localStorage.getItem('theme');
+          if (stored) {
+            const dark = stored === 'dark';
+            document.documentElement.classList.toggle('dark', dark);
+            document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+          } else {
+            applySystemTheme();
+          }
+        } catch {
+          applySystemTheme();
+        }
 
         try {
           const media = window.matchMedia('(prefers-color-scheme: dark)');
           if (typeof media.addEventListener === 'function') {
-            media.addEventListener('change', handleSystemChange);
+            media.addEventListener('change', applySystemTheme);
           } else if (typeof media.addListener === 'function') {
-            media.addListener(handleSystemChange);
+            media.addListener(applySystemTheme);
           }
         } catch {}
 
-        applyTheme();
-        document.addEventListener('astro:after-swap', applyTheme);
-        document.addEventListener('astro:page-load', applyTheme);
+        document.addEventListener('astro:after-swap', applySystemTheme);
+        document.addEventListener('astro:page-load', applySystemTheme);
       })();
     </script><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><link rel="stylesheet" href="/_astro/index.CBuncfjW.css">
 <link rel="stylesheet" href="/_astro/index.BjCvHa7w.css"><script type="module" src="/_astro/hoisted.CSUDhB8r.js"></script></head> <body class="min-h-screen bg-transparent text-neutral-900 dark:text-neutral-100 text-base relative">  <div id="three-bg" class="fixed inset-0 z-[-1] pointer-events-none transition-colors duration-700 bg-neutral-100 dark:bg-black"></div> <button id="music-btn" class="fixed bottom-6 lg:bottom-10 right-6 lg:right-10 z-50 h-12 w-12 rounded-full bg-black/90 dark:bg-white/90 text-white dark:text-black shadow-2xl backdrop-blur-md hover:scale-110 transition-transform duration-300 flex items-center justify-center focus:outline-none ring-2 ring-transparent hover:ring-brand-500/50" aria-label="Toggle Background Music"> <svg id="ico-play" class="w-5 h-5 transition-transform" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6V4z"></path></svg> <svg id="ico-pause" class="w-5 h-5 hidden transition-transform" fill="currentColor" viewBox="0 0 20 20"><path d="M5 4h3v12H5V4zm7 0h3v12h-3V4z"></path></svg> <svg id="ico-loading" class="w-5 h-5 hidden animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> </button>   <a href="#main" class="skip-to-main">Skip to main content</a> <nav class="sticky top-0 z-50 backdrop-blur-xl bg-white/40 dark:bg-black/40 border-b border-black/5 dark:border-white/5 transition-all" aria-label="Main navigation"> <div class="max-w-6xl mx-auto px-4 py-3 flex items-center gap-3"> <a href="/en/" class="font-semibold tracking-tight hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors whitespace-nowrap flex-shrink-0" aria-label="Home">itsbek.me</a> <div class="flex flex-1 flex-wrap items-center justify-end gap-2 sm:flex-nowrap sm:gap-4"> <ul class="hidden sm:flex items-center gap-6 text-sm"> <li><a class="inline-block hover:-translate-y-0.5 hover:text-brand-600 dark:hover:text-brand-400 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 rounded" href="#about">About</a></li><li><a class="inline-block hover:-translate-y-0.5 hover:text-brand-600 dark:hover:text-brand-400 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 rounded" href="#skills">Skills</a></li><li><a class="inline-block hover:-translate-y-0.5 hover:text-brand-600 dark:hover:text-brand-400 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 rounded" href="#case-study">Case Study</a></li><li><a class="inline-block hover:-translate-y-0.5 hover:text-brand-600 dark:hover:text-brand-400 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 rounded" href="#work">Work</a></li><li><a class="inline-block hover:-translate-y-0.5 hover:text-brand-600 dark:hover:text-brand-400 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 rounded" href="#contact">Contact</a></li> </ul> <a href="/resume/resume_Bekzod.docx" download class="inline-block uppercase text-[11px] tracking-[0.18em] hover:-translate-y-0.5 transition-all whitespace-nowrap flex-shrink-0" aria-label="Download resume">Resume</a> <div class="flex-shrink-0"> <div class="relative inline-flex" data-lang-switcher data-current="en"> <button type="button" aria-haspopup="listbox" aria-expanded="false" data-lang-trigger class="inline-flex min-w-[4.5rem] items-center justify-between gap-2 rounded-md border border-black/10 bg-white/90 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.28em] text-neutral-700 shadow-sm shadow-black/5 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-500/40 dark:border-white/10 dark:bg-neutral-900/80 dark:text-neutral-200 dark:focus-visible:ring-white/30"> <span data-selected-label>EN</span> <svg class="h-3.5 w-3.5 text-neutral-500 transition-transform duration-200 dark:text-neutral-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-chevron> <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.293l3.71-4.06a.75.75 0 011.08 1.04l-4.25 4.657a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z" clip-rule="evenodd"></path> </svg> </button> <div role="listbox" data-lang-menu class="absolute top-full right-0 z-20 mt-2 hidden min-w-[9rem] rounded-md border border-black/10 bg-white/95 p-1 shadow-xl backdrop-blur-sm dark:border-white/10 dark:bg-neutral-900/95"> <ul class="space-y-1"> <li> <a href="/" role="option" aria-selected="true" data-lang-option data-lang="en" data-code="EN" data-label="English" class="block rounded px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.28em] transition-colors bg-black/[0.05] text-brand-600 dark:bg-white/[0.08] dark:text-brand-400"> <span class="sm:hidden">EN</span> <span class="hidden sm:inline">English</span> </a> </li><li> <a href="/ko/" role="option" data-lang-option data-lang="ko" data-code="KO" data-label="한국어" class="block rounded px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.28em] transition-colors text-neutral-700 hover:bg-black/[0.06] dark:text-neutral-200 dark:hover:bg-white/[0.12]"> <span class="sm:hidden">KO</span> <span class="hidden sm:inline">한국어</span> </a> </li><li> <a href="/ru/" role="option" data-lang-option data-lang="ru" data-code="RU" data-label="Русский" class="block rounded px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.28em] transition-colors text-neutral-700 hover:bg-black/[0.06] dark:text-neutral-200 dark:hover:bg-white/[0.12]"> <span class="sm:hidden">RU</span> <span class="hidden sm:inline">Русский</span> </a> </li> </ul> </div> </div> <script>
