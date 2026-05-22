@@ -50,6 +50,17 @@ export type I18n = {
     images: { src: string; alt: string; caption: string; placeholder?: boolean }[];
     cta: { label: string; href: string };
   };
+  bronUzCaseStudy: {
+    badge: string;
+    title: string;
+    subtitle: string;
+    meta: { label: string; value: string }[];
+    problem: { title: string; body: string };
+    research: { title: string; bullets: string[] };
+    design: { title: string; bullets: string[] };
+    images: { src: string; alt: string; caption: string; placeholder?: boolean }[];
+    cta: { label: string; href: string };
+  };
   skills: {
     title: string;
     groups: { title: string; items: string[] }[];

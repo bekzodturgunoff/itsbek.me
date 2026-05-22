@@ -41,6 +41,51 @@ const ko: I18n = {
   projects: {
     selectedWork: '주요 프로젝트'
   },
+  bronUzCaseStudy: {
+    badge: '사례 연구',
+    title: 'BronUz — Venue Reservation Platform',
+    subtitle: "Designing and shipping Uzbekistan's first full-stack reservation platform in 3 days.",
+    meta: [
+      { label: '고객', value: '개인 프로젝트' },
+      { label: '역할', value: 'Full-Stack Engineer · Product Designer' },
+      { label: '기간', value: '3일 · 2026년' },
+      { label: '기술 스택', value: 'React, Vite, TypeScript, Tailwind CSS, Supabase, PostgreSQL, React Query, Zustand, Leaflet, Recharts, i18next, Vercel' }
+    ],
+    problem: {
+      title: '도전 과제',
+      body: "우즈베키스탄에는 카페, 레스토랑, 축구장, 게임 클럽, 이발소, 헬스장, 코워킹 스페이스 등 로컬 장소를 발견하고 예약할 수 있는 통합 플랫폼이 없습니다. 업소들은 전화와 WhatsApp으로 예약을 수동으로 관리하고 있습니다. 사용자들은 실시간 가용성을 확인하거나, 검증된 리뷰를 읽거나, 전화 없이 예약을 확정할 방법이 없습니다. 목표는 이 모든 문제를 해결하는 플랫폼 — 풀스택 웹 앱, 업주 도구, 완전한 관리자 패널 — 을 단일 Supabase 백엔드로 3일 만에 구축하는 것이었습니다."
+    },
+    research: {
+      title: '수행 역할',
+      bullets: [
+        "React + Vite 프론트엔드, 13개 데이터베이스 테이블, Row-Level Security 정책, Edge Functions을 갖춘 Supabase 백엔드로 전체 풀스택 아키텍처를 처음부터 설계하고 구축했습니다.",
+        "Leaflet 지도 검색, 실시간 슬롯 예약, 25개 이상의 장소 카테고리에 걸친 URL 동기화 공유 검색 필터 등 15개 이상의 페이지를 구축했습니다.",
+        "수익 분석, 예약 캘린더, 슬롯 가용성 관리, 직원 관리, 프로모션 코드 생성, Recharts 차트를 갖춘 업주 대시보드를 구축했습니다.",
+        "장소 승인 워크플로우(승인/거절), 사용자 관리(역할 할당), 플랫폼 전체 분석, 관리자가 업주 데이터를 직접 수정할 수 없도록 SECURITY DEFINER RPC 함수를 갖춘 완전한 관리자 패널을 구축했습니다.",
+        "웹훅 기반 예약 확인, 24시간 자동 알림, Supabase Edge Functions를 통한 딥 링크 사용자 인증 및 AI 채팅 고객 지원을 갖춘 Telegram 봇을 통합했습니다.",
+        "예약당 적립·할인 사용 가능한 로열티 포인트 시스템, 만석 시 대기자 명단, 프로모션 코드, 그룹 예약, 직원 선택, 장소별 취소 정책을 구현했습니다.",
+        "Workbox 오프라인 캐싱, iOS 감지 설치 프롬프트, Supabase Edge Functions 자동 예약 알림 Cron 작업을 갖춘 PWA로 배포했습니다.",
+      ]
+    },
+    design: {
+      title: '결과',
+      bullets: [
+        "전체 인증, 실제 장소 데이터, 엔드투엔드 예약 흐름을 갖춘 프로덕션 환경에서 bronuz.vercel.app 라이브 운영 중입니다.",
+        "고객, 업주, 관리자의 세 가지 완전히 분리된 사용자 역할 — 각각 자체 보호 대시보드와 기능을 보유합니다.",
+        "빈 폴더에서 배포된 풀스택 제품까지 전체 플랫폼을 3일 만에 출시했습니다."
+      ]
+    },
+    images: [
+      { src: '/images/projects/bronuz_homepage.png', alt: 'BronUz homepage — hero with search bar and venue category pills', caption: 'BronUz homepage — hero with search bar and venue category pills' },
+      { src: '/images/projects/bronuz_homepage_2.png', alt: 'BronUz homepage — search results with map and venue cards', caption: 'BronUz homepage — search results with map and venue cards' },
+      { src: '/images/projects/bronuz_venue.png', alt: 'BronUz venue detail — photo gallery, slot picker, and booking sidebar', caption: 'BronUz venue detail — photo gallery, slot picker, and booking sidebar' },
+      
+      { src: '/images/projects/bronuz_business.png', alt: 'BronUz business dashboard — revenue analytics and today\'s bookings', caption: "BronUz business dashboard — revenue analytics and today's bookings" },
+      { src: '/images/projects/bronuz_business_2.png', alt: 'BronUz business dashboard — slot management and calendar', caption: 'BronUz business dashboard — slot management and calendar' },
+      { src: '/images/projects/bronuz_admin.png', alt: 'BronUz admin panel — venue approvals and platform analytics', caption: 'BronUz admin panel — venue approvals and platform analytics' }
+    ],
+    cta: { label: '라이브 사이트 방문', href: 'https://bronuz.vercel.app' }
+  },
   caseStudy: {
     badge: '사례 연구',
     title: 'Octopos 랜딩 페이지',
@@ -78,9 +123,9 @@ const ko: I18n = {
   skills: {
     title: '사용 기술',
     groups: [
-      { title: '핵심', items: ['React','Astro','TypeScript','JavaScript','Node.js','Tailwind','Sass','HTML/CSS'] },
+      { title: '핵심', items: ['React','Astro','TypeScript','JavaScript','Node.js','Tailwind','Sass','HTML/CSS','Supabase','PostgreSQL'] },
       { title: '시스템', items: ['C','Assembly','Python'] },
-      { title: '도구', items: ['Git','GitHub Actions','테스팅 (Jest/Vitest)','CI/CD','접근성·성능 점검'] },
+      { title: '도구', items: ['Git','GitHub Actions','테스팅 (Jest/Vitest)','CI/CD','접근성·성능 점검','Vercel'] },
     ]
   },
   footer: {

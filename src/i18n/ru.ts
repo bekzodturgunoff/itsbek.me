@@ -41,6 +41,51 @@ const ru: I18n = {
   projects: {
     selectedWork: 'Избранные проекты'
   },
+  bronUzCaseStudy: {
+    badge: 'Кейс-стади',
+    title: 'BronUz — Venue Reservation Platform',
+    subtitle: "Designing and shipping Uzbekistan's first full-stack reservation platform in 3 days.",
+    meta: [
+      { label: 'Клиент', value: 'Личный проект' },
+      { label: 'Роль', value: 'Full-Stack Engineer · Product Designer' },
+      { label: 'Сроки', value: '3 дня · 2026' },
+      { label: 'Стек', value: 'React, Vite, TypeScript, Tailwind CSS, Supabase, PostgreSQL, React Query, Zustand, Leaflet, Recharts, i18next, Vercel' }
+    ],
+    problem: {
+      title: 'Задача',
+      body: "В Узбекистане нет единой платформы, где пользователи могут находить и бронировать местные заведения — кафе, рестораны, футбольные поля, игровые клубы, барбершопы, спортзалы, коворкинги и многое другое. Бизнес управляет бронированиями вручную через телефонные звонки и WhatsApp. У пользователей нет возможности увидеть доступность в реальном времени, прочитать проверенные отзывы или подтвердить бронь без звонка. Цель — построить платформу, решающую всё это полностью: полноценное веб-приложение, инструменты для владельцев бизнеса и полную административную панель — на едином Supabase-бэкенде, за 3 дня."
+    },
+    research: {
+      title: 'Что я сделал',
+      bullets: [
+        "Спроектировал и построил полную full-stack архитектуру с нуля: React + Vite фронтенд, Supabase бэкенд с 13 таблицами базы данных, политиками безопасности на уровне строк (RLS) и Edge Functions.",
+        "Построил 15+ страниц, включая поиск заведений с картой Leaflet, бронирование слотов в реальном времени и синхронизируемые по URL фильтры поиска по 25+ категориям заведений.",
+        "Панель владельца бизнеса с аналитикой доходов, календарём бронирований, управлением доступностью слотов, управлением персоналом, созданием промокодов и графиками Recharts.",
+        "Полная админ-панель с рабочим процессом подтверждения заведений (одобрить/отклонить), управлением пользователями с назначением ролей, аналитикой всей платформы и SECURITY DEFINER RPC функциями, чтобы администраторы не могли напрямую редактировать данные владельцев.",
+        "Интегрировал Telegram-бота с вебхуками для подтверждения бронирований, автоматическими напоминаниями за 24 часа, верификацией пользователей через глубокие ссылки с помощью Supabase Edge Functions и AI-чатом для поддержки клиентов.",
+        "Система баллов лояльности (начисление за бронирование, использование для скидок), лист ожидания для занятых слотов, промокоды, групповые бронирования, выбор персонала и политика отмены для каждого заведения.",
+        "Развернул как PWA с офлайн-кешированием Workbox, установкой с определением iOS и автоматическим cron-заданием напоминаний о бронированиях через Supabase Edge Functions.",
+      ]
+    },
+    design: {
+      title: 'Результат',
+      bullets: [
+        "Запущен на bronuz.vercel.app с полной аутентификацией, реальными данными заведений и сквозным циклом бронирования в продакшене.",
+        "Три полностью разделённые роли пользователей — клиент, владелец бизнеса, администратор — каждая со своей защищённой панелью и возможностями.",
+        "Вся платформа — от пустой папки до развёрнутого full-stack продукта — готова за 3 дня."
+      ]
+    },
+    images: [
+      { src: '/images/projects/bronuz_homepage.png', alt: 'BronUz homepage — hero with search bar and venue category pills', caption: 'BronUz homepage — hero with search bar and venue category pills' },
+      { src: '/images/projects/bronuz_homepage_2.png', alt: 'BronUz homepage — search results with map and venue cards', caption: 'BronUz homepage — search results with map and venue cards' },
+      { src: '/images/projects/bronuz_venue.png', alt: 'BronUz venue detail — photo gallery, slot picker, and booking sidebar', caption: 'BronUz venue detail — photo gallery, slot picker, and booking sidebar' },
+      
+      { src: '/images/projects/bronuz_business.png', alt: "BronUz business dashboard — revenue analytics and today's bookings", caption: "BronUz business dashboard — revenue analytics and today's bookings" },
+      { src: '/images/projects/bronuz_business_2.png', alt: 'BronUz business dashboard — slot management and calendar', caption: 'BronUz business dashboard — slot management and calendar' },
+      { src: '/images/projects/bronuz_admin.png', alt: 'BronUz admin panel — venue approvals and platform analytics', caption: 'BronUz admin panel — venue approvals and platform analytics' }
+    ],
+    cta: { label: 'Посетить сайт', href: 'https://bronuz.vercel.app' }
+  },
   caseStudy: {
     badge: 'Кейс-стади',
     title: 'Лендинг Octopos',
@@ -78,9 +123,9 @@ const ru: I18n = {
   skills: {
     title: 'Технологии, с которыми я работаю',
     groups: [
-      { title: 'Основное', items: ['React','Astro','TypeScript','JavaScript','Node.js','Tailwind','Sass','HTML/CSS'] },
+      { title: 'Основное', items: ['React','Astro','TypeScript','JavaScript','Node.js','Tailwind','Sass','HTML/CSS','Supabase','PostgreSQL'] },
       { title: 'Системы', items: ['C','Assembly','Python'] },
-      { title: 'Инструменты', items: ['Git','GitHub Actions','Тестирование (Jest/Vitest)','CI/CD','Аудиты доступности и производительности'] },
+      { title: 'Инструменты', items: ['Git','GitHub Actions','Тестирование (Jest/Vitest)','CI/CD','Аудиты доступности и производительности','Vercel'] },
     ]
   },
   footer: {

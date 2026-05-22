@@ -3,10 +3,23 @@ import { getDictionary } from '../i18n';
 
 interface Props {
   lang?: string;
+  data?: {
+    badge: string;
+    title: string;
+    subtitle: string;
+    meta: { label: string; value: string }[];
+    problem: { title: string; body: string };
+    research: { title: string; bullets: string[] };
+    design: { title: string; bullets: string[] };
+    images: { src: string; alt: string; caption: string; placeholder?: boolean }[];
+    cta: { label: string; href: string };
+  };
 }
 
-const { lang } = Astro.props;
-const data = getDictionary(lang).caseStudy;
+const { lang, data: propData } = Astro.props;
+const dictionaryData = getDictionary(lang).caseStudy;
+const data = propData || dictionaryData;
+const galleryName = propData ? 'bronuz' : 'octopos';
 ---
 <section class="hidden md:block max-w-6xl mx-auto px-4 py-14 sm:py-20 lg:py-24">
   <div class="rounded-3xl border border-black/10 dark:border-white/10 bg-white/80 dark:bg-white/5 backdrop-blur-sm p-6 sm:p-9 lg:p-11">
@@ -60,7 +73,7 @@ const data = getDictionary(lang).caseStudy;
       </div>
 
   <aside class="space-y-5 sm:space-y-6 lg:space-y-7">
-        {data.images.map((image) => (
+        {data.images.map((image, index) => (
           <figure class={`overflow-hidden rounded-3xl backdrop-blur-md border transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg ${image.placeholder ? 'border-dashed border-black/20 dark:border-white/20 bg-white/40 dark:bg-black/40' : 'border-black/5 dark:border-white/5 bg-white/40 dark:bg-black/40'}`} data-reveal>
             {image.placeholder ? (
               <div class="flex h-48 items-center justify-center px-6 text-center text-sm text-neutral-500 dark:text-neutral-400">
@@ -68,7 +81,7 @@ const data = getDictionary(lang).caseStudy;
               </div>
             ) : (
               <>
-                <img src={image.src} alt={image.alt} loading="lazy" class="w-full object-cover" />
+                <img src={image.src} alt={image.alt} data-gallery={galleryName} data-src={image.src} data-index={index} loading="lazy" class="w-full object-cover cursor-zoom-in hover:scale-[1.02] transition duration-300" />
                 <figcaption class="px-5 py-4 text-sm text-neutral-600 dark:text-neutral-300 border-t border-black/5 dark:border-white/5">{image.caption}</figcaption>
               </>
             )}
