@@ -14,12 +14,13 @@ interface Props {
     images: { src: string; alt: string; caption: string; placeholder?: boolean }[];
     cta: { label: string; href: string };
   };
+  gallery?: string;
 }
 
-const { lang, data: propData } = Astro.props;
+const { lang, data: propData, gallery: galleryProp } = Astro.props;
 const dictionaryData = getDictionary(lang).caseStudy;
 const data = propData || dictionaryData;
-const galleryName = propData ? 'bronuz' : 'octopos';
+const galleryName = galleryProp || (propData ? 'bronuz' : 'octopos');
 ---
 <section class="hidden md:block max-w-6xl mx-auto px-4 py-14 sm:py-20 lg:py-24">
   <div class="rounded-3xl border border-black/10 dark:border-white/10 bg-white/80 dark:bg-white/5 backdrop-blur-sm p-6 sm:p-9 lg:p-11">
@@ -79,6 +80,11 @@ const galleryName = propData ? 'bronuz' : 'octopos';
               <div class="flex h-48 items-center justify-center px-6 text-center text-sm text-neutral-500 dark:text-neutral-400">
                 {image.caption}
               </div>
+            ) : image.src.endsWith('.webm') ? (
+              <>
+                <video src={image.src} autoplay muted loop playsinline aria-label={image.alt} class="w-full object-cover hover:scale-[1.02] transition duration-300" />
+                <figcaption class="px-5 py-4 text-sm text-neutral-600 dark:text-neutral-300 border-t border-black/5 dark:border-white/5">{image.caption}</figcaption>
+              </>
             ) : (
               <>
                 <img src={image.src} alt={image.alt} data-gallery={galleryName} data-src={image.src} data-index={index} loading="lazy" class="w-full object-cover cursor-zoom-in hover:scale-[1.02] transition duration-300" />

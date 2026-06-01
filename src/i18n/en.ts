@@ -16,7 +16,7 @@ const en: I18n = {
     titleTop: "Software Engineer",
     titleBottom: "focused on User Experience",
     description: `Software engineer with 4+ years building responsive, accessible products in React and Astro. I ship fast, reliable interfaces, collaborate across design and backend, and work comfortably in JavaScript/TypeScript, Python, and C-level problem solving.`,
-    location: "South Korea, Seoul",
+    location: "Uzbekistan",
     availability: "Open for new projects",
     timezoneLabel: "KST (GMT +9)",
     buttons: {
@@ -27,13 +27,13 @@ const en: I18n = {
   },
   about: {
     intro: `I’m a software engineer who blends product thinking with frontend craft. I focus on performance, accessibility, and clear communication so every release is smooth, measurable, and genuinely helpful for users. I’m currently studying Computer Information Security at Sejong University, bringing a security-minded lens to everything I ship.`,
-    basedIn: "Based in South Korea, Seoul",
+    basedIn: "Based in Uzbekistan",
     languagesLine: "Languages: English (primary), Russian, Korean.",
   },
   contact: {
     heading: `Let's Connect`,
     intro: `Want to build something cool, fix a tricky bug, or just talk ideas? Message me anytime — I’m around.`,
-    availability: "Replies within 24h (Seoul).",
+    availability: "Replies within 24h.",
     ctas: {
       call: "Call Me",
       email: "Send an Email",
@@ -60,7 +60,7 @@ const en: I18n = {
     meta: [
       {label: "Client", value: "Personal project"},
       {label: "Role", value: "Full-Stack Engineer · Product Designer"},
-      {label: "Timeline", value: "3 days · 2026"},
+      {label: "Timeline", value: "2026"},
       {
         label: "Stack",
         value:
@@ -93,12 +93,6 @@ const en: I18n = {
     },
     images: [
       {
-        src: "/images/projects/bronuz_homepage.png",
-        alt: "BronUz homepage — hero with search bar and venue category pills",
-        caption:
-          "BronUz homepage — hero with search bar and venue category pills",
-      },
-      {
         src: "/images/projects/bronuz_homepage_2.png",
         alt: "BronUz homepage — search results with map and venue cards",
         caption:
@@ -117,18 +111,53 @@ const en: I18n = {
           "BronUz business dashboard — revenue analytics and today's bookings",
       },
       {
-        src: "/images/projects/bronuz_business_2.png",
-        alt: "BronUz business dashboard — slot management and calendar",
-        caption:
-          "BronUz business dashboard — slot management and calendar",
-      },
-      {
         src: "/images/projects/bronuz_admin.png",
         alt: "BronUz admin panel — venue approvals and platform analytics",
         caption: "BronUz admin panel — venue approvals and platform analytics",
       },
     ],
     cta: {label: "Visit live site", href: "https://bronuz.vercel.app"},
+  },
+  telegramBotCaseStudy: {
+    badge: "Case Study",
+    title: "Personal Assistant Bot",
+    subtitle: "An AI-powered Telegram impersonator that handles business messages, manages tasks, and learns about each contact — all from the edge.",
+    meta: [
+      {label: "Client", value: "Personal project"},
+      {label: "Role", value: "Software Engineer"},
+      {label: "Timeline", value: "2026"},
+      {label: "Stack", value: "TypeScript, Cloudflare Workers, KV, Gemini, grammY, Serper"},
+    ],
+    problem: {
+      title: "The challenge",
+      body: "Running a business means dozens of Telegram messages a day — clients asking about services, partners coordinating, errands to remember. Replying to each one personally at the right time in the right language (Uzbek, Russian, or English) while keeping track of todos and follow-ups was becoming unmanageable.",
+    },
+    research: {
+      title: "What I did",
+      bullets: [
+        "Built a Telegram bot using Telegram's Business API that intercepts incoming customer messages and replies as the business owner — without ever revealing it's an AI.",
+        "Designed a three-tier memory system (conversation history, persona profiles, long-term facts) all backed by Cloudflare KV, giving each contact a persistent context without a database.",
+        "Implemented an AI model fallback chain with automatic 24-hour cooldown tracking to gracefully handle Gemini's free-tier quota limits.",
+        "Added automatic language detection — replies in Uzbek, Russian, or English matching the sender's language.",
+        "Integrated a lightweight task engine with AI-powered natural language time parsing, daily morning briefings, and overdue reminders via cron triggers.",
+        "Wired up live web search (Serper.dev) so the AI can answer questions about weather, news, prices, and real-time information.",
+        "Deployed on Cloudflare Workers for low latency, with an Express-based local dev fallback.",
+      ],
+    },
+    design: {
+      title: "Results",
+      bullets: [
+        "The bot handles dozens of daily conversations autonomously — responding naturally in three languages with appropriate tone and context.",
+        "Task management with AI-powered time parsing means I can say 'remind me tomorrow at 3' and it just works, with automatic morning briefings so nothing slips.",
+        "Zero infrastructure cost — Cloudflare Workers free tier + Gemini free tier + KV free tier keep the whole system running for $0/month.",
+        "~1,500 lines of TypeScript, four runtime dependencies (grammY, Gemini SDK, Express, dotenv), and it runs entirely at the edge with no servers to manage.",
+      ],
+    },
+    images: [
+      { src: "/images/projects/3d-device-with-ai-assistant.webm", alt: "Telegram Business API integration — the bot intercepts incoming business messages and replies as the owner with AI-generated responses.", caption: "Telegram Business API integration — the bot intercepts incoming business messages and replies as the owner with AI-generated responses that match the sender's language and tone." },
+      { src: "/images/projects/ai-assistant-on-digital-screen-smart-device.webm", alt: "Three-tier memory system — the bot keeps conversation history, persona profiles, and long-term facts per contact using Cloudflare KV.", caption: "Three-tier memory system — the bot keeps conversation history, persona profiles, and long-term facts per contact using Cloudflare KV." },
+    ],
+    cta: {label: "View source", href: "https://github.com/bekzodturgunoff/personal-assistant"},
   },
   caseStudy: {
     badge: "Case Study",

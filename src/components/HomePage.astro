@@ -20,7 +20,7 @@ const headingRight = headingRightWords.join(" ");
 const meta = {
   title: "Bekzod — Software Engineer",
   description:
-    "Software engineer with 4+ years building responsive, accessible products. Specialising in React, Astro, TypeScript, Supabase, and React Native. Based in Seoul — shipping full-stack web and mobile products end to end.",
+    "Software engineer with 4+ years building responsive, accessible products. Specialising in React, Astro, TypeScript, Supabase, and React Native. Based in Uzbekistan — shipping full-stack web and mobile products end to end.",
 };
 ---
 <Base title={meta.title} description={meta.description} lang={lang}>
@@ -49,18 +49,25 @@ const meta = {
         {t.skills.groups.map((group) => (
           <div class="rounded-3xl border border-black/5 dark:border-white/5 bg-white/40 dark:bg-black/40 backdrop-blur-md p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-brand-500/30" data-reveal>
             <div class="text-[11px] uppercase tracking-[0.18em] text-neutral-500 dark:text-neutral-400 mb-4">{group.title}</div>
-            <div class="flex flex-wrap gap-2">
-              {group.items.map((s) => (
-                  <span class="px-3 py-1.5 rounded-full text-xs tracking-wide uppercase bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10">{s}</span>
-              ))}
+            <div class="flex flex-wrap items-center gap-1.5 text-sm">
+              {group.items.map((s, i, arr) => {
+                const expertSkills = new Set(['React', 'Astro', 'TypeScript', 'JavaScript', 'Tailwind', 'Sass', 'HTML/CSS', 'Supabase', 'Git', 'GitHub Actions', 'CI/CD', 'Vercel', 'Accessibility & Performance Audits', 'Testing (Jest/Vitest)']);
+                const opacity = expertSkills.has(s) ? 'opacity-100' : 'opacity-50';
+                return <>
+                  {i > 0 && <span class="opacity-60 text-neutral-400">·</span>}
+                  <span class={opacity}>{s}</span>
+                </>;
+              })}
             </div>
           </div>
         ))}
       </div>
+      <p class="text-[11px] text-neutral-400 dark:text-neutral-600 mt-4">* dimmed = learning / less frequent use</p>
     </Section>
 
     <div id="case-study" class="hidden md:block">
       <CaseStudy lang={lang} data={t.bronUzCaseStudy} />
+      <CaseStudy lang={lang} data={t.telegramBotCaseStudy} gallery="telegram-bot" />
       <CaseStudy lang={lang} />
     </div>
 

@@ -9,6 +9,14 @@ const projects = [
     image: '/images/projects/bronuz_homepage.png'
   },
   { 
+    title: 'Personal Assistant Bot', 
+    year: '2026', 
+    tags: ['TYPESCRIPT','CLOUDFLARE','AI'], 
+    href: 'https://github.com/bekzodturgunoff/personal-assistant',
+    description: 'AI-powered Telegram bot that intercepts business messages and replies as the owner across Uzbek, Russian, and English. Features a three-tier memory system on Cloudflare KV, smart task engine with natural language time parsing, live web search, and automatic language detection — all at zero infra cost.',
+    image: '/images/projects/ai-assistant-on-digital-screen-smart-device.webm'
+  },
+  { 
     title: 'Octopos Landing Page', 
     year: '2025', 
     tags: ['ASTRO','DESIGN','FORMS'], 
@@ -32,12 +40,16 @@ const projects = [
       <a href={p.href} target="_blank" rel="noreferrer" class="group block h-full z-10 hover:z-20 transition-transform duration-300 hover:-translate-y-2" data-reveal>
         <article class="h-full rounded-3xl border border-black/10 dark:border-white/10 bg-white/40 dark:bg-black/40 backdrop-blur-md overflow-hidden shadow-lg hover:shadow-2xl hover:border-brand-500/30 transition-all duration-300">
           <div class="aspect-[16/10] overflow-hidden border-b border-black/10 dark:border-white/10 bg-gradient-to-b from-neutral-200 to-neutral-100 dark:from-white/10 dark:to-white/5">
-            <img 
-              src={p.image} 
-              alt={`${p.title} preview`}
-              class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-200"
-              loading="lazy"
-            />
+            {p.image.endsWith('.webm') ? (
+              <video src={p.image} autoplay muted loop playsinline class="w-full h-full object-contain group-hover:scale-[1.02] transition-transform duration-200" />
+            ) : (
+              <img 
+                src={p.image} 
+                alt={`${p.title} preview`}
+                class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-200"
+                loading="lazy"
+              />
+            )}
           </div>
           <div class="p-5 sm:p-6 flex flex-col gap-3">
               <div class="flex items-center justify-between text-sm text-neutral-500 dark:text-neutral-400">

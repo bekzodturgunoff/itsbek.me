@@ -9,7 +9,7 @@ const ko: I18n = {
     titleTop: '소프트웨어 엔지니어',
     titleBottom: '사용자 경험과 신뢰성에 집중',
     description: `2년+ 경험의 소프트웨어 엔지니어로, React와 Astro로 빠르고 접근성 높은 제품을 만듭니다. 디자인·백엔드와 긴밀히 협업하며 JavaScript/TypeScript, Python, C 레벨 문제 해결에 익숙합니다.`,
-    location: '대한민국, 서울',
+    location: '우즈베키스탄',
     availability: '새로운 프로젝트 문의 가능',
     timezoneLabel: 'KST (GMT +9)',
     buttons: {
@@ -20,13 +20,13 @@ const ko: I18n = {
   },
   about: {
     intro: `제품 사고와 프론트엔드 역량을 함께 갖춘 소프트웨어 엔지니어입니다. 성능, 접근성, 보안을 중시하며 매 릴리스가 매끄럽고 검증 가능하도록 만듭니다. 세종대학교 컴퓨터정보보안 전공 중이며, 보안 관점도 함께 고려합니다.`,
-    basedIn: '대한민국 서울 거주',
+    basedIn: '우즈베키스탄 거주',
     languagesLine: '사용 언어: 영어 (주), 러시아어, 한국어'
   },
   contact: {
     heading: `함께 일해요`,
     intro: `새로운 프로젝트, 까다로운 버그 수정, 또는 아이디어에 대해 이야기하고 싶으신가요? 언제든지 편하게 연락주세요.`,
-    availability: '24시간 이내 회신 (서울 기준).',
+    availability: '24시간 이내 회신.',
     ctas: { call: '전화하기', email: '이메일 보내기', telegram: '텔레그램 메시지' },
     form: {
       name: '이름',
@@ -48,7 +48,7 @@ const ko: I18n = {
     meta: [
       { label: '고객', value: '개인 프로젝트' },
       { label: '역할', value: 'Full-Stack Engineer · Product Designer' },
-      { label: '기간', value: '3일 · 2026년' },
+      { label: '기간', value: '2026년' },
       { label: '기술 스택', value: 'React, Vite, TypeScript, Tailwind CSS, Supabase, PostgreSQL, React Query, Zustand, Leaflet, Recharts, i18next, Vercel' }
     ],
     problem: {
@@ -76,15 +76,53 @@ const ko: I18n = {
       ]
     },
     images: [
-      { src: '/images/projects/bronuz_homepage.png', alt: 'BronUz homepage — hero with search bar and venue category pills', caption: 'BronUz homepage — hero with search bar and venue category pills' },
       { src: '/images/projects/bronuz_homepage_2.png', alt: 'BronUz homepage — search results with map and venue cards', caption: 'BronUz homepage — search results with map and venue cards' },
       { src: '/images/projects/bronuz_venue.png', alt: 'BronUz venue detail — photo gallery, slot picker, and booking sidebar', caption: 'BronUz venue detail — photo gallery, slot picker, and booking sidebar' },
-      
       { src: '/images/projects/bronuz_business.png', alt: 'BronUz business dashboard — revenue analytics and today\'s bookings', caption: "BronUz business dashboard — revenue analytics and today's bookings" },
-      { src: '/images/projects/bronuz_business_2.png', alt: 'BronUz business dashboard — slot management and calendar', caption: 'BronUz business dashboard — slot management and calendar' },
       { src: '/images/projects/bronuz_admin.png', alt: 'BronUz admin panel — venue approvals and platform analytics', caption: 'BronUz admin panel — venue approvals and platform analytics' }
     ],
     cta: { label: '라이브 사이트 방문', href: 'https://bronuz.vercel.app' }
+  },
+  telegramBotCaseStudy: {
+    badge: '사례 연구',
+    title: 'Personal Assistant Bot',
+    subtitle: '비즈니스 메시지를 처리하고, 작업을 관리하며, 각 연락처에 대해 학습하는 AI 기반 Telegram 비서 — 모두 에지에서 실행됩니다.',
+    meta: [
+      { label: '클라이언트', value: '개인 프로젝트' },
+      { label: '역할', value: '소프트웨어 엔지니어' },
+      { label: '기간', value: '2026년' },
+      { label: '기술 스택', value: 'TypeScript, Cloudflare Workers, KV, Gemini, grammY, Serper' }
+    ],
+    problem: {
+      title: '도전 과제',
+      body: '비즈니스를 운영하다 보면 하루에도 수십 통의 Telegram 메시지가 옵니다 — 서비스 문의, 파트너 협의, 할 일 확인. 각 메시지에 적절한 언어(우즈벡어, 러시아어, 영어)로 개인 응답하고 할 일을 추적하는 것은 감당하기 어려워졌습니다.'
+    },
+    research: {
+      title: '수행 역할',
+      bullets: [
+        'Telegram Business API를 사용하여 수신 고객 메시지를 가로채고 비즈니스 소유자로서 AI가 응답하는 Telegram 봇을 구축했습니다.',
+        'Cloudflare KV를 기반으로 한 3계층 메모리 시스템(대화 기록, 페르소나 프로필, 장기 사실)을 설계하여 데이터베이스 없이 각 연락처에 지속적인 컨텍스트를 제공합니다.',
+        '자동 24시간 쿨다운 추적 기능이 있는 AI 모델 폴백 체인을 구현하여 Gemini 무료 티어 할당 한도를 우아하게 처리합니다.',
+        '보낸 사람의 언어와 일치하는 우즈벡어, 러시아어 또는 영어로 응답하는 자동 언어 감지 기능을 추가했습니다.',
+        'AI 기반 자연어 시간 파싱, 일일 아침 브리핑 및 크론 트리거를 통한 기한 초과 알림 기능이 있는 경량 작업 엔진을 통합했습니다.',
+        'AI가 날씨, 뉴스, 가격 및 실시간 정보에 대한 질문에 답변할 수 있도록 Serper.dev 실시간 웹 검색을 연결했습니다.',
+        '저지연을 위해 Cloudflare Workers에 배포하고 Express 기반 로컬 개발 폴백을 추가했습니다.'
+      ]
+    },
+    design: {
+      title: '결과',
+      bullets: [
+        '봇은 매일 수십 건의 대화를 자율적으로 처리하며 세 가지 언어로 적절한 어조와 컨텍스트로 자연스럽게 응답합니다.',
+        'AI 기반 시간 파싱을 통한 작업 관리는 "내일 3시에 알려줘"라고 말하면 자동으로 작동하며, 자동 아침 브리핑으로 아무것도 놓치지 않습니다.',
+        '제로 인프라 비용 — Cloudflare Workers 무료 티어 + Gemini 무료 티어 + KV 무료 티어로 전체 시스템을 월 $0에 운영합니다.',
+        '약 1,500줄의 TypeScript, 4개의 런타임 의존성(grammY, Gemini SDK, Express, dotenv), 서버 관리 없이 에지에서 완전히 실행됩니다.'
+      ]
+    },
+    images: [
+      { src: '/images/projects/3d-device-with-ai-assistant.webm', alt: 'Telegram Business API 통합 — 봇이 비즈니스 메시지를 가로채 소유자로서 AI 생성 응답으로 답변합니다.', caption: 'Telegram Business API 통합 — 봇이 비즈니스 메시지를 가로채 소유자로서 AI 생성 응답으로 답변합니다.' },
+      { src: '/images/projects/ai-assistant-on-digital-screen-smart-device.webm', alt: '3계층 메모리 시스템 — 봇이 Cloudflare KV를 사용하여 연락처별 대화 기록, 페르소나 프로필 및 장기 사실을 유지합니다.', caption: '3계층 메모리 시스템 — 봇이 Cloudflare KV를 사용하여 연락처별 대화 기록, 페르소나 프로필 및 장기 사실을 유지합니다.' }
+    ],
+    cta: { label: '소스 보기', href: 'https://github.com/bekzodturgunoff/personal-assistant' }
   },
   caseStudy: {
     badge: '사례 연구',

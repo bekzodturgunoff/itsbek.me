@@ -9,7 +9,7 @@ const ru: I18n = {
     titleTop: 'Софтуэр-инженер',
     titleBottom: 'с фокусом на UX и надежность',
     description: `Софтуэр-инженер с 4+ годами опыта. Делаю быстрые и доступные продукты на React и Astro, работаю в тесной связке с дизайном и бэкендом. Уверенно использую JavaScript/TypeScript, Python и подхожу к задачам на уровне C/системного мышления.`,
-    location: 'Сеул, Южная Корея',
+    location: 'Узбекистан',
     availability: 'Открыт для новых проектов',
     timezoneLabel: 'KST (GMT +9)',
     buttons: {
@@ -20,13 +20,13 @@ const ru: I18n = {
   },
   about: {
     intro: `Я софтуэр-инженер, совмещаю продакт-мышление и фронтенд-практики. Забочусь о производительности, доступности и безопасности. Учусь в Университете Седжон на программе Computer Information Security, поэтому смотрю на продукт и через призму безопасности.`,
-    basedIn: 'Живу в Сеуле, Южная Корея',
+    basedIn: 'Живу в Узбекистане',
     languagesLine: 'Языки: Английский (основной), Русский, Корейский'
   },
   contact: {
     heading: `Давайте работать вместе`,
     intro: `Хотите создать что-то крутое, исправить сложный баг или просто обсудить идею? Напишите мне — я всегда на связи.`,
-    availability: 'Отвечаю в течение 24 часов (Сеул).',
+    availability: 'Отвечаю в течение 24 часов.',
     ctas: { call: 'Позвонить', email: 'Написать на почту', telegram: 'Написать в Telegram' },
     form: {
       name: 'Имя',
@@ -48,7 +48,7 @@ const ru: I18n = {
     meta: [
       { label: 'Клиент', value: 'Личный проект' },
       { label: 'Роль', value: 'Full-Stack Engineer · Product Designer' },
-      { label: 'Сроки', value: '3 дня · 2026' },
+      { label: 'Сроки', value: '2026' },
       { label: 'Стек', value: 'React, Vite, TypeScript, Tailwind CSS, Supabase, PostgreSQL, React Query, Zustand, Leaflet, Recharts, i18next, Vercel' }
     ],
     problem: {
@@ -76,15 +76,53 @@ const ru: I18n = {
       ]
     },
     images: [
-      { src: '/images/projects/bronuz_homepage.png', alt: 'BronUz homepage — hero with search bar and venue category pills', caption: 'BronUz homepage — hero with search bar and venue category pills' },
       { src: '/images/projects/bronuz_homepage_2.png', alt: 'BronUz homepage — search results with map and venue cards', caption: 'BronUz homepage — search results with map and venue cards' },
       { src: '/images/projects/bronuz_venue.png', alt: 'BronUz venue detail — photo gallery, slot picker, and booking sidebar', caption: 'BronUz venue detail — photo gallery, slot picker, and booking sidebar' },
-      
       { src: '/images/projects/bronuz_business.png', alt: "BronUz business dashboard — revenue analytics and today's bookings", caption: "BronUz business dashboard — revenue analytics and today's bookings" },
-      { src: '/images/projects/bronuz_business_2.png', alt: 'BronUz business dashboard — slot management and calendar', caption: 'BronUz business dashboard — slot management and calendar' },
       { src: '/images/projects/bronuz_admin.png', alt: 'BronUz admin panel — venue approvals and platform analytics', caption: 'BronUz admin panel — venue approvals and platform analytics' }
     ],
     cta: { label: 'Посетить сайт', href: 'https://bronuz.vercel.app' }
+  },
+  telegramBotCaseStudy: {
+    badge: 'Кейс-стади',
+    title: 'Personal Assistant Bot',
+    subtitle: 'AI-ассистент в Telegram, который отвечает на деловые сообщения, управляет задачами и изучает каждый контакт — всё на edge.',
+    meta: [
+      { label: 'Клиент', value: 'Личный проект' },
+      { label: 'Роль', value: 'Софтуэр-инженер' },
+      { label: 'Сроки', value: '2026' },
+      { label: 'Стек', value: 'TypeScript, Cloudflare Workers, KV, Gemini, grammY, Serper' }
+    ],
+    problem: {
+      title: 'Задача',
+      body: 'Ведение бизнеса означает десятки сообщений в Telegram ежедневно — клиенты спрашивают об услугах, партнёры координируют, нужно помнить о поручениях. Отвечать каждому лично на нужном языке (узбекский, русский или английский), отслеживая задачи и follow-up, становилось неуправляемо.'
+    },
+    research: {
+      title: 'Что я сделал',
+      bullets: [
+        'Создал Telegram-бота через Business API, который перехватывает входящие сообщения клиентов и отвечает от лица владельца бизнеса — не раскрывая, что это AI.',
+        'Спроектировал трёхуровневую систему памяти (история диалога, профили персон, долгосрочные факты) на базе Cloudflare KV — постоянный контекст для каждого контакта без базы данных.',
+        'Реализовал цепочку отката AI-моделей с автоматическим 24-часовым отслеживанием для graceful обработки лимитов бесплатного тарифа Gemini.',
+        'Добавил автоопределение языка — ответы на узбекском, русском или английском в зависимости от языка отправителя.',
+        'Интегрировал лёгкий движок задач с AI-парсингом времени на естественном языке, ежедневными утренними брифингами и напоминаниями о просрочках через cron.',
+        'Подключил веб-поиск Serper.dev — AI может отвечать на вопросы о погоде, новостях, ценах и другой информации в реальном времени.',
+        'Развернул на Cloudflare Workers для низкой задержки с локальным Express-фолбэком для разработки.'
+      ]
+    },
+    design: {
+      title: 'Результат',
+      bullets: [
+        'Бот обрабатывает десятки ежедневных диалогов автономно — естественно отвечает на трёх языках с правильным тоном и контекстом.',
+        'AI-парсинг времени позволяет сказать "напомни завтра в 3" — и это работает, с автоматическими утренними брифингами, чтобы ничего не упустить.',
+        'Нулевая стоимость инфраструктуры — бесплатные тарифы Cloudflare Workers + Gemini + KV поддерживают всю систему за $0/месяц.',
+        '~1,500 строк TypeScript, четыре внешние зависимости (grammY, Gemini SDK, Express, dotenv), полностью работает на edge без управления серверами.'
+      ]
+    },
+    images: [
+      { src: '/images/projects/3d-device-with-ai-assistant.webm', alt: 'Интеграция Telegram Business API — бот перехватывает входящие сообщения и отвечает AI-генерацией от лица владельца.', caption: 'Интеграция Telegram Business API — бот перехватывает входящие сообщения и отвечает AI-генерацией от лица владельца, сохраняя язык и тон отправителя.' },
+      { src: '/images/projects/ai-assistant-on-digital-screen-smart-device.webm', alt: 'Трёхуровневая система памяти — бот хранит историю диалогов, профили персон и долгосрочные факты для каждого контакта через Cloudflare KV.', caption: 'Трёхуровневая система памяти — бот хранит историю диалогов, профили персон и долгосрочные факты для каждого контакта через Cloudflare KV.' }
+    ],
+    cta: { label: 'Исходный код', href: 'https://github.com/bekzodturgunoff/personal-assistant' }
   },
   caseStudy: {
     badge: 'Кейс-стади',
