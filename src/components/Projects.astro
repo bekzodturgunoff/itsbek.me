@@ -27,6 +27,14 @@ const projects = [
     image: '/images/projects/octopos/octopos.png'
   },
   {
+    title: 'Octopos apps',
+    year: '2026',
+    tags: ['REACT','TYPESCRIPT','TANSTACK'],
+    href: 'https://octopos.uz',
+    description: 'Suite of PWA-based POS, Kitchen Display, and Manager Dashboard for restaurants — built with React 18/19, TanStack ecosystem, Tailwind CSS v4, and Go/SQLite/NATS backend.',
+    image: '/images/projects/octopos_apps/dash_1.png'
+  },
+  {
     title: 'GitHub Projects',
     year: '2021+',
     tags: ['OPEN SOURCE','DEV'],
@@ -36,7 +44,7 @@ const projects = [
   },
 ];
 
-const [bronuz, bot, octopos, github] = projects;
+const [bronuz, bot, octoposLanding, octoposApps, github] = projects;
 ---
 
 <section class="max-w-6xl mx-auto px-4">
@@ -46,7 +54,10 @@ const [bronuz, bot, octopos, github] = projects;
       <ProjectCard {...bot} />
     </div>
     <div class="grid gap-6 md:grid-cols-2">
-      <ProjectCard {...octopos} />
+      <ProjectCard {...octoposLanding} />
+      <ProjectCard {...octoposApps} />
+    </div>
+    <div class="grid gap-6 md:grid-cols-1">
       <ProjectCard {...github} />
     </div>
   </div>

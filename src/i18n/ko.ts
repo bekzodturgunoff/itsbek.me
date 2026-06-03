@@ -169,7 +169,7 @@ const ko: I18n = {
   },
   octoposAppsCaseStudy: {
     badge: '사례 연구',
-    title: 'Octopos POS — 모바일 & 대시보드 앱',
+    title: 'Octopos apps',
     subtitle: '레스토랑 및 소매업을 위한 PWA 기반 POS, 주방 디스플레이, 관리 대시보드 애플리케이션 제품군입니다.',
     meta: [
       { label: '클라이언트', value: 'Octopos' },

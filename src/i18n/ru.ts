@@ -169,7 +169,7 @@ const ru: I18n = {
   },
   octoposAppsCaseStudy: {
     badge: 'Кейс-стади',
-    title: 'Octopos POS — Мобильные приложения и дашборд',
+    title: 'Octopos apps',
     subtitle: 'Набор PWA-приложений POS, кухонного дисплея и управляющего дашборда для ресторанов и розничной торговли.',
     meta: [
       { label: 'Клиент', value: 'Octopos' },

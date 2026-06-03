@@ -214,7 +214,7 @@ const uz: I18n = {
   },
   octoposAppsCaseStudy: {
     badge: "Loyiha tahlili",
-    title: "Octopos POS — Mobil va Dashboard ilovalari",
+    title: "Octopos apps",
     subtitle: "Restoran va chakana savdo korxonalari uchun PWA asosidagi POS, oshxona displeyi va boshqaruv paneli ilovalari to'plami.",
     meta: [
       {label: "Mijoz", value: "Octopos"},

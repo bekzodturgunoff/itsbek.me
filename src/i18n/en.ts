@@ -213,7 +213,7 @@ const en: I18n = {
   },
   octoposAppsCaseStudy: {
     badge: "Case Study",
-    title: "Octopos POS — Mobile & Dashboard Apps",
+    title: "Octopos apps",
     subtitle: "A suite of PWA-based POS, kitchen display, and management dashboard applications for restaurants and retail businesses.",
     meta: [
       {label: "Client", value: "Octopos"},
