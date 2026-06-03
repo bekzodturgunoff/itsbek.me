@@ -72,22 +72,10 @@ const prefetchTargets = languageCodes
             const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
             document.documentElement.classList.toggle('dark', dark);
             document.documentElement.dataset.theme = dark ? 'dark' : 'light';
-            localStorage.setItem('theme', dark ? 'dark' : 'light');
           } catch {}
         };
 
-        try {
-          const stored = localStorage.getItem('theme');
-          if (stored) {
-            const dark = stored === 'dark';
-            document.documentElement.classList.toggle('dark', dark);
-            document.documentElement.dataset.theme = dark ? 'dark' : 'light';
-          } else {
-            applySystemTheme();
-          }
-        } catch {
-          applySystemTheme();
-        }
+        applySystemTheme();
 
         try {
           const media = window.matchMedia('(prefers-color-scheme: dark)');
@@ -115,13 +103,5 @@ const prefetchTargets = languageCodes
   @import "../styles/globals.css";
 </style>
 
-<script>
-  (window as any).__toggleTheme = () => {
-    const isDark = document.documentElement.classList.toggle('dark');
-    document.documentElement.dataset.theme = isDark ? 'dark' : 'light';
-    try { localStorage.setItem('theme', isDark ? 'dark' : 'light'); } catch {}
-    return isDark;
-  };
-</script>
 
 

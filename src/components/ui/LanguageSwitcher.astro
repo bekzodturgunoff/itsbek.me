@@ -177,11 +177,6 @@ const getPath = (code: string) => (code === defaultLang ? '/' : `/${code}/`);
           applyLabel();
           closeMenu();
 
-          const isDark = document.documentElement.classList.contains('dark');
-          try {
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-          } catch {}
-
           if (href === window.location.pathname || `${href}/` === window.location.pathname) return;
           navigateLocale(href);
         });

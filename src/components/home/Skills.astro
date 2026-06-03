@@ -1,5 +1,6 @@
 ---
 import { getDictionary, defaultLang } from '@/i18n';
+import enDict from '@/i18n/en';
 
 interface Props {
   lang?: string;
@@ -12,17 +13,18 @@ const expertSkills = new Set([
   'React', 'Astro', 'TypeScript', 'JavaScript', 'Tailwind',
   'Sass', 'HTML/CSS', 'Supabase', 'Git', 'GitHub Actions',
   'CI/CD', 'Vercel', 'Accessibility & Performance Audits',
-  'Testing (Jest/Vitest)',
+  'Testing (Jest/Vitest)', 'Prompt Engineering',
 ]);
 ---
 
 <div class="space-y-0">
-  {t.skills.groups.map((group) => (
+  {t.skills.groups.map((group, gi) => (
     <div class="skills-group" data-reveal>
       <span class="skills-label">{group.title}</span>
       <div class="skills-pills">
-        {group.items.map((s) => {
-          const isExpert = expertSkills.has(s);
+        {group.items.map((s, ii) => {
+          const enName = enDict.skills.groups[gi]?.items[ii];
+          const isExpert = enName ? expertSkills.has(enName) : false;
           return (
             <span class:list={['pill', !isExpert && 'dimmed']}>
               {s}
