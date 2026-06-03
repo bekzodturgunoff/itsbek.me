@@ -22,9 +22,7 @@ const { title, year, tags, href, description, image } = Astro.props;
       ]}
     >
       {image.endsWith('.webm') ? (
-        <video autoplay muted loop playsinline class="w-full h-full object-contain group-hover:scale-[1.02] transition-transform duration-200" style="background: transparent; display: block;">
-          <source src={image} type='video/webm; codecs="vp9"'>
-        </video>
+        <video src={image} autoplay muted loop playsinline class="w-full h-full object-contain group-hover:scale-[1.02] transition-transform duration-200" />
       ) : (
         <img
           src={image}

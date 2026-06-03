@@ -34,9 +34,7 @@ const resolvedLayout = layoutProp !== 'auto' ? layoutProp : (galleryLayouts[gall
     {images.map((img, i) => (
       <figure>
         {isVideo(img.src) ? (
-          <video autoplay muted loop playsinline aria-label={img.alt} class="gallery-video">
-            <source src={img.src} type='video/webm; codecs="vp9"'>
-          </video>
+          <video src={img.src} autoplay muted loop playsinline aria-label={img.alt} class="gallery-video" />
         ) : (
           <img src={img.src} alt={img.alt} data-gallery={gallery} data-src={img.src} data-index={i} tabindex="0" role="button" loading={priority && i === 0 ? 'eager' : 'lazy'} fetchpriority={priority && i === 0 ? 'high' : 'low'} class="gallery-img" />
         )}
@@ -51,9 +49,7 @@ const resolvedLayout = layoutProp !== 'auto' ? layoutProp : (galleryLayouts[gall
     {images.map((img, i) => (
       <figure>
         {isVideo(img.src) ? (
-          <video autoplay muted loop playsinline aria-label={img.alt} class="gallery-video">
-            <source src={img.src} type='video/webm; codecs="vp9"'>
-          </video>
+          <video src={img.src} autoplay muted loop playsinline aria-label={img.alt} class="gallery-video" />
         ) : (
           <img src={img.src} alt={img.alt} data-gallery={gallery} data-src={img.src} data-index={i} tabindex="0" role="button" loading={priority && i === 0 ? 'eager' : 'lazy'} fetchpriority={priority && i === 0 ? 'high' : 'low'} class="gallery-img" />
         )}
