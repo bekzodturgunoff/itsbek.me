@@ -15,7 +15,7 @@ const en: I18n = {
     name: "itsbek.me",
     titleTop: "Software Engineer",
     titleBottom: "focused on User Experience",
-    description: `Software engineer with 4+ years building responsive, accessible products in React and Astro. I ship fast, reliable interfaces, collaborate across design and backend, and work comfortably in JavaScript/TypeScript, Python, and C-level problem solving.`,
+    description: `Software engineer with 3+ years building responsive, accessible products in React and Astro. I ship fast, reliable interfaces, collaborate across design and backend, and work comfortably in JavaScript/TypeScript, Python, and C-level problem solving.`,
     location: "Uzbekistan",
     availability: "Open for new projects",
     timezoneLabel: "KST (GMT +9)",
@@ -93,25 +93,25 @@ const en: I18n = {
     },
     images: [
       {
-        src: "/images/projects/bronuz_homepage_2.png",
+        src: "/images/projects/bronuz/bronuz_homepage_2.png",
         alt: "BronUz homepage — search results with map and venue cards",
         caption:
           "BronUz homepage — search results with map and venue cards",
       },
       {
-        src: "/images/projects/bronuz_venue.png",
+        src: "/images/projects/bronuz/bronuz_venue.png",
         alt: "BronUz venue detail — photo gallery, slot picker, and booking sidebar",
         caption:
           "BronUz venue detail — photo gallery, slot picker, and booking sidebar",
       },
       {
-        src: "/images/projects/bronuz_business.png",
+        src: "/images/projects/bronuz/bronuz_business.png",
         alt: "BronUz business dashboard — revenue analytics and today's bookings",
         caption:
           "BronUz business dashboard — revenue analytics and today's bookings",
       },
       {
-        src: "/images/projects/bronuz_admin.png",
+        src: "/images/projects/bronuz/bronuz_admin.png",
         alt: "BronUz admin panel — venue approvals and platform analytics",
         caption: "BronUz admin panel — venue approvals and platform analytics",
       },
@@ -190,13 +190,13 @@ const en: I18n = {
     },
     images: [
       {
-        src: "/images/projects/before.png",
+        src: "/images/projects/octopos/octopos_before.png",
         alt: "Original Octopos landing page before redesign",
         caption:
           "Original MVP screen before the redesign — dense copy, low contrast, and no clear call to action.",
       },
       {
-        src: "/images/projects/octopos.png",
+        src: "/images/projects/octopos/octopos.png",
         alt: "Screenshot of the Octopos landing page",
         caption:
           "High-fidelity desktop screen highlighting the reworked hero, use cases, and social proof.",
@@ -274,6 +274,7 @@ const en: I18n = {
           "Testing (Jest/Vitest)",
           "CI/CD",
           "Accessibility & Performance Audits",
+          "Prompt Engineering",
           "Vercel",
         ],
       },

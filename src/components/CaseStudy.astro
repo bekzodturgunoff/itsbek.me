@@ -1,91 +1,94 @@
 ---
-import { getDictionary } from '../i18n';
-import CaseStudyImages from './CaseStudyImages.astro';
+import { getDictionary, defaultLang } from '@/i18n';
+import CaseStudyMeta from '@/components/work/CaseStudyMeta.astro';
+import ImageGallery from '@/components/work/ImageGallery.astro';
+
+interface CaseStudyData {
+  badge: string;
+  title: string;
+  subtitle: string;
+  meta: { label: string; value: string }[];
+  problem: { title: string; body: string };
+  research: { title: string; bullets: string[] };
+  design: { title: string; bullets: string[] };
+  images: { src: string; alt: string; caption: string; placeholder?: boolean }[];
+  cta: { label: string; href: string };
+}
 
 interface Props {
   lang?: string;
-  data?: {
-    badge: string;
-    title: string;
-    subtitle: string;
-    meta: { label: string; value: string }[];
-    problem: { title: string; body: string };
-    research: { title: string; bullets: string[] };
-    design: { title: string; bullets: string[] };
-    images: { src: string; alt: string; caption: string; placeholder?: boolean }[];
-    cta: { label: string; href: string };
-  };
+  data?: CaseStudyData;
   gallery?: string;
   fullWidthImages?: boolean;
+  narrowImages?: boolean;
 }
 
-const { lang, data: propData, gallery: galleryProp, fullWidthImages } = Astro.props;
+const { lang = defaultLang, data: propData, gallery: galleryProp, fullWidthImages, narrowImages } = Astro.props;
 const dictionaryData = getDictionary(lang).caseStudy;
 const data = propData || dictionaryData;
 const galleryName = galleryProp || (propData ? 'bronuz' : 'octopos');
 ---
-<section class="hidden md:block max-w-6xl mx-auto px-4 py-14 sm:py-20 lg:py-24">
-  <div class="rounded-3xl border border-black/10 dark:border-white/10 bg-white/80 dark:bg-white/5 backdrop-blur-sm p-6 sm:p-9 lg:p-11">
-    <div class="flex flex-col gap-6" data-reveal>
-      <span class="self-start px-3 py-1 rounded-full text-[11px] tracking-[0.18em] uppercase bg-black/5 dark:bg-white/10 text-neutral-600 dark:text-neutral-300 border border-black/10 dark:border-white/10">{data.badge}</span>
-      <div class="max-w-3xl">
-        <h2 class="text-4xl md:text-5xl font-semibold tracking-tight text-neutral-900 dark:text-white">{data.title}</h2>
-        <p class="mt-4 text-neutral-600 dark:text-neutral-300 leading-relaxed">{data.subtitle}</p>
-      </div>
-      <a href={data.cta.href} target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 self-start btn btn-primary btn-md">
+
+<section class="hidden md:block bg-neutral-50 dark:bg-neutral-950 py-14 sm:py-20 lg:py-24">
+  <div class="max-w-6xl mx-auto px-4">
+  <div class="flex flex-col gap-6" data-reveal>
+    <span class="section-label">{data.badge}</span>
+    <div class="flex flex-wrap items-start justify-between gap-4">
+      <h2 class="text-neutral-900 dark:text-white max-w-3xl">{data.title}</h2>
+      <a href={data.cta.href} target="_blank" rel="noreferrer" class="btn btn-primary btn-md shrink-0 whitespace-nowrap">
         {data.cta.label}
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+        <svg class="w-4 h-4 ml-1.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m0 0-5-5m5 5-5 5" />
         </svg>
       </a>
     </div>
+    <p class="text-neutral-600 dark:text-neutral-300 leading-relaxed max-w-3xl">{data.subtitle}</p>
+  </div>
 
-  <div class="mt-8 sm:mt-11 lg:mt-12 grid gap-4 lg:gap-5 sm:grid-cols-2 lg:grid-cols-4">
-      {data.meta.map((item) => (
-        <div class="rounded-3xl border border-black/5 dark:border-white/5 bg-white/40 dark:bg-black/40 backdrop-blur-md px-4 py-4 sm:py-5 transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg" data-reveal>
-          <div class="text-[11px] uppercase tracking-[0.18em] text-neutral-500 dark:text-neutral-400">{item.label}</div>
-          <div class="mt-2 text-sm font-medium text-neutral-900 dark:text-neutral-100"><span class="replace-year">{item.value}</span></div>
-        </div>
-      ))}
+  <div class="mt-8 sm:mt-10">
+    <CaseStudyMeta items={data.meta} />
+  </div>
+
+  <div class="mt-10 grid gap-10 lg:grid-cols-[55%_45%] lg:items-start">
+    <div class="space-y-6">
+      <article data-reveal>
+        <h3 class="text-neutral-900 dark:text-neutral-100">{data.problem.title}</h3>
+        <p class="mt-3 text-neutral-700 dark:text-neutral-300 leading-relaxed">{data.problem.body}</p>
+      </article>
+
+      <article data-reveal>
+        <h3 class="text-neutral-900 dark:text-neutral-100">{data.research.title}</h3>
+        <ul class="mt-3 space-y-2 text-neutral-700 dark:text-neutral-300 leading-relaxed list-disc list-inside">
+          {data.research.bullets.map((bullet) => (
+            <li>{bullet}</li>
+          ))}
+        </ul>
+      </article>
     </div>
 
-    <div class:list={["mt-10 sm:mt-12 lg:mt-12 grid gap-8 lg:gap-9 xl:gap-10", fullWidthImages ? "lg:grid-cols-2" : "lg:grid-cols-[1.1fr_0.9fr]"]}>
-      <div class="space-y-6 sm:space-y-8 lg:space-y-9">
-        <article class="rounded-3xl border border-black/5 dark:border-white/5 bg-white/40 dark:bg-black/40 backdrop-blur-md p-5 sm:p-6 lg:p-7 transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg" data-reveal>
-          <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">{data.problem.title}</h3>
-          <p class="mt-3 text-neutral-700 dark:text-neutral-300 leading-relaxed">{data.problem.body}</p>
-        </article>
-
-  <article class="rounded-3xl border border-black/5 dark:border-white/5 bg-white/40 dark:bg-black/40 backdrop-blur-md p-5 sm:p-6 lg:p-7 transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg" data-reveal>
-          <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">{data.research.title}</h3>
-          <ul class="mt-3 space-y-2 text-neutral-700 dark:text-neutral-300 leading-relaxed list-disc list-inside">
-            {data.research.bullets.map((bullet) => (
-              <li>{bullet}</li>
-            ))}
-          </ul>
-        </article>
-
-  <article class="rounded-3xl border border-black/5 dark:border-white/5 bg-white/40 dark:bg-black/40 backdrop-blur-md p-5 sm:p-6 lg:p-7 transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg" data-reveal>
-          <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">{data.design.title}</h3>
-          <ul class="mt-3 space-y-2 text-neutral-700 dark:text-neutral-300 leading-relaxed list-disc list-inside">
-            {data.design.bullets.map((bullet) => (
-              <li>{bullet}</li>
-            ))}
-          </ul>
-        </article>
+    <div class="space-y-4" data-reveal>
+      <h3 class="text-neutral-900 dark:text-neutral-100">{data.design.title}</h3>
+      <div class="space-y-4">
+        {data.design.bullets.map((bullet, i) => (
+          <div class="border-l-2 border-brand-500/30 pl-4">
+            <div class="text-brand-600 dark:text-brand-400 text-xl font-bold">{String(i + 1).padStart(2, '0')}</div>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300 mt-1">{bullet}</p>
+          </div>
+        ))}
       </div>
-
-      {!fullWidthImages && (
-        <aside class="space-y-5 sm:space-y-6 lg:space-y-7">
-          <CaseStudyImages images={data.images} gallery={galleryName} />
-        </aside>
-      )}
     </div>
+  </div>
 
-    {fullWidthImages && (
-      <div class="mt-10 sm:mt-12 lg:mt-12 space-y-8">
-        <CaseStudyImages images={data.images} gallery={galleryName} />
-      </div>
-    )}
+  {!fullWidthImages && (
+    <aside class={`mt-10 space-y-6 ${narrowImages ? 'max-w-3xl mx-auto' : ''}`}>
+      <ImageGallery images={data.images} gallery={galleryName} />
+    </aside>
+  )}
+
+  {fullWidthImages && (
+    <div class="mt-10 space-y-8">
+      <ImageGallery images={data.images} gallery={galleryName} />
+    </div>
+  )}
   </div>
 </section>

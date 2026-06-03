@@ -1,0 +1,105 @@
+---
+---
+
+<button id="music-btn" class="fixed bottom-6 lg:bottom-10 right-6 lg:right-10 z-50 h-12 w-12 rounded-full bg-black/90 dark:bg-white/90 text-white dark:text-black shadow-2xl backdrop-blur-md hover:scale-110 transition-transform duration-300 flex items-center justify-center focus:outline-none ring-2 ring-transparent hover:ring-brand-500/50" aria-label="Toggle Background Music">
+  <svg id="ico-play" class="w-5 h-5 transition-transform" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6V4z"/></svg>
+  <svg id="ico-pause" class="w-5 h-5 hidden transition-transform" fill="currentColor" viewBox="0 0 20 20"><path d="M5 4h3v12H5V4zm7 0h3v12h-3V4z"/></svg>
+  <svg id="ico-loading" class="w-5 h-5 hidden animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+</button>
+
+<script>
+  const btn = document.getElementById('music-btn');
+  if (!btn) throw new Error('Audio button not found');
+
+  let audioCtx: AudioContext | null = null;
+  let analyser: AnalyserNode | null = null;
+  let source: MediaElementAudioSourceNode | null = null;
+  let dataArray: Uint8Array | null = null;
+  let isPlaying = false;
+
+  const audio = new Audio();
+  audio.crossOrigin = 'anonymous';
+  audio.loop = true;
+  audio.volume = 0.5;
+
+  const fallbackUrl = 'https://raw.githubusercontent.com/rafaelreis-hotmart/Audio-Sample-files/master/sample.mp3';
+  let fallbackUsed = false;
+
+  const chooseAudioSource = async () => {
+    try {
+      const head = await fetch('/music.mp3', { method: 'HEAD' });
+      if (head && head.ok) {
+        audio.src = '/music.mp3';
+        return;
+      }
+    } catch {}
+    try {
+      const get = await fetch('/music.mp3');
+      if (get && get.ok) {
+        audio.src = '/music.mp3';
+        return;
+      }
+    } catch {}
+    fallbackUsed = true;
+    audio.src = fallbackUrl;
+  };
+
+  chooseAudioSource();
+
+  audio.addEventListener('error', () => {
+    if (!fallbackUsed) {
+      fallbackUsed = true;
+      audio.src = fallbackUrl;
+    }
+  });
+
+  const iconPlay = document.getElementById('ico-play');
+  const iconPause = document.getElementById('ico-pause');
+  const iconLoading = document.getElementById('ico-loading');
+
+  const initAudioContext = () => {
+    if (audioCtx) return;
+    audioCtx = new AudioContext();
+    analyser = audioCtx.createAnalyser();
+    analyser.fftSize = 128;
+    dataArray = new Uint8Array(analyser.frequencyBinCount);
+    try {
+      source = audioCtx.createMediaElementSource(audio);
+      source.connect(analyser);
+      analyser.connect(audioCtx.destination);
+    } catch {}
+  };
+
+  (window as any).__audioAnalyser = () => analyser;
+  (window as any).__audioDataArray = () => dataArray;
+  (window as any).__audioIsPlaying = () => isPlaying;
+
+  btn.addEventListener('click', async () => {
+    initAudioContext();
+
+    if (audioCtx && audioCtx.state === 'suspended') {
+      await audioCtx.resume();
+    }
+
+    if (isPlaying) {
+      audio.pause();
+      isPlaying = false;
+      iconPause?.classList.add('hidden');
+      iconPlay?.classList.remove('hidden');
+      btn.classList.remove('shadow-[0_0_40px_rgba(150,150,150,0.4)]');
+    } else {
+      iconPlay?.classList.add('hidden');
+      iconLoading?.classList.remove('hidden');
+      try {
+        await audio.play();
+        isPlaying = true;
+        iconPause?.classList.remove('hidden');
+        iconLoading?.classList.add('hidden');
+        btn.classList.add('shadow-[0_0_40px_rgba(150,150,150,0.4)]');
+      } catch {
+        iconLoading?.classList.add('hidden');
+        iconPlay?.classList.remove('hidden');
+      }
+    }
+  });
+</script>

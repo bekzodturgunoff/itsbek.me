@@ -76,10 +76,10 @@ const ko: I18n = {
       ]
     },
     images: [
-      { src: '/images/projects/bronuz_homepage_2.png', alt: 'BronUz homepage — search results with map and venue cards', caption: 'BronUz homepage — search results with map and venue cards' },
-      { src: '/images/projects/bronuz_venue.png', alt: 'BronUz venue detail — photo gallery, slot picker, and booking sidebar', caption: 'BronUz venue detail — photo gallery, slot picker, and booking sidebar' },
-      { src: '/images/projects/bronuz_business.png', alt: 'BronUz business dashboard — revenue analytics and today\'s bookings', caption: "BronUz business dashboard — revenue analytics and today's bookings" },
-      { src: '/images/projects/bronuz_admin.png', alt: 'BronUz admin panel — venue approvals and platform analytics', caption: 'BronUz admin panel — venue approvals and platform analytics' }
+      { src: '/images/projects/bronuz/bronuz_homepage_2.png', alt: 'BronUz homepage — search results with map and venue cards', caption: 'BronUz homepage — search results with map and venue cards' },
+      { src: '/images/projects/bronuz/bronuz_venue.png', alt: 'BronUz venue detail — photo gallery, slot picker, and booking sidebar', caption: 'BronUz venue detail — photo gallery, slot picker, and booking sidebar' },
+      { src: '/images/projects/bronuz/bronuz_business.png', alt: 'BronUz business dashboard — revenue analytics and today\'s bookings', caption: "BronUz business dashboard — revenue analytics and today's bookings" },
+      { src: '/images/projects/bronuz/bronuz_admin.png', alt: 'BronUz admin panel — venue approvals and platform analytics', caption: 'BronUz admin panel — venue approvals and platform analytics' }
     ],
     cta: { label: '라이브 사이트 방문', href: 'https://bronuz.vercel.app' }
   },
@@ -153,8 +153,8 @@ const ko: I18n = {
       ]
     },
     images: [
-      { src: '/images/projects/before.png', alt: '재디자인 전 Octopos 랜딩 페이지 원본', caption: '재디자인 전 원본 MVP 화면 — 빽빽한 문구, 낮은 대비, 명확한 행동 유도 버튼 부재.' },
-      { src: '/images/projects/octopos.png', alt: 'Octopos 랜딩 페이지 스크린샷', caption: '재작업된 히어로 섹션, 사용 사례, 소셜 프루프를 강조하는 고해상도 데스크톱 화면.' }
+      { src: '/images/projects/octopos/octopos_before.png', alt: '재디자인 전 Octopos 랜딩 페이지 원본', caption: '재디자인 전 원본 MVP 화면 — 빽빽한 문구, 낮은 대비, 명확한 행동 유도 버튼 부재.' },
+      { src: '/images/projects/octopos/octopos.png', alt: 'Octopos 랜딩 페이지 스크린샷', caption: '재작업된 히어로 섹션, 사용 사례, 소셜 프루프를 강조하는 고해상도 데스크톱 화면.' }
     ],
     cta: { label: '라이브 사이트 방문', href: 'https://octopos.uz' }
   },
@@ -206,7 +206,7 @@ const ko: I18n = {
     groups: [
       { title: '핵심', items: ['React','Astro','TypeScript','JavaScript','Node.js','Tailwind','Sass','HTML/CSS','Supabase','PostgreSQL'] },
       { title: '시스템', items: ['C','Assembly','Python'] },
-      { title: '도구', items: ['Git','GitHub Actions','테스팅 (Jest/Vitest)','CI/CD','접근성·성능 점검','Vercel'] },
+      { title: '도구', items: ['Git','GitHub Actions','테스팅 (Jest/Vitest)','CI/CD','접근성·성능 점검','Prompt Engineering','Vercel'] },
     ]
   },
   footer: {

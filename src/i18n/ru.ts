@@ -76,10 +76,10 @@ const ru: I18n = {
       ]
     },
     images: [
-      { src: '/images/projects/bronuz_homepage_2.png', alt: 'BronUz homepage — search results with map and venue cards', caption: 'BronUz homepage — search results with map and venue cards' },
-      { src: '/images/projects/bronuz_venue.png', alt: 'BronUz venue detail — photo gallery, slot picker, and booking sidebar', caption: 'BronUz venue detail — photo gallery, slot picker, and booking sidebar' },
-      { src: '/images/projects/bronuz_business.png', alt: "BronUz business dashboard — revenue analytics and today's bookings", caption: "BronUz business dashboard — revenue analytics and today's bookings" },
-      { src: '/images/projects/bronuz_admin.png', alt: 'BronUz admin panel — venue approvals and platform analytics', caption: 'BronUz admin panel — venue approvals and platform analytics' }
+      { src: '/images/projects/bronuz/bronuz_homepage_2.png', alt: 'BronUz homepage — search results with map and venue cards', caption: 'BronUz homepage — search results with map and venue cards' },
+      { src: '/images/projects/bronuz/bronuz_venue.png', alt: 'BronUz venue detail — photo gallery, slot picker, and booking sidebar', caption: 'BronUz venue detail — photo gallery, slot picker, and booking sidebar' },
+      { src: '/images/projects/bronuz/bronuz_business.png', alt: "BronUz business dashboard — revenue analytics and today's bookings", caption: "BronUz business dashboard — revenue analytics and today's bookings" },
+      { src: '/images/projects/bronuz/bronuz_admin.png', alt: 'BronUz admin panel — venue approvals and platform analytics', caption: 'BronUz admin panel — venue approvals and platform analytics' }
     ],
     cta: { label: 'Посетить сайт', href: 'https://bronuz.vercel.app' }
   },
@@ -153,8 +153,8 @@ const ru: I18n = {
       ]
     },
     images: [
-      { src: '/images/projects/before.png', alt: 'Оригинальный лендинг Octopos до редизайна', caption: 'Исходный MVP-экран до редизайна — много текста, низкий контраст, нет четкого призыва к действию.' },
-      { src: '/images/projects/octopos.png', alt: 'Скриншот лендинга Octopos', caption: 'Десктопный экран с высоким разрешением, демонстрирующий переработанный главный экран, примеры использования и социальные доказательства.' }
+      { src: '/images/projects/octopos/octopos_before.png', alt: 'Оригинальный лендинг Octopos до редизайна', caption: 'Исходный MVP-экран до редизайна — много текста, низкий контраст, нет четкого призыва к действию.' },
+      { src: '/images/projects/octopos/octopos.png', alt: 'Скриншот лендинга Octopos', caption: 'Десктопный экран с высоким разрешением, демонстрирующий переработанный главный экран, примеры использования и социальные доказательства.' }
     ],
     cta: { label: 'Посетить сайт', href: 'https://octopos.uz' }
   },
@@ -206,7 +206,7 @@ const ru: I18n = {
     groups: [
       { title: 'Основное', items: ['React','Astro','TypeScript','JavaScript','Node.js','Tailwind','Sass','HTML/CSS','Supabase','PostgreSQL'] },
       { title: 'Системы', items: ['C','Assembly','Python'] },
-      { title: 'Инструменты', items: ['Git','GitHub Actions','Тестирование (Jest/Vitest)','CI/CD','Аудиты доступности и производительности','Vercel'] },
+      { title: 'Инструменты', items: ['Git','GitHub Actions','Тестирование (Jest/Vitest)','CI/CD','Аудиты доступности и производительности','Prompt Engineering','Vercel'] },
     ]
   },
   footer: {

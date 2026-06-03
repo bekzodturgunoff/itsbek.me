@@ -1,0 +1,43 @@
+---
+import { getDictionary, defaultLang } from '@/i18n';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = defaultLang } = Astro.props;
+const t = getDictionary(lang);
+
+const expertSkills = new Set([
+  'React', 'Astro', 'TypeScript', 'JavaScript', 'Tailwind',
+  'Sass', 'HTML/CSS', 'Supabase', 'Git', 'GitHub Actions',
+  'CI/CD', 'Vercel', 'Accessibility & Performance Audits',
+  'Testing (Jest/Vitest)',
+]);
+---
+
+<div class="space-y-4">
+  {t.skills.groups.map((group) => (
+    <div class="flex flex-col sm:flex-row sm:items-start gap-3" data-reveal>
+      <span class="text-xs uppercase tracking-[0.15em] text-neutral-500 dark:text-neutral-400 sm:w-[100px] sm:shrink-0 sm:pt-1">{group.title}</span>
+      <div class="flex flex-wrap gap-2">
+        {group.items.map((s) => {
+          const isExpert = expertSkills.has(s);
+          return (
+            <span
+              class:list={[
+                'rounded-full border px-3 py-0.5 text-[13px] transition-colors',
+                isExpert
+                  ? 'border-brand-500/30 text-brand-700 dark:text-brand-300 hover:bg-brand-500/10'
+                  : 'border-neutral-300/50 dark:border-neutral-700/50 text-neutral-500 dark:text-neutral-400 italic opacity-40',
+              ]}
+            >
+              {s}
+            </span>
+          );
+        })}
+      </div>
+    </div>
+  ))}
+  <p class="text-xs text-neutral-400 dark:text-neutral-600 italic pl-[0] sm:pl-[108px]">* dimmed = learning / less frequent use</p>
+</div>

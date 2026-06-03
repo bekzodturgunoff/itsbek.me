@@ -1,8 +1,8 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
-import { languages, defaultLang } from '../i18n';
-import ThreeBackground from '../components/ThreeBackground.astro';
-import Effects from '../components/Effects.astro';
+import { languages, defaultLang } from '@/i18n';
+import ThreeBackground from '@/components/ThreeBackground.astro';
+import Effects from '@/components/Effects.astro';
 
 interface Props {
   title?: string;
@@ -13,7 +13,7 @@ interface Props {
 
 const { 
   title = 'Bekzod — Software Engineer', 
-  description = 'Software engineer with 4+ years building responsive, accessible products. Specialising in React, Astro, TypeScript, Supabase, and React Native. Based in Uzbekistan — shipping full-stack web and mobile products end to end.',
+  description = 'Software engineer with 3+ years building responsive, accessible products. Specialising in React, Astro, TypeScript, Supabase, and React Native. Based in Uzbekistan — shipping full-stack web and mobile products end to end.',
   image = '/og-image.png',
   lang: propLang
 } = Astro.props;
@@ -116,7 +116,7 @@ const prefetchTargets = languageCodes
 </style>
 
 <script>
-  window.__toggleTheme = () => {
+  (window as any).__toggleTheme = () => {
     const isDark = document.documentElement.classList.toggle('dark');
     document.documentElement.dataset.theme = isDark ? 'dark' : 'light';
     try { localStorage.setItem('theme', isDark ? 'dark' : 'light'); } catch {}

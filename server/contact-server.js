@@ -21,12 +21,9 @@ const server = http.createServer((req, res) => {
     req.on('end', () => {
       try {
         const data = JSON.parse(body || '{}');
-        console.log('[contact-server] received:', data);
-        // Here you could integrate an email provider or save to DB
         res.writeHead(200, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ ok: true }));
-      } catch (err) {
-        console.error('[contact-server] parse error', err);
+      } catch {
         res.writeHead(400, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ error: 'Invalid JSON' }));
       }
@@ -38,6 +35,4 @@ const server = http.createServer((req, res) => {
   res.end(JSON.stringify({ error: 'Not found' }));
 });
 
-server.listen(PORT, () => {
-  console.log(`Contact dev server listening on http://localhost:${PORT}`);
-});
+server.listen(PORT);

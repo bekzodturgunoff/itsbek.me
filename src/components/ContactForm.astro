@@ -1,37 +1,39 @@
 ---
-import { getDictionary } from '../i18n';
+import { getDictionary, defaultLang } from '../i18n';
 
 interface Props {
   lang?: string;
 }
 
-const { lang } = Astro.props;
+const { lang = defaultLang } = Astro.props;
 const t = getDictionary(lang);
 ---
-<div class="max-w-2xl bg-white/40 dark:bg-black/40 backdrop-blur-xl p-6 sm:p-8 rounded-3xl border border-black/5 dark:border-white/5 shadow-lg hover:shadow-xl transition-all duration-300" data-reveal>
-  <form id="contact-form" class="space-y-4">
-    <div>
-      <label for="name" class="block text-sm font-medium mb-1.5 text-neutral-700 dark:text-neutral-300">{t.contact.form.name}</label>
-      <input
-        type="text"
-        id="name"
-        name="name"
-        required
-        class="w-full px-4 py-2.5 rounded-xl border border-black/15 dark:border-white/15 bg-white/50 dark:bg-black/50 backdrop-blur-md text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all"
-        placeholder={t.contact.form.namePlaceholder}
-      />
-    </div>
 
-    <div>
-      <label for="email" class="block text-sm font-medium mb-1.5 text-neutral-700 dark:text-neutral-300">{t.contact.form.email}</label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        required
-        class="w-full px-4 py-2.5 rounded-xl border border-black/15 dark:border-white/15 bg-white/50 dark:bg-black/50 backdrop-blur-md text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all"
-        placeholder={t.contact.form.emailPlaceholder}
-      />
+<div class="rounded-2xl border border-black/10 dark:border-white/10 bg-white/40 dark:bg-black/40 backdrop-blur-xl p-6 sm:p-8">
+  <form id="contact-form" class="space-y-4">
+    <div class="grid gap-4 sm:grid-cols-2">
+      <div>
+        <label for="name" class="block text-sm font-medium mb-1.5 text-neutral-700 dark:text-neutral-300">{t.contact.form.name}</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          class="w-full px-4 py-2.5 rounded-xl border border-black/15 dark:border-white/15 bg-white/50 dark:bg-black/50 text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-500 hover:border-neutral-400 dark:hover:border-neutral-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:border-transparent transition-all"
+          placeholder={t.contact.form.namePlaceholder}
+        />
+      </div>
+      <div>
+        <label for="email" class="block text-sm font-medium mb-1.5 text-neutral-700 dark:text-neutral-300">{t.contact.form.email}</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          class="w-full px-4 py-2.5 rounded-xl border border-black/15 dark:border-white/15 bg-white/50 dark:bg-black/50 text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-500 hover:border-neutral-400 dark:hover:border-neutral-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:border-transparent transition-all"
+          placeholder={t.contact.form.emailPlaceholder}
+        />
+      </div>
     </div>
 
     <div>
@@ -40,21 +42,16 @@ const t = getDictionary(lang);
         id="message"
         name="message"
         required
-        rows="5"
-        class="w-full px-4 py-2.5 rounded-xl border border-black/15 dark:border-white/15 bg-white/50 dark:bg-black/50 backdrop-blur-md text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all resize-y"
+        rows="4"
+        class="w-full px-4 py-2.5 rounded-xl border border-black/15 dark:border-white/15 bg-white/50 dark:bg-black/50 text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-500 hover:border-neutral-400 dark:hover:border-neutral-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:border-transparent transition-all resize-y"
         placeholder={t.contact.form.messagePlaceholder}
       ></textarea>
     </div>
 
-    <div class="flex items-center gap-3 pt-2">
-      <button
-        type="submit"
-        class="btn btn-primary btn-lg rounded-full shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
-      >
-        {t.contact.form.submit}
-      </button>
-      <span id="form-status" class="text-sm text-neutral-600 dark:text-neutral-400"></span>
-    </div>
+    <button type="submit" class="btn btn-primary btn-lg w-full rounded-xl shadow-lg hover:-translate-y-0.5 hover:shadow-xl transition-all duration-300">
+      {t.contact.form.submit}
+    </button>
+    <span id="form-status" class="block text-sm text-center text-neutral-600 dark:text-neutral-400"></span>
   </form>
 </div>
 
@@ -74,7 +71,7 @@ const t = getDictionary(lang);
       };
 
       status.textContent = 'Sending...';
-      status.className = 'text-sm text-neutral-600 dark:text-neutral-400';
+      status.className = 'block text-sm text-center text-neutral-600 dark:text-neutral-400';
 
       const API_BASE = (import.meta.env && import.meta.env.PUBLIC_API_BASE) || 'http://localhost:5001';
 
@@ -92,56 +89,32 @@ const t = getDictionary(lang);
         let response = null;
         try {
           response = await sendTo(API_BASE);
-        } catch (err) {
+        } catch {
           response = null;
         }
 
         if (!response || !response.ok) {
-          // try same-origin fallback
           try {
             const fallback = await sendTo('');
             if (fallback.ok) {
               status.textContent = '✓ Message sent!';
-              status.className = 'text-sm text-emerald-600 dark:text-emerald-400';
+              status.className = 'block text-sm text-center text-emerald-600 dark:text-emerald-400';
               form.reset();
               setTimeout(() => { status.textContent = ''; }, 5000);
               return;
-            } else {
-              let bodyText = '';
-              try { bodyText = await fallback.text(); } catch {}
-              console.error('Contact form failed (fallback)', {
-                status: fallback.status,
-                statusText: fallback.statusText,
-                body: bodyText,
-              });
             }
-          } catch (err2) {
-            console.error('Contact form fallback error:', err2);
-          }
+          } catch {}
 
-          let bodyText = '';
-          if (response) {
-            try { bodyText = await response.text(); } catch {}
-            console.error('Contact form failed', {
-              status: response.status,
-              statusText: response.statusText,
-              body: bodyText,
-              apiBase: API_BASE,
-            });
-          } else {
-            console.error('Contact form network error, no response from', API_BASE);
-          }
           throw new Error('Failed to send');
         }
 
         status.textContent = '✓ Message sent!';
-        status.className = 'text-sm text-emerald-600 dark:text-emerald-400';
+        status.className = 'block text-sm text-center text-emerald-600 dark:text-emerald-400';
         form.reset();
         setTimeout(() => { status.textContent = ''; }, 5000);
-      } catch (err) {
-        console.error('Contact form error:', err);
+      } catch {
         status.textContent = '✗ Failed to send. Please try email instead.';
-        status.className = 'text-sm text-red-600 dark:text-red-400';
+        status.className = 'block text-sm text-center text-red-600 dark:text-red-400';
       }
     });
   }

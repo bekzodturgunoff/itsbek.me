@@ -1,82 +1,55 @@
 ---
-import { getDictionary } from '../i18n';
+import { getDictionary, defaultLang } from '@/i18n';
 
 interface Props {
   lang?: string;
 }
 
-const { lang } = Astro.props;
+const { lang = defaultLang } = Astro.props;
 const t = getDictionary(lang);
 const lottieModuleUrl = 'https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js';
 const animationSrc = 'https://lottie.host/8de0855a-9b84-455d-b883-250f6e3b974b/WEYHTlQXQh.lottie';
 ---
-<section class="relative overflow-hidden bg-transparent">
-  <div class="max-w-6xl mx-auto px-4 py-14 sm:py-20 lg:py-24">
-    <div class="rounded-3xl border border-black/5 dark:border-white/5 bg-white/40 dark:bg-black/40 backdrop-blur-md shadow-lg p-6 sm:p-10 lg:p-12 transition-all duration-300 hover:border-brand-500/30" data-reveal>
-      <div class="grid gap-8 lg:gap-10 xl:gap-12 lg:grid-cols-[1.15fr_0.85fr] items-center">
-        <div class="space-y-6 sm:space-y-8 lg:space-y-9">
-          <div class="flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-neutral-500 dark:text-neutral-400">
-            <span class="hidden sm:inline text-[11px] tracking-[0.18em]">{t.hero.timezoneLabel}</span>
-          </div>
 
-          <h1 class="text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight break-words text-neutral-900 dark:text-white leading-tight sm:leading-[0.95] space-y-2">
-            <span class="block bg-clip-text text-transparent bg-gradient-to-r from-neutral-900 via-neutral-600 to-neutral-900 dark:from-white dark:via-neutral-300 dark:to-white bg-[length:200%_auto] animate-gradient">{t.hero.titleTop}</span>
-            <span class="block text-neutral-500 dark:text-neutral-300 font-medium">{t.hero.titleBottom}</span>
-          </h1>
+<section class="max-w-6xl mx-auto px-4 py-14 sm:py-20 lg:py-24">
+  <div class="grid gap-10 lg:grid-cols-[55%_45%] lg:items-center">
+    <div class="space-y-6">
+      <div class="flex items-center gap-2">
+        <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+        <span class="text-xs uppercase tracking-[0.15em] text-neutral-500 dark:text-neutral-400">{t.hero.availability}</span>
+      </div>
 
-          <p class="text-neutral-700 dark:text-neutral-300 leading-relaxed text-base sm:text-lg max-w-xl">{t.hero.description}</p>
+      <h1 class="text-neutral-900 dark:text-white">
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-neutral-900 via-neutral-600 to-neutral-900 dark:from-white dark:via-neutral-300 dark:to-white bg-[length:200%_auto] animate-gradient">{t.hero.titleTop}</span>
+      </h1>
+      <p class="text-neutral-600 dark:text-neutral-300" style={{ maxWidth: 'var(--max-prose)' }}>{t.hero.description}</p>
 
-          <div class="flex flex-col sm:flex-row items-center sm:items-stretch gap-2.5 sm:gap-3 lg:gap-4">
-            <a href="#contact" class="btn btn-primary btn-lg w-full sm:w-auto text-center px-4 py-2 sm:px-5 sm:py-2.5 lg:px-6 lg:py-3 transition-transform hover:-translate-y-1 hover:shadow-lg rounded-full">{t.hero.buttons.contact}</a>
-            <a href="#work" class="btn btn-outline btn-lg w-full sm:w-auto text-center px-4 py-2 sm:px-5 sm:py-2.5 lg:px-6 lg:py-3 transition-transform hover:-translate-y-1 hover:shadow-lg rounded-full">{t.hero.buttons.viewWork}</a>
-            <a href="#case-study" class="btn btn-ghost btn-lg hidden sm:inline-flex sm:w-auto text-center px-4 py-2 sm:px-5 sm:py-2.5 lg:px-6 lg:py-3 transition-transform hover:-translate-y-1 hover:shadow-lg rounded-full">{t.hero.buttons.viewCaseStudy}</a>
-          </div>
+      <div class="flex flex-col sm:flex-row gap-3 pt-2">
+        <a href="#contact" class="btn btn-primary btn-lg rounded-full px-6 text-center hover:-translate-y-0.5 hover:shadow-lg transition-all">{t.hero.buttons.contact}</a>
+        <a href="#work" class="btn btn-outline btn-lg rounded-full px-6 text-center hover:-translate-y-0.5 hover:shadow-lg transition-all">{t.hero.buttons.viewWork}</a>
+      </div>
 
-          <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 lg:gap-5 pt-5 sm:pt-6 lg:pt-7 border-t border-black/10 dark:border-white/10 text-[12px] uppercase tracking-[0.15em] text-neutral-500 dark:text-neutral-400">
-            <span class="inline-flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-emerald-400"></span> {t.hero.availability}</span>
-            <span class="sm:hidden h-px w-full bg-neutral-200 dark:bg-white/10"></span>
-            <span>{t.hero.location}</span>
-          </div>
-        </div>
+      <div class="pt-5 border-t border-black/10 dark:border-white/10 flex flex-col sm:flex-row gap-2 sm:gap-4 text-sm text-neutral-500 dark:text-neutral-400">
+        <span>{t.hero.location}</span>
+        <span class="hidden sm:inline">&middot;</span>
+        <a href="mailto:bekzodturgunoff@gmail.com" class="hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors">bekzodturgunoff@gmail.com</a>
+      </div>
+    </div>
 
-        <div class="relative justify-center hidden lg:flex">
-          <div class="w-full max-w-sm lg:max-w-md xl:max-w-lg aspect-square flex items-center justify-center">
-            <div
-              data-hero-lottie
-              data-module={lottieModuleUrl}
-              data-src={animationSrc}
-              class="relative h-full w-full overflow-hidden rounded-3xl bg-gradient-to-br from-brand-300/35 via-brand-500/20 to-brand-700/30 flex items-center justify-center"
-              aria-label="Interactive hero animation"
-            >
-              <svg
-                class="h-20 w-20 text-brand-600/60 dark:text-brand-400/60"
-                viewBox="0 0 48 48"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                role="img"
-                aria-hidden="true"
-              >
-                <path
-                  d="M6 16c0-2.21 1.79-4 4-4h28c2.21 0 4 1.79 4 4v16c0 2.21-1.79 4-4 4H10c-2.21 0-4-1.79-4-4V16z"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M17 28h14"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                />
-                <path
-                  d="M13 21h22"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                />
-              </svg>
-            </div>
-          </div>
+    <div class="relative justify-center hidden lg:flex">
+      <div class="w-full max-w-sm aspect-square flex items-center justify-center">
+        <div
+          data-hero-lottie
+          data-module={lottieModuleUrl}
+          data-src={animationSrc}
+          class="relative h-full w-full overflow-hidden rounded-3xl bg-gradient-to-br from-brand-300/35 via-brand-500/20 to-brand-700/30 flex items-center justify-center"
+          aria-label="Interactive hero animation"
+        >
+          <svg class="h-20 w-20 text-brand-600/60 dark:text-brand-400/60" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <path d="M6 16c0-2.21 1.79-4 4-4h28c2.21 0 4 1.79 4 4v16c0 2.21-1.79 4-4 4H10c-2.21 0-4-1.79-4-4V16z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+            <path d="M17 28h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+            <path d="M13 21h22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
         </div>
       </div>
     </div>
@@ -88,24 +61,18 @@ const animationSrc = 'https://lottie.host/8de0855a-9b84-455d-b883-250f6e3b974b/W
 
   const loadModule = async (moduleUrl) => {
     if (!moduleUrl) return false;
-    if (typeof window.matchMedia === 'function' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      return false;
-    }
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return false;
     if (!modulePromise) {
-      modulePromise = import(moduleUrl).catch((error) => {
-        modulePromise = undefined;
-        throw error;
-      });
+      modulePromise = import(moduleUrl).catch(() => { modulePromise = undefined; throw new Error(); });
     }
     await modulePromise;
     return true;
   };
 
   const hydrateContainer = async (container) => {
-    if (!(container instanceof HTMLElement)) return;
     if (container.dataset.loaded === 'true') return;
-    const moduleUrl = container.dataset.module;
-    const animationUrl = container.dataset.src;
+    const moduleUrl = container.dataset.module || '';
+    const animationUrl = container.dataset.src || '';
     const shouldAnimate = await loadModule(moduleUrl);
     if (!shouldAnimate || !animationUrl) return;
     container.dataset.loaded = 'true';
@@ -119,33 +86,19 @@ const animationSrc = 'https://lottie.host/8de0855a-9b84-455d-b883-250f6e3b974b/W
     container.appendChild(element);
   };
 
-  const initHeroAnimation = () => {
-    if (typeof window === 'undefined') return;
+  const run = () => {
     const containers = document.querySelectorAll('[data-hero-lottie]');
     if (!containers.length) return;
-
-    if (!('IntersectionObserver' in window)) {
-      containers.forEach((container) => {
-        hydrateContainer(container).catch(() => {});
-      });
-      return;
-    }
-
-    const observer = new IntersectionObserver((entries, obs) => {
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
-        const target = entry.target;
-        obs.unobserve(target);
-        hydrateContainer(target).catch(() => {});
+        observer.unobserve(entry.target);
+        hydrateContainer(entry.target).catch(() => {});
       });
-    }, {
-      rootMargin: '160px',
-    });
-
-    containers.forEach((container) => observer.observe(container));
+    }, { rootMargin: '160px' });
+    containers.forEach((c) => observer.observe(c));
   };
 
-  const run = () => initHeroAnimation();
   run();
   document.addEventListener('astro:page-load', run);
 </script>

@@ -1,12 +1,9 @@
 ---
+import AudioPlayer from '@/components/three/AudioPlayer.astro';
 ---
-<div id="three-bg" class="fixed inset-0 z-[-1] pointer-events-none transition-colors duration-700 bg-neutral-100 dark:bg-black"></div>
 
-<button id="music-btn" class="fixed bottom-6 lg:bottom-10 right-6 lg:right-10 z-50 h-12 w-12 rounded-full bg-black/90 dark:bg-white/90 text-white dark:text-black shadow-2xl backdrop-blur-md hover:scale-110 transition-transform duration-300 flex items-center justify-center focus:outline-none ring-2 ring-transparent hover:ring-brand-500/50" aria-label="Toggle Background Music">
-  <svg id="ico-play" class="w-5 h-5 transition-transform" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4l12 6-12 6V4z"/></svg>
-  <svg id="ico-pause" class="w-5 h-5 hidden transition-transform" fill="currentColor" viewBox="0 0 20 20"><path d="M5 4h3v12H5V4zm7 0h3v12h-3V4z"/></svg>
-  <svg id="ico-loading" class="w-5 h-5 hidden animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
-</button>
+<div id="three-bg" class="fixed inset-0 z-[-1] pointer-events-none transition-colors duration-700 bg-neutral-100 dark:bg-black"></div>
+<AudioPlayer />
 
 <script>
   import * as THREE from 'three';
@@ -17,14 +14,12 @@
 
   const init = () => {
     if ((window as any).__three_initialized) return;
-    
+
     const container = document.getElementById('three-bg');
-    const btn = document.getElementById('music-btn');
-    if (!container || !btn) return;
-    
+    if (!container) return;
+
     (window as any).__three_initialized = true;
 
-    // --- THREE.JS SETUP — Starfield (GPU-native, zero per-vertex CPU updates) ---
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 2000);
     camera.position.set(0, 0, 500);
@@ -34,12 +29,10 @@
     renderer.setSize(window.innerWidth, window.innerHeight);
     container.appendChild(renderer.domElement);
 
-    // Particles
     const COUNT = 600;
     const positions = new Float32Array(COUNT * 3);
     const sizes = new Float32Array(COUNT);
     for (let i = 0; i < COUNT; i++) {
-      // Distribute uniformly inside a sphere of radius 400
       const r = 400 * Math.cbrt(Math.random());
       const theta = Math.random() * Math.PI * 2;
       const phi = Math.acos(2 * Math.random() - 1);
@@ -53,7 +46,6 @@
     geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
     geo.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
 
-    // Custom shader particles using canvas-generated circle texture
     const canvas = document.createElement('canvas');
     canvas.width = 64;
     canvas.height = 64;
@@ -79,7 +71,6 @@
     const points = new THREE.Points(geo, mat);
     scene.add(points);
 
-    // Theme color
     const updateTheme = () => {
       const dark = document.documentElement.classList.contains('dark');
       mat.color.setHex(dark ? 0x888888 : 0x444444);
@@ -89,7 +80,6 @@
     const themeObs = new MutationObserver(updateTheme);
     themeObs.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
 
-    // Mouse parallax — just nudges the group, no vertex maths
     let targetX = 0;
     let targetY = 0;
     window.addEventListener('mousemove', (e) => {
@@ -97,129 +87,22 @@
       targetY = (e.clientY / window.innerHeight - 0.5) * 2;
     });
 
-    // --- AUDIO HANDLING ---
-    let audioCtx: AudioContext | null = null;
-    let analyser: AnalyserNode | null = null;
-    let source: MediaElementAudioSourceNode | null = null;
-    let dataArray: Uint8Array | null = null;
-
-    const audio = new Audio();
-    audio.crossOrigin = 'anonymous';
-    audio.loop = true;
-    audio.volume = 0.5;
-
-    const fallbackUrl = 'https://raw.githubusercontent.com/rafaelreis-hotmart/Audio-Sample-files/master/sample.mp3';
-    let fallbackUsed = false;
-
-    const chooseAudioSource = async () => {
-      try {
-        const head = await fetch('/music.mp3', { method: 'HEAD' });
-        if (head && head.ok) {
-          const ct = head.headers.get('content-type') || '';
-          if (ct.startsWith('audio')) {
-            console.log('Using local /music.mp3 (HEAD OK, type:', ct + ')');
-            audio.src = '/music.mp3';
-            return;
-          }
-        }
-      } catch (e) {
-        console.warn('HEAD check for /music.mp3 failed:', e);
-      }
-
-      try {
-        const get = await fetch('/music.mp3');
-        if (get && get.ok) {
-          const ct = get.headers.get('content-type') || '';
-          console.log('Using local /music.mp3 (GET OK, type:', ct + ')');
-          audio.src = '/music.mp3';
-          return;
-        }
-      } catch (e) {
-        console.warn('GET check for /music.mp3 failed:', e);
-      }
-
-      fallbackUsed = true;
-      console.warn('Local /music.mp3 not available — falling back to remote sample.');
-      audio.src = fallbackUrl;
-    };
-
-    chooseAudioSource();
-
-    audio.addEventListener('error', (ev) => {
-      console.error('Audio element error event:', ev);
-      if (!fallbackUsed) {
-        fallbackUsed = true;
-        console.warn('Switching to fallback audio due to element error.');
-        audio.src = fallbackUrl;
-      }
-    });
-
-    let isPlaying = false;
-
-    const iconPlay = document.getElementById('ico-play');
-    const iconPause = document.getElementById('ico-pause');
-    const iconLoading = document.getElementById('ico-loading');
-
-    btn.addEventListener('click', async () => {
-      if (!audioCtx) {
-        audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
-        analyser = audioCtx.createAnalyser();
-        analyser.fftSize = 128;
-        dataArray = new Uint8Array(analyser.frequencyBinCount);
-
-        try {
-          source = audioCtx.createMediaElementSource(audio);
-          source.connect(analyser);
-          analyser.connect(audioCtx.destination);
-        } catch (err) {
-          console.error("Audio Routing Error (CORS usually):", err);
-        }
-      }
-
-      if (audioCtx.state === 'suspended') {
-        await audioCtx.resume();
-      }
-
-      if (isPlaying) {
-        audio.pause();
-        isPlaying = false;
-        iconPause?.classList.add('hidden');
-        iconPlay?.classList.remove('hidden');
-        btn.classList.remove('shadow-[0_0_40px_rgba(150,150,150,0.4)]');
-      } else {
-        iconPlay?.classList.add('hidden');
-        iconLoading?.classList.remove('hidden');
-        try {
-          await audio.play();
-          isPlaying = true;
-          iconPause?.classList.remove('hidden');
-          iconLoading?.classList.add('hidden');
-          btn.classList.add('shadow-[0_0_40px_rgba(150,150,150,0.4)]');
-        } catch (e) {
-          console.error("Audio Playback Error:", e);
-          alert("Audio couldn't play. Check file path or permissions.");
-          iconLoading?.classList.add('hidden');
-          iconPlay?.classList.remove('hidden');
-        }
-      }
-    });
-
-    // --- RENDER LOOP — no vertex CPU work, only matrix ops ---
     let baseRotation = 0;
     let pulse = 0;
 
     const render = () => {
       requestAnimationFrame(render);
 
-      // Gentle auto-rotation — single matrix op
       baseRotation += 0.001;
       points.rotation.y = baseRotation;
 
-      // Mouse parallax — smooth lerp on group position
       points.position.x += (targetX * 30 - points.position.x) * 0.03;
       points.position.y += (-targetY * 20 - points.position.y) * 0.03;
 
-      // Audio-reactive pulse
+      const analyser = (window as any).__audioAnalyser?.();
+      const dataArray = (window as any).__audioDataArray?.();
+      const isPlaying = (window as any).__audioIsPlaying?.();
+
       if (isPlaying && analyser && dataArray) {
         analyser.getByteFrequencyData(dataArray);
         let sum = 0;

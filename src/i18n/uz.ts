@@ -93,25 +93,25 @@ const uz: I18n = {
     },
     images: [
       {
-        src: "/images/projects/bronuz_homepage_2.png",
+        src: "/images/projects/bronuz/bronuz_homepage_2.png",
         alt: "BronUz bosh sahifasi — xarita va joy kartochkalari bilan qidiruv natijalari",
         caption:
           "BronUz bosh sahifasi — xarita va joy kartochkalari bilan qidiruv natijalari",
       },
       {
-        src: "/images/projects/bronuz_venue.png",
+        src: "/images/projects/bronuz/bronuz_venue.png",
         alt: "BronUz joy tafsiloti — foto galereya, slot tanlash va buyurtma paneli",
         caption:
           "BronUz joy tafsiloti — foto galereya, slot tanlash va buyurtma paneli",
       },
       {
-        src: "/images/projects/bronuz_business.png",
+        src: "/images/projects/bronuz/bronuz_business.png",
         alt: "BronUz tadbirkor paneli — daromad analitikasi va bugungi buyurtmalar",
         caption:
           "BronUz tadbirkor paneli — daromad analitikasi va bugungi buyurtmalar",
       },
       {
-        src: "/images/projects/bronuz_admin.png",
+        src: "/images/projects/bronuz/bronuz_admin.png",
         alt: "BronUz admin paneli — joylarni tasdiqlash va platforma analitikasi",
         caption: "BronUz admin paneli — joylarni tasdiqlash va platforma analitikasi",
       },
@@ -190,13 +190,13 @@ const uz: I18n = {
     },
     images: [
       {
-        src: "/images/projects/before.png",
+        src: "/images/projects/octopos/octopos_before.png",
         alt: "Octopos landing page'ning qayta dizayndan oldingi ko'rinishi",
         caption:
           "Qayta dizayndan oldingi MVP ekrani — zich matn, past kontrast va aniq harakatga chaqiruvsiz.",
       },
       {
-        src: "/images/projects/octopos.png",
+        src: "/images/projects/octopos/octopos.png",
         alt: "Octopos landing page'ning skrinshoti",
         caption:
           "Qayta ishlangan hero, foydalanish holatlari va ijtimoiy isbot bilan yuqori aniqlikdagi desktop ekran.",
@@ -274,6 +274,7 @@ const uz: I18n = {
           "Testing (Jest/Vitest)",
           "CI/CD",
           "Accessibility & Performance Audits",
+          "Prompt Engineering",
           "Vercel",
         ],
       },

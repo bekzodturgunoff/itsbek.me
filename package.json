@@ -7,7 +7,9 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "start:api": "node server/contact-server.cjs"
+    "start:api": "node server/contact-server.cjs",
+    "check": "astro check",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@astrojs/tailwind": "^5.1.0",
@@ -22,7 +24,9 @@
     "three": "^0.184.0"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.9",
     "autoprefixer": "^10.4.20",
-    "postcss": "^8.4.47"
+    "postcss": "^8.4.47",
+    "typescript": "^6.0.3"
   }
 }

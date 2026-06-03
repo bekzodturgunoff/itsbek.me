@@ -1,0 +1,21 @@
+---
+interface MetaItem {
+  label: string;
+  value: string;
+}
+
+interface Props {
+  items: MetaItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="grid gap-4 lg:gap-5 sm:grid-cols-2 lg:grid-cols-4">
+  {items.map((item) => (
+    <div class="rounded-3xl border border-black/5 dark:border-white/5 bg-white/40 dark:bg-black/40 backdrop-blur-md px-4 py-4 sm:py-5 transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg" data-reveal>
+      <div class="text-[11px] uppercase tracking-[0.18em] text-neutral-500 dark:text-neutral-400">{item.label}</div>
+      <div class="mt-2 text-sm font-medium text-neutral-900 dark:text-neutral-100"><span class="replace-year">{item.value}</span></div>
+    </div>
+  ))}
+</div>

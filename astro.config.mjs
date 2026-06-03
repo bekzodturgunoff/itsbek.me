@@ -1,5 +1,6 @@
 import {defineConfig} from "astro/config";
 import tailwind from "@astrojs/tailwind";
+import {fileURLToPath} from 'url';
 
 export default defineConfig({
   site: "https://itsbek.me",
@@ -10,6 +11,13 @@ export default defineConfig({
     locales: ["en", "ru", "ko"],
     routing: {
       prefixDefaultLocale: false,
+    },
+  },
+  vite: {
+    resolve: {
+      alias: {
+        '@': fileURLToPath(new URL('./src', import.meta.url)),
+      },
     },
   },
 });

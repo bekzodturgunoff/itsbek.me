@@ -1,0 +1,29 @@
+---
+interface Props {
+  id: string;
+  title?: string;
+}
+
+const { id, title } = Astro.props;
+---
+
+<section id={id} class="max-w-6xl mx-auto px-4 section-container">
+  {title && (
+    <h2 class="mb-5 sm:mb-7 lg:mb-8 text-neutral-900 dark:text-neutral-100">{title}</h2>
+  )}
+  <div>
+    <slot />
+  </div>
+</section>
+
+<style>
+  .section-container {
+    padding-block: var(--space-section);
+  }
+
+  @media (max-width: 768px) {
+    .section-container {
+      padding-block: var(--space-section-sm);
+    }
+  }
+</style>

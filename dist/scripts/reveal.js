@@ -4,25 +4,24 @@
 
   const obs = new IntersectionObserver((entries) => {
     entries.forEach((e) => {
-      if (e.isIntersecting) {
-        if (e.intersectionRatio > 0) {
-          // Stagger effect
-          const target = e.target;
-          target.style.transitionDelay = `${delayAmount * 100}ms`;
+      if (e.isIntersecting && e.intersectionRatio > 0) {
+        const target = e.target;
+        const siblings = target.parentElement?.querySelectorAll(':scope > [data-reveal]');
+        if (siblings) {
+          const idx = Array.from(siblings).indexOf(target);
+          target.style.transitionDelay = `${idx * 80}ms`;
+        } else {
+          target.style.transitionDelay = `${delayAmount * 80}ms`;
           delayAmount++;
-          
-          requestAnimationFrame(() => {
-            target.classList.add('reveal-in');
-          });
-
-          // Reset delay counter slightly after last item processed to restart stagger for next row
           clearTimeout(resetTimeout);
-          resetTimeout = setTimeout(() => {
-            delayAmount = 0;
-          }, 50);
-
-          obs.unobserve(target);
+          resetTimeout = setTimeout(() => { delayAmount = 0; }, 50);
         }
+
+        requestAnimationFrame(() => {
+          target.classList.add('reveal-in');
+        });
+
+        obs.unobserve(target);
       }
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });

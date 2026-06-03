@@ -1,78 +1,53 @@
 ---
+import ProjectCard from '@/components/work/ProjectCard.astro';
+
 const projects = [
-  { 
-    title: 'BronUz — Reservation Platform', 
-    year: '2026', 
-    tags: ['REACT','SUPABASE','FULLSTACK'], 
+  {
+    title: 'BronUz — Reservation Platform',
+    year: '2026',
+    tags: ['REACT','SUPABASE','FULLSTACK'],
     href: 'https://bronuz.vercel.app',
     description: 'Full-stack venue reservation platform for Uzbekistan built in 3 days. Users book cafes, football pitches, gaming clubs, spas, and 25+ other venue types. Includes a Telegram bot, loyalty points, real-time slot management, business owner dashboard with analytics, and a full admin panel.',
-    image: '/images/projects/bronuz_homepage.png'
+    image: '/images/projects/bronuz/bronuz_homepage.png'
   },
-  { 
-    title: 'Personal Assistant Bot', 
-    year: '2026', 
-    tags: ['TYPESCRIPT','CLOUDFLARE','AI'], 
+  {
+    title: 'Personal Assistant Bot',
+    year: '2026',
+    tags: ['TYPESCRIPT','CLOUDFLARE','AI'],
     href: 'https://github.com/bekzodturgunoff/personal-assistant',
     description: 'AI-powered Telegram bot that intercepts business messages and replies as the owner across Uzbek, Russian, and English. Features a three-tier memory system on Cloudflare KV, smart task engine with natural language time parsing, live web search, and automatic language detection — all at zero infra cost.',
     image: '/images/projects/ai-assistant-on-digital-screen-smart-device.webm'
   },
-  { 
-    title: 'Octopos Landing Page', 
-    year: '2025', 
-    tags: ['ASTRO','DESIGN','FORMS'], 
+  {
+    title: 'Octopos Landing Page',
+    year: '2025',
+    tags: ['ASTRO','DESIGN','FORMS'],
     href: 'https://octopos.uz',
     description: 'Built with Astro and a sharp, conversion-focused design — fast load, clean flow, and clear CTAs.',
-    image: '/images/projects/octopos.png'
+    image: '/images/projects/octopos/octopos.png'
   },
-  { 
-    title: 'GitHub Projects', 
-    year: '2021+', 
-    tags: ['OPEN SOURCE','DEV'], 
+  {
+    title: 'GitHub Projects',
+    year: '2021+',
+    tags: ['OPEN SOURCE','DEV'],
     href: 'https://github.com/bekzodturgunoff',
     description: 'Open-source projects and experiments — where I learn, build.',
     image: '/images/projects/github.webp'
   },
 ];
+
+const [bronuz, bot, octopos, github] = projects;
 ---
+
 <section class="max-w-6xl mx-auto px-4">
-  <div class="grid gap-6 md:grid-cols-2">
-    {projects.map((p) => (
-      <a href={p.href} target="_blank" rel="noreferrer" class="group block h-full z-10 hover:z-20 transition-transform duration-300 hover:-translate-y-2" data-reveal>
-        <article class="h-full rounded-3xl border border-black/10 dark:border-white/10 bg-white/40 dark:bg-black/40 backdrop-blur-md overflow-hidden shadow-lg hover:shadow-2xl hover:border-brand-500/30 transition-all duration-300">
-          <div class:list={["aspect-[16/10] overflow-hidden border-b border-black/10 dark:border-white/10", p.image.endsWith('.webm') ? "bg-transparent" : "bg-gradient-to-b from-neutral-200 to-neutral-100 dark:from-white/10 dark:to-white/5"]}>
-            {p.image.endsWith('.webm') ? (
-              <video src={p.image} autoplay muted loop playsinline class="w-full h-full object-contain group-hover:scale-[1.02] transition-transform duration-200" style="mix-blend-mode: screen" />
-            ) : (
-              <img 
-                src={p.image} 
-                alt={`${p.title} preview`}
-                class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-200"
-                loading="lazy"
-              />
-            )}
-          </div>
-          <div class="p-5 sm:p-6 flex flex-col gap-3">
-              <div class="flex items-center justify-between text-sm text-neutral-500 dark:text-neutral-400">
-              <span class="font-medium text-neutral-700 dark:text-neutral-200">{p.title}</span>
-              <span class="replace-year">{p.year}</span>
-            </div>
-            <p class="text-[15px] text-neutral-600 dark:text-neutral-400 leading-relaxed">{p.description}</p>
-            <div class="flex flex-wrap items-center gap-2">
-              {p.tags.map((t) => (
-                <span class="px-2.5 py-1 text-[11px] rounded-full bg-black/5 dark:bg-white/10 border border-black/10 dark:border-white/10 uppercase tracking-wide">{t}</span>
-              ))}
-            </div>
-            <div class="inline-flex items-center gap-2 text-sm font-medium text-neutral-800 dark:text-neutral-100 mt-1">
-              <span>View project</span>
-              <span class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-black/10 dark:border-white/15 bg-white/90 dark:bg-white/10">
-                <svg class="h-4 w-4 text-neutral-500 group-hover:text-neutral-700 dark:text-neutral-400 dark:group-hover:text-neutral-200 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </span>
-            </div>
-          </div>
-        </article>
-      </a>
-    ))}
+  <div class="grid gap-6">
+    <div class="grid gap-6 md:grid-cols-[2fr_1fr]">
+      <ProjectCard {...bronuz} />
+      <ProjectCard {...bot} />
+    </div>
+    <div class="grid gap-6 md:grid-cols-2">
+      <ProjectCard {...octopos} />
+      <ProjectCard {...github} />
+    </div>
   </div>
 </section>

@@ -1,0 +1,57 @@
+---
+interface Props {
+  title: string;
+  year: string;
+  tags: string[];
+  href: string;
+  description: string;
+  image: string;
+}
+
+const { title, year, tags, href, description, image } = Astro.props;
+---
+
+<a href={href} target="_blank" rel="noreferrer" class="group block h-full z-10 hover:z-20 transition-transform duration-300 hover:-translate-y-2" data-reveal>
+  <article class="h-full rounded-3xl border border-black/10 dark:border-white/10 bg-white/40 dark:bg-black/40 backdrop-blur-md overflow-hidden shadow-lg hover:shadow-2xl hover:border-brand-500/30 transition-all duration-300">
+    <div
+      class:list={[
+        "aspect-[16/10] overflow-hidden border-b border-black/10 dark:border-white/10",
+        image.endsWith('.webm')
+          ? 'bg-transparent'
+          : 'bg-gradient-to-b from-neutral-200 to-neutral-100 dark:from-white/10 dark:to-white/5',
+      ]}
+    >
+      {image.endsWith('.webm') ? (
+        <video src={image} autoplay muted loop playsinline class="w-full h-full object-contain group-hover:scale-[1.02] transition-transform duration-200" style="mix-blend-mode: screen" />
+      ) : (
+        <img
+          src={image}
+          alt={`${title} preview`}
+          class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-200"
+          loading="lazy"
+          fetchpriority="low"
+        />
+      )}
+    </div>
+    <div class="p-5 sm:p-6 flex flex-col gap-3">
+      <div class="flex items-center justify-between text-sm text-neutral-500 dark:text-neutral-400">
+        <span class="font-medium text-neutral-700 dark:text-neutral-200">{title}</span>
+        <span class="replace-year">{year}</span>
+      </div>
+      <p class="text-[15px] text-neutral-600 dark:text-neutral-400 leading-relaxed">{description}</p>
+      <div class="flex flex-wrap items-center gap-2">
+        {tags.map((t) => (
+          <span class="px-2.5 py-1 text-[11px] rounded-full bg-black/5 dark:bg-white/10 border border-black/10 dark:border-white/10 uppercase tracking-wide">{t}</span>
+        ))}
+      </div>
+      <div class="inline-flex items-center gap-2 text-sm font-medium text-neutral-800 dark:text-neutral-100 mt-1">
+        <span>View project</span>
+        <span class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-black/10 dark:border-white/15 bg-white/90 dark:bg-white/10">
+          <svg class="h-4 w-4 text-neutral-500 group-hover:text-neutral-700 dark:text-neutral-400 dark:group-hover:text-neutral-200 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </span>
+      </div>
+    </div>
+  </article>
+</a>

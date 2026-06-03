@@ -1,4 +1,4 @@
-import { languages, defaultLang } from '../i18n';
+import { languages, defaultLang } from '@/i18n';
 
 export function getStaticPaths() {
   return Object.keys(languages)

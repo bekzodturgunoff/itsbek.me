@@ -5,11 +5,20 @@
 :root {
   --bg: 12 12 14;
   --fg: 245 245 247;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --space-section: 7rem;
+  --space-section-sm: 4rem;
+  --max-prose: 68ch;
+  --max-content: 1200px;
+  --radius-card: 12px;
+  --radius-image: 8px;
+  --color-muted: #737373;
 }
 
 html, body {
   @apply antialiased;
   scroll-behavior: smooth;
+  font-family: var(--font-sans);
 }
 
 @layer base {
@@ -24,9 +33,49 @@ html, body {
   :where(p, li, blockquote) {
     overflow-wrap: anywhere;
   }
+
+  h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+
+  h2 {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  h3 {
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+
+  body {
+    font-size: 1rem;
+    line-height: 1.75;
+    font-weight: 400;
+  }
+
+  small, .caption, figcaption {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--color-muted);
+  }
 }
 
-/* Reduced motion for accessibility */
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #2563eb;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -36,21 +85,18 @@ html, body {
   }
 }
 
-/* High-end cinematic reveal animation */
-[data-reveal] { 
-  opacity: 0; 
-  transform: translateY(40px) scale(0.95); 
-  filter: blur(10px);
-  will-change: transform, opacity, filter;
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s cubic-bezier(0.16, 1, 0.3, 1); 
-}
-[data-reveal].reveal-in { 
-  opacity: 1; 
-  transform: translateY(0) scale(1);
-  filter: blur(0px);
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  will-change: transform, opacity;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.32, 1), transform 0.5s cubic-bezier(0.16, 1, 0.32, 1);
 }
 
-/* Skip to main content for accessibility */
+[data-reveal].reveal-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .skip-to-main {
   position: absolute;
   left: -9999px;
@@ -60,6 +106,7 @@ html, body {
   color: #fff;
   text-decoration: none;
 }
+
 .skip-to-main:focus {
   left: 50%;
   transform: translateX(-50%);
@@ -71,41 +118,43 @@ html, body {
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+
 .animate-gradient {
   animation: gradient-bg 8s ease infinite;
 }
 
 @layer components {
-  /* Buttons */
-  .btn { 
-    @apply inline-flex items-center justify-center rounded-md border text-sm font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-neutral-900 dark:focus-visible:ring-white disabled:opacity-50 disabled:pointer-events-none; 
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md border text-sm font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-neutral-900 dark:focus-visible:ring-white disabled:opacity-50 disabled:pointer-events-none;
   }
+
   .btn-sm { @apply h-9 px-3 py-1.5; }
   .btn-md { @apply h-10 px-4 py-2; }
   .btn-lg { @apply h-11 px-5 py-2.5; }
 
-  .btn-primary { 
-    @apply border-transparent bg-neutral-900 text-white hover:bg-neutral-800 active:bg-neutral-900 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100 dark:active:bg-white/90 shadow-sm hover:shadow-md; 
+  .btn-primary {
+    @apply border-transparent bg-neutral-900 text-white hover:bg-neutral-800 active:bg-neutral-900 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100 dark:active:bg-white/90 shadow-sm hover:shadow-md;
   }
-  .btn-outline { 
-    @apply border-black/15 text-neutral-900 hover:bg-black/[0.04] active:bg-black/[0.06] dark:border-white/15 dark:text-neutral-100 dark:hover:bg-white/[0.06] dark:active:bg-white/[0.08]; 
+
+  .btn-outline {
+    @apply border-black/15 text-neutral-900 hover:bg-black/[0.04] active:bg-black/[0.06] dark:border-white/15 dark:text-neutral-100 dark:hover:bg-white/[0.06] dark:active:bg-white/[0.08];
   }
-  .btn-ghost { 
-    @apply border-transparent text-neutral-900 hover:bg-black/[0.04] active:bg-black/[0.06] dark:text-neutral-100 dark:hover:bg-white/[0.06] dark:active:bg-white/[0.08]; 
+
+  .btn-ghost {
+    @apply border-transparent text-neutral-900 hover:bg-black/[0.04] active:bg-black/[0.06] dark:text-neutral-100 dark:hover:bg-white/[0.06] dark:active:bg-white/[0.08];
   }
-  .btn-link { 
-    @apply border-transparent p-0 h-auto text-[12px] uppercase tracking-wide hover:underline underline-offset-4 decoration-neutral-400/70 dark:decoration-white/40; 
+
+  .btn-link {
+    @apply border-transparent p-0 h-auto text-[12px] uppercase tracking-wide hover:underline underline-offset-4 decoration-neutral-400/70 dark:decoration-white/40;
   }
 }
 
-/* Focus visible styles for accessibility */
-a:focus-visible, 
+a:focus-visible,
 button:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 2px;
 }
 
-/* Selection styling */
 ::selection {
   background-color: rgba(0, 0, 0, 0.15);
   color: inherit;
