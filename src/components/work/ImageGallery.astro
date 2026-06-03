@@ -16,7 +16,7 @@ interface Props {
 const { images, gallery, layout: layoutProp = 'auto', priority = false } = Astro.props;
 
 function isVideo(src: string): boolean {
-  return src.endsWith('.webm');
+  return src.endsWith('.webm') || src.endsWith('.mp4');
 }
 
 const galleryLayouts: Record<string, string> = {
@@ -34,7 +34,7 @@ const resolvedLayout = layoutProp !== 'auto' ? layoutProp : (galleryLayouts[gall
     {images.map((img, i) => (
       <figure>
         {isVideo(img.src) ? (
-          <video src={img.src} autoplay muted loop playsinline aria-label={img.alt} class="gallery-video" />
+          <video src={img.src} autoplay muted loop playsinline aria-label={img.alt} width="100%" style="height:auto;display:block;border-radius:var(--radius-image,8px)" />
         ) : (
           <img src={img.src} alt={img.alt} data-gallery={gallery} data-src={img.src} data-index={i} tabindex="0" role="button" loading={priority && i === 0 ? 'eager' : 'lazy'} fetchpriority={priority && i === 0 ? 'high' : 'low'} class="gallery-img" />
         )}
@@ -49,7 +49,7 @@ const resolvedLayout = layoutProp !== 'auto' ? layoutProp : (galleryLayouts[gall
     {images.map((img, i) => (
       <figure>
         {isVideo(img.src) ? (
-          <video src={img.src} autoplay muted loop playsinline aria-label={img.alt} class="gallery-video" />
+          <video src={img.src} autoplay muted loop playsinline aria-label={img.alt} width="100%" style="height:auto;display:block;border-radius:var(--radius-image,8px)" />
         ) : (
           <img src={img.src} alt={img.alt} data-gallery={gallery} data-src={img.src} data-index={i} tabindex="0" role="button" loading={priority && i === 0 ? 'eager' : 'lazy'} fetchpriority={priority && i === 0 ? 'high' : 'low'} class="gallery-img" />
         )}
@@ -117,15 +117,6 @@ const resolvedLayout = layoutProp !== 'auto' ? layoutProp : (galleryLayouts[gall
     transform: scale(1.02);
     outline: 2px solid var(--color-brand, #3b82f6);
     outline-offset: 2px;
-  }
-  .gallery-video {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
-    object-fit: contain;
-    border-radius: var(--radius-image, 8px);
-    display: block;
-    background: transparent;
   }
   figure figcaption {
     padding: 0.75rem 0;
