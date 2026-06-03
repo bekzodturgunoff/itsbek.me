@@ -204,6 +204,49 @@ const uz: I18n = {
     ],
     cta: {label: "Saytga o'tish", href: "https://octopos.uz"},
   },
+  octoposAppsCaseStudy: {
+    badge: "Loyiha tahlili",
+    title: "Octopos POS — Mobil va Dashboard ilovalari",
+    subtitle: "Restoran va chakana savdo korxonalari uchun kross-platforma POS va dashboard ilovalari to'plami.",
+    meta: [
+      {label: "Mijoz", value: "Octopos"},
+      {label: "Rol", value: "Mahsulot dizayneri · Dasturiy ta'minot muhandisi"},
+      {label: "Muddat", value: "2025"},
+      {label: "Texnologiyalar", value: "React Native, Expo, TypeScript, Tailwind, Supabase, PostgreSQL"},
+    ],
+    problem: {
+      title: "Muammo",
+      body: "Octopos'ga to'liq POS ekotizim kerak edi: ofitsiantlar uchun ishonchli POS ilovasi, oshxona uchun displey tizimi va menejerlar uchun dashboard. Har bir ilova oflayn rejimda ham barqaror ishlashi va sekundning bir qismida buyurtmalarni sinxronlashtirishi kerak edi.",
+    },
+    research: {
+      title: "Nima qurdim",
+      bullets: [
+        "Menyu ko'rish, savat boshqaruvi, buyurtma o'zgartirishlar (qo'shimchalar, almashtirishlar, eslatmalar), bir necha to'lov usullari (karta, naqd, QR) va avtomatik soliq/chegirma hisoblash bilan POS ilovasi.",
+        "Oshxona displey tizimi — real vaqtdagi buyurtmalar stansiyalar bo'yicha guruhlangan, rang-kodli ustuvorlik, taom vaqti (ishtaha → asosiy → shirinlik) va bajarish/o'zgartirish harakatlari.",
+        "Real vaqtdagi savdo analitikasi, buyurtma holatini boshqarish, xodimlarni boshqarish, inventar kuzatuvi, smena hisobotlari va menyu boshqaruvi bilan dashboard.",
+        "Supabase real-vaqt sinxronizatsiyasi — har qanday POS terminalidagi buyurtmalar KDS va dashboard'da bir zumda aks etadi — sekundning bir qismidan kam kechikish.",
+        "Oflayn-avval arxitektura — ulanish tiklanganda avtomatik sinxronlanadigan buyurtma navbati bilan restoran hech qachon to'xtamaydi.",
+      ],
+    },
+    design: {
+      title: "Natijalar",
+      bullets: [
+        "Uchta ishlab chiqarish ilovasi bir vaqtda chiqarildi — POS terminal, oshxona displeyi va menejer dashboard — hammasi bir Supabase backend'ida.",
+        "Uzluksiz real-vaqt buyurtma oqimi: ofitsiant POS'da buyurtma oladi → oshxona KDS'da darhol ko'radi → menejer hamma narsani dashboard'da kuzatadi.",
+        "Oflayn barqarorlik internet uzilishida ham nol ishlamay qolishni anglatadi — buyurtmalar mahalliy navbatga qo'yiladi va ulanish tiklanganda sinxronlanadi.",
+      ],
+    },
+    images: [
+      { src: "/images/projects/octopos_apps/dash_1.png", alt: "Octopos dashboard — real-vaqt savdo analitikasi", caption: "Kunlik daromad, faol buyurtmalar va asosiy ko'rsatkichlarni ko'rsatadigan menejer dashboard." },
+      { src: "/images/projects/octopos_apps/dash_2.png", alt: "Octopos dashboard — buyurtma kuzatuvi", caption: "Barcha stollar bo'yicha real-vaqt holati yangilanishlari bilan buyurtma boshqaruvi." },
+      { src: "/images/projects/octopos_apps/dash_3.png", alt: "Octopos dashboard — inventar va menyu boshqaruvi", caption: "Zaxira darajasi ogohlantirishlari bilan inventar kuzatuvi va menyu boshqaruvi." },
+      { src: "/images/projects/octopos_apps/pos_1.png", alt: "Octopos POS — menyu va savat", caption: "Menyu kategoriyalari, mahsulot tanlash va faol savat bilan POS terminali." },
+      { src: "/images/projects/octopos_apps/pos_2.png", alt: "Octopos POS — buyurtma o'zgartirish va to'lov", caption: "Qo'shimchalar, almashtirishlar va eslatmalar bilan buyurtma o'zgartirish ekrani." },
+      { src: "/images/projects/octopos_apps/pos_3.png", alt: "Octopos POS — to'lov jarayoni", caption: "Karta, naqd va QR to'lov variantlari bilan avtomatik hisoblangan umumiy summa." },
+      { src: "/images/projects/octopos_apps/kitchen_1.png", alt: "Octopos oshxona displeyi — real-vaqt buyurtmalar", caption: "Ustuvorlik ko'rsatkichlari bilan stansiyalar bo'yicha guruhlangan kiruvchi buyurtmalarni ko'rsatadigan oshxona displey tizimi." },
+    ],
+    cta: {label: "Octopos'ga o'tish", href: "https://octopos.uz"},
+  },
   skills: {
     title: "Nima bilan ishlayman",
     groups: [

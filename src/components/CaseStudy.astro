@@ -1,5 +1,6 @@
 ---
 import { getDictionary } from '../i18n';
+import CaseStudyImages from './CaseStudyImages.astro';
 
 interface Props {
   lang?: string;
@@ -15,9 +16,10 @@ interface Props {
     cta: { label: string; href: string };
   };
   gallery?: string;
+  fullWidthImages?: boolean;
 }
 
-const { lang, data: propData, gallery: galleryProp } = Astro.props;
+const { lang, data: propData, gallery: galleryProp, fullWidthImages } = Astro.props;
 const dictionaryData = getDictionary(lang).caseStudy;
 const data = propData || dictionaryData;
 const galleryName = galleryProp || (propData ? 'bronuz' : 'octopos');
@@ -47,7 +49,7 @@ const galleryName = galleryProp || (propData ? 'bronuz' : 'octopos');
       ))}
     </div>
 
-    <div class="mt-10 sm:mt-12 lg:mt-12 grid gap-8 lg:gap-9 xl:gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+    <div class:list={["mt-10 sm:mt-12 lg:mt-12 grid gap-8 lg:gap-9 xl:gap-10", fullWidthImages ? "lg:grid-cols-2" : "lg:grid-cols-[1.1fr_0.9fr]"]}>
       <div class="space-y-6 sm:space-y-8 lg:space-y-9">
         <article class="rounded-3xl border border-black/5 dark:border-white/5 bg-white/40 dark:bg-black/40 backdrop-blur-md p-5 sm:p-6 lg:p-7 transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg" data-reveal>
           <h3 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100">{data.problem.title}</h3>
@@ -73,27 +75,17 @@ const galleryName = galleryProp || (propData ? 'bronuz' : 'octopos');
         </article>
       </div>
 
-  <aside class="space-y-5 sm:space-y-6 lg:space-y-7">
-        {data.images.map((image, index) => (
-          <figure class={`overflow-hidden rounded-3xl backdrop-blur-md border transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg ${image.placeholder ? 'border-dashed border-black/20 dark:border-white/20 bg-white/40 dark:bg-black/40' : 'border-black/5 dark:border-white/5 bg-white/40 dark:bg-black/40'}`} data-reveal>
-            {image.placeholder ? (
-              <div class="flex h-48 items-center justify-center px-6 text-center text-sm text-neutral-500 dark:text-neutral-400">
-                {image.caption}
-              </div>
-            ) : image.src.endsWith('.webm') ? (
-              <>
-                <video src={image.src} autoplay muted loop playsinline aria-label={image.alt} class="w-full object-cover hover:scale-[1.02] transition duration-300" />
-                <figcaption class="px-5 py-4 text-sm text-neutral-600 dark:text-neutral-300 border-t border-black/5 dark:border-white/5">{image.caption}</figcaption>
-              </>
-            ) : (
-              <>
-                <img src={image.src} alt={image.alt} data-gallery={galleryName} data-src={image.src} data-index={index} loading="lazy" class="w-full object-cover cursor-zoom-in hover:scale-[1.02] transition duration-300" />
-                <figcaption class="px-5 py-4 text-sm text-neutral-600 dark:text-neutral-300 border-t border-black/5 dark:border-white/5">{image.caption}</figcaption>
-              </>
-            )}
-          </figure>
-        ))}
-      </aside>
+      {!fullWidthImages && (
+        <aside class="space-y-5 sm:space-y-6 lg:space-y-7">
+          <CaseStudyImages images={data.images} gallery={galleryName} />
+        </aside>
+      )}
     </div>
+
+    {fullWidthImages && (
+      <div class="mt-10 sm:mt-12 lg:mt-12 space-y-8">
+        <CaseStudyImages images={data.images} gallery={galleryName} />
+      </div>
+    )}
   </div>
 </section>

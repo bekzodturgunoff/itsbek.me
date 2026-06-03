@@ -204,6 +204,49 @@ const en: I18n = {
     ],
     cta: {label: "Visit live site", href: "https://octopos.uz"},
   },
+  octoposAppsCaseStudy: {
+    badge: "Case Study",
+    title: "Octopos POS — Mobile & Dashboard Apps",
+    subtitle: "A suite of cross-platform POS and dashboard applications for restaurants and retail businesses.",
+    meta: [
+      {label: "Client", value: "Octopos"},
+      {label: "Role", value: "Product Designer · Software Engineer"},
+      {label: "Timeline", value: "2025"},
+      {label: "Stack", value: "React Native, Expo, TypeScript, Tailwind, Supabase, PostgreSQL"},
+    ],
+    problem: {
+      title: "The challenge",
+      body: "Octopos needed a complete POS ecosystem: a reliable point-of-sale app for front-of-house staff, a kitchen display system for the back-of-house team, and a dashboard for managers to track orders, revenue, and inventory. Each app had to work seamlessly together while handling offline resilience and sub-second order sync.",
+    },
+    research: {
+      title: "What I built",
+      bullets: [
+        "Point-of-Sale app with menu browsing, cart management, order modifications (add-ons, substitutions, item notes), multiple payment methods (card, cash, QR), and automatic tax/discount calculations.",
+        "Kitchen Display System — real-time incoming orders grouped by station with colour-coded priority, course timing (appetiser → main → dessert), and complete/modify actions.",
+        "Dashboard with real-time sales analytics, order tracking with status management, employee management, inventory tracking, shift reports, and menu management.",
+        "Supabase real-time sync — orders placed on any POS terminal appear instantly on the KDS and update the dashboard — all within sub-second latency.",
+        "Offline-first architecture — order queue with automatic sync when connectivity is restored, ensuring the restaurant never stops taking orders.",
+      ],
+    },
+    design: {
+      title: "Results",
+      bullets: [
+        "Three production apps shipped simultaneously — POS terminal, Kitchen Display, and Manager Dashboard — all sharing the same Supabase backend.",
+        "Seamless real-time order flow: server takes order on POS → kitchen sees it instantly on KDS → manager tracks everything on dashboard.",
+        "Offline resilience means zero downtime even during internet outages — orders queue locally and sync when back online.",
+      ],
+    },
+    images: [
+      { src: "/images/projects/octopos_apps/dash_1.png", alt: "Octopos dashboard — real-time sales analytics and order overview", caption: "Manager dashboard showing daily revenue, active orders, and key metrics at a glance." },
+      { src: "/images/projects/octopos_apps/dash_2.png", alt: "Octopos dashboard — order tracking and status management", caption: "Order management view with real-time status updates across all tables." },
+      { src: "/images/projects/octopos_apps/dash_3.png", alt: "Octopos dashboard — inventory and menu management", caption: "Inventory tracking and menu management with stock level alerts." },
+      { src: "/images/projects/octopos_apps/pos_1.png", alt: "Octopos POS — menu browsing and cart management", caption: "POS terminal with menu categories, item selection, and active cart." },
+      { src: "/images/projects/octopos_apps/pos_2.png", alt: "Octopos POS — order modifications and payment", caption: "Order modification screen with add-ons, substitutions, and item notes." },
+      { src: "/images/projects/octopos_apps/pos_3.png", alt: "Octopos POS — payment processing", caption: "Payment screen with card, cash, and QR payment options and auto-calculated totals." },
+      { src: "/images/projects/octopos_apps/kitchen_1.png", alt: "Octopos Kitchen Display — real-time incoming orders", caption: "Kitchen Display System showing incoming orders grouped by station with priority indicators." },
+    ],
+    cta: {label: "Visit Octopos", href: "https://octopos.uz"},
+  },
   skills: {
     title: "What I Work With",
     groups: [

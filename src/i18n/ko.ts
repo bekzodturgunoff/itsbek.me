@@ -158,6 +158,49 @@ const ko: I18n = {
     ],
     cta: { label: '라이브 사이트 방문', href: 'https://octopos.uz' }
   },
+  octoposAppsCaseStudy: {
+    badge: '사례 연구',
+    title: 'Octopos POS — 모바일 & 대시보드 앱',
+    subtitle: '레스토랑 및 소매업을 위한 크로스 플랫폼 POS 및 대시보드 애플리케이션 제품군입니다.',
+    meta: [
+      { label: '클라이언트', value: 'Octopos' },
+      { label: '역할', value: '제품 디자이너 · 소프트웨어 엔지니어' },
+      { label: '기간', value: '2025' },
+      { label: '기술 스택', value: 'React Native, Expo, TypeScript, Tailwind, Supabase, PostgreSQL' }
+    ],
+    problem: {
+      title: '도전 과제',
+      body: 'Octopos는 완벽한 POS 생태계가 필요했습니다: 직원용 POS 앱, 주방용 키친 디스플레이 시스템, 관리자용 대시보드. 각 앱은 오프라인에서도 안정적으로 작동하고 1초 이하의 지연으로 주문을 동기화해야 했습니다.'
+    },
+    research: {
+      title: '수행 역할',
+      bullets: [
+        '메뉴 탐색, 장바구니 관리, 주문 수정(추가, 대체, 항목 메모), 여러 결제 방식(카드, 현금, QR), 자동 세금/할인 계산이 포함된 POS 앱.',
+        '주방 디스플레이 시스템 — 실시간 주문을 스테이션별로 그룹화, 색상 코드 우선순위, 코스 타이밍(에피타이저 → 메인 → 디저트), 완료/수정 작업.',
+        '실시간 매출 분석, 주문 상태 관리, 직원 관리, 재고 추적, 교대 보고서, 메뉴 관리가 포함된 대시보드.',
+        'Supabase 실시간 동기화 — POS에서 주문이 접수되면 KDS와 대시보드에 즉시 반영, 1초 미만 지연.',
+        '오프라인 우선 아키텍처 — 연결 복구 시 자동 동기화되는 주문 대기열로 레스토랑이 중단 없이 운영됩니다.'
+      ]
+    },
+    design: {
+      title: '결과',
+      bullets: [
+        'POS 터미널, 주방 디스플레이, 관리자 대시보드 등 세 개의 프로덕션 앱이 동시에 출시되었으며 모두 동일한 Supabase 백엔드를 공유합니다.',
+        '원활한 실시간 주문 흐름: 서버가 POS에서 주문 → 주방이 KDS에서 즉시 확인 → 관리자가 대시보드에서 모든 것을 추적.',
+        '오프라인 복원력으로 인터넷 중단 중에도 다운타임 제로 — 주문이 로컬에 대기하고 온라인 복구 시 자동 동기화됩니다.'
+      ]
+    },
+    images: [
+      { src: '/images/projects/octopos_apps/dash_1.png', alt: 'Octopos 대시보드 — 실시간 매출 분석 및 주문 개요', caption: '일일 매출, 활성 주문, 주요 지표를 한눈에 보여주는 관리자 대시보드.' },
+      { src: '/images/projects/octopos_apps/dash_2.png', alt: 'Octopos 대시보드 — 주문 추적 및 상태 관리', caption: '모든 테이블의 실시간 상태 업데이트가 포함된 주문 관리 화면.' },
+      { src: '/images/projects/octopos_apps/dash_3.png', alt: 'Octopos 대시보드 — 재고 및 메뉴 관리', caption: '재고 수준 알림이 포함된 재고 추적 및 메뉴 관리.' },
+      { src: '/images/projects/octopos_apps/pos_1.png', alt: 'Octopos POS — 메뉴 탐색 및 장바구니 관리', caption: '메뉴 카테고리, 항목 선택, 활성 장바구니가 있는 POS 터미널.' },
+      { src: '/images/projects/octopos_apps/pos_2.png', alt: 'Octopos POS — 주문 수정 및 결제', caption: '추가, 대체, 항목 메모가 있는 주문 수정 화면.' },
+      { src: '/images/projects/octopos_apps/pos_3.png', alt: 'Octopos POS — 결제 처리', caption: '카드, 현금, QR 결제 옵션과 자동 계산된 총액이 있는 결제 화면.' },
+      { src: '/images/projects/octopos_apps/kitchen_1.png', alt: 'Octopos 주방 디스플레이 — 실시간 주문', caption: '우선순위 표시기와 함께 스테이션별로 그룹화된 수신 주문을 보여주는 주방 디스플레이 시스템.' }
+    ],
+    cta: { label: 'Octopos 방문', href: 'https://octopos.uz' }
+  },
   skills: {
     title: '사용 기술',
     groups: [

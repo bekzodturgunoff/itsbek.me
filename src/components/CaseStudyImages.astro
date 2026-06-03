@@ -1,0 +1,27 @@
+---
+interface Props {
+  images: { src: string; alt: string; caption: string; placeholder?: boolean }[];
+  gallery: string;
+}
+
+const { images, gallery } = Astro.props;
+---
+{images.map((image, index) => (
+  <figure class={`overflow-hidden rounded-3xl backdrop-blur-md border transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg ${image.placeholder ? 'border-dashed border-black/20 dark:border-white/20 bg-white/40 dark:bg-black/40' : image.src.endsWith('.webm') ? 'border-black/5 dark:border-white/5 bg-transparent' : 'border-black/5 dark:border-white/5 bg-white/40 dark:bg-black/40'}`} data-reveal>
+    {image.placeholder ? (
+      <div class="flex h-48 items-center justify-center px-6 text-center text-sm text-neutral-500 dark:text-neutral-400">
+        {image.caption}
+      </div>
+    ) : image.src.endsWith('.webm') ? (
+      <>
+        <video src={image.src} autoplay muted loop playsinline aria-label={image.alt} class="w-full object-cover hover:scale-[1.02] transition duration-300" style="mix-blend-mode: screen" />
+        <figcaption class="px-5 py-4 text-sm text-neutral-600 dark:text-neutral-300 border-t border-black/5 dark:border-white/5">{image.caption}</figcaption>
+      </>
+    ) : (
+      <>
+        <img src={image.src} alt={image.alt} data-gallery={gallery} data-src={image.src} data-index={index} loading="lazy" class="w-full object-cover cursor-zoom-in hover:scale-[1.02] transition duration-300" />
+        <figcaption class="px-5 py-4 text-sm text-neutral-600 dark:text-neutral-300 border-t border-black/5 dark:border-white/5">{image.caption}</figcaption>
+      </>
+    )}
+  </figure>
+))}
