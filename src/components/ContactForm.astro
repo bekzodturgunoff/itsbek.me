@@ -73,40 +73,14 @@ const t = getDictionary(lang);
       status.textContent = 'Sending...';
       status.className = 'block text-sm text-center text-neutral-600 dark:text-neutral-400';
 
-      const API_BASE = (import.meta.env && import.meta.env.PUBLIC_API_BASE) || 'http://localhost:5001';
-
-      const sendTo = async (base) => {
-        const baseTrim = (base || '').replace(/\/$/, '');
-        const finalUrl = baseTrim ? `${baseTrim}/api/contact` : '/api/contact';
-        return fetch(finalUrl, {
+      try {
+        const res = await fetch('/api/contact', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data),
         });
-      };
 
-      try {
-        let response = null;
-        try {
-          response = await sendTo(API_BASE);
-        } catch {
-          response = null;
-        }
-
-        if (!response || !response.ok) {
-          try {
-            const fallback = await sendTo('');
-            if (fallback.ok) {
-              status.textContent = '✓ Message sent!';
-              status.className = 'block text-sm text-center text-emerald-600 dark:text-emerald-400';
-              form.reset();
-              setTimeout(() => { status.textContent = ''; }, 5000);
-              return;
-            }
-          } catch {}
-
-          throw new Error('Failed to send');
-        }
+        if (!res.ok) throw new Error('Failed');
 
         status.textContent = '✓ Message sent!';
         status.className = 'block text-sm text-center text-emerald-600 dark:text-emerald-400';
