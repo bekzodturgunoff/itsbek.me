@@ -8,7 +8,7 @@ const ru: I18n = {
   name: 'itsbek.me',
     titleTop: 'Софтуэр-инженер',
     titleBottom: 'с фокусом на UX и надежность',
-    description: `Софтуэр-инженер с 4+ годами опыта. Делаю быстрые и доступные продукты на React и Astro, работаю в тесной связке с дизайном и бэкендом. Уверенно использую JavaScript/TypeScript, Python и подхожу к задачам на уровне C/системного мышления.`,
+    description: `Софтуэр-инженер с 3+ годами опыта. Делаю быстрые и доступные продукты на React и Astro, работаю в тесной связке с дизайном и бэкендом. Уверенно использую JavaScript/TypeScript, Python и подхожу к задачам на уровне C/системного мышления.`,
     location: 'Узбекистан',
     availability: 'Открыт для новых проектов',
     timezoneLabel: 'KST (GMT +9)',
@@ -132,7 +132,7 @@ const ru: I18n = {
       { label: 'Клиент', value: 'Octopos' },
       { label: 'Роль', value: 'Продуктовый дизайнер · Софтуэр-инженер' },
       { label: 'Сроки', value: '4 недели · 2025' },
-      { label: 'Стек', value: 'Astro, Tailwind, Vercel, Resend' }
+      { label: 'Стек', value: 'Astro, Tailwind, Resend' }
     ],
     problem: {
       title: 'Задача',

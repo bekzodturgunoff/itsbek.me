@@ -15,7 +15,7 @@ const uz: I18n = {
     name: "itsbek.me",
     titleTop: "Dasturiy ta'minot muhandisi",
     titleBottom: "foydalanuvchi tajribasiga e'tibor qaratadi",
-    description: `4+ yillik tajribaga ega dasturiy ta'minot muhandisi. React va Astro'da tez va qulay mahsulotlar yarataman. JavaScript/TypeScript, Python va C darajasidagi muammolarni hal qilishda ishonchli ishlayman.`,
+    description: `3+ yillik tajribaga ega dasturiy ta'minot muhandisi. React va Astro'da tez va qulay mahsulotlar yarataman. JavaScript/TypeScript, Python va C darajasidagi muammolarni hal qilishda ishonchli ishlayman.`,
     location: "O'zbekiston",
     availability: "Yangi loyihalar uchun ochiq",
     timezoneLabel: "Toshkent vaqti (GMT +5)",
@@ -168,7 +168,7 @@ const uz: I18n = {
       {label: "Mijoz", value: "Octopos"},
       {label: "Rol", value: "Mahsulot dizayneri · Dasturiy ta'minot muhandisi"},
       {label: "Muddat", value: "4 hafta · 2025"},
-      {label: "Texnologiyalar", value: "Astro, Tailwind, Vercel, Resend"},
+      {label: "Texnologiyalar", value: "Astro, Tailwind, Resend"},
     ],
     problem: {
       title: "Muammo",

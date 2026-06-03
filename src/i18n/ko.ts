@@ -8,7 +8,7 @@ const ko: I18n = {
   name: 'itsbek.me',
     titleTop: '소프트웨어 엔지니어',
     titleBottom: '사용자 경험과 신뢰성에 집중',
-    description: `2년+ 경험의 소프트웨어 엔지니어로, React와 Astro로 빠르고 접근성 높은 제품을 만듭니다. 디자인·백엔드와 긴밀히 협업하며 JavaScript/TypeScript, Python, C 레벨 문제 해결에 익숙합니다.`,
+    description: `3년+ 경험의 소프트웨어 엔지니어로, React와 Astro로 빠르고 접근성 높은 제품을 만듭니다. 디자인·백엔드와 긴밀히 협업하며 JavaScript/TypeScript, Python, C 레벨 문제 해결에 익숙합니다.`,
     location: '우즈베키스탄',
     availability: '새로운 프로젝트 문의 가능',
     timezoneLabel: 'KST (GMT +9)',
@@ -132,7 +132,7 @@ const ko: I18n = {
       { label: '클라이언트', value: 'Octopos' },
       { label: '역할', value: '제품 디자이너 · 소프트웨어 엔지니어' },
       { label: '기간', value: '4주 · 2025년' },
-      { label: '기술 스택', value: 'Astro, Tailwind, Vercel, Resend' }
+      { label: '기술 스택', value: 'Astro, Tailwind, Resend' }
     ],
     problem: {
       title: '도전 과제',

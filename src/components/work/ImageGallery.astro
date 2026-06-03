@@ -13,91 +13,169 @@ interface Props {
   priority?: boolean;
 }
 
-const { images, gallery, layout = 'auto', priority = false } = Astro.props;
+const { images, gallery, layout: layoutProp = 'auto', priority = false } = Astro.props;
 
 function isVideo(src: string): boolean {
   return src.endsWith('.webm');
 }
 
-function autoLayout(count: number): string {
-  if (count <= 1) return 'full';
-  if (count === 2) return 'grid';
-  if (count === 3) return 'featured';
-  if (count === 4) return 'grid';
-  return 'featured';
-}
+const galleryLayouts: Record<string, string> = {
+  'bronuz': 'grid-2x2',
+  'telegram-bot': 'stacked',
+  'octopos': 'before-after',
+  'octopos-apps': 'featured-grid',
+};
 
-const r = layout === 'auto' ? autoLayout(images.length) : layout;
+const resolvedLayout = layoutProp !== 'auto' ? layoutProp : (galleryLayouts[gallery] || 'stacked');
 ---
 
-{r === 'full' && (
-  <div class="max-w-[900px] mx-auto space-y-6">
+{resolvedLayout === 'grid-2x2' && (
+  <div class="gallery-grid-2x2">
     {images.map((img, i) => (
-      <figure class={`overflow-hidden rounded-2xl border border-black/5 dark:border-white/5 ${isVideo(img.src) ? 'bg-transparent' : 'bg-white/40 dark:bg-black/40 backdrop-blur-md'}`} data-reveal>
-        <div class="aspect-[16/9]">
-          {isVideo(img.src) ? (
-            <video src={img.src} autoplay muted loop playsinline aria-label={img.alt} class="w-full h-full object-contain hover:scale-[1.02] transition duration-300" style="mix-blend-mode: screen" />
-          ) : (
-            <img src={img.src} alt={img.alt} data-gallery={gallery} data-src={img.src} data-index={i} tabindex="0" role="button" loading={priority && i === 0 ? 'eager' : 'lazy'} fetchpriority={priority && i === 0 ? 'high' : 'low'} class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] focus-visible:scale-[1.02] focus-visible:ring-2 focus-visible:ring-brand-500/50 focus-visible:outline-none transition duration-300" />
-          )}
-        </div>
-        {img.caption && <figcaption class="px-4 py-3 text-sm text-neutral-500 dark:text-neutral-400 italic border-t border-black/5 dark:border-white/5">{img.caption}</figcaption>}
+      <figure>
+        {isVideo(img.src) ? (
+          <video src={img.src} autoplay muted loop playsinline aria-label={img.alt} class="gallery-video" />
+        ) : (
+          <img src={img.src} alt={img.alt} data-gallery={gallery} data-src={img.src} data-index={i} tabindex="0" role="button" loading={priority && i === 0 ? 'eager' : 'lazy'} fetchpriority={priority && i === 0 ? 'high' : 'low'} class="gallery-img" />
+        )}
+        {img.caption && <figcaption>{img.caption}</figcaption>}
       </figure>
     ))}
   </div>
 )}
 
-{r === 'grid' && (
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+{resolvedLayout === 'stacked' && (
+  <div class="gallery-stacked">
     {images.map((img, i) => (
-      <figure class={`overflow-hidden rounded-2xl border border-black/5 dark:border-white/5 ${isVideo(img.src) ? 'bg-transparent' : 'bg-white/40 dark:bg-black/40 backdrop-blur-md'}`} data-reveal>
-        <div class="aspect-[16/9]">
-          {isVideo(img.src) ? (
-            <video src={img.src} autoplay muted loop playsinline aria-label={img.alt} class="w-full h-full object-contain hover:scale-[1.02] transition duration-300" style="mix-blend-mode: screen" />
-          ) : (
-            <img src={img.src} alt={img.alt} data-gallery={gallery} data-src={img.src} data-index={i} tabindex="0" role="button" loading="lazy" fetchpriority="low" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] focus-visible:scale-[1.02] focus-visible:ring-2 focus-visible:ring-brand-500/50 focus-visible:outline-none transition duration-300" />
-          )}
-        </div>
-        {img.caption && <figcaption class="px-4 py-3 text-sm text-neutral-500 dark:text-neutral-400 italic border-t border-black/5 dark:border-white/5">{img.caption}</figcaption>}
+      <figure>
+        {isVideo(img.src) ? (
+          <video src={img.src} autoplay muted loop playsinline aria-label={img.alt} class="gallery-video">Your browser does not support video playback.</video>
+        ) : (
+          <img src={img.src} alt={img.alt} data-gallery={gallery} data-src={img.src} data-index={i} tabindex="0" role="button" loading={priority && i === 0 ? 'eager' : 'lazy'} fetchpriority={priority && i === 0 ? 'high' : 'low'} class="gallery-img" />
+        )}
+        {img.caption && <figcaption>{img.caption}</figcaption>}
       </figure>
     ))}
   </div>
 )}
 
-{r === 'featured' && images.length === 3 && (
-  <div class="space-y-4">
-    {[0,1,2].map((i) => {
-      const img = images[i];
-      const featured = i === 0;
-      return (
-        <figure class={`overflow-hidden rounded-2xl border border-black/5 dark:border-white/5 ${isVideo(img.src) ? 'bg-transparent' : 'bg-white/40 dark:bg-black/40 backdrop-blur-md'} ${featured ? '' : 'col-span-1'}`} data-reveal>
-          <div class={featured ? 'aspect-[16/9]' : 'aspect-[16/9]'}>
-            {isVideo(img.src) ? (
-              <video src={img.src} autoplay muted loop playsinline aria-label={img.alt} class="w-full h-full object-contain hover:scale-[1.02] transition duration-300" style="mix-blend-mode: screen" />
-            ) : (
-              <img src={img.src} alt={img.alt} data-gallery={gallery} data-src={img.src} data-index={i} tabindex="0" role="button" loading="lazy" fetchpriority="low" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] focus-visible:scale-[1.02] focus-visible:ring-2 focus-visible:ring-brand-500/50 focus-visible:outline-none transition duration-300" />
-            )}
-          </div>
-          {img.caption && <figcaption class="px-4 py-3 text-sm text-neutral-500 dark:text-neutral-400 italic border-t border-black/5 dark:border-white/5">{img.caption}</figcaption>}
+{resolvedLayout === 'before-after' && (
+  <div class="gallery-before-after">
+    {images.map((img, i) => (
+      <figure>
+        <img src={img.src} alt={img.alt} data-gallery={gallery} data-src={img.src} data-index={i} tabindex="0" role="button" loading={priority && i === 0 ? 'eager' : 'lazy'} fetchpriority={priority && i === 0 ? 'high' : 'low'} class="gallery-img" />
+        {img.caption && <figcaption>{img.caption}</figcaption>}
+      </figure>
+    ))}
+  </div>
+)}
+
+{resolvedLayout === 'featured-grid' && (
+  <div class="gallery-featured-grid">
+    {images.map((img, i) => (
+      i === 0 ? (
+        <figure class="featured">
+          <img src={img.src} alt={img.alt} data-gallery={gallery} data-src={img.src} data-index={i} tabindex="0" role="button" loading={priority && i === 0 ? 'eager' : 'lazy'} fetchpriority={priority && i === 0 ? 'high' : 'low'} class="gallery-img" />
+          {img.caption && <figcaption>{img.caption}</figcaption>}
         </figure>
-      );
-    })}
+      ) : null
+    ))}
+    {(() => {
+      const rest = images.slice(1);
+      const rows: GalleryImage[][] = [];
+      for (let j = 0; j < rest.length; j += 3) {
+        rows.push(rest.slice(j, j + 3));
+      }
+      return rows.map((row) => (
+        <div class="grid-row">
+          {row.map((img, ri) => (
+            <figure>
+              <img src={img.src} alt={img.alt} data-gallery={gallery} data-src={img.src} data-index={ri + 1} tabindex="0" role="button" loading="lazy" fetchpriority="low" class="gallery-img" />
+              {img.caption && <figcaption>{img.caption}</figcaption>}
+            </figure>
+          ))}
+        </div>
+      ));
+    })()}
   </div>
 )}
 
-{r === 'featured' && images.length >= 5 && (
-  <div class="space-y-4">
-    {images.map((img, i) => (
-      <figure class={`overflow-hidden rounded-2xl border border-black/5 dark:border-white/5 ${isVideo(img.src) ? 'bg-transparent' : 'bg-white/40 dark:bg-black/40 backdrop-blur-md'} ${i === 0 ? '' : 'hidden sm:block'}`} data-reveal>
-        <div class={i === 0 ? 'aspect-[16/9]' : 'aspect-[16/9]'}>
-          {isVideo(img.src) ? (
-            <video src={img.src} autoplay muted loop playsinline aria-label={img.alt} class="w-full h-full object-contain hover:scale-[1.02] transition duration-300" style="mix-blend-mode: screen" />
-          ) : (
-            <img src={img.src} alt={img.alt} data-gallery={gallery} data-src={img.src} data-index={i} tabindex="0" role="button" loading="lazy" fetchpriority="low" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] focus-visible:scale-[1.02] focus-visible:ring-2 focus-visible:ring-brand-500/50 focus-visible:outline-none transition duration-300" />
-          )}
-        </div>
-        {img.caption && <figcaption class="px-4 py-3 text-sm text-neutral-500 dark:text-neutral-400 italic border-t border-black/5 dark:border-white/5">{img.caption}</figcaption>}
-      </figure>
-    ))}
-  </div>
-)}
+<style>
+  .gallery-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: var(--radius-image, 8px);
+    cursor: zoom-in;
+    transition: transform 0.3s;
+  }
+  .gallery-img:hover {
+    transform: scale(1.02);
+  }
+  .gallery-img:focus-visible {
+    transform: scale(1.02);
+    outline: 2px solid var(--color-brand, #3b82f6);
+    outline-offset: 2px;
+  }
+  .gallery-video {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    border-radius: var(--radius-image, 8px);
+    display: block;
+    background: transparent;
+  }
+  figure figcaption {
+    padding: 0.75rem 0;
+    font-size: 0.8125rem;
+    color: var(--color-muted, #737373);
+    font-style: italic;
+    border-top: 1px solid rgba(128, 128, 128, 0.15);
+    margin-top: 0.5rem;
+  }
+  figure {
+    margin: 0;
+  }
+  .gallery-grid-2x2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .gallery-stacked {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .gallery-before-after {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    align-items: start;
+  }
+  .gallery-featured-grid {
+    display: grid;
+    gap: 1rem;
+  }
+  .gallery-featured-grid .featured img {
+    aspect-ratio: 21 / 9;
+  }
+  .gallery-featured-grid .grid-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  @media (max-width: 640px) {
+    .gallery-grid-2x2,
+    .gallery-before-after,
+    .gallery-featured-grid .grid-row {
+      grid-template-columns: 1fr;
+    }
+    .gallery-featured-grid .featured img {
+      aspect-ratio: 16 / 9;
+    }
+  }
+</style>

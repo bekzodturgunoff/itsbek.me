@@ -16,22 +16,15 @@ const expertSkills = new Set([
 ]);
 ---
 
-<div class="space-y-4">
+<div class="space-y-0">
   {t.skills.groups.map((group) => (
-    <div class="flex flex-col sm:flex-row sm:items-start gap-3" data-reveal>
-      <span class="text-xs uppercase tracking-[0.15em] text-neutral-500 dark:text-neutral-400 sm:w-[100px] sm:shrink-0 sm:pt-1">{group.title}</span>
-      <div class="flex flex-wrap gap-2">
+    <div class="skills-group" data-reveal>
+      <span class="skills-label">{group.title}</span>
+      <div class="skills-pills">
         {group.items.map((s) => {
           const isExpert = expertSkills.has(s);
           return (
-            <span
-              class:list={[
-                'rounded-full border px-3 py-0.5 text-[13px] transition-colors',
-                isExpert
-                  ? 'border-brand-500/30 text-brand-700 dark:text-brand-300 hover:bg-brand-500/10'
-                  : 'border-neutral-300/50 dark:border-neutral-700/50 text-neutral-500 dark:text-neutral-400 italic opacity-40',
-              ]}
-            >
+            <span class:list={['pill', !isExpert && 'dimmed']}>
               {s}
             </span>
           );
@@ -39,5 +32,67 @@ const expertSkills = new Set([
       </div>
     </div>
   ))}
-  <p class="text-xs text-neutral-400 dark:text-neutral-600 italic pl-[0] sm:pl-[108px]">* dimmed = learning / less frequent use</p>
+  <p class="text-xs text-neutral-400 dark:text-neutral-600 italic pt-3">* dimmed = learning / less frequent use</p>
 </div>
+
+<style>
+  .skills-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding-block: 0.75rem;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.12);
+  }
+  .skills-group:last-of-type {
+    border-bottom: none;
+  }
+  .skills-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-muted, #94a3b8);
+    min-width: 80px;
+    padding-top: 0.25rem;
+    flex-shrink: 0;
+  }
+  .skills-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .pill {
+    font-size: 0.8125rem;
+    padding: 0.2rem 0.65rem;
+    border-radius: 999px;
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    background: transparent;
+    color: var(--color-fg, #171717);
+    transition: background 150ms ease, border-color 150ms ease;
+  }
+  .pill:hover {
+    border-color: #3b82f6;
+    background: rgba(59, 130, 246, 0.08);
+  }
+  :global(.dark) .pill {
+    color: var(--color-fg, #f5f5f7);
+  }
+  :global(.dark) .pill:hover {
+    border-color: #60a5fa;
+    background: rgba(96, 165, 250, 0.1);
+  }
+  .pill.dimmed {
+    opacity: 0.4;
+    font-style: italic;
+  }
+  .pill.dimmed:hover {
+    opacity: 0.6;
+  }
+
+  @media (max-width: 640px) {
+    .skills-group {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+</style>

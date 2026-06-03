@@ -168,7 +168,7 @@ const en: I18n = {
       {label: "Client", value: "Octopos"},
       {label: "Role", value: "Product Designer · Software Engineer"},
       {label: "Timeline", value: "4 weeks · 2025"},
-      {label: "Stack", value: "Astro, Tailwind, Vercel, Resend"},
+      {label: "Stack", value: "Astro, Tailwind, Resend"},
     ],
     problem: {
       title: "The challenge",
