@@ -1,8 +1,6 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
 import { languages, defaultLang } from '@/i18n';
-import ThreeBackground from '@/components/ThreeBackground.astro';
-import Effects from '@/components/Effects.astro';
 
 interface Props {
   title?: string;
@@ -92,9 +90,7 @@ const prefetchTargets = languageCodes
     </script>
     <ViewTransitions />
   </head>
-  <body class="min-h-screen bg-transparent text-neutral-900 dark:text-neutral-100 text-base relative">
-    <Effects />
-    <ThreeBackground />
+  <body class="min-h-screen bg-neutral-50 dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 text-base relative">
     <slot />
   </body>
 </html>
