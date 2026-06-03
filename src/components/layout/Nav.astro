@@ -36,7 +36,7 @@ const mobileLinks = links.filter((l) => l.href !== '#case-study');
           ))}
         </ul>
 
-        <a href="/resume/resume_Bekzod.docx" download class="hidden sm:inline-block uppercase text-[11px] tracking-[0.18em] hover:text-brand-600 dark:hover:text-brand-400 transition-colors whitespace-nowrap shrink-0" aria-label="Download resume">{t.nav.links.resume}</a>
+        <a href="/resume/resume_Bekzod.pdf" download class="hidden sm:inline-block uppercase text-[11px] tracking-[0.18em] hover:text-brand-600 dark:hover:text-brand-400 transition-colors whitespace-nowrap shrink-0" aria-label="Download resume">{t.nav.links.resume}</a>
 
         <div class="shrink-0">
           <LanguageSwitcher lang={lang} />
@@ -60,7 +60,7 @@ const mobileLinks = links.filter((l) => l.href !== '#case-study');
     {mobileLinks.map((l) => (
       <li><a href={l.href} class="nav-link text-2xl font-medium hover:text-brand-600 dark:hover:text-brand-400 transition-colors">{l.label}</a></li>
     ))}
-    <li class="mt-4"><a href="/resume/resume_Bekzod.docx" download class="btn btn-outline btn-lg rounded-full px-8">{t.nav.links.resume}</a></li>
+    <li class="mt-4"><a href="/resume/resume_Bekzod.pdf" download class="btn btn-outline btn-lg rounded-full px-8">{t.nav.links.resume}</a></li>
   </ul>
 </div>
 
