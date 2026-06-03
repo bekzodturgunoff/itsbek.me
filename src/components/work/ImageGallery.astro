@@ -33,10 +33,10 @@ const r = layout === 'auto' ? autoLayout(images.length) : layout;
 {r === 'full' && (
   <div class="max-w-[900px] mx-auto space-y-6">
     {images.map((img, i) => (
-      <figure class="overflow-hidden rounded-2xl border border-black/5 dark:border-white/5 bg-white/40 dark:bg-black/40 backdrop-blur-md" data-reveal>
+      <figure class={`overflow-hidden rounded-2xl border border-black/5 dark:border-white/5 ${isVideo(img.src) ? 'bg-transparent' : 'bg-white/40 dark:bg-black/40 backdrop-blur-md'}`} data-reveal>
         <div class="aspect-[16/9]">
           {isVideo(img.src) ? (
-            <video src={img.src} autoplay muted loop playsinline aria-label={img.alt} class="w-full h-full object-cover hover:scale-[1.02] transition duration-300" style="mix-blend-mode: screen" />
+            <video src={img.src} autoplay muted loop playsinline aria-label={img.alt} class="w-full h-full object-contain hover:scale-[1.02] transition duration-300" style="mix-blend-mode: screen" />
           ) : (
             <img src={img.src} alt={img.alt} data-gallery={gallery} data-src={img.src} data-index={i} tabindex="0" role="button" loading={priority && i === 0 ? 'eager' : 'lazy'} fetchpriority={priority && i === 0 ? 'high' : 'low'} class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] focus-visible:scale-[1.02] focus-visible:ring-2 focus-visible:ring-brand-500/50 focus-visible:outline-none transition duration-300" />
           )}
@@ -50,10 +50,10 @@ const r = layout === 'auto' ? autoLayout(images.length) : layout;
 {r === 'grid' && (
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
     {images.map((img, i) => (
-      <figure class="overflow-hidden rounded-2xl border border-black/5 dark:border-white/5 bg-white/40 dark:bg-black/40 backdrop-blur-md" data-reveal>
+      <figure class={`overflow-hidden rounded-2xl border border-black/5 dark:border-white/5 ${isVideo(img.src) ? 'bg-transparent' : 'bg-white/40 dark:bg-black/40 backdrop-blur-md'}`} data-reveal>
         <div class="aspect-[16/9]">
           {isVideo(img.src) ? (
-            <video src={img.src} autoplay muted loop playsinline aria-label={img.alt} class="w-full h-full object-cover hover:scale-[1.02] transition duration-300" style="mix-blend-mode: screen" />
+            <video src={img.src} autoplay muted loop playsinline aria-label={img.alt} class="w-full h-full object-contain hover:scale-[1.02] transition duration-300" style="mix-blend-mode: screen" />
           ) : (
             <img src={img.src} alt={img.alt} data-gallery={gallery} data-src={img.src} data-index={i} tabindex="0" role="button" loading="lazy" fetchpriority="low" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] focus-visible:scale-[1.02] focus-visible:ring-2 focus-visible:ring-brand-500/50 focus-visible:outline-none transition duration-300" />
           )}
@@ -70,10 +70,10 @@ const r = layout === 'auto' ? autoLayout(images.length) : layout;
       const img = images[i];
       const featured = i === 0;
       return (
-        <figure class={`overflow-hidden rounded-2xl border border-black/5 dark:border-white/5 bg-white/40 dark:bg-black/40 backdrop-blur-md ${featured ? '' : 'col-span-1'}`} data-reveal>
+        <figure class={`overflow-hidden rounded-2xl border border-black/5 dark:border-white/5 ${isVideo(img.src) ? 'bg-transparent' : 'bg-white/40 dark:bg-black/40 backdrop-blur-md'} ${featured ? '' : 'col-span-1'}`} data-reveal>
           <div class={featured ? 'aspect-[16/9]' : 'aspect-[16/9]'}>
             {isVideo(img.src) ? (
-              <video src={img.src} autoplay muted loop playsinline aria-label={img.alt} class="w-full h-full object-cover hover:scale-[1.02] transition duration-300" style="mix-blend-mode: screen" />
+              <video src={img.src} autoplay muted loop playsinline aria-label={img.alt} class="w-full h-full object-contain hover:scale-[1.02] transition duration-300" style="mix-blend-mode: screen" />
             ) : (
               <img src={img.src} alt={img.alt} data-gallery={gallery} data-src={img.src} data-index={i} tabindex="0" role="button" loading="lazy" fetchpriority="low" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] focus-visible:scale-[1.02] focus-visible:ring-2 focus-visible:ring-brand-500/50 focus-visible:outline-none transition duration-300" />
             )}
@@ -88,10 +88,10 @@ const r = layout === 'auto' ? autoLayout(images.length) : layout;
 {r === 'featured' && images.length >= 5 && (
   <div class="space-y-4">
     {images.map((img, i) => (
-      <figure class={`overflow-hidden rounded-2xl border border-black/5 dark:border-white/5 bg-white/40 dark:bg-black/40 backdrop-blur-md ${i === 0 ? '' : 'hidden sm:block'}`} data-reveal>
+      <figure class={`overflow-hidden rounded-2xl border border-black/5 dark:border-white/5 ${isVideo(img.src) ? 'bg-transparent' : 'bg-white/40 dark:bg-black/40 backdrop-blur-md'} ${i === 0 ? '' : 'hidden sm:block'}`} data-reveal>
         <div class={i === 0 ? 'aspect-[16/9]' : 'aspect-[16/9]'}>
           {isVideo(img.src) ? (
-            <video src={img.src} autoplay muted loop playsinline aria-label={img.alt} class="w-full h-full object-cover hover:scale-[1.02] transition duration-300" style="mix-blend-mode: screen" />
+            <video src={img.src} autoplay muted loop playsinline aria-label={img.alt} class="w-full h-full object-contain hover:scale-[1.02] transition duration-300" style="mix-blend-mode: screen" />
           ) : (
             <img src={img.src} alt={img.alt} data-gallery={gallery} data-src={img.src} data-index={i} tabindex="0" role="button" loading="lazy" fetchpriority="low" class="w-full h-full object-cover cursor-zoom-in hover:scale-[1.02] focus-visible:scale-[1.02] focus-visible:ring-2 focus-visible:ring-brand-500/50 focus-visible:outline-none transition duration-300" />
           )}

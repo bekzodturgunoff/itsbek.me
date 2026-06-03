@@ -20,10 +20,9 @@ interface Props {
   data?: CaseStudyData;
   gallery?: string;
   fullWidthImages?: boolean;
-  narrowImages?: boolean;
 }
 
-const { lang = defaultLang, data: propData, gallery: galleryProp, fullWidthImages, narrowImages } = Astro.props;
+const { lang = defaultLang, data: propData, gallery: galleryProp, fullWidthImages } = Astro.props;
 const dictionaryData = getDictionary(lang).caseStudy;
 const data = propData || dictionaryData;
 const galleryName = galleryProp || (propData ? 'bronuz' : 'octopos');
@@ -80,7 +79,7 @@ const galleryName = galleryProp || (propData ? 'bronuz' : 'octopos');
   </div>
 
   {!fullWidthImages && (
-    <aside class={`mt-10 space-y-6 ${narrowImages ? 'max-w-3xl mx-auto' : ''}`}>
+    <aside class="mt-10 space-y-6">
       <ImageGallery images={data.images} gallery={galleryName} />
     </aside>
   )}
