@@ -184,11 +184,7 @@ const getPath = (code: string) => (code === defaultLang ? '/' : `/${code}/`);
 
       applyLabel();
 
-      if (typeof media.addEventListener === 'function') {
-        media.addEventListener('change', applyLabel);
-      } else if (typeof media.addListener === 'function') {
-        media.addListener(applyLabel);
-      }
+      media.addEventListener('change', applyLabel);
     });
   };
 

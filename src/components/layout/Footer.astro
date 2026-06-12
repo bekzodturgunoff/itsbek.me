@@ -45,11 +45,7 @@ const t = getDictionary(lang);
         document.querySelectorAll('.current-year').forEach((el) => {
           el.textContent = y;
         });
-        document.querySelectorAll('.replace-year').forEach((el) => {
-          const txt = el.textContent || '';
-          const replaced = txt.replace(/\b2025\b/g, y);
-          if (replaced !== txt) el.textContent = replaced;
-        });
+
       } catch {}
     })();
   </script>

@@ -18,7 +18,7 @@ const uz: I18n = {
     description: `3+ yillik tajribaga ega dasturiy ta'minot muhandisi. React va Astro'da tez va qulay mahsulotlar yarataman. JavaScript/TypeScript, Python va C darajasidagi muammolarni hal qilishda ishonchli ishlayman.`,
     location: "O'zbekiston",
     availability: "Yangi loyihalar uchun ochiq",
-    timezoneLabel: "Toshkent vaqti (GMT +5)",
+    timezoneLabel: "KST (GMT +9)",
     buttons: {
       contact: "Aloqaga chiqish",
       viewWork: "Ishlarimni ko'rish",

@@ -22,7 +22,7 @@ const { title, year, tags, href, description, image } = Astro.props;
       ]}
     >
       {image.endsWith('.webm') ? (
-        <video src={image} autoplay muted loop playsinline width="100%" style="height:auto;display:block;border-radius:var(--radius-image,8px)" class="group-hover:scale-[1.02] transition-transform duration-200" />
+        <video src={image} autoplay muted loop playsinline width="100%" style="height:100%;object-fit:cover;display:block;" class="group-hover:scale-[1.02] transition-transform duration-200" />
       ) : (
         <img
           src={image}

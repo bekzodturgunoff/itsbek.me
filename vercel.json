@@ -1,7 +1,7 @@
 {
   "framework": "astro",
-  "buildCommand": "npm run build",
-  "installCommand": "npm install",
+  "buildCommand": "pnpm run build",
+  "installCommand": "pnpm install",
   "env": {
     "PUBLIC_API_BASE": "https://portfoliobackend-navy.vercel.app/"
   }

@@ -12,11 +12,11 @@ interface Props {
 const { 
   title = 'Bekzod — Software Engineer', 
   description = 'Software engineer with 3+ years building responsive, accessible products. Specialising in React, Astro, TypeScript, Supabase, and React Native. Based in Uzbekistan — shipping full-stack web and mobile products end to end.',
-  image = '/images/projects/happy-retro-robot.gif',
+  image = '/images/itsbek_brand_identity/screen.png',
   lang: propLang
 } = Astro.props;
 
-const siteUrl = Astro.site || new URL('http://localhost:4321');
+const siteUrl = Astro.site || new URL('https://itsbek.me');
 const canonicalURL = new URL(Astro.url.pathname, siteUrl);
 const imageURL = new URL(image, siteUrl);
 const htmlLang = propLang || 'en';
@@ -25,6 +25,38 @@ const buildLanguagePath = (code: string) => (code === defaultLang ? '/' : `/${co
 const prefetchTargets = languageCodes
   .filter((code) => code !== htmlLang)
   .map((code) => buildLanguagePath(code));
+
+const ogLocaleMap: Record<string, string> = {
+  en: 'en_US',
+  ko: 'ko_KR',
+  ru: 'ru_RU',
+  uz: 'uz_UZ',
+};
+const ogLocale = ogLocaleMap[htmlLang] || 'en_US';
+
+const hreflangs = languageCodes.map((code) => ({
+  code,
+  href: new URL(buildLanguagePath(code), siteUrl).href,
+}));
+
+const personJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Bekzod",
+  "url": siteUrl.href,
+  "jobTitle": "Software Engineer",
+  "sameAs": [
+    "https://github.com/bekzodturgunoff",
+    "https://t.me/bekzodturgunoff",
+  ],
+});
+
+const websiteJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Bekzod — Software Engineer",
+  "url": siteUrl.href,
+});
 ---
 <!DOCTYPE html>
 <html lang={htmlLang}>
@@ -46,6 +78,8 @@ const prefetchTargets = languageCodes
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={imageURL} />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:site_name" content="Bekzod — Software Engineer" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
@@ -53,6 +87,18 @@ const prefetchTargets = languageCodes
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={imageURL} />
+    <meta property="twitter:site" content="@bekzodturgunoff" />
+    <meta property="twitter:creator" content="@bekzodturgunoff" />
+
+    <!-- hreflang -->
+    {hreflangs.map(({ code, href }) => (
+      <link rel="alternate" hreflang={code} href={href} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={new URL('/', siteUrl).href} />
+
+    <!-- Theme color -->
+    <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
 
     <!-- Additional SEO -->
   <meta name="author" content="Bekzod" />
@@ -61,6 +107,10 @@ const prefetchTargets = languageCodes
     {prefetchTargets.map((href) => (
       <link rel="prefetch" href={href} as="document" />
     ))}
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json" set:text={personJson} is:inline></script>
+    <script type="application/ld+json" set:text={websiteJson} is:inline></script>
 
     <title>{title}</title>
     <script is:inline>
@@ -77,11 +127,7 @@ const prefetchTargets = languageCodes
 
         try {
           const media = window.matchMedia('(prefers-color-scheme: dark)');
-          if (typeof media.addEventListener === 'function') {
-            media.addEventListener('change', applySystemTheme);
-          } else if (typeof media.addListener === 'function') {
-            media.addListener(applySystemTheme);
-          }
+          media.addEventListener('change', applySystemTheme);
         } catch {}
 
         document.addEventListener('astro:after-swap', applySystemTheme);

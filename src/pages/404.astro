@@ -3,6 +3,12 @@
 
 <!DOCTYPE html>
 <html lang="en">
+  <script is:inline>
+    var _segments = window.location.pathname.replace(/\/+$/, '').split('/').filter(Boolean);
+    if (_segments.length > 0 && /^(ko|ru|uz)$/.test(_segments[0])) {
+      document.documentElement.lang = _segments[0];
+    }
+  </script>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -12,7 +18,7 @@
       (function () {
         var path = window.location.pathname.replace(/\/+$/, '');
         var segments = path.split('/').filter(Boolean);
-        if (segments.length > 0 && /^(ko|ru)$/.test(segments[0])) {
+        if (segments.length > 0 && /^(ko|ru|uz)$/.test(segments[0])) {
           window.location.replace('/' + segments[0] + '/');
         } else {
           window.location.replace('/');
