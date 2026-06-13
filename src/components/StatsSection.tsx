@@ -40,8 +40,6 @@ export default function StatsSection() {
 
   const stats = [
     {number: "3+", label: "Years in\nproduction"},
-    {number: "3 days", label: "Blank folder to\ndeployed platform"},
-    {number: "$0/mo", label: "Full AI infra on\nCloudflare + Gemini"},
     {number: "10+", label: "Projects live\nand used"},
   ];
 
@@ -77,7 +75,7 @@ export default function StatsSection() {
           ref={rowRef}
           style={{
             display: "grid",
-            gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(4, 1fr)",
+            gridTemplateColumns: "repeat(2, 1fr)",
           }}
         >
           {stats.map((stat, i) => (
@@ -85,10 +83,7 @@ export default function StatsSection() {
               key={i}
               style={{
                 padding: isMobile ? "var(--gap-md) var(--gap-sm)" : "var(--gap-lg) var(--gap-md)",
-                borderRight: (() => {
-                  const cols = isMobile ? 2 : 4;
-                  return (i + 1) % cols !== 0 ? "1px solid var(--border)" : "none";
-                })(),
+                borderRight: i === 0 ? "1px solid var(--border)" : "none",
               }}
             >
               <div

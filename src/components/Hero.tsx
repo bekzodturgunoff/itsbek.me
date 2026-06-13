@@ -391,7 +391,7 @@ export default function Hero({t}: Props) {
                 letterSpacing: "0.22em",
                 textTransform: "uppercase",
                 color: clockLabel,
-                marginBottom: "20px",
+                margin: "-8px 0 28px 0",
               }}
             >
               {t.hero.name} &mdash; {t.hero.titleTop}
