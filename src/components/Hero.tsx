@@ -63,11 +63,11 @@ export default function Hero({t}: Props) {
     return () => window.removeEventListener("mousemove", handleMouse);
   }, [isMobile, prefersReducedMotion]);
 
-  const leftPanelX = useTransform(scrollY, [0, 600], ["0%", isMobile || prefersReducedMotion ? "0%" : "-8%"]);
-  const rightPanelX = useTransform(scrollY, [0, 600], ["0%", isMobile || prefersReducedMotion ? "0%" : "8%"]);
+  const leftPanelX = useTransform(scrollY, [0, 600], ["0%", isMobile ? "0%" : "-8%"]);
+  const rightPanelX = useTransform(scrollY, [0, 600], ["0%", isMobile ? "0%" : "8%"]);
   const clocksOpacity = useTransform(scrollY, [0, 300], [1, 0]);
-  const headlineY = useTransform(scrollY, [0, 400], ["0%", prefersReducedMotion ? "0%" : "-12%"]);
-  const seamOpacity = useTransform(scrollY, [0, 200], [1, 0]);
+  const clocksY = useTransform(scrollY, [0, 300], ["0px", "-40px"]);
+  const headlineY = useTransform(scrollY, [0, 400], ["0%", isMobile ? "0%" : "-15%"]);
 
   const panelLeftBg = isDark
     ? "linear-gradient(180deg, #0A0A10 0%, #0C0C14 100%)"
@@ -75,17 +75,14 @@ export default function Hero({t}: Props) {
   const panelRightBg = isDark
     ? "linear-gradient(180deg, #100A08 0%, #120E0A 100%)"
     : "linear-gradient(180deg, #F5F0E8 0%, #F2ECE2 100%)";
-  const seamColor = isDark
-    ? "rgba(242, 239, 233, 0.12)"
-    : "rgba(10, 10, 15, 0.1)";
   const clockColor = isDark
-    ? "rgba(242, 239, 233, 0.7)"
+    ? "rgba(242, 239, 233, 0.85)"
     : "rgba(10, 10, 15, 0.65)";
   const clockLabel = isDark
-    ? "rgba(242, 239, 233, 0.35)"
+    ? "rgba(242, 239, 233, 0.5)"
     : "rgba(10, 10, 15, 0.35)";
   const clockMuted = isDark
-    ? "rgba(242, 239, 233, 0.2)"
+    ? "rgba(242, 239, 233, 0.35)"
     : "rgba(10, 10, 15, 0.2)";
   const headlineColor = isDark ? "#F2EFE9" : "#0A0A0F";
 
@@ -196,7 +193,7 @@ export default function Hero({t}: Props) {
         width: "100vw",
         height: "100dvh",
         overflow: "hidden",
-        background: "#0C0C10",
+        background: isDark ? "#0C0C10" : "#F5F3EF",
       }}
     >
       {/* Panels and seam for desktop */}
@@ -222,26 +219,8 @@ export default function Hero({t}: Props) {
             <div style={{width: "100%", height: "100%", ...panelParallax(12)}} />
           </motion.div>
 
-          {/* SEAM LINE */}
-          <motion.div
-            aria-hidden="true"
-            style={{position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)", width: "1px", height: "100%", background: seamColor, zIndex: 2, opacity: seamOpacity, originY: 0}}
-            initial={entrance ? {scaleY: 0} : undefined}
-            animate={entrance ? {scaleY: 1} : undefined}
-            transition={entrance ? {duration: 0.6, delay: 0.6, ease: [0.16, 1, 0.3, 1]} : undefined}
-          />
-
-          {/* SEAM DOT */}
-          <motion.div
-            aria-hidden="true"
-            style={{position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "6px", height: "6px", borderRadius: "50%", background: "var(--accent)", zIndex: 3, boxShadow: "0 0 12px var(--accent), 0 0 24px rgba(0,212,170,0.3)"}}
-            initial={entrance ? {scale: 0} : undefined}
-            animate={entrance ? {scale: 1} : undefined}
-            transition={entrance ? {duration: 0.2, delay: 0.85, ease: [0.16, 1, 0.3, 1]} : undefined}
-          />
-
           {/* SEOUL CLOCK */}
-          <motion.div style={{opacity: clocksOpacity}}>
+          <motion.div style={{opacity: clocksOpacity, y: clocksY}}>
             <motion.div
               initial={entrance ? {opacity: 0, x: -20} : undefined}
               animate={entrance ? {opacity: 1, x: 0} : undefined}
@@ -252,7 +231,7 @@ export default function Hero({t}: Props) {
           </motion.div>
 
           {/* TASHKENT CLOCK */}
-          <motion.div style={{opacity: clocksOpacity}}>
+          <motion.div style={{opacity: clocksOpacity, y: clocksY}}>
             <motion.div
               initial={entrance ? {opacity: 0, x: 20} : undefined}
               animate={entrance ? {opacity: 1, x: 0} : undefined}
@@ -284,32 +263,6 @@ export default function Hero({t}: Props) {
             }}
           >
             <ClockBlock label="Seoul · KST" time={seoulTime} coords={["37°33'N", "126°58'E"]} subtitle="Studied here" align="left" flash={flashSeoul} />
-          </div>
-
-          {/* Horizontal seam */}
-          <div
-            aria-hidden="true"
-            style={{
-              height: "1px",
-              background: seamColor,
-              position: "relative",
-              flexShrink: 0,
-            }}
-          >
-            <div
-              style={{
-                position: "absolute",
-                top: "50%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
-                width: "6px",
-                height: "6px",
-                borderRadius: "50%",
-                background: "var(--accent)",
-                zIndex: 3,
-                boxShadow: "0 0 12px var(--accent), 0 0 24px rgba(0,212,170,0.3)",
-              }}
-            />
           </div>
 
           {/* Tashkent panel bottom */}

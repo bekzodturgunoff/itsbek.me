@@ -7,6 +7,7 @@ import type {I18n} from "@/i18n/types";
 
 interface Props {
   t: I18n;
+  currentSlug?: string;
 }
 
 const CHAPTER_LABELS: Record<string, string> = {
@@ -21,7 +22,7 @@ const CHAPTER_LABELS: Record<string, string> = {
 
 const SECTION_IDS = ["hero", "origin", "craft", "work", "proof", "vision", "contact"];
 
-export default function Nav({t}: Props) {
+export default function Nav({t, currentSlug}: Props) {
   const lang = useLang();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -78,7 +79,6 @@ export default function Nav({t}: Props) {
     {href: `/${lang}#origin`, label: t.nav.links.about},
     {href: `/${lang}#craft`, label: t.nav.links.skills},
     {href: `/${lang}#work`, label: t.nav.links.work},
-    {href: `/${lang}/case-study/octopos-apps`, label: t.nav.links.caseStudy},
     {href: `/${lang}#contact`, label: t.nav.links.contact},
   ];
 
@@ -145,7 +145,7 @@ export default function Nav({t}: Props) {
                   {Object.entries(LANGUAGES).map(([code]) => (
                     <a
                       key={code}
-                      href={`/${code}`}
+                      href={currentSlug ? `/${code}/case-study/${currentSlug}` : `/${code}`}
                       style={{
                         fontFamily: "var(--font-mono)",
                         fontSize: "11px",
@@ -286,7 +286,7 @@ export default function Nav({t}: Props) {
             {Object.entries(LANGUAGES).map(([code]) => (
               <a
                 key={code}
-                href={`/${code}`}
+                href={currentSlug ? `/${code}/case-study/${currentSlug}` : `/${code}`}
                 onClick={() => setMenuOpen(false)}
                 style={{
                   fontFamily: "var(--font-mono)",

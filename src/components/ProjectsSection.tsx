@@ -9,28 +9,32 @@ const PROJECTS = [
     index: "001",
     title: "Octopos Apps",
     hook: "Three screens. One kitchen. Zero downtime.",
-    href: "https://octopos.uz",
+    caseStudySlug: "octopos-apps",
+    liveHref: "https://octopos.uz",
     image: "/images/projects/octopos_apps/dash_1.webp",
   },
   {
     index: "002",
     title: "BronUz",
     hook: "Uzbekistan had no venue booking platform. So I built one.",
-    href: "https://bronuz.vercel.app",
+    caseStudySlug: "bronuz",
+    liveHref: "https://bronuz.vercel.app",
     image: "/images/projects/bronuz/bronuz_homepage_2.webp",
   },
   {
     index: "003",
     title: "Personal Assistant",
     hook: "An AI that answers as me. In three languages. At zero cost.",
-    href: "/telegram-bot",
+    caseStudySlug: "telegram-bot",
+    liveHref: "https://t.me/itsbek_bot",
     image: "/images/projects/bot/bot_chat.webp",
   },
   {
     index: "004",
     title: "Octopos Landing",
     hook: "A restaurant platform that needed a proper homepage.",
-    href: "https://octopos.uz",
+    caseStudySlug: "octopos-landing",
+    liveHref: "https://octopos.uz",
     image: "/images/projects/octopos/octopos.webp",
   },
 ];
@@ -79,25 +83,27 @@ export default function ProjectsSection() {
 
       <div style={{maxWidth: "1200px", margin: "0 auto"}}>
         {PROJECTS.map((project, i) => (
-          <a
+          <div
             key={project.index}
-            href={project.index === "003" ? `/${lang}/case-study/telegram-bot` : project.href}
-            target={project.index === "003" ? undefined : "_blank"}
-            rel="noopener noreferrer"
-            style={{textDecoration: "none", display: "block"}}
+            onMouseEnter={() => setHoverIndex(i)}
+            onMouseLeave={() => setHoverIndex(null)}
+            style={{
+              display: "grid",
+              gridTemplateColumns: "60px 1fr auto",
+              alignItems: "center",
+              gap: "var(--gap-md)",
+              padding: "20px var(--page-x)",
+              borderTop: "1px solid var(--border)",
+              cursor: "pointer",
+              transition: "background 200ms var(--ease-out)",
+            }}
           >
-            <div
-              onMouseEnter={() => setHoverIndex(i)}
-              onMouseLeave={() => setHoverIndex(null)}
+            <a
+              href={`/${lang}/case-study/${project.caseStudySlug}`}
               style={{
-                display: "grid",
-                gridTemplateColumns: "60px 1fr auto",
-                alignItems: "center",
-                gap: "var(--gap-md)",
-                padding: "20px var(--page-x)",
-                borderTop: "1px solid var(--border)",
-                cursor: "pointer",
-                transition: "background 200ms var(--ease-out)",
+                display: "contents",
+                color: "inherit",
+                textDecoration: "none",
               }}
             >
               <span
@@ -138,8 +144,14 @@ export default function ProjectsSection() {
                   {project.hook}
                 </span>
               </div>
+            </a>
 
-              <span
+            <div style={{display: "flex", gap: "var(--gap-md)", alignItems: "center"}}>
+              <a
+                href={project.liveHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
                 style={{
                   fontFamily: "var(--font-mono)",
                   fontSize: "10px",
@@ -147,12 +159,16 @@ export default function ProjectsSection() {
                   textTransform: "uppercase",
                   color: "var(--text-muted)",
                   whiteSpace: "nowrap",
+                  textDecoration: "none",
+                  transition: "color 200ms var(--ease-out)",
                 }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--accent)")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}
               >
-                Visit &rarr;
-              </span>
+                Live &nearr;
+              </a>
             </div>
-          </a>
+          </div>
         ))}
       </div>
     </section>

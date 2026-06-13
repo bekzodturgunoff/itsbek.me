@@ -2,7 +2,7 @@ export const CASE_STUDY_MAP: Record<string, string> = {
   "octopos-apps": "octoposAppsCaseStudy",
   "bronuz": "bronUzCaseStudy",
   "telegram-bot": "telegramBotCaseStudy",
-  "octopos-landing": "caseStudy",
+  "octopos-landing": "octoposLandingCaseStudy",
 } as const;
 
 export const CASE_STUDY_SLUGS = Object.keys(CASE_STUDY_MAP);

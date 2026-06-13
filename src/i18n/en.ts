@@ -264,6 +264,53 @@ const en: I18n = {
     ],
     cta: {label: "Visit Octopos Business Site", href: "https://octopos.uz"},
   },
+  octoposLandingCaseStudy: {
+    badge: "Case Study",
+    title: "Octopos Landing Page",
+    subtitle: "Turning a complex restaurant management platform into a clear, conversion-focused product experience.",
+    meta: [
+      {label: "Client", value: "Octopos"},
+      {label: "Role", value: "Frontend Engineer · Product Implementation"},
+      {label: "Timeline", value: "4 weeks · 2026"},
+      {label: "Stack", value: "Astro, Tailwind CSS, Resend"},
+    ],
+    problem: {
+      title: "The challenge",
+      body: "Octopos had a powerful multi-app ecosystem (Dash, POS, Kitchen), but the product value was not clearly communicated through the existing landing page. The site lacked structure, modern UX flow, and a strong onboarding path for new users.",
+    },
+    research: {
+      title: "What I did",
+      bullets: [
+        "Implemented the full landing page based on a design provided by a senior developer/designer, translating it into a responsive, production-ready website.",
+        "Built the entire frontend from scratch using Astro and Tailwind, ensuring pixel-accurate implementation across mobile and desktop.",
+        "Developed product mockups and visual sections to clearly explain how Dash, POS, and Kitchen work together as a unified system.",
+        "Implemented onboarding and trial signup flow to capture leads and grant access to the platform.",
+        "Connected backend services for user onboarding and automated email handling via Resend.",
+        "Ensured performance optimization, mobile responsiveness, and SEO structure.",
+      ],
+    },
+    design: {
+      title: "Results",
+      bullets: [
+        "Delivered a fast, modern SaaS landing page that improved clarity of the product ecosystem and strengthened user understanding of Octopos.",
+        "Created a smooth trial onboarding flow that reduced friction for new users trying the platform.",
+        "Shipped the complete product within 4 weeks in collaboration with the product and engineering team.",
+      ],
+    },
+    images: [
+      {
+        src: "/images/projects/octopos/octopos_before.webp",
+        alt: "Original Octopos landing page before redesign",
+        caption: "Original MVP screen before the redesign — dense copy, low contrast, and no clear call to action.",
+      },
+      {
+        src: "/images/projects/octopos/octopos.webp",
+        alt: "Screenshot of the Octopos landing page",
+        caption: "High-fidelity desktop screen highlighting the reworked hero, use cases, and social proof.",
+      },
+    ],
+    cta: {label: "Visit live site", href: "https://octopos.uz"},
+  },
   skills: {
     title: "Things I Use Often",
     groups: [

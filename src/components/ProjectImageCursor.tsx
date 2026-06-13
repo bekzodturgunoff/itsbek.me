@@ -43,6 +43,8 @@ export default function ProjectImageCursor({src, alt, active}: Props) {
     return () => cancelAnimationFrame(raf);
   }, [active]);
 
+  if (!src) return null;
+
   return (
     <div
       ref={outerRef}

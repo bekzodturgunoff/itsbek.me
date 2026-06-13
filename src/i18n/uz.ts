@@ -187,6 +187,53 @@ const uz: I18n = {
     ],
     cta: {label: "Octopos ga o'tish", href: "https://octopos.uz"},
   },
+  octoposLandingCaseStudy: {
+    badge: "Loyiha tahlili",
+    title: "Octopos Landing Page",
+    subtitle: "Murakkab restoran boshqaruvi platformasini aniq, konversiyaga yo'naltirilgan mahsulot tajribasiga aylantirish.",
+    meta: [
+      {label: "Mijoz", value: "Octopos"},
+      {label: "Rol", value: "Frontend muhandisi · Mahsulot implementatsiyasi"},
+      {label: "Muddat", value: "4 hafta · 2026"},
+      {label: "Texnologiyalar", value: "Astro, Tailwind CSS, Resend"},
+    ],
+    problem: {
+      title: "Muammo",
+      body: "Octopos kuchli multi-ilova ekotizimiga (Dash, POS, Kitchen) ega edi, ammo mahsulot qiymati mavjud landing page orqali aniq yetkazilmadi. Saytda tuzilma, zamonaviy UX oqimi va yangi foydalanuvchilar uchun kuchli onbording yo'li yo'q edi.",
+    },
+    research: {
+      title: "Nima qildim",
+      bullets: [
+        "Katta dasturchi/dizayner tomonidan taqdim etilgan dizayn asosida to'liq landing page'ni amalga oshirib, uni responsiv, ishlab chiqarishga tayyor veb-saytga aylantirdim.",
+        "Astro va Tailwind yordamida butun frontendni noldan qurdim, mobil va desktop qurilmalarda piksel-anig'likdagi implementatsiyani ta'minladim.",
+        "Dash, POS va Kitchen yagona tizim sifatida qanday birgalikda ishlashini aniq tushuntirish uchun mahsulot maketlari va vizual bo'limlarni ishlab chiqdim.",
+        "Lead'larni jalb qilish va platformaga kirish huquqini berish uchun onbording va sinov ro'yxatdan o'tish oqimini amalga oshirdim.",
+        "Foydalanuvchi onbordingi va Resend orqali avtomatik elektron pochta bilan ishlash uchun backend xizmatlarini uladim.",
+        "Samaradorlik optimallashtirish, mobil moslashuvchanlik va SEO tuzilmasini ta'minladim.",
+      ],
+    },
+    design: {
+      title: "Natijalar",
+      bullets: [
+        "Mahsulot ekotizimi tushunchasini yaxshilagan va foydalanuvchilarning Octopos haqidagi tushunchasini kuchaytirgan tez, zamonaviy SaaS landing page'ni yetkazdim.",
+        "Yangi foydalanuvchilar platformani sinab ko'rishdagi to'siqlarni kamaytiruvchi silliq sinov onbording oqimini yaratdim.",
+        "Mahsulot va muhandislik jamoasi bilan hamkorlikda to'liq mahsulotni 4 hafta ichida ishga tushirdim.",
+      ],
+    },
+    images: [
+      {
+        src: "/images/projects/octopos/octopos_before.webp",
+        alt: "Octopos landing page'ning qayta dizayndan oldingi ko'rinishi",
+        caption: "Qayta dizayndan oldingi MVP ekrani — zich matn, past kontrast va aniq harakatga chaqiruvsiz.",
+      },
+      {
+        src: "/images/projects/octopos/octopos.webp",
+        alt: "Octopos landing page'ning skrinshoti",
+        caption: "Qayta ishlangan hero, foydalanish holatlari va ijtimoiy isbot bilan yuqori aniqlikdagi desktop ekran.",
+      },
+    ],
+    cta: {label: "Saytga o'tish", href: "https://octopos.uz"},
+  },
   skills: {
     title: "Men ishlatadigan texnologiyalar",
     groups: [

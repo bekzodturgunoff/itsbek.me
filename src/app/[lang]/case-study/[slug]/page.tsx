@@ -38,6 +38,7 @@ export default async function CaseStudyPage({params}: Props) {
     <CaseStudyClient
       t={t}
       lang={lang}
+      slug={slug}
       data={caseStudyData as never}
     />
   );

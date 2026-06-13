@@ -80,7 +80,7 @@ export interface I18n {
   };
   bronUzCaseStudy: CaseStudySection;
   telegramBotCaseStudy: CaseStudySection;
-  // caseStudy: CaseStudySection;
+  octoposLandingCaseStudy: CaseStudySection;
   octoposAppsCaseStudy: CaseStudySection;
   skills: {
     title: string;

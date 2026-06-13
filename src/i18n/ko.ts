@@ -187,6 +187,53 @@ const ko: I18n = {
     ],
     cta: {label: "Octopos 방문", href: "https://octopos.uz"},
   },
+  octoposLandingCaseStudy: {
+    badge: "사례 연구",
+    title: "Octopos 랜딩 페이지",
+    subtitle: "복잡한 레스토랑 관리 플랫폼을 명확하고 전환 중심의 제품 경험으로 전환.",
+    meta: [
+      {label: "클라이언트", value: "Octopos"},
+      {label: "역할", value: "프론트엔드 엔지니어 · 제품 구현"},
+      {label: "기간", value: "4주 · 2026"},
+      {label: "기술 스택", value: "Astro, Tailwind CSS, Resend"},
+    ],
+    problem: {
+      title: "도전 과제",
+      body: "Octopos는 Dash, POS, Kitchen으로 구성된 강력한 멀티앱 생태계를 보유하고 있었지만, 기존 랜딩 페이지를 통해 제품 가치가 명확히 전달되지 않았습니다. 사이트는 구조, 현대적인 UX 흐름, 신규 사용자를 위한 강력한 온보딩 경로가 부족했습니다.",
+    },
+    research: {
+      title: "수행 역할",
+      bullets: [
+        "시니어 개발자/디자이너가 제공한 디자인을 기반으로 전체 랜딩 페이지를 구현하여 반응형 프로덕션 준비 웹사이트로 전환했습니다.",
+        "Astro와 Tailwind를 사용하여 프론트엔드 전체를 구축했으며, 모바일과 데스크톱에서 픽셀 단위의 정확한 구현을 보장했습니다.",
+        "Dash, POS, Kitchen이 통합 시스템으로 어떻게 함께 작동하는지 명확히 설명하는 제품 목업과 비주얼 섹션을 개발했습니다.",
+        "리드를 확보하고 플랫폼 액세스를 제공하기 위한 온보딩 및 체험판 가입 흐름을 구현했습니다.",
+        "Resend를 통한 사용자 온보딩 및 자동 이메일 처리를 위해 백엔드 서비스를 연결했습니다.",
+        "성능 최적화, 모바일 반응성 및 SEO 구조를 보장했습니다.",
+      ],
+    },
+    design: {
+      title: "결과",
+      bullets: [
+        "제품 생태계의 명확성을 개선하고 Octopos에 대한 사용자 이해를 강화하는 빠르고 현대적인 SaaS 랜딩 페이지를 구축했습니다.",
+        "새로운 사용자가 플랫폼을 시도할 때 마찰을 줄이는 원활한 체험판 온보딩 흐름을 만들었습니다.",
+        "제품 및 엔지니어링 팀과 협력하여 4주 이내에 완전한 제품을 출시했습니다.",
+      ],
+    },
+    images: [
+      {
+        src: "/images/projects/octopos/octopos_before.webp",
+        alt: "재디자인 전 Octopos 랜딩 페이지 원본",
+        caption: "재디자인 전 원본 MVP 화면 — 빽빽한 문구, 낮은 대비, 명확한 행동 유도 버튼 부재.",
+      },
+      {
+        src: "/images/projects/octopos/octopos.webp",
+        alt: "Octopos 랜딩 페이지 스크린샷",
+        caption: "재작업된 히어로 섹션, 사용 사례, 소셜 프루프를 강조하는 고해상도 데스크톱 화면.",
+      },
+    ],
+    cta: {label: "라이브 사이트 방문", href: "https://octopos.uz"},
+  },
   skills: {
     title: "사용하는 기술",
     groups: [
