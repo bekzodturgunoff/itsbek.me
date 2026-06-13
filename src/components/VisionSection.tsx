@@ -25,17 +25,7 @@ export default function VisionSection() {
       gsap.fromTo(
         labelRef.current,
         {opacity: 0, y: -8},
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.4,
-          ease: "expo.out",
-          scrollTrigger: {
-            trigger: section,
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-        },
+        {opacity: 1, y: 0, duration: 0.4, ease: "expo.out", scrollTrigger: {trigger: section, start: "top 80%", toggleActions: "play none none reverse"}},
       );
 
       h2Refs.current.forEach((el, i) => {
@@ -43,23 +33,12 @@ export default function VisionSection() {
         gsap.fromTo(
           el,
           {y: "110%"},
-          {
-            y: "0%",
-            duration: 0.7,
-            ease: "expo.out",
-            delay: i * 0.12,
-            scrollTrigger: {
-              trigger: section,
-              start: "top 80%",
-              toggleActions: "play none none reverse",
-            },
-          },
+          {y: "0%", duration: 0.7, ease: "expo.out", delay: i * 0.12, scrollTrigger: {trigger: section, start: "top 80%", toggleActions: "play none none reverse"}},
         );
       });
     }, section);
 
     ScrollTrigger.refresh();
-
     return () => ctx.revert();
   }, []);
 
@@ -68,156 +47,119 @@ export default function VisionSection() {
       id="vision"
       ref={sectionRef}
       style={{
-        position: "relative",
         borderTop: "1px solid var(--border)",
-        padding: isMobile ? "var(--space-2xl) 24px" : "var(--space-2xl) 48px",
-        overflow: "hidden",
-        minHeight: isMobile ? "auto" : "80vh",
-        display: "flex",
-        alignItems: "center",
+        padding: isMobile ? "var(--gap-2xl) 24px" : "var(--gap-2xl) var(--page-x)",
+        width: isMobile ? "100%" : "80%",
+        maxWidth: "900px",
       }}
     >
-      {/* Right: BUILDING watermark */}
-      {!isMobile && (
-        <div
+      <span
+        ref={labelRef}
+        style={{
+          display: "block",
+          fontFamily: "var(--font-mono)",
+          fontSize: "var(--text-label)",
+          letterSpacing: "0.2em",
+          textTransform: "uppercase",
+          color: "var(--text-muted)",
+          marginBottom: "var(--gap-lg)",
+          opacity: 0,
+        }}
+      >
+        05 &mdash; VISION
+      </span>
+
+      <div className="clip-reveal" style={{marginBottom: "var(--gap-xs)"}}>
+        <h2
+          ref={(el) => { h2Refs.current[0] = el; }}
+          className="clip-child"
           style={{
-            position: "absolute",
-            right: "-60px",
-            top: "50%",
-            transform: "translateY(-50%) rotate(90deg)",
-            transformOrigin: "center center",
             fontFamily: "var(--font-display)",
-            fontSize: "clamp(120px, 20vw, 280px)",
+            fontSize: isMobile ? "clamp(28px, 8vw, 44px)" : "var(--text-title)",
             fontWeight: 700,
-            letterSpacing: "-0.04em",
+            lineHeight: 0.95,
+            letterSpacing: "-0.025em",
             color: "var(--text)",
-            opacity: 0.06,
-            pointerEvents: "none",
-            userSelect: "none",
-            whiteSpace: "nowrap",
-            zIndex: 0,
+            margin: 0,
           }}
         >
-          BUILDING
-        </div>
-      )}
+          Not the best developer
+        </h2>
+      </div>
+      <div className="clip-reveal" style={{marginBottom: "var(--gap-xs)"}}>
+        <h2
+          ref={(el) => { h2Refs.current[1] = el; }}
+          className="clip-child"
+          style={{
+            fontFamily: "var(--font-display)",
+            fontSize: isMobile ? "clamp(28px, 8vw, 44px)" : "var(--text-title)",
+            fontWeight: 700,
+            lineHeight: 0.95,
+            letterSpacing: "-0.025em",
+            color: "var(--text)",
+            margin: 0,
+          }}
+        >
+          in the room.
+        </h2>
+      </div>
+      <div className="clip-reveal" style={{marginBottom: "var(--gap-lg)"}}>
+        <h2
+          ref={(el) => { h2Refs.current[2] = el; }}
+          className="clip-child"
+          style={{
+            fontFamily: "var(--font-display)",
+            fontSize: isMobile ? "clamp(28px, 8vw, 44px)" : "var(--text-title)",
+            fontWeight: 700,
+            lineHeight: 0.95,
+            letterSpacing: "-0.025em",
+            color: "var(--accent)",
+            margin: 0,
+          }}
+        >
+          The one who makes the room better.
+        </h2>
+      </div>
 
-      {/* Left: Content */}
-      <div
+      <p
         style={{
-          position: "relative",
-          zIndex: 1,
-          width: isMobile ? "100%" : "55%",
-          maxWidth: "700px",
+          fontSize: "var(--text-small)",
+          fontWeight: 300,
+          lineHeight: 1.75,
+          color: "var(--text-secondary)",
+          margin: "0 0 var(--gap-lg) 0",
+          maxWidth: "460px",
+        }}
+      >
+        Working toward distributed systems, security-first architecture,
+        and products that matter in markets that most people
+        haven&apos;t looked at yet.
+      </p>
+
+      <span
+        style={{
+          display: "inline-flex",
+          alignItems: "center",
+          gap: "var(--gap-xs)",
+          fontFamily: "var(--font-mono)",
+          fontSize: "var(--text-label)",
+          letterSpacing: "0.12em",
+          textTransform: "uppercase",
+          color: "var(--accent)",
         }}
       >
         <span
-          ref={labelRef}
           style={{
-            display: "block",
-            fontFamily: "var(--font-mono)",
-            fontSize: "var(--text-label)",
-            letterSpacing: "0.2em",
-            textTransform: "uppercase",
-            color: "var(--text-muted)",
-            marginBottom: "var(--space-lg)",
-            opacity: 0,
+            width: "6px",
+            height: "6px",
+            borderRadius: "50%",
+            background: "var(--accent)",
+            display: "inline-block",
+            animation: "pulse-dot 2s ease-in-out infinite",
           }}
-        >
-           05 &mdash; VISION
-        </span>
-
-        <div className="clip-reveal" style={{marginBottom: "var(--space-xs)"}}>
-          <h2
-            ref={(el) => { h2Refs.current[0] = el; }}
-            className="clip-child"
-            style={{
-              fontFamily: "var(--font-display)",
-              fontSize: isMobile ? "clamp(32px, 9vw, 52px)" : "var(--text-chapter)",
-              fontWeight: 700,
-              lineHeight: 0.92,
-              letterSpacing: "-0.025em",
-              color: "var(--text)",
-              margin: 0,
-            }}
-          >
-            Not the best developer
-          </h2>
-        </div>
-        <div className="clip-reveal" style={{marginBottom: "var(--space-xs)"}}>
-          <h2
-            ref={(el) => { h2Refs.current[1] = el; }}
-            className="clip-child"
-            style={{
-              fontFamily: "var(--font-display)",
-              fontSize: isMobile ? "clamp(32px, 9vw, 52px)" : "var(--text-chapter)",
-              fontWeight: 700,
-              lineHeight: 0.92,
-              letterSpacing: "-0.025em",
-              color: "var(--text)",
-              margin: 0,
-            }}
-          >
-            in the room.
-          </h2>
-        </div>
-        <div className="clip-reveal" style={{marginBottom: "var(--space-lg)"}}>
-          <h2
-            ref={(el) => { h2Refs.current[2] = el; }}
-            className="clip-child"
-            style={{
-              fontFamily: "var(--font-display)",
-              fontSize: isMobile ? "clamp(32px, 9vw, 52px)" : "var(--text-chapter)",
-              fontWeight: 700,
-              lineHeight: 0.92,
-              letterSpacing: "-0.025em",
-              color: "var(--accent)",
-              margin: 0,
-            }}
-          >
-            The one who makes the room better.
-          </h2>
-        </div>
-
-        <p
-          style={{
-            fontSize: "var(--text-large)",
-            fontWeight: 300,
-            lineHeight: 1.75,
-            color: "var(--text-secondary)",
-            margin: "0 0 var(--space-lg) 0",
-          }}
-        >
-          Working toward distributed systems, security-first architecture,
-          and products that matter in markets that most people
-          haven&apos;t looked at yet.
-        </p>
-
-        <span
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "var(--space-xs)",
-            fontFamily: "var(--font-mono)",
-            fontSize: "var(--text-label)",
-            letterSpacing: "0.15em",
-            textTransform: "uppercase",
-            color: "var(--accent)",
-          }}
-        >
-          <span
-            style={{
-              width: "6px",
-              height: "6px",
-              borderRadius: "50%",
-              background: "var(--accent)",
-              display: "inline-block",
-              animation: "pulse-dot 2s ease-in-out infinite",
-            }}
-          />
-          OPEN TO REMOTE CONTRACTS + FULL-TIME ROLES
-        </span>
-      </div>
+        />
+        OPEN TO REMOTE CONTRACTS + FULL-TIME ROLES
+      </span>
     </section>
   );
 }

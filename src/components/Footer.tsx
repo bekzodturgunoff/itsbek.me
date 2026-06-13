@@ -11,7 +11,7 @@ export default function Footer({t}: Props) {
     <footer
       style={{
         borderTop: "1px solid var(--border)",
-        padding: "40px 48px",
+        padding: "32px var(--page-x)",
       }}
     >
       <div
@@ -22,14 +22,14 @@ export default function Footer({t}: Props) {
           alignItems: "center",
           justifyContent: "space-between",
           flexWrap: "wrap",
-          gap: "16px",
+          gap: "12px",
         }}
       >
-        <div style={{display: "flex", alignItems: "center", gap: "16px"}}>
+        <div style={{display: "flex", alignItems: "center", gap: "12px"}}>
           <span
             style={{
               fontFamily: "var(--font-display)",
-              fontSize: "16px",
+              fontSize: "15px",
               fontWeight: 700,
               color: "var(--text)",
             }}
@@ -39,14 +39,14 @@ export default function Footer({t}: Props) {
           <span
             style={{
               fontFamily: "var(--font-mono)",
-              fontSize: "11px",
+              fontSize: "10px",
               color: "var(--text-muted)",
             }}
           >
             &copy; 2026
           </span>
         </div>
-        <div style={{display: "flex", gap: "24px", alignItems: "center"}}>
+        <div style={{display: "flex", gap: "20px", alignItems: "center"}}>
           {[
             {label: t.footer.email, href: "mailto:bekzodturgunoff@gmail.com"},
             {label: t.footer.github, href: "https://github.com/bekzodturgunoff"},
@@ -58,8 +58,8 @@ export default function Footer({t}: Props) {
               href={link.href}
               style={{
                 fontFamily: "var(--font-mono)",
-                fontSize: "11px",
-                letterSpacing: "0.1em",
+                fontSize: "10px",
+                letterSpacing: "0.08em",
                 color: "var(--text-muted)",
                 textDecoration: "none",
                 transition: "color 200ms",
@@ -75,14 +75,15 @@ export default function Footer({t}: Props) {
       <div
         style={{
           maxWidth: "1200px",
-          margin: "24px auto 0",
+          margin: "16px auto 0",
           fontFamily: "var(--font-mono)",
-          fontSize: "10px",
+          fontSize: "9px",
+          fontStyle: "italic",
           color: "var(--text-muted)",
-          opacity: 0.3,
+          opacity: 0.35,
         }}
       >
-        Built with Next.js, Framer Motion, GSAP, Lenis \u2014 no template, no boilerplate.
+        Built with Next.js, Framer Motion, GSAP, Lenis &mdash; no template, no boilerplate.
       </div>
     </footer>
   );

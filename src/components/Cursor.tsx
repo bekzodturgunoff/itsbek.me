@@ -1,12 +1,13 @@
 "use client";
 
 import {useEffect, useRef, useState} from "react";
-import {useCursorPosition} from "@/hooks/useCursorPosition";
 
 export default function Cursor() {
-  const cursorRef = useRef<HTMLDivElement>(null);
+  const ringRef = useRef<HTMLDivElement>(null);
   const dotRef = useRef<HTMLDivElement>(null);
-  const {x, y} = useCursorPosition();
+  const posRef = useRef({x: -100, y: -100});
+  const targetRef = useRef({x: -100, y: -100});
+  const rafRef = useRef<number>(0);
   const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
@@ -18,33 +19,50 @@ export default function Cursor() {
   }, []);
 
   useEffect(() => {
-    const cursor = cursorRef.current;
-    const dot = dotRef.current;
-    if (!cursor || !dot) return;
+    const onMouse = (e: MouseEvent) => {
+      targetRef.current = {x: e.clientX, y: e.clientY};
+    };
+    window.addEventListener("mousemove", onMouse, {passive: true});
+    return () => window.removeEventListener("mousemove", onMouse);
+  }, []);
 
-    cursor.style.transform = `translate3d(${x - 12}px, ${y - 12}px, 0)`;
-    dot.style.transform = `translate3d(${x - 2}px, ${y - 2}px, 0)`;
-  }, [x, y]);
+  useEffect(() => {
+    const ring = ringRef.current;
+    const dot = dotRef.current;
+    if (!ring || !dot) return;
+
+    const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
+
+    const tick = () => {
+      const pos = posRef.current;
+      const target = targetRef.current;
+
+      pos.x = lerp(pos.x, target.x, 0.12);
+      pos.y = lerp(pos.y, target.y, 0.12);
+
+      ring.style.transform = `translate3d(${pos.x - 12}px, ${pos.y - 12}px, 0)`;
+      dot.style.transform = `translate3d(${pos.x - 2}px, ${pos.y - 2}px, 0)`;
+
+      rafRef.current = requestAnimationFrame(tick);
+    };
+
+    rafRef.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, []);
 
   return (
     <>
       <div
-        ref={cursorRef}
-        className="pointer-events-none fixed left-0 top-0 z-[9998] h-6 w-6 rounded-full transition-[width,height] duration-300"
+        ref={ringRef}
+        className="custom-cursor pointer-events-none fixed left-0 top-0 z-[9998] h-6 w-6 rounded-full"
         style={{
-          transform: "translate3d(0, 0, 0)",
-          border: `1px solid ${isDark ? "rgba(255,255,255,0.4)" : "rgba(0,0,0,0.3)"}`,
-          mixBlendMode: "normal",
+          border: `1px solid ${isDark ? "rgba(242,239,233,0.4)" : "rgba(14,14,14,0.3)"}`,
         }}
       />
       <div
         ref={dotRef}
-        className="pointer-events-none fixed left-0 top-0 z-[9998] h-1 w-1 rounded-full"
-        style={{
-          transform: "translate3d(0, 0, 0)",
-          background: "var(--accent)",
-          mixBlendMode: "normal",
-        }}
+        className="custom-cursor pointer-events-none fixed left-0 top-0 z-[9998] h-[3px] w-[3px] rounded-full"
+        style={{background: "var(--accent)"}}
       />
     </>
   );

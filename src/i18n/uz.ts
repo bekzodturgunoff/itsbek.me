@@ -12,22 +12,13 @@ const uz: I18n = {
     },
   },
   hero: {
-    name: "itsbek.me",
+    name: "Bekzod Turgunov",
     titleTop: "Dasturiy ta'minot muhandisi",
-    titleBottom: "tez, aniq va odamlarga kerak bo'ladigan dasturlar yozaman",
-    headlineLine1: "Seulda o'qigan.",
-    headlineLine2: "Toshkentda qurmoqda.",
-    headlineLine3: "Atayin.",
+    headlineLine1: "Men yarataman",
+    headlineLine2: "interfeyslarni.",
     description:
-      "Hali mavjud bo'lmagan joylar uchun mahsulotlar yarataman \u2014 restoran platformalari, bron tizimlari, AI vositalari. Ko'pchilik bir necha kun ichida ishga tushadi.",
-    location: "O'zbekiston",
-    availability: "Yangi loyihalar uchun ochiq",
-    timezoneLabel: "UZT (GMT +5)",
-    buttons: {
-      contact: "Aloqaga chiqish",
-      viewWork: "Loyihalarni ko'rish",
-      viewCaseStudy: "Keysni ko'rish",
-    },
+      "Hali mavjud bo'lmagan joylar uchun mahsulotlar.\nKo'pchilik bir necha kun ichida ishga tushadi.",
+    availability: "Mavjud",
   },
   about: {
     intro:

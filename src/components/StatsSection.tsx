@@ -25,37 +25,16 @@ export default function StatsSection() {
       gsap.fromTo(
         labelRef.current,
         {opacity: 0, y: -8},
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.4,
-          ease: "expo.out",
-          scrollTrigger: {
-            trigger: section,
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-        },
+        {opacity: 1, y: 0, duration: 0.4, ease: "expo.out", scrollTrigger: {trigger: section, start: "top 80%", toggleActions: "play none none reverse"}},
       );
-
       gsap.fromTo(
         rowRef.current,
         {clipPath: "inset(100% 0 0 0)"},
-        {
-          clipPath: "inset(0 0 0 0)",
-          duration: 0.8,
-          ease: "expo.out",
-          scrollTrigger: {
-            trigger: section,
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-        },
+        {clipPath: "inset(0 0 0 0)", duration: 0.8, ease: "expo.out", scrollTrigger: {trigger: section, start: "top 80%", toggleActions: "play none none reverse"}},
       );
     }, section);
 
     ScrollTrigger.refresh();
-
     return () => ctx.revert();
   }, []);
 
@@ -72,7 +51,7 @@ export default function StatsSection() {
       ref={sectionRef}
       style={{
         borderTop: "1px solid var(--border)",
-        padding: isMobile ? "var(--space-xl) 24px" : "var(--space-xl) 48px",
+        padding: isMobile ? "var(--gap-xl) 24px" : "var(--gap-xl) var(--page-x)",
       }}
     >
       <div style={{maxWidth: "1200px", margin: "0 auto"}}>
@@ -85,7 +64,7 @@ export default function StatsSection() {
             letterSpacing: "0.2em",
             textTransform: "uppercase",
             color: "var(--text-muted)",
-            marginBottom: "var(--space-lg)",
+            marginBottom: "var(--gap-lg)",
             opacity: 0,
           }}
         >
@@ -105,7 +84,7 @@ export default function StatsSection() {
             <div
               key={i}
               style={{
-                padding: isMobile ? "var(--space-md) var(--space-sm)" : "var(--space-lg) var(--space-md)",
+                padding: isMobile ? "var(--gap-md) var(--gap-sm)" : "var(--gap-lg) var(--gap-md)",
                 borderRight: (() => {
                   const cols = isMobile ? 2 : 4;
                   return (i + 1) % cols !== 0 ? "1px solid var(--border)" : "none";
@@ -115,12 +94,12 @@ export default function StatsSection() {
               <div
                 style={{
                   fontFamily: "var(--font-display)",
-                  fontSize: isMobile ? "clamp(28px, 8vw, 40px)" : "var(--text-chapter)",
+                  fontSize: isMobile ? "clamp(28px, 8vw, 40px)" : "clamp(36px, 4vw, 56px)",
                   fontWeight: 700,
                   letterSpacing: "-0.02em",
                   lineHeight: 1,
                   color: "var(--accent)",
-                  marginBottom: "var(--space-xs)",
+                  marginBottom: "var(--gap-xs)",
                 }}
               >
                 {stat.number}
@@ -128,7 +107,7 @@ export default function StatsSection() {
               <div
                 style={{
                   fontFamily: "var(--font-mono)",
-                  fontSize: "clamp(10px, 1.2vw, 13px)",
+                  fontSize: "clamp(10px, 1.2vw, 12px)",
                   letterSpacing: "0.12em",
                   textTransform: "uppercase",
                   color: "var(--text-muted)",
@@ -147,8 +126,8 @@ export default function StatsSection() {
           style={{
             display: "flex",
             justifyContent: "flex-end",
-            gap: "var(--space-md)",
-            paddingTop: "var(--space-md)",
+            gap: "var(--gap-md)",
+            paddingTop: "var(--gap-md)",
           }}
         >
           {[
@@ -163,11 +142,11 @@ export default function StatsSection() {
               style={{
                 fontFamily: "var(--font-mono)",
                 fontSize: "var(--text-label)",
-                letterSpacing: "0.15em",
+                letterSpacing: "0.12em",
                 textTransform: "uppercase",
                 color: "var(--text-muted)",
                 textDecoration: "none",
-                transition: "color 200ms var(--ease-out-expo)",
+                transition: "color 200ms var(--ease-out)",
               }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "var(--accent)")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}

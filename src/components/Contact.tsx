@@ -12,6 +12,15 @@ export default function Contact({t}: Props) {
   const sectionRef = useRef<HTMLElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)");
+    setIsMobile(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -21,21 +30,11 @@ export default function Contact({t}: Props) {
       gsap.fromTo(
         headlineRef.current,
         {y: "110%"},
-        {
-          y: "0%",
-          duration: 0.7,
-          ease: "expo.out",
-          scrollTrigger: {
-            trigger: section,
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-        },
+        {y: "0%", duration: 0.7, ease: "expo.out", scrollTrigger: {trigger: section, start: "top 80%", toggleActions: "play none none reverse"}},
       );
     }, section);
 
     ScrollTrigger.refresh();
-
     return () => ctx.revert();
   }, []);
 
@@ -72,7 +71,7 @@ export default function Contact({t}: Props) {
       ref={sectionRef}
       style={{
         borderTop: "1px solid var(--border)",
-        padding: "var(--space-2xl) 48px",
+        padding: isMobile ? "var(--gap-2xl) 24px" : "var(--gap-2xl) var(--page-x)",
         display: "flex",
         justifyContent: "center",
       }}
@@ -86,7 +85,7 @@ export default function Contact({t}: Props) {
             letterSpacing: "0.2em",
             textTransform: "uppercase",
             color: "var(--text-muted)",
-            marginBottom: "var(--space-lg)",
+            marginBottom: "var(--gap-lg)",
           }}
         >
           06 &mdash; CONTACT
@@ -98,32 +97,32 @@ export default function Contact({t}: Props) {
             className="clip-child"
             style={{
               fontFamily: "var(--font-display)",
-              fontSize: "var(--text-chapter)",
+              fontSize: isMobile ? "clamp(32px, 8vw, 48px)" : "var(--text-title)",
               fontWeight: 700,
-              lineHeight: 0.92,
+              lineHeight: 0.95,
               letterSpacing: "-0.025em",
               color: "var(--text)",
-              margin: "0 0 var(--space-md) 0",
+              margin: "0 0 var(--gap-md) 0",
             }}
           >
-            Let&apos;s grab a coffee.<br />
-            <span style={{color: "var(--accent)"}}>Or a Zoom call.</span>
+            Let&apos;s talk.<br />
+            <span style={{color: "var(--accent)"}}>Got a project or a question?</span>
           </h2>
         </div>
 
         <p
           style={{
-            fontSize: "var(--text-large)",
+            fontSize: "var(--text-small)",
             fontWeight: 300,
             color: "var(--text-secondary)",
-            margin: "0 0 var(--space-lg) 0",
+            margin: "0 0 var(--gap-lg) 0",
             lineHeight: 1.6,
           }}
         >
           {t.contact.intro}
         </p>
 
-        <div style={{borderTop: "1px solid var(--border)", marginBottom: "var(--space-lg)"}}>
+        <div style={{borderTop: "1px solid var(--border)", marginBottom: "var(--gap-lg)"}}>
           {[
             {label: t.contact.ctas.email, value: "bekzodturgunoff@gmail.com", href: "mailto:bekzodturgunoff@gmail.com"},
             {label: t.contact.ctas.telegram, value: "@bekzodturgunoff", href: "https://t.me/bekzodturgunoff"},
@@ -134,17 +133,32 @@ export default function Contact({t}: Props) {
               href={item.href}
               target={item.href.startsWith("mailto") || item.href.startsWith("tel") ? undefined : "_blank"}
               rel="noopener noreferrer"
-              className="contact-row"
-              style={{textDecoration: "none"}}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                padding: "16px 0",
+                borderBottom: "1px solid var(--border)",
+                textDecoration: "none",
+                transition: "background 200ms var(--ease-out), padding 200ms var(--ease-out)",
+                margin: "0 -24px",
+                paddingLeft: "24px",
+                paddingRight: "24px",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = "var(--accent-dim)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "transparent";
+              }}
             >
               <span
                 style={{
                   fontFamily: "var(--font-mono)",
                   fontSize: "var(--text-label)",
-                  letterSpacing: "0.15em",
+                  letterSpacing: "0.12em",
                   textTransform: "uppercase",
                   color: "var(--text-muted)",
-                  transition: "color 200ms var(--ease-out-expo)",
                 }}
               >
                 {item.label}
@@ -152,28 +166,26 @@ export default function Contact({t}: Props) {
               <span
                 style={{
                   fontFamily: "var(--font-display)",
-                  fontSize: "clamp(16px, 2vw, 24px)",
+                  fontSize: "clamp(16px, 2vw, 22px)",
                   fontWeight: 500,
                   color: "var(--text)",
                   display: "flex",
                   alignItems: "center",
-                  gap: "var(--space-xs)",
-                  transition: "color 200ms var(--ease-out-expo)",
+                  gap: "var(--gap-xs)",
                 }}
               >
                 {item.value}
-
               </span>
             </a>
           ))}
         </div>
 
-        <form onSubmit={handleSubmit} style={{display: "grid", gap: "var(--space-lg)"}}>
+        <form onSubmit={handleSubmit} style={{display: "grid", gap: "var(--gap-lg)"}}>
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gap: "var(--space-md)",
+              gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
+              gap: "var(--gap-md)",
             }}
           >
             <div>
@@ -182,7 +194,7 @@ export default function Contact({t}: Props) {
                   display: "block",
                   fontFamily: "var(--font-mono)",
                   fontSize: "var(--text-label)",
-                  letterSpacing: "0.15em",
+                  letterSpacing: "0.12em",
                   textTransform: "uppercase",
                   color: "var(--text-muted)",
                   marginBottom: "12px",
@@ -204,7 +216,7 @@ export default function Contact({t}: Props) {
                   display: "block",
                   fontFamily: "var(--font-mono)",
                   fontSize: "var(--text-label)",
-                  letterSpacing: "0.15em",
+                  letterSpacing: "0.12em",
                   textTransform: "uppercase",
                   color: "var(--text-muted)",
                   marginBottom: "12px",
@@ -228,20 +240,19 @@ export default function Contact({t}: Props) {
                 display: "block",
                 fontFamily: "var(--font-mono)",
                 fontSize: "var(--text-label)",
-                letterSpacing: "0.15em",
+                letterSpacing: "0.12em",
                 textTransform: "uppercase",
                 color: "var(--text-muted)",
                 marginBottom: "12px",
               }}
             >
-                {t.contact.form.message}
-              </label>
-              <textarea
-                name="message"
-                rows={4}
-                placeholder={t.contact.form.messagePlaceholder}
+              {t.contact.form.message}
+            </label>
+            <textarea
+              name="message"
+              rows={4}
+              placeholder={t.contact.form.messagePlaceholder}
               className="form-input"
-              style={{resize: "none"}}
               required
             />
           </div>
@@ -261,10 +272,10 @@ export default function Contact({t}: Props) {
                 color: "var(--text)",
                 fontFamily: "var(--font-mono)",
                 fontSize: "var(--text-label)",
-                letterSpacing: "0.2em",
+                letterSpacing: "0.15em",
                 textTransform: "uppercase",
                 cursor: status === "sending" || status === "sent" ? "not-allowed" : "pointer",
-                transition: "background 200ms var(--ease-out-expo), border-color 200ms var(--ease-out-expo), color 200ms var(--ease-out-expo)",
+                transition: "background 200ms var(--ease-out), border-color 200ms var(--ease-out), color 200ms var(--ease-out)",
                 opacity: status === "sending" || status === "sent" ? 0.5 : 1,
                 width: "100%",
               }}

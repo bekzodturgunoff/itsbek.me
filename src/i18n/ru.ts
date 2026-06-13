@@ -12,22 +12,13 @@ const ru: I18n = {
     },
   },
   hero: {
-    name: "itsbek.me",
+    name: "Bekzod Turgunov",
     titleTop: "Инженер-программист",
-    titleBottom: "создаю интерфейсы, которыми хочется пользоваться",
-    headlineLine1: "Учился в Сеуле.",
-    headlineLine2: "Строю в Ташкенте.",
-    headlineLine3: "Осознанно.",
+    headlineLine1: "Я создаю",
+    headlineLine2: "интерфейсы.",
     description:
-      "Я создаю продукты для мест, где их ещё нет \u2014 платформы для ресторанов, системы бронирования, AI-инструменты. Большинство запускается за дни, а не за кварталы.",
-    location: "Узбекистан",
-    availability: "Открыт к новым проектам",
-    timezoneLabel: "UZT (GMT +5)",
-    buttons: {
-      contact: "Связаться",
-      viewWork: "Мои работы",
-      viewCaseStudy: "Кейс",
-    },
+      "Продукты для мест, где их ещё нет.\nБольшинство запускается за дни, а не за кварталы.",
+    availability: "Доступен",
   },
   about: {
     intro:

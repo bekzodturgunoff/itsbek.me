@@ -63,85 +63,62 @@
 }
 
 :root {
-  /* BACKGROUNDS */
-  --bg:           #080808;
-  --bg-secondary: #0C0C0C;
-  --surface:      #111111;
-  --surface-hover:#161616;
+  --black: #0E0E0E;
+  --white: #F2EFE9;
+  --accent: #00D4AA;
+  --accent-dim: rgba(0, 212, 170, 0.10);
 
-  /* TEXT */
-  --text:         #F0EDE8;
-  --text-secondary: rgba(240, 237, 232, 0.55);
-  --text-muted:   rgba(240, 237, 232, 0.28);
-
-  /* ACCENT */
-  --accent:       #00D4AA;
-  --accent-hover: #00EFC0;
-  --accent-dim:   rgba(0, 212, 170, 0.10);
-
-  /* BORDERS */
-  --border:       rgba(240, 237, 232, 0.07);
-  --border-hover: rgba(240, 237, 232, 0.14);
-
-  /* NAV */
-  --nav-bg:       rgba(8, 8, 8, 0.88);
-
-  /* GRAIN */
+  --text: var(--white);
+  --text-secondary: rgba(242, 239, 233, 0.55);
+  --text-muted: rgba(242, 239, 233, 0.28);
+  --bg: var(--black);
+  --bg-secondary: #161616;
+  --border: rgba(242, 239, 233, 0.08);
+  --border-hover: rgba(242, 239, 233, 0.16);
+  --nav-bg: rgba(14, 14, 14, 0.88);
   --grain-opacity: 0.035;
 
-  /* SPACING SCALE — use ONLY these values for margin/padding */
-  --space-xs:  8px;
-  --space-sm:  16px;
-  --space-md:  32px;
-  --space-lg:  64px;
-  --space-xl:  128px;
-  --space-2xl: 200px;
+  --page-x: clamp(24px, 5vw, 80px);
+  --gap-xs: 8px;
+  --gap-sm: 16px;
+  --gap-md: 24px;
+  --gap-lg: 48px;
+  --gap-xl: 96px;
+  --gap-2xl: 140px;
 
-  /* TYPE SCALE */
-  --text-hero:    clamp(56px, 10vw, 140px);
-  --text-chapter: clamp(40px, 6vw, 88px);
-  --text-project: clamp(32px, 5vw, 72px);
-  --text-large:   clamp(18px, 2vw, 28px);
-  --text-body:    16px;
-  --text-label:   11px;
-  --text-mono:    13px;
+  --text-display: clamp(40px, 8vw, 96px);
+  --text-title: clamp(28px, 4vw, 48px);
+  --text-body: 16px;
+  --text-small: 14px;
+  --text-label: 11px;
+  --text-mono: 13px;
 
-  /* EASING — use ONLY these */
-  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-in-out: cubic-bezier(0.87, 0, 0.13, 1);
+  --ease-in: cubic-bezier(0.87, 0, 0.13, 1);
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    --bg:           #F7F5F2;
-    --bg-secondary: #F0EDE8;
-    --surface:      #E8E5E0;
-    --surface-hover:#DEDAD4;
-    --text:         #0A0A0F;
-    --text-secondary: rgba(10, 10, 15, 0.55);
-    --text-muted:   rgba(10, 10, 15, 0.30);
-    --accent:       #00A882;
-    --accent-hover: #00C49A;
-    --accent-dim:   rgba(0, 168, 130, 0.10);
-    --border:       rgba(10, 10, 15, 0.09);
-    --border-hover: rgba(10, 10, 15, 0.18);
-    --nav-bg:       rgba(247, 245, 242, 0.88);
+    --text: var(--black);
+    --text-secondary: rgba(14, 14, 14, 0.55);
+    --text-muted: rgba(14, 14, 14, 0.28);
+    --bg: var(--white);
+    --bg-secondary: #E8E5E0;
+    --border: rgba(14, 14, 14, 0.09);
+    --border-hover: rgba(14, 14, 14, 0.18);
+    --nav-bg: rgba(242, 239, 233, 0.88);
     --grain-opacity: 0.018;
   }
 }
 
 @theme inline {
   --color-bg: var(--bg);
-  --color-bg-secondary: var(--bg-secondary);
-  --color-surface: var(--surface);
-  --color-surface-hover: var(--surface-hover);
-  --color-border: var(--border);
   --color-text: var(--text);
   --color-text-secondary: var(--text-secondary);
   --color-text-muted: var(--text-muted);
+  --color-border: var(--border);
+  --color-border-hover: var(--border-hover);
   --color-accent: var(--accent);
-  --color-accent-hover: var(--accent-hover);
   --color-accent-dim: var(--accent-dim);
   --color-nav-bg: var(--nav-bg);
 
@@ -196,7 +173,6 @@ body {
   background: var(--text-muted);
 }
 
-/* CLIP REVEAL — the most important animation class on the site */
 .clip-reveal {
   overflow: clip;
   overflow-clip-margin: 0;
@@ -207,7 +183,6 @@ body {
   will-change: transform;
 }
 
-/* TECH STRIP — horizontal scrolling ticker */
 .tech-strip-wrapper {
   overflow: hidden;
   width: 100%;
@@ -230,7 +205,6 @@ body {
   to   { transform: translateX(-50%); }
 }
 
-/* NOISE OVERLAY */
 .noise-overlay {
   position: fixed;
   inset: 0;
@@ -242,64 +216,6 @@ body {
   background-size: 128px 128px;
 }
 
-/* PROJECT IMAGE CONTAINERS */
-.project-image-env {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.project-image-env img,
-.project-image-env video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(0.55) saturate(0.8);
-  transition: filter 600ms var(--ease-out-expo);
-}
-
-.project-section:hover .project-image-env img,
-.project-section:hover .project-image-env video {
-  filter: brightness(0.7) saturate(0.9);
-}
-
-.project-image-env[data-video] {
-  filter: brightness(0.4) saturate(0.6);
-}
-
-/* PROJECT GRADIENT OVERLAY */
-.project-gradient {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to top,
-    var(--bg) 0%,
-    color-mix(in srgb, var(--bg) 60%, transparent) 40%,
-    transparent 60%
-  );
-  pointer-events: none;
-}
-
-/* CONTACT ROW HOVER */
-.contact-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 24px 0;
-  border-bottom: 1px solid var(--border);
-  transition: background 200ms var(--ease-out-expo), padding 200ms var(--ease-out-expo);
-  cursor: pointer;
-  margin: 0 -24px;
-  padding-left: 24px;
-  padding-right: 24px;
-}
-
-.contact-row:hover {
-  background: var(--accent-dim);
-}
-
-/* FORM INPUTS — underline only, no box */
 .form-input {
   width: 100%;
   background: transparent;
@@ -321,35 +237,8 @@ body {
   border-bottom-color: var(--accent);
 }
 
-/* NAV LINK HOVER — sliding underline */
-.nav-link {
-  position: relative;
-  font-size: 13px;
-  color: var(--text-secondary);
-  text-decoration: none;
-  transition: color 200ms;
-  padding-bottom: 2px;
-}
-
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background: var(--accent);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 200ms var(--ease-out-expo);
-}
-
-.nav-link:hover {
-  color: var(--text);
-}
-
-.nav-link:hover::after {
-  transform: scaleX(1);
+textarea.form-input {
+  resize: none;
 }
 
 @keyframes pulse-dot {
@@ -358,6 +247,12 @@ body {
 }
 
 @keyframes menu-item-in {
-  from { opacity: 0; transform: translateY(24px); }
+  from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .custom-cursor {
+    display: none !important;
+  }
 }

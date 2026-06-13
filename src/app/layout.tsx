@@ -29,7 +29,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
         <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#080808" />
         <link
           rel="preload"
-          href="/fonts/clash-display/ClashDisplay-Bold.woff2"
+          href="/fonts/clash-display/ClashDisplay-Variable.woff2"
           as="font"
           type="font/woff2"
           crossOrigin="anonymous"

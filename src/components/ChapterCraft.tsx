@@ -27,70 +27,26 @@ export default function ChapterCraft() {
       gsap.fromTo(
         labelRef.current,
         {opacity: 0, y: -8},
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.4,
-          ease: "expo.out",
-          scrollTrigger: {
-            trigger: section,
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-        },
+        {opacity: 1, y: 0, duration: 0.4, ease: "expo.out", scrollTrigger: {trigger: section, start: "top 80%", toggleActions: "play none none reverse"}},
       );
-
       gsap.fromTo(
         headlineRef.current,
         {y: "110%"},
-        {
-          y: "0%",
-          duration: 0.7,
-          ease: "expo.out",
-          scrollTrigger: {
-            trigger: section,
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-        },
+        {y: "0%", duration: 0.7, ease: "expo.out", scrollTrigger: {trigger: section, start: "top 80%", toggleActions: "play none none reverse"}},
       );
-
       gsap.fromTo(
         p1Ref.current,
         {opacity: 0, y: 24},
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          ease: "expo.out",
-          scrollTrigger: {
-            trigger: section,
-            start: "top 72%",
-            toggleActions: "play none none reverse",
-          },
-        },
+        {opacity: 1, y: 0, duration: 0.6, ease: "expo.out", scrollTrigger: {trigger: section, start: "top 72%", toggleActions: "play none none reverse"}},
       );
-
       gsap.fromTo(
         p2Ref.current,
         {opacity: 0, y: 24},
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          ease: "expo.out",
-          delay: 0.1,
-          scrollTrigger: {
-            trigger: section,
-            start: "top 72%",
-            toggleActions: "play none none reverse",
-          },
-        },
+        {opacity: 1, y: 0, duration: 0.6, ease: "expo.out", delay: 0.1, scrollTrigger: {trigger: section, start: "top 72%", toggleActions: "play none none reverse"}},
       );
     }, section);
 
     ScrollTrigger.refresh();
-
     return () => ctx.revert();
   }, []);
 
@@ -106,10 +62,8 @@ export default function ChapterCraft() {
       id="craft"
       ref={sectionRef}
       style={{
-        position: "relative",
-        width: "100%",
         borderTop: "1px solid var(--border)",
-        padding: isMobile ? "var(--space-2xl) 24px" : "var(--space-2xl) 48px",
+        padding: isMobile ? "var(--gap-xl) 24px" : "var(--gap-xl) var(--page-x)",
       }}
     >
       <div style={{maxWidth: "1200px", margin: "0 auto"}}>
@@ -122,21 +76,21 @@ export default function ChapterCraft() {
             letterSpacing: "0.2em",
             textTransform: "uppercase",
             color: "var(--text-muted)",
-            marginBottom: "var(--space-lg)",
+            marginBottom: "var(--gap-lg)",
             opacity: 0,
           }}
         >
           02 &mdash; THE CRAFT
         </span>
 
-        <div style={{maxWidth: "840px", marginBottom: "var(--space-xl)"}}>
+        <div style={{maxWidth: "840px", marginBottom: "var(--gap-xl)"}}>
           <div className="clip-reveal">
             <h2
               ref={headlineRef}
               className="clip-child"
               style={{
                 fontFamily: "var(--font-display)",
-                fontSize: isMobile ? "clamp(32px, 9vw, 52px)" : "var(--text-chapter)",
+                fontSize: isMobile ? "clamp(28px, 8vw, 44px)" : "var(--text-title)",
                 fontWeight: 700,
                 lineHeight: 0.95,
                 letterSpacing: "-0.025em",
@@ -153,15 +107,15 @@ export default function ChapterCraft() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: isMobile ? "1fr" : "40% 40%",
-            gap: isMobile ? "var(--space-md)" : "var(--space-xl)",
-            marginBottom: "var(--space-xl)",
+            gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
+            gap: isMobile ? "var(--gap-md)" : "var(--gap-xl)",
+            marginBottom: "var(--gap-xl)",
           }}
         >
           <p
             ref={p1Ref}
             style={{
-              fontSize: "var(--text-body)",
+              fontSize: "var(--text-small)",
               fontWeight: 400,
               lineHeight: 1.8,
               color: "var(--text-secondary)",
@@ -177,7 +131,7 @@ export default function ChapterCraft() {
           <p
             ref={p2Ref}
             style={{
-              fontSize: "var(--text-body)",
+              fontSize: "var(--text-small)",
               fontWeight: 400,
               lineHeight: 1.8,
               color: "var(--text-secondary)",
@@ -198,7 +152,7 @@ export default function ChapterCraft() {
             style={{
               borderTop: "1px solid var(--border)",
               borderBottom: "1px solid var(--border)",
-              padding: "20px 0",
+              padding: "16px 0",
             }}
           >
             {techItems.map((item, i) => (

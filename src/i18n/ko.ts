@@ -12,22 +12,13 @@ const ko: I18n = {
     },
   },
   hero: {
-    name: "itsbek.me",
+    name: "Bekzod Turgunov",
     titleTop: "소프트웨어 엔지니어",
-    titleBottom: "사용자 경험을 생각하는",
-    headlineLine1: "서울에서 공부했습니다.",
-    headlineLine2: "타슈켄트에서 만듭니다.",
-    headlineLine3: "의미를 가지고.",
+    headlineLine1: "나는 만든다",
+    headlineLine2: "인터페이스를.",
     description:
-      "아직 없는 곳을 위해 제품을 만듭니다 \u2014 레스토랑 플랫폼, 예약 시스템, AI 도구. 대부분 며칠 안에 출시됩니다.",
-    location: "우즈베키스탄",
-    availability: "새 프로젝트에 열려 있습니다",
-    timezoneLabel: "UZT (GMT +5)",
-    buttons: {
-      contact: "연락하기",
-      viewWork: "작업 보기",
-      viewCaseStudy: "사례 연구 보기",
-    },
+      "아직 없는 곳을 위한 제품.\n대부분 며칠 안에 출시됩니다.",
+    availability: "연락 가능",
   },
   about: {
     intro:

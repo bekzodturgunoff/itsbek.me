@@ -12,26 +12,17 @@ const en: I18n = {
     },
   },
   hero: {
-    name: "itsbek.me",
+    name: "Bekzod Turgunov",
     titleTop: "Software Engineer",
-    titleBottom: "I build apps that work well and feel right.",
-    headlineLine1: "Studied in Seoul.",
-    headlineLine2: "Building in Tashkent.",
-    headlineLine3: "On purpose.",
+    headlineLine1: "I build",
+    headlineLine2: "interfaces.",
     description:
-      "I build products for places that don't have them yet \u2014 restaurant platforms, booking systems, AI tools. Most ship in days, not quarters.",
-    location: "Uzbekistan",
-    availability: "Open to new projects",
-    timezoneLabel: "UZT (GMT +5)",
-    buttons: {
-      contact: "Get in Touch",
-      viewWork: "See My Work",
-      viewCaseStudy: "Read Case Study",
-    },
+      "Products for places that don\u2019t have them yet.\nMost ship in days, not quarters.",
+    availability: "Available",
   },
   about: {
     intro:
-      "I was born in Uzbekistan and taught myself to code back when finding good internet was harder than finding bugs. No bootcrumbs or fast-track degrees—just tough problems and enough stubbornness to keep banging my head against the keyboard until things worked.\n\nIn 2023, I moved to Seoul to study cyber security and ship real software in a completely different language. It was a wild ride that made me a much sharper developer. Now I'm back in Uzbekistan, still working the way I always have: by diving straight into the deep end and building things before I feel 100% ready.",
+      "I was born in Uzbekistan and taught myself to code back when finding good internet was harder than finding bugs. No bootcamps or fast-track degrees — just tough problems and enough stubbornness to keep banging my head against the keyboard until things worked.\n\nIn 2023, I moved to Seoul to study cyber security and ship real software in a completely different language. It made me a much sharper developer. Now I'm back in Uzbekistan, still working the way I always have: by building things before I feel ready.",
     basedIn: "Living in Uzbekistan",
     languagesLine: "Languages: English (Fluent), Russian, Korean.",
   },
@@ -42,9 +33,9 @@ const en: I18n = {
     building: "Still building.",
   },
   contact: {
-    heading: "Let's grab a coffee (or a Zoom call).",
+    heading: "Let's talk.",
     intro:
-      "Have an interesting project, a technical question, or just want to talk shop? Drop me a line. I'm based in Uzbekistan (GMT+5) and usually get back to people on the same day.",
+      "Got a project or a question? Drop me a line. I'm based in Uzbekistan (GMT+5) and usually get back to people on the same day.",
     availability: "Usually replies within a few hours.",
     ctas: {
       call: "Give Me a Call",

@@ -40,19 +40,10 @@ export interface I18n {
   hero: {
     name: string;
     titleTop: string;
-    titleBottom: string;
     headlineLine1: string;
     headlineLine2: string;
-    headlineLine3: string;
     description: string;
-    location: string;
     availability: string;
-    timezoneLabel: string;
-    buttons: {
-      contact: string;
-      viewWork: string;
-      viewCaseStudy: string;
-    };
   };
   about: {
     intro: string;

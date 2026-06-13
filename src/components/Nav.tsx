@@ -1,6 +1,6 @@
 "use client";
 
-import {useState, useEffect, useRef} from "react";
+import {useState, useEffect} from "react";
 import {useLang} from "@/app/[lang]/LangProvider";
 import {LANGUAGES} from "@/lib/constants";
 import type {I18n} from "@/i18n/types";
@@ -28,10 +28,9 @@ export default function Nav({t}: Props) {
   const [isMobile, setIsMobile] = useState(false);
   const [currentLabel, setCurrentLabel] = useState("");
   const [labelVisible, setLabelVisible] = useState(true);
-  const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
-    const mq = window.matchMedia("(max-width: 767px)");
+    const mq = window.matchMedia("(max-width: 899px)");
     setIsMobile(mq.matches);
     const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
     mq.addEventListener("change", handler);
@@ -45,15 +44,17 @@ export default function Nav({t}: Props) {
   }, []);
 
   useEffect(() => {
-    observerRef.current = new IntersectionObserver(
+    let current = currentLabel;
+    const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
           if (entry.isIntersecting) {
             const id = entry.target.id;
             const label = CHAPTER_LABELS[id];
-            if (label !== undefined && label !== currentLabel) {
+            if (label !== undefined && label !== current) {
               setLabelVisible(false);
               setTimeout(() => {
+                current = label;
                 setCurrentLabel(label);
                 setLabelVisible(true);
               }, 150);
@@ -67,10 +68,10 @@ export default function Nav({t}: Props) {
 
     for (const id of SECTION_IDS) {
       const el = document.getElementById(id);
-      if (el) observerRef.current.observe(el);
+      if (el) observer.observe(el);
     }
 
-    return () => observerRef.current?.disconnect();
+    return () => observer.disconnect();
   }, [currentLabel]);
 
   const navLinks = [
@@ -90,7 +91,7 @@ export default function Nav({t}: Props) {
           left: 0,
           right: 0,
           zIndex: 100,
-          height: "56px",
+          height: "52px",
           background: scrolled ? "var(--nav-bg)" : "transparent",
           backdropFilter: scrolled ? "blur(20px) saturate(180%)" : "none",
           WebkitBackdropFilter: scrolled ? "blur(20px) saturate(180%)" : "none",
@@ -104,32 +105,27 @@ export default function Nav({t}: Props) {
             alignItems: "center",
             justifyContent: "space-between",
             height: "100%",
-            padding: isMobile ? "0 24px" : "0 48px",
-            maxWidth: "1200px",
-            margin: "0 auto",
+            padding: isMobile ? "0 24px" : "0 var(--page-x)",
           }}
         >
           <a
             href={`/${lang}`}
             style={{
               fontFamily: "var(--font-display)",
-              fontSize: "17px",
+              fontSize: "18px",
               fontWeight: 700,
               letterSpacing: "-0.02em",
               color: "var(--text)",
               textDecoration: "none",
-              transition: "color 200ms",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = "var(--accent)")}
-            onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text)")}
           >
-            itsbek.me
+            BT
           </a>
 
           {!isMobile && (
             <div
               style={{
-                fontFamily: "monospace",
+                fontFamily: "var(--font-mono)",
                 fontSize: "11px",
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
@@ -151,9 +147,9 @@ export default function Nav({t}: Props) {
                       key={code}
                       href={`/${code}`}
                       style={{
-                        fontFamily: "monospace",
+                        fontFamily: "var(--font-mono)",
                         fontSize: "11px",
-                        letterSpacing: "0.1em",
+                        letterSpacing: "0.08em",
                         textTransform: "uppercase",
                         textDecoration: "none",
                         color: lang === code ? "var(--accent)" : "var(--text-muted)",
@@ -171,22 +167,22 @@ export default function Nav({t}: Props) {
                   ))}
                 </div>
 
-                <div style={{width: "1px", height: "16px", background: "var(--border)"}} />
+                <div style={{width: "1px", height: "14px", background: "var(--border)"}} />
 
                 <a
                   href="/bekzod-turgunov-resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
-                    fontFamily: "monospace",
+                    fontFamily: "var(--font-mono)",
                     fontSize: "11px",
-                    letterSpacing: "0.1em",
+                    letterSpacing: "0.08em",
                     textTransform: "uppercase",
                     textDecoration: "none",
                     color: "var(--text-muted)",
                     border: "1px solid var(--border)",
                     borderRadius: "9999px",
-                    padding: "6px 16px",
+                    padding: "5px 14px",
                     transition: "color 200ms, border-color 200ms",
                   }}
                   onMouseEnter={(e) => {
@@ -258,14 +254,14 @@ export default function Nav({t}: Props) {
           style={{
             position: "fixed",
             inset: 0,
-            top: "56px",
+            top: "52px",
             zIndex: 200,
             background: "var(--bg)",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            gap: "40px",
+            gap: "36px",
           }}
         >
           {navLinks.map((item, i) => (
@@ -275,7 +271,7 @@ export default function Nav({t}: Props) {
               onClick={() => setMenuOpen(false)}
               style={{
                 fontFamily: "var(--font-display)",
-                fontSize: "32px",
+                fontSize: "28px",
                 fontWeight: 700,
                 color: "var(--text)",
                 textDecoration: "none",
@@ -286,16 +282,16 @@ export default function Nav({t}: Props) {
             </a>
           ))}
 
-          <div style={{display: "flex", gap: "16px", marginTop: "24px"}}>
+          <div style={{display: "flex", gap: "16px", marginTop: "20px"}}>
             {Object.entries(LANGUAGES).map(([code]) => (
               <a
                 key={code}
                 href={`/${code}`}
                 onClick={() => setMenuOpen(false)}
                 style={{
-                  fontFamily: "monospace",
+                  fontFamily: "var(--font-mono)",
                   fontSize: "13px",
-                  letterSpacing: "0.1em",
+                  letterSpacing: "0.08em",
                   textTransform: "uppercase",
                   textDecoration: "none",
                   color: lang === code ? "var(--accent)" : "var(--text-muted)",
@@ -312,9 +308,9 @@ export default function Nav({t}: Props) {
             rel="noopener noreferrer"
             onClick={() => setMenuOpen(false)}
             style={{
-              fontFamily: "monospace",
+              fontFamily: "var(--font-mono)",
               fontSize: "11px",
-              letterSpacing: "0.15em",
+              letterSpacing: "0.12em",
               textTransform: "uppercase",
               textDecoration: "none",
               color: "var(--text)",
