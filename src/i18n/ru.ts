@@ -123,8 +123,8 @@ const ru: I18n = {
       ]
     },
     images: [
-      { src: '/images/projects/3d-device-with-ai-assistant.webm', alt: 'Интеграция Telegram Business API — бот перехватывает входящие сообщения и отвечает AI-генерацией от лица владельца.', caption: 'Интеграция Telegram Business API — бот перехватывает входящие сообщения и отвечает AI-генерацией от лица владельца, сохраняя язык и тон отправителя.' },
-      { src: '/images/projects/ai-assistant-on-digital-screen-smart-device.webm', alt: 'Трёхуровневая система памяти — бот хранит историю диалогов, профили персон и долгосрочные факты для каждого контакта через Cloudflare KV.', caption: 'Трёхуровневая система памяти — бот хранит историю диалогов, профили персон и долгосрочные факты для каждого контакта через Cloudflare KV.' }
+      { src: '/images/projects/3d-stickle-robot-assistant-device-with-smiling-pixel-face-and-control-knobs.png', alt: 'Интеграция Telegram Business API — бот перехватывает входящие сообщения и отвечает AI-генерацией от лица владельца.', caption: 'Интеграция Telegram Business API — бот перехватывает входящие сообщения и отвечает AI-генерацией от лица владельца, сохраняя язык и тон отправителя.' },
+      { src: '/images/projects/3d-stickle-retro-tablet-with-pixel-ai-chatbot-1.png', alt: 'Трёхуровневая система памяти — бот хранит историю диалогов, профили персон и долгосрочные факты для каждого контакта через Cloudflare KV.', caption: 'Трёхуровневая система памяти — бот хранит историю диалогов, профили персон и долгосрочные факты для каждого контакта через Cloudflare KV.' }
     ],
     cta: { label: 'Исходный код', href: 'https://github.com/bekzodturgunoff/personal-assistant' }
   },

@@ -158,8 +158,8 @@ const uz: I18n = {
       ],
     },
     images: [
-      { src: "/images/projects/3d-device-with-ai-assistant.webm", alt: "Telegram Business API integratsiyasi — bot kiruvchi biznes xabarlarini tutib, AI yordamida egasi sifatida javob beradi.", caption: "Telegram Business API integratsiyasi — bot kiruvchi biznes xabarlarini tutib, AI yordamida egasi sifatida jo'natuvchining tili va ohangiga mos javob beradi." },
-      { src: "/images/projects/ai-assistant-on-digital-screen-smart-device.webm", alt: "Uch darajali xotira tizimi — bot Cloudflare KV yordamida har bir kontakt uchun suhbat tarixi, shaxs profillari va uzoq muddatli faktlarni saqlaydi.", caption: "Uch darajali xotira tizimi — bot Cloudflare KV yordamida har bir kontakt uchun suhbat tarixi, shaxs profillari va uzoq muddatli faktlarni saqlaydi." },
+      { src: "/images/projects/3d-stickle-robot-assistant-device-with-smiling-pixel-face-and-control-knobs.png", alt: "Telegram Business API integratsiyasi — bot kiruvchi biznes xabarlarini tutib, AI yordamida egasi sifatida javob beradi.", caption: "Telegram Business API integratsiyasi — bot kiruvchi biznes xabarlarini tutib, AI yordamida egasi sifatida jo'natuvchining tili va ohangiga mos javob beradi." },
+      { src: "/images/projects/3d-stickle-retro-tablet-with-pixel-ai-chatbot-1.png", alt: "Uch darajali xotira tizimi — bot Cloudflare KV yordamida har bir kontakt uchun suhbat tarixi, shaxs profillari va uzoq muddatli faktlarni saqlaydi.", caption: "Uch darajali xotira tizimi — bot Cloudflare KV yordamida har bir kontakt uchun suhbat tarixi, shaxs profillari va uzoq muddatli faktlarni saqlaydi." },
     ],
     cta: {label: "Manba kodini ko'rish", href: "https://github.com/bekzodturgunoff/personal-assistant"},
   },

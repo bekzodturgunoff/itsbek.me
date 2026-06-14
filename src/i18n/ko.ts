@@ -123,8 +123,8 @@ const ko: I18n = {
       ]
     },
     images: [
-      { src: '/images/projects/3d-device-with-ai-assistant.webm', alt: 'Telegram Business API 통합 — 봇이 비즈니스 메시지를 가로채 소유자로서 AI 생성 응답으로 답변합니다.', caption: 'Telegram Business API 통합 — 봇이 비즈니스 메시지를 가로채 소유자로서 AI 생성 응답으로 답변합니다.' },
-      { src: '/images/projects/ai-assistant-on-digital-screen-smart-device.webm', alt: '3계층 메모리 시스템 — 봇이 Cloudflare KV를 사용하여 연락처별 대화 기록, 페르소나 프로필 및 장기 사실을 유지합니다.', caption: '3계층 메모리 시스템 — 봇이 Cloudflare KV를 사용하여 연락처별 대화 기록, 페르소나 프로필 및 장기 사실을 유지합니다.' }
+      { src: '/images/projects/3d-stickle-robot-assistant-device-with-smiling-pixel-face-and-control-knobs.png', alt: 'Telegram Business API 통합 — 봇이 비즈니스 메시지를 가로채 소유자로서 AI 생성 응답으로 답변합니다.', caption: 'Telegram Business API 통합 — 봇이 비즈니스 메시지를 가로채 소유자로서 AI 생성 응답으로 답변합니다.' },
+      { src: '/images/projects/3d-stickle-retro-tablet-with-pixel-ai-chatbot-1.png', alt: '3계층 메모리 시스템 — 봇이 Cloudflare KV를 사용하여 연락처별 대화 기록, 페르소나 프로필 및 장기 사실을 유지합니다.', caption: '3계층 메모리 시스템 — 봇이 Cloudflare KV를 사용하여 연락처별 대화 기록, 페르소나 프로필 및 장기 사실을 유지합니다.' }
     ],
     cta: { label: '소스 보기', href: 'https://github.com/bekzodturgunoff/personal-assistant' }
   },

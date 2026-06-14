@@ -157,8 +157,8 @@ const en: I18n = {
       ],
     },
     images: [
-      { src: "/images/projects/3d-device-with-ai-assistant.webm", alt: "Telegram Business API integration — the bot intercepts incoming business messages and replies as the owner with AI-generated responses.", caption: "Telegram Business API integration — the bot intercepts incoming business messages and replies as the owner with AI-generated responses that match the sender's language and tone." },
-      { src: "/images/projects/ai-assistant-on-digital-screen-smart-device.webm", alt: "Three-tier memory system — the bot keeps conversation history, persona profiles, and long-term facts per contact using Cloudflare KV.", caption: "Three-tier memory system — the bot keeps conversation history, persona profiles, and long-term facts per contact using Cloudflare KV." },
+      { src: "/images/projects/3d-stickle-robot-assistant-device-with-smiling-pixel-face-and-control-knobs.png", alt: "Telegram Business API integration — the bot intercepts incoming business messages and replies as the owner with AI-generated responses.", caption: "Telegram Business API integration — the bot intercepts incoming business messages and replies as the owner with AI-generated responses that match the sender's language and tone." },
+      { src: "/images/projects/3d-stickle-retro-tablet-with-pixel-ai-chatbot-1.png", alt: "Three-tier memory system — the bot keeps conversation history, persona profiles, and long-term facts per contact using Cloudflare KV.", caption: "Three-tier memory system — the bot keeps conversation history, persona profiles, and long-term facts per contact using Cloudflare KV." },
     ],
     cta: {label: "View source", href: "https://github.com/bekzodturgunoff/personal-assistant"},
   },
