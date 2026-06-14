@@ -1,7 +1,8 @@
 "use client";
 
 import {useState, useEffect} from "react";
-import Image from "next/image";
+import {useRouter} from "next/navigation";
+import {useLang} from "@/app/[lang]/LangProvider";
 import ProjectImageCursor from "@/components/ProjectImageCursor";
 
 const PROJECTS = [
@@ -48,12 +49,13 @@ const PROJECTS = [
 ];
 
 export default function ProjectsSection() {
+  const router = useRouter();
+  const lang = useLang();
   const [activeProject, setActiveProject] = useState<string | null>(null);
   const [cursorPos, setCursorPos] = useState({x: 0, y: 0});
   const [isMobile, setIsMobile] = useState(() =>
     typeof window !== "undefined" ? window.matchMedia("(max-width: 767px)").matches : false
   );
-  const [expandedId, setExpandedId] = useState<string | null>(null);
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 767px)");
@@ -78,8 +80,8 @@ export default function ProjectsSection() {
     if (!isMobile) setCursorPos({x: e.clientX, y: e.clientY});
   };
 
-  const toggleExpand = (id: string) => {
-    if (isMobile) setExpandedId(expandedId === id ? null : id);
+  const goToCaseStudy = (slug: string) => {
+    router.push(`/${lang}/case-study/${slug}`);
   };
 
   return (
@@ -177,14 +179,14 @@ export default function ProjectsSection() {
                 handleMouseLeave();
                 if (!isMobile) e.currentTarget.style.background = "transparent";
               }}
-              onClick={() => toggleExpand(project.id)}
+              onClick={() => goToCaseStudy(project.id)}
               style={{
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
                 padding: isMobile ? "20px var(--page-x)" : "28px var(--page-x)",
                 borderBottom: "1px solid var(--white-07)",
-                cursor: isMobile ? "pointer" : "default",
+                cursor: "pointer",
                 transition: "background 200ms",
                 maxWidth: "1400px",
                 margin: "0 auto",
@@ -286,67 +288,6 @@ export default function ProjectsSection() {
                 </a>
               </div>
             </div>
-
-            {/* Mobile expanded view */}
-            {isMobile && expandedId === project.id && (
-              <div
-                style={{
-                  padding: "0 var(--page-x) 20px",
-                  borderBottom: "1px solid var(--white-07)",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "16px",
-                }}
-              >
-                <div
-                  style={{
-                    width: "120px",
-                    height: "80px",
-                    position: "relative",
-                    borderRadius: "4px",
-                    overflow: "hidden",
-                    flexShrink: 0,
-                  }}
-                >
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    sizes="120px"
-                    style={{objectFit: "cover"}}
-                  />
-                </div>
-                <div style={{flex: 1}}>
-                  <p
-                    style={{
-                      fontFamily: "var(--font-sans)",
-                      fontSize: "var(--size-md)",
-                      fontWeight: 300,
-                      color: "var(--white-60)",
-                      margin: "0 0 8px 0",
-                      lineHeight: 1.5,
-                    }}
-                  >
-                    {project.hook}
-                  </p>
-                  <a
-                    href={project.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      fontFamily: "var(--font-sans)",
-                      fontSize: "var(--size-label)",
-                      letterSpacing: "var(--track-label)",
-                      textTransform: "uppercase",
-                      color: "var(--accent)",
-                      textDecoration: "none",
-                    }}
-                  >
-                    Visit &nearr;
-                  </a>
-                </div>
-              </div>
-            )}
           </div>
         ))}
       </div>
