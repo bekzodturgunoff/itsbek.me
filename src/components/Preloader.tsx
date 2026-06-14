@@ -9,11 +9,10 @@ export default function Preloader() {
 
   useEffect(() => {
     const start = performance.now();
-    const duration = 800;
 
     const raf = () => {
       const elapsed = performance.now() - start;
-      const progress = Math.min(elapsed / duration, 1);
+      const progress = Math.min(elapsed / 700, 1);
       setFill(progress);
       if (progress < 1) requestAnimationFrame(raf);
     };
@@ -21,8 +20,8 @@ export default function Preloader() {
 
     const timer = setTimeout(() => {
       setFading(true);
-      setTimeout(() => setVisible(false), 400);
-    }, duration);
+      setTimeout(() => setVisible(false), 300);
+    }, 800);
 
     return () => clearTimeout(timer);
   }, []);
@@ -34,26 +33,26 @@ export default function Preloader() {
       style={{
         position: "fixed",
         inset: 0,
-        background: "var(--bg)",
+        background: "var(--black)",
         zIndex: 9999,
         display: "flex",
         flexDirection: "column",
-        alignItems: "flex-start",
-        justifyContent: "flex-start",
-        padding: "var(--page-x)",
-        transition: "opacity 400ms ease",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: "12px",
+        transition: "transform 300ms var(--ease-in), opacity 300ms var(--ease-in)",
+        transform: fading ? "scale(0.8)" : "scale(1)",
         opacity: fading ? 0 : 1,
       }}
     >
       <span
         style={{
           fontFamily: "var(--font-display)",
-          fontSize: "32px",
+          fontSize: "80px",
           fontWeight: 700,
           letterSpacing: "-0.03em",
-          color: "var(--text)",
+          color: "var(--white)",
           lineHeight: 1,
-          marginBottom: "12px",
         }}
       >
         BT
@@ -63,7 +62,7 @@ export default function Preloader() {
         style={{
           width: "80px",
           height: "1px",
-          background: "var(--border)",
+          background: "var(--white-15)",
           position: "relative",
         }}
       >

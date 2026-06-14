@@ -9,11 +9,12 @@ export default function ChapterCraft() {
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const p1Ref = useRef<HTMLParagraphElement>(null);
   const p2Ref = useRef<HTMLParagraphElement>(null);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== "undefined" ? window.matchMedia("(max-width: 767px)").matches : false
+  );
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 767px)");
-    setIsMobile(mq.matches);
     const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
     mq.addEventListener("change", handler);
     return () => mq.removeEventListener("change", handler);
@@ -57,44 +58,52 @@ export default function ChapterCraft() {
     "GSAP", "Framer Motion", "Go", "Cloudflare Workers", "Python", "C",
   ];
 
+  const colStyle: React.CSSProperties = {
+    fontFamily: "var(--font-sans)",
+    fontSize: "var(--size-md)",
+    fontWeight: 400,
+    lineHeight: 1.85,
+    color: "var(--white-60)",
+    margin: 0,
+  };
+
   return (
     <section
       id="craft"
       ref={sectionRef}
       style={{
-        borderTop: "1px solid var(--border)",
-        padding: isMobile ? "var(--gap-xl) 24px" : "var(--gap-xl) var(--page-x)",
+        borderTop: "1px solid var(--white-07)",
+        padding: "var(--gap-2xl) var(--page-x)",
       }}
     >
-      <div style={{maxWidth: "1200px", margin: "0 auto"}}>
+      <div style={{maxWidth: "1000px", margin: "0 auto"}}>
         <span
           ref={labelRef}
           style={{
             display: "block",
-            fontFamily: "var(--font-mono)",
-            fontSize: "var(--text-label)",
-            letterSpacing: "0.2em",
+            fontFamily: "var(--font-sans)",
+            fontSize: "var(--size-label)",
+            letterSpacing: "var(--track-label)",
             textTransform: "uppercase",
-            color: "var(--text-muted)",
+            color: "var(--white-60)",
             marginBottom: "var(--gap-lg)",
-            opacity: 0,
           }}
         >
           02 &mdash; THE CRAFT
         </span>
 
-        <div style={{maxWidth: "840px", marginBottom: "var(--gap-xl)"}}>
+        <div style={{maxWidth: "840px", marginBottom: "var(--gap-lg)"}}>
           <div className="clip-reveal">
             <h2
               ref={headlineRef}
               className="clip-child"
               style={{
                 fontFamily: "var(--font-display)",
-                fontSize: isMobile ? "clamp(28px, 8vw, 44px)" : "var(--text-title)",
+                fontSize: "var(--size-h2)",
                 fontWeight: 700,
-                lineHeight: 0.95,
-                letterSpacing: "-0.025em",
-                color: "var(--text)",
+                lineHeight: 0.92,
+                letterSpacing: "var(--track-head)",
+                color: "var(--white)",
                 margin: 0,
               }}
             >
@@ -112,17 +121,7 @@ export default function ChapterCraft() {
             marginBottom: "var(--gap-xl)",
           }}
         >
-          <p
-            ref={p1Ref}
-            style={{
-              fontSize: "var(--text-small)",
-              fontWeight: 400,
-              lineHeight: 1.8,
-              color: "var(--text-secondary)",
-              margin: 0,
-              opacity: 0,
-            }}
-          >
+          <p ref={p1Ref} style={colStyle}>
             I think in systems. A component isn&apos;t just a UI element &mdash;
             it&apos;s a contract between the product and the person using it.
             React is how I write that contract. TypeScript is the discipline
@@ -131,18 +130,13 @@ export default function ChapterCraft() {
           <p
             ref={p2Ref}
             style={{
-              fontSize: "var(--text-small)",
-              fontWeight: 400,
-              lineHeight: 1.8,
-              color: "var(--text-secondary)",
-              margin: 0,
-              opacity: 0,
+              ...colStyle,
+              marginTop: isMobile ? 0 : "48px",
             }}
           >
             Next.js because performance isn&apos;t a feature &mdash; it&apos;s the baseline.
             If it&apos;s slow, nothing else matters. Security isn&apos;t a layer I add
-            at the end. Studying at Sejong University made sure of that.
-            I think about what can go wrong before I write the happy path.
+            at the end. I think about what can go wrong before I write the happy path.
           </p>
         </div>
 
@@ -150,20 +144,20 @@ export default function ChapterCraft() {
           <div
             className="tech-strip"
             style={{
-              borderTop: "1px solid var(--border)",
-              borderBottom: "1px solid var(--border)",
-              padding: "16px 0",
+              borderTop: "1px solid var(--white-07)",
+              borderBottom: "1px solid var(--white-07)",
+              padding: "18px 0",
             }}
           >
             {techItems.map((item, i) => (
               <span
                 key={i}
                 style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: "var(--text-label)",
-                  letterSpacing: "0.18em",
+                  fontFamily: "var(--font-sans)",
+                  fontSize: "var(--size-label)",
+                  letterSpacing: "var(--track-label)",
                   textTransform: "uppercase",
-                  color: "var(--text-muted)",
+                  color: "var(--white-60)",
                   whiteSpace: "nowrap",
                 }}
               >

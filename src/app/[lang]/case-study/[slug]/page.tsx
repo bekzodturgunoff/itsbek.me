@@ -1,6 +1,5 @@
 import {notFound} from "next/navigation";
 import {getDictionary} from "@/i18n";
-import type {I18n} from "@/i18n/types";
 import {CASE_STUDY_SLUGS, getCaseStudyDataKey} from "@/lib/caseStudies";
 import CaseStudyClient from "@/components/CaseStudyClient";
 

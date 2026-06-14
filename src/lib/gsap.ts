@@ -1,6 +1,5 @@
 "use client";
 
-import {useEffect, useRef} from "react";
 import {gsap} from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 
@@ -17,17 +16,3 @@ if (typeof window !== "undefined") {
 }
 
 export {gsap, ScrollTrigger};
-
-export function useGSAP(
-  cb: () => (() => void) | void,
-  scopeRef?: React.RefObject<HTMLElement | null>,
-) {
-  const cleanupRef = useRef<(() => void) | void>(undefined);
-
-  useEffect(() => {
-    cleanupRef.current = cb();
-    return () => {
-      cleanupRef.current?.();
-    };
-  }, [scopeRef?.current]);
-}

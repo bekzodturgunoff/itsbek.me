@@ -3,7 +3,6 @@
 import {useEffect} from "react";
 import {useLenis} from "@/lib/lenis";
 import {ScrollTrigger} from "@/lib/gsap";
-import Cursor from "@/components/Cursor";
 import Preloader from "@/components/Preloader";
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
@@ -29,8 +28,6 @@ export default function MainContent({t}: Props) {
 
   return (
     <>
-      <div className="noise-overlay" />
-      <Cursor />
       <Preloader />
       <Nav t={t} />
 

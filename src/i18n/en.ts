@@ -13,34 +13,28 @@ const en: I18n = {
   },
   hero: {
     name: "Bekzod Turgunov",
-    titleTop: "Software Engineer",
     headlineLine1: "I build",
     headlineLine2: "interfaces.",
-    description:
-      "Products for places that don\u2019t have them yet.\nMost ship in days, not quarters.",
-    availability: "Available",
-  },
-  about: {
-    intro:
-      "I was born in Uzbekistan and taught myself to code back when finding good internet was harder than finding bugs. No bootcamps or fast-track degrees — just tough problems and enough stubbornness to keep banging my head against the keyboard until things worked.\n\nIn 2023, I moved to Seoul to study cyber security and ship real software in a completely different language. It made me a much sharper developer. Now I'm back in Uzbekistan, still working the way I always have: by building things before I feel ready.",
-    basedIn: "Living in Uzbekistan",
-    languagesLine: "Languages: English (Fluent), Russian, Korean.",
+    subtextLine1: "From Uzbekistan to Seoul \u2014",
+    subtextLine2: "shipping products that actually get used.",
+    availability: "Available for work",
   },
   origin: {
     grewUp: "Grew up in",
     country: "Uzbekistan.",
     studied: "Studied in Seoul.",
     building: "Still building.",
+    body: "I was born in Uzbekistan and taught myself to code back when finding good internet was harder than finding bugs. No bootcamps, no shortcuts \u2014 just tough problems and enough stubbornness to keep at it.\n\nIn 2023 I moved to Seoul to study security at Sejong University. Now I\u2019m back, building for markets that most people haven\u2019t looked at yet.",
+    info: "Based in Uzbekistan \u00B7 EN \u00B7 RU \u00B7 KO \u00B7 UZ \u00B7 UTC+5",
   },
   contact: {
-    heading: "Let's talk.",
-    intro:
-      "Got a project or a question? Drop me a line. I'm based in Uzbekistan (GMT+5) and usually get back to people on the same day.",
+    heading: "Let\u2019s talk.",
+    intro: "Got a project or a question? Based in Uzbekistan (GMT+5). Usually reply the same day.",
     availability: "Usually replies within a few hours.",
     ctas: {
-      call: "Give Me a Call",
-      email: "Send an Email",
-      telegram: "Ping Me on Telegram",
+      email: "Email",
+      telegram: "Telegram",
+      phone: "Phone",
     },
     form: {
       name: "Your Name",
@@ -53,7 +47,7 @@ const en: I18n = {
     },
   },
   projects: {
-    selectedWork: "Things I've Built",
+    selectedWork: "Selected Work",
   },
   bronUzCaseStudy: {
     badge: "Case Study",
@@ -344,12 +338,11 @@ const en: I18n = {
     ],
   },
   footer: {
-    reserved: "All rights reserved.",
     email: "Email",
     github: "GitHub",
     telegram: "Telegram",
     resume: "Resume",
-    bandName: "itsbek.me",
+    builtWith: "Built with Next.js, Framer Motion, GSAP, Lenis \u2014 no template, no boilerplate.",
   },
 };
 

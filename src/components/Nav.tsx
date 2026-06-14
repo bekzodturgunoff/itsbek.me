@@ -26,13 +26,14 @@ export default function Nav({t, currentSlug}: Props) {
   const lang = useLang();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== "undefined" ? window.matchMedia("(max-width: 899px)").matches : false
+  );
   const [currentLabel, setCurrentLabel] = useState("");
   const [labelVisible, setLabelVisible] = useState(true);
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 899px)");
-    setIsMobile(mq.matches);
     const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
     mq.addEventListener("change", handler);
     return () => mq.removeEventListener("change", handler);
@@ -95,7 +96,7 @@ export default function Nav({t, currentSlug}: Props) {
           background: scrolled ? "var(--nav-bg)" : "transparent",
           backdropFilter: scrolled ? "blur(20px) saturate(180%)" : "none",
           WebkitBackdropFilter: scrolled ? "blur(20px) saturate(180%)" : "none",
-          borderBottom: scrolled ? "1px solid var(--border)" : "1px solid transparent",
+          borderBottom: scrolled ? "1px solid var(--white-07)" : "1px solid transparent",
           transition: "background 300ms, backdrop-filter 300ms, border-color 300ms",
         }}
       >
@@ -125,11 +126,11 @@ export default function Nav({t, currentSlug}: Props) {
           {!isMobile && (
             <div
               style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "11px",
-                letterSpacing: "0.2em",
+                fontFamily: "var(--font-sans)",
+                fontSize: "var(--size-label)",
+                letterSpacing: "var(--track-label)",
                 textTransform: "uppercase",
-                color: "var(--text-muted)",
+                color: "var(--white-60)",
                 opacity: labelVisible ? 1 : 0,
                 transition: "opacity 150ms ease",
               }}
@@ -147,19 +148,20 @@ export default function Nav({t, currentSlug}: Props) {
                       key={code}
                       href={currentSlug ? `/${code}/case-study/${currentSlug}` : `/${code}`}
                       style={{
-                        fontFamily: "var(--font-mono)",
-                        fontSize: "11px",
+                        fontFamily: "var(--font-sans)",
+                        fontSize: "var(--size-label)",
                         letterSpacing: "0.08em",
                         textTransform: "uppercase",
                         textDecoration: "none",
-                        color: lang === code ? "var(--accent)" : "var(--text-muted)",
-                        transition: "color 200ms",
+                        color: lang === code ? "var(--white)" : "var(--white-60)",
+                        fontWeight: lang === code ? 500 : 400,
+                        transition: "color 150ms",
                       }}
                       onMouseEnter={(e) => {
-                        if (lang !== code) e.currentTarget.style.color = "var(--text)";
+                        if (lang !== code) e.currentTarget.style.color = "var(--white)";
                       }}
                       onMouseLeave={(e) => {
-                        if (lang !== code) e.currentTarget.style.color = "var(--text-muted)";
+                        if (lang !== code) e.currentTarget.style.color = "var(--white-60)";
                       }}
                     >
                       {code.toUpperCase()}
@@ -167,31 +169,26 @@ export default function Nav({t, currentSlug}: Props) {
                   ))}
                 </div>
 
-                <div style={{width: "1px", height: "14px", background: "var(--border)"}} />
+                <div style={{width: "1px", height: "14px", background: "var(--white-15)"}} />
 
                 <a
                   href="/bekzod-turgunov-resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
-                    fontFamily: "var(--font-mono)",
-                    fontSize: "11px",
-                    letterSpacing: "0.08em",
+                    fontFamily: "var(--font-sans)",
+                    fontSize: "var(--size-label)",
+                    letterSpacing: "var(--track-label)",
                     textTransform: "uppercase",
                     textDecoration: "none",
-                    color: "var(--text-muted)",
-                    border: "1px solid var(--border)",
-                    borderRadius: "9999px",
-                    padding: "5px 14px",
-                    transition: "color 200ms, border-color 200ms",
+                    color: "var(--white-60)",
+                    transition: "color 150ms",
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.color = "var(--text)";
-                    e.currentTarget.style.borderColor = "var(--border-hover)";
+                    e.currentTarget.style.color = "var(--white)";
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.color = "var(--text-muted)";
-                    e.currentTarget.style.borderColor = "var(--border)";
+                    e.currentTarget.style.color = "var(--white-60)";
                   }}
                 >
                   {t.nav.links.resume}
@@ -264,18 +261,20 @@ export default function Nav({t, currentSlug}: Props) {
             gap: "36px",
           }}
         >
-          {navLinks.map((item, i) => (
+            {navLinks.map((item, i) => (
             <a
               key={item.href}
               href={item.href}
               onClick={() => setMenuOpen(false)}
               style={{
                 fontFamily: "var(--font-display)",
-                fontSize: "28px",
+                fontSize: "clamp(40px, 10vw, 64px)",
                 fontWeight: 700,
-                color: "var(--text)",
+                color: "var(--white)",
                 textDecoration: "none",
-                animation: `menu-item-in 400ms ${i * 60}ms var(--ease-out) both`,
+                transform: `translateY(0)`,
+                opacity: 1,
+                transition: `transform 400ms ${i * 60}ms var(--ease-out), opacity 400ms ${i * 60}ms var(--ease-out)`,
               }}
             >
               {`0${i + 1} / ${item.label}`}
@@ -289,12 +288,12 @@ export default function Nav({t, currentSlug}: Props) {
                 href={currentSlug ? `/${code}/case-study/${currentSlug}` : `/${code}`}
                 onClick={() => setMenuOpen(false)}
                 style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: "13px",
+                  fontFamily: "var(--font-sans)",
+                  fontSize: "var(--size-label)",
                   letterSpacing: "0.08em",
                   textTransform: "uppercase",
                   textDecoration: "none",
-                  color: lang === code ? "var(--accent)" : "var(--text-muted)",
+                  color: lang === code ? "var(--accent)" : "var(--white-60)",
                 }}
               >
                 {code.toUpperCase()}
@@ -308,16 +307,13 @@ export default function Nav({t, currentSlug}: Props) {
             rel="noopener noreferrer"
             onClick={() => setMenuOpen(false)}
             style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: "11px",
-              letterSpacing: "0.12em",
+              fontFamily: "var(--font-sans)",
+              fontSize: "var(--size-label)",
+              letterSpacing: "var(--track-label)",
               textTransform: "uppercase",
               textDecoration: "none",
-              color: "var(--text)",
-              border: "1px solid var(--border)",
-              borderRadius: "9999px",
-              padding: "12px 32px",
-              marginTop: "8px",
+              color: "var(--white)",
+              marginTop: "16px",
             }}
           >
             {t.nav.links.resume}

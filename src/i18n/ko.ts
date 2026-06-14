@@ -13,34 +13,28 @@ const ko: I18n = {
   },
   hero: {
     name: "Bekzod Turgunov",
-    titleTop: "소프트웨어 엔지니어",
     headlineLine1: "나는 만든다",
     headlineLine2: "인터페이스를.",
-    description:
-      "아직 없는 곳을 위한 제품.\n대부분 며칠 안에 출시됩니다.",
+    subtextLine1: "우즈베키스탄에서 서울까지 \u2014",
+    subtextLine2: "실제로 사용되는 제품을 만듭니다.",
     availability: "연락 가능",
-  },
-  about: {
-    intro:
-      "우즈베키스탄에서 태어나 IT 생태계가 막 형성되던 시절에 스스로 코딩을 배웠습니다. 부트캠프도, CS 학위도 없었습니다 \u2014 그저 해결하고 싶은 문제들과 멈추지 않으려는 고집뿐이었습니다.\n\n2023년 서울로 이주해서 보안을 공부하고 새로운 언어와 환경에서 프로덕션 소프트웨어를 배포했습니다. 지금은 우즈베키스탄으로 돌아와서 \u2014 항상 그래왔던 것처럼 준비되기 전에 만들면서 배우고 있습니다.",
-    basedIn: "우즈베키스탄 거주",
-    languagesLine: "사용 언어: 영어 (주요), 러시아어, 한국어.",
   },
   origin: {
     grewUp: "우즈베키스탄에서",
     country: "자랐습니다.",
     studied: "서울에서 공부했습니다.",
     building: "계속 만들고 있습니다.",
+    body: "우즈베키스탄에서 태어나 좋은 인터넷을 찾는 것이 버그를 찾는 것보다 어렵던 시절에 스스로 코딩을 배웠습니다. 부트캠프도, 지름길도 없었습니다 \u2014 그저 어려운 문제들과 포기하지 않는 고집뿐이었습니다.\n\n2023년 서울로 이주하여 세종대학교에서 보안을 공부했습니다. 지금은 돌아와서, 대부분이 아직 살펴보지 않은 시장을 위해 만들고 있습니다.",
+    info: "Based in Uzbekistan \u00B7 EN \u00B7 RU \u00B7 KO \u00B7 UZ \u00B7 UTC+5",
   },
   contact: {
     heading: "이야기해요.",
-    intro:
-      "프로젝트, 질문, 또는 그냥 인사하고 싶으신가요? 저는 우즈베키스탄에 있습니다 (UZT, GMT+5) 보통 당일에 답변드립니다.",
+    intro: "프로젝트나 질문이 있으신가요? 우즈베키스탄에 있습니다 (GMT+5). 보통 당일에 답변드립니다.",
     availability: "24시간 이내에 답변드립니다.",
     ctas: {
-      call: "전화하기",
-      email: "이메일 보내기",
-      telegram: "텔레그램으로 메시지",
+      email: "이메일",
+      telegram: "텔레그램",
+      phone: "전화",
     },
     form: {
       name: "이름",
@@ -243,12 +237,11 @@ const ko: I18n = {
     ],
   },
   footer: {
-    reserved: "모든 권리 보유.",
     email: "이메일",
     github: "GitHub",
     telegram: "텔레그램",
     resume: "이력서",
-    bandName: "itsbek.me",
+    builtWith: "Built with Next.js, Framer Motion, GSAP, Lenis \u2014 no template, no boilerplate.",
   },
 };
 

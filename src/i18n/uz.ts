@@ -13,34 +13,28 @@ const uz: I18n = {
   },
   hero: {
     name: "Bekzod Turgunov",
-    titleTop: "Dasturiy ta'minot muhandisi",
     headlineLine1: "Men yarataman",
     headlineLine2: "interfeyslarni.",
-    description:
-      "Hali mavjud bo'lmagan joylar uchun mahsulotlar.\nKo'pchilik bir necha kun ichida ishga tushadi.",
+    subtextLine1: "O'zbekistondan Seulgacha \u2014",
+    subtextLine2: "haqiqatda ishlatiladigan mahsulotlar.",
     availability: "Mavjud",
-  },
-  about: {
-    intro:
-      "Men O'zbekistonda tug'ilib, dasturlashni o'zim o'rgandim — texnologiya sohasi endi shakllanayotgan paytda. Hech qanday bootcamp, CS darajasi ham yo'q edi — faqat hal qilmoqchi bo'lgan muammolarim va to'xtashni istamaydigan qaysarligim bor edi.\n\n2023 yilda Seulga ko'chib, xavfsizlik sohasida o'qidim va yangi tilda ishlab chiqarish darajasidagi dasturlarni foydalanishga topshirdim. Endi O'zbekistonga qaytdim — baribir tayyor bo'lmasdan oldin qurish orqali o'rganyapman.",
-    basedIn: "O'zbekistonda istiqomat qilaman",
-    languagesLine: "Tillar: Ingliz tili (asosiy), Rus tili, Koreys tili.",
   },
   origin: {
     grewUp: "Vatanim",
     country: "O'zbekiston.",
     studied: "Seulda o'qidim.",
     building: "Hali qurishda davom.",
+    body: "Men O'zbekistonda tug'ilib, yaxshi internet topish xatolarni topishdan qiyinroq bo'lgan paytda dasturlashni o'zim o'rgandim. Hech qanday bootcamp, qisqa yo'llar yo'q edi \u2014 faqat qiyin muammolar va davom etish uchun yetarlicha qaysarlik.\n\n2023 yilda Seulga ko'chib, Sejong Universitetida xavfsizlikni o'qidim. Endi qaytib kelib, ko'pchilik hali qaramagan bozorlar uchun mahsulotlar yaratmoqdaman.",
+    info: "Based in Uzbekistan \u00B7 EN \u00B7 RU \u00B7 KO \u00B7 UZ \u00B7 UTC+5",
   },
   contact: {
     heading: "Gaplashamiz.",
-    intro:
-      "Loyiha, savol yoki shunchaki salom aytmoqchimisiz? Men O'zbekistondaman (UZT, GMT+5) va odatda shu kunning o'zida javob beraman.",
+    intro: "Loyiha yoki savolingiz bormi? Men O'zbekistondaman (GMT+5). Odatda shu kunning o'zida javob beraman.",
     availability: "24 soat ichida javob beraman.",
     ctas: {
-      call: "Qo'ng'iroq qilish",
-      email: "Elektron pochta",
-      telegram: "Telegramda yozish",
+      email: "Email",
+      telegram: "Telegram",
+      phone: "Telefon",
     },
     form: {
       name: "Ism",
@@ -243,12 +237,11 @@ const uz: I18n = {
     ],
   },
   footer: {
-    reserved: "Barcha huquqlar himoyalangan.",
     email: "Email",
     github: "GitHub",
     telegram: "Telegram",
     resume: "Rezyume",
-    bandName: "itsbek.me",
+    builtWith: "Built with Next.js, Framer Motion, GSAP, Lenis \u2014 no template, no boilerplate.",
   },
 };
 

@@ -8,15 +8,22 @@ interface Props {
   t: I18n;
 }
 
+const LINKS = [
+  {labelKey: "email" as const, value: "bekzodturgunoff@gmail.com", href: "mailto:bekzodturgunoff@gmail.com"},
+  {labelKey: "telegram" as const, value: "@bekzodturgunoff", href: "https://t.me/bekzodturgunoff"},
+  {labelKey: "phone" as const, value: "+998 50 188 66 69", href: "tel:+998501886669"},
+];
+
 export default function Contact({t}: Props) {
   const sectionRef = useRef<HTMLElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== "undefined" ? window.matchMedia("(max-width: 767px)").matches : false
+  );
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 767px)");
-    setIsMobile(mq.matches);
     const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
     mq.addEventListener("change", handler);
     return () => mq.removeEventListener("change", handler);
@@ -70,21 +77,21 @@ export default function Contact({t}: Props) {
       id="contact"
       ref={sectionRef}
       style={{
-        borderTop: "1px solid var(--border)",
-        padding: isMobile ? "var(--gap-2xl) 24px" : "var(--gap-2xl) var(--page-x)",
+        borderTop: "1px solid var(--white-07)",
+        padding: "var(--gap-2xl) var(--page-x) var(--gap-xl)",
         display: "flex",
         justifyContent: "center",
       }}
     >
-      <div style={{maxWidth: "640px", width: "100%"}}>
+      <div style={{maxWidth: "720px", width: "100%"}}>
         <span
           style={{
             display: "block",
-            fontFamily: "var(--font-mono)",
-            fontSize: "var(--text-label)",
-            letterSpacing: "0.2em",
+            fontFamily: "var(--font-sans)",
+            fontSize: "var(--size-label)",
+            letterSpacing: "var(--track-label)",
             textTransform: "uppercase",
-            color: "var(--text-muted)",
+            color: "var(--white-60)",
             marginBottom: "var(--gap-lg)",
           }}
         >
@@ -97,39 +104,36 @@ export default function Contact({t}: Props) {
             className="clip-child"
             style={{
               fontFamily: "var(--font-display)",
-              fontSize: isMobile ? "clamp(32px, 8vw, 48px)" : "var(--text-title)",
+              fontSize: "var(--size-h2)",
               fontWeight: 700,
-              lineHeight: 0.95,
-              letterSpacing: "-0.025em",
-              color: "var(--text)",
-              margin: "0 0 var(--gap-md) 0",
+              lineHeight: 0.92,
+              letterSpacing: "var(--track-head)",
+              color: "var(--white)",
+              margin: "0 0 var(--gap-sm) 0",
             }}
           >
-            Let&apos;s talk.<br />
-            <span style={{color: "var(--accent)"}}>Got a project or a question?</span>
+            {t.contact.heading}
           </h2>
         </div>
 
         <p
           style={{
-            fontSize: "var(--text-small)",
+            fontFamily: "var(--font-sans)",
+            fontSize: "var(--size-lg)",
             fontWeight: 300,
-            color: "var(--text-secondary)",
+            color: "var(--white-60)",
             margin: "0 0 var(--gap-lg) 0",
+            maxWidth: "480px",
             lineHeight: 1.6,
           }}
         >
           {t.contact.intro}
         </p>
 
-        <div style={{borderTop: "1px solid var(--border)", marginBottom: "var(--gap-lg)"}}>
-          {[
-            {label: t.contact.ctas.email, value: "bekzodturgunoff@gmail.com", href: "mailto:bekzodturgunoff@gmail.com"},
-            {label: t.contact.ctas.telegram, value: "@bekzodturgunoff", href: "https://t.me/bekzodturgunoff"},
-            {label: t.contact.ctas.call, value: "+998 50 188 66 69", href: "tel:+998501886669"},
-          ].map((item) => (
+        <div style={{borderTop: "1px solid var(--white-07)", marginBottom: "var(--gap-xl)"}}>
+          {LINKS.map((item) => (
             <a
-              key={item.label}
+              key={item.labelKey}
               href={item.href}
               target={item.href.startsWith("mailto") || item.href.startsWith("tel") ? undefined : "_blank"}
               rel="noopener noreferrer"
@@ -137,44 +141,63 @@ export default function Contact({t}: Props) {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
-                padding: "16px 0",
-                borderBottom: "1px solid var(--border)",
+                padding: "20px 0",
+                borderBottom: "1px solid var(--white-07)",
                 textDecoration: "none",
-                transition: "background 200ms var(--ease-out), padding 200ms var(--ease-out)",
-                margin: "0 -24px",
-                paddingLeft: "24px",
-                paddingRight: "24px",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = "var(--accent-dim)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = "transparent";
+                cursor: "pointer",
               }}
             >
               <span
                 style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: "var(--text-label)",
-                  letterSpacing: "0.12em",
+                  fontFamily: "var(--font-sans)",
+                  fontSize: "var(--size-label)",
+                  letterSpacing: "var(--track-label)",
                   textTransform: "uppercase",
-                  color: "var(--text-muted)",
+                  color: "var(--white-60)",
+                  transition: "color 150ms",
                 }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--white)")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "var(--white-60)")}
               >
-                {item.label}
+                {t.contact.ctas[item.labelKey]}
               </span>
               <span
                 style={{
-                  fontFamily: "var(--font-display)",
-                  fontSize: "clamp(16px, 2vw, 22px)",
-                  fontWeight: 500,
-                  color: "var(--text)",
                   display: "flex",
                   alignItems: "center",
-                  gap: "var(--gap-xs)",
+                  gap: "8px",
+                  fontFamily: "var(--font-sans)",
+                  fontSize: "var(--size-md)",
+                  color: "var(--white)",
+                  transition: "color 150ms",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = "var(--accent)";
+                  const arrow = e.currentTarget.querySelector(".arrow") as HTMLElement;
+                  if (arrow) {
+                    arrow.style.transform = "translate(3px, -3px)";
+                    arrow.style.opacity = "1";
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = "var(--white)";
+                  const arrow = e.currentTarget.querySelector(".arrow") as HTMLElement;
+                  if (arrow) {
+                    arrow.style.transform = "translate(0, 0)";
+                    arrow.style.opacity = "0.4";
+                  }
                 }}
               >
                 {item.value}
+                <span
+                  className="arrow"
+                  style={{
+                    transition: "transform 150ms, opacity 150ms",
+                    opacity: 0.4,
+                  }}
+                >
+                  &nearr;
+                </span>
               </span>
             </a>
           ))}
@@ -192,12 +215,12 @@ export default function Contact({t}: Props) {
               <label
                 style={{
                   display: "block",
-                  fontFamily: "var(--font-mono)",
-                  fontSize: "var(--text-label)",
-                  letterSpacing: "0.12em",
+                  fontFamily: "var(--font-sans)",
+                  fontSize: "var(--size-label)",
+                  letterSpacing: "var(--track-label)",
                   textTransform: "uppercase",
-                  color: "var(--text-muted)",
-                  marginBottom: "12px",
+                  color: "var(--white-60)",
+                  marginBottom: "10px",
                 }}
               >
                 {t.contact.form.name}
@@ -214,12 +237,12 @@ export default function Contact({t}: Props) {
               <label
                 style={{
                   display: "block",
-                  fontFamily: "var(--font-mono)",
-                  fontSize: "var(--text-label)",
-                  letterSpacing: "0.12em",
+                  fontFamily: "var(--font-sans)",
+                  fontSize: "var(--size-label)",
+                  letterSpacing: "var(--track-label)",
                   textTransform: "uppercase",
-                  color: "var(--text-muted)",
-                  marginBottom: "12px",
+                  color: "var(--white-60)",
+                  marginBottom: "10px",
                 }}
               >
                 {t.contact.form.email}
@@ -238,12 +261,12 @@ export default function Contact({t}: Props) {
             <label
               style={{
                 display: "block",
-                fontFamily: "var(--font-mono)",
-                fontSize: "var(--text-label)",
-                letterSpacing: "0.12em",
+                fontFamily: "var(--font-sans)",
+                fontSize: "var(--size-label)",
+                letterSpacing: "var(--track-label)",
                 textTransform: "uppercase",
-                color: "var(--text-muted)",
-                marginBottom: "12px",
+                color: "var(--white-60)",
+                marginBottom: "10px",
               }}
             >
               {t.contact.form.message}
@@ -265,32 +288,32 @@ export default function Contact({t}: Props) {
                 display: "inline-flex",
                 alignItems: "center",
                 justifyContent: "center",
-                height: "48px",
-                padding: "0 40px",
+                height: "44px",
+                padding: "0 32px",
                 background: "transparent",
-                border: "1px solid var(--border)",
-                color: "var(--text)",
-                fontFamily: "var(--font-mono)",
-                fontSize: "var(--text-label)",
-                letterSpacing: "0.15em",
+                border: "1px solid var(--white-15)",
+                borderRadius: 0,
+                color: "var(--white)",
+                fontFamily: "var(--font-sans)",
+                fontSize: "var(--size-label)",
+                letterSpacing: "var(--track-label)",
                 textTransform: "uppercase",
                 cursor: status === "sending" || status === "sent" ? "not-allowed" : "pointer",
-                transition: "background 200ms var(--ease-out), border-color 200ms var(--ease-out), color 200ms var(--ease-out)",
+                transition: "background 200ms, border-color 200ms, color 200ms",
                 opacity: status === "sending" || status === "sent" ? 0.5 : 1,
-                width: "100%",
               }}
               onMouseEnter={(e) => {
                 if (status === "idle") {
-                  e.currentTarget.style.background = "var(--accent)";
-                  e.currentTarget.style.borderColor = "var(--accent)";
-                  e.currentTarget.style.color = "#000";
+                  e.currentTarget.style.background = "var(--white)";
+                  e.currentTarget.style.borderColor = "var(--white)";
+                  e.currentTarget.style.color = "var(--black)";
                 }
               }}
               onMouseLeave={(e) => {
                 if (status === "idle") {
                   e.currentTarget.style.background = "transparent";
-                  e.currentTarget.style.borderColor = "var(--border)";
-                  e.currentTarget.style.color = "var(--text)";
+                  e.currentTarget.style.borderColor = "var(--white-15)";
+                  e.currentTarget.style.color = "var(--white)";
                 }
               }}
             >

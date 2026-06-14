@@ -1,7 +1,6 @@
 "use client";
 
 import {createContext, useContext, useEffect} from "react";
-import {LANGUAGES} from "@/lib/constants";
 
 const LangContext = createContext<string>("en");
 

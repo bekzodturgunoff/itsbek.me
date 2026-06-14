@@ -1,6 +1,6 @@
 "use client";
 
-import {useRef, useEffect, useState} from "react";
+import {useRef, useEffect} from "react";
 import {gsap, ScrollTrigger} from "@/lib/gsap";
 import type {I18n} from "@/i18n/types";
 
@@ -11,18 +11,9 @@ interface Props {
 export default function ChapterOrigin({t}: Props) {
   const sectionRef = useRef<HTMLElement>(null);
   const labelRef = useRef<HTMLSpanElement>(null);
-  const headlineRef = useRef<HTMLHeadingElement>(null);
-  const p1Ref = useRef<HTMLParagraphElement>(null);
-  const p2Ref = useRef<HTMLParagraphElement>(null);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const mq = window.matchMedia("(max-width: 767px)");
-    setIsMobile(mq.matches);
-    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
-    mq.addEventListener("change", handler);
-    return () => mq.removeEventListener("change", handler);
-  }, []);
+  const headingRefs = useRef<(HTMLDivElement | null)[]>([null, null, null]);
+  const bodyRef = useRef<HTMLParagraphElement>(null);
+  const infoRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -34,20 +25,23 @@ export default function ChapterOrigin({t}: Props) {
         {opacity: 0, y: -8},
         {opacity: 1, y: 0, duration: 0.4, ease: "expo.out", scrollTrigger: {trigger: section, start: "top 80%", toggleActions: "play none none reverse"}},
       );
+      headingRefs.current.forEach((el, i) => {
+        if (!el) return;
+        gsap.fromTo(
+          el.querySelector(".clip-child"),
+          {y: "110%"},
+          {y: "0%", duration: 0.7, ease: "expo.out", delay: i * 0.08, scrollTrigger: {trigger: section, start: "top 80%", toggleActions: "play none none reverse"}},
+        );
+      });
       gsap.fromTo(
-        headlineRef.current,
-        {y: "110%"},
-        {y: "0%", duration: 0.7, ease: "expo.out", scrollTrigger: {trigger: section, start: "top 80%", toggleActions: "play none none reverse"}},
+        bodyRef.current,
+        {opacity: 0, y: 24},
+        {opacity: 1, y: 0, duration: 0.6, ease: "expo.out", delay: 0.2, scrollTrigger: {trigger: section, start: "top 72%", toggleActions: "play none none reverse"}},
       );
       gsap.fromTo(
-        p1Ref.current,
-        {opacity: 0, y: 24},
-        {opacity: 1, y: 0, duration: 0.6, ease: "expo.out", delay: 0.1, scrollTrigger: {trigger: section, start: "top 72%", toggleActions: "play none none reverse"}},
-      );
-      gsap.fromTo(
-        p2Ref.current,
-        {opacity: 0, y: 24},
-        {opacity: 1, y: 0, duration: 0.6, ease: "expo.out", delay: 0.25, scrollTrigger: {trigger: section, start: "top 72%", toggleActions: "play none none reverse"}},
+        infoRef.current,
+        {opacity: 0, y: 12},
+        {opacity: 1, y: 0, duration: 0.4, ease: "expo.out", delay: 0.3, scrollTrigger: {trigger: section, start: "top 72%", toggleActions: "play none none reverse"}},
       );
     }, section);
 
@@ -55,82 +49,91 @@ export default function ChapterOrigin({t}: Props) {
     return () => ctx.revert();
   }, []);
 
+  const headingLines = [
+    `${t.origin.grewUp} ${t.origin.country}`,
+    t.origin.studied,
+    t.origin.building,
+  ];
+
   return (
     <section
       id="origin"
       ref={sectionRef}
       style={{
-        borderTop: "1px solid var(--border)",
-        padding: isMobile ? "var(--gap-xl) 24px" : "var(--gap-xl) var(--page-x)",
+        borderTop: "1px solid var(--white-07)",
+        padding: "var(--gap-2xl) var(--page-x)",
       }}
     >
-      <div style={{maxWidth: "1200px", margin: "0 auto"}}>
+      <div style={{maxWidth: "900px", margin: "0 auto"}}>
         <span
           ref={labelRef}
           style={{
             display: "block",
-            fontFamily: "var(--font-mono)",
-            fontSize: "var(--text-label)",
-            letterSpacing: "0.2em",
+            fontFamily: "var(--font-sans)",
+            fontSize: "var(--size-label)",
+            letterSpacing: "var(--track-label)",
             textTransform: "uppercase",
-            color: "var(--text-muted)",
+            color: "var(--white-60)",
             marginBottom: "var(--gap-lg)",
-            opacity: 0,
           }}
         >
           01 &mdash; ORIGIN
         </span>
 
-        <div style={{maxWidth: isMobile ? "100%" : "580px"}}>
-          <div className="clip-reveal" style={{marginBottom: "var(--gap-md)"}}>
+        {headingLines.map((line, i) => (
+          <div
+            key={i}
+            className="clip-reveal"
+            ref={(el) => { headingRefs.current[i] = el; }}
+            style={{marginBottom: i < headingLines.length - 1 ? 0 : "var(--gap-lg)"}}
+          >
             <h2
-              ref={headlineRef}
               className="clip-child"
               style={{
                 fontFamily: "var(--font-display)",
-                fontSize: isMobile ? "clamp(32px, 8vw, 48px)" : "var(--text-title)",
+                fontSize: "var(--size-h2)",
                 fontWeight: 700,
-                lineHeight: 0.95,
-                letterSpacing: "-0.025em",
-                color: "var(--text)",
+                letterSpacing: "var(--track-head)",
+                lineHeight: 0.92,
+                color: "var(--white)",
                 margin: 0,
               }}
             >
-              {t.origin.grewUp}{" "}
-              <span style={{color: "var(--accent)"}}>{t.origin.country}</span>
-              <br />
-              {t.origin.studied}
-              <br />
-              {t.origin.building}
+              {line}
             </h2>
           </div>
+        ))}
 
-          <p
-            ref={p1Ref}
-            style={{
-              fontSize: "var(--text-small)",
-              fontWeight: 300,
-              lineHeight: 1.7,
-              color: "var(--text-secondary)",
-              margin: "0 0 var(--gap-md) 0",
-              opacity: 0,
-            }}
-          >
-            {t.about.intro.split("\n\n")[0]}
-          </p>
-          <p
-            ref={p2Ref}
-            style={{
-              fontSize: "var(--text-small)",
-              fontWeight: 300,
-              lineHeight: 1.7,
-              color: "var(--text-secondary)",
-              margin: 0,
-              opacity: 0,
-            }}
-          >
-            {t.about.intro.split("\n\n")[1]}
-          </p>
+        <p
+          ref={bodyRef}
+          style={{
+            fontFamily: "var(--font-sans)",
+            fontSize: "var(--size-lg)",
+            fontWeight: 300,
+            lineHeight: 1.8,
+            color: "var(--white-60)",
+            maxWidth: "640px",
+            margin: "0 0 var(--gap-md) 0",
+            whiteSpace: "pre-line",
+          }}
+        >
+          {t.origin.body}
+        </p>
+
+        <div
+          ref={infoRef}
+          style={{
+            fontFamily: "var(--font-sans)",
+            fontSize: "var(--size-label)",
+            letterSpacing: "var(--track-label)",
+            textTransform: "uppercase",
+            color: "var(--white-60)",
+            display: "inline-flex",
+            gap: "16px",
+            flexWrap: "wrap",
+          }}
+        >
+          {t.origin.info}
         </div>
       </div>
     </section>

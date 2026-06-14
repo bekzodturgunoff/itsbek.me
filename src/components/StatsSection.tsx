@@ -3,15 +3,23 @@
 import {useRef, useEffect, useState} from "react";
 import {gsap, ScrollTrigger} from "@/lib/gsap";
 
+const STATS = [
+  {number: "3+", label: "Years\nin production"},
+  {number: "3 days", label: "Blank folder\nto deployed"},
+  {number: "$0/mo", label: "Full AI infra\non edge"},
+  {number: "10+", label: "Projects\nlive and used"},
+];
+
 export default function StatsSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const labelRef = useRef<HTMLSpanElement>(null);
-  const rowRef = useRef<HTMLDivElement>(null);
-  const [isMobile, setIsMobile] = useState(false);
+  const tableRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== "undefined" ? window.matchMedia("(max-width: 767px)").matches : false
+  );
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 767px)");
-    setIsMobile(mq.matches);
     const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
     mq.addEventListener("change", handler);
     return () => mq.removeEventListener("change", handler);
@@ -28,9 +36,9 @@ export default function StatsSection() {
         {opacity: 1, y: 0, duration: 0.4, ease: "expo.out", scrollTrigger: {trigger: section, start: "top 80%", toggleActions: "play none none reverse"}},
       );
       gsap.fromTo(
-        rowRef.current,
-        {clipPath: "inset(100% 0 0 0)"},
-        {clipPath: "inset(0 0 0 0)", duration: 0.8, ease: "expo.out", scrollTrigger: {trigger: section, start: "top 80%", toggleActions: "play none none reverse"}},
+        tableRef.current,
+        {opacity: 0, y: 24},
+        {opacity: 1, y: 0, duration: 0.6, ease: "expo.out", scrollTrigger: {trigger: section, start: "top 80%", toggleActions: "play none none reverse"}},
       );
     }, section);
 
@@ -38,18 +46,13 @@ export default function StatsSection() {
     return () => ctx.revert();
   }, []);
 
-  const stats = [
-    {number: "3+", label: "Years in\nproduction"},
-    {number: "10+", label: "Projects live\nand used"},
-  ];
-
   return (
     <section
       id="proof"
       ref={sectionRef}
       style={{
-        borderTop: "1px solid var(--border)",
-        padding: isMobile ? "var(--gap-xl) 24px" : "var(--gap-xl) var(--page-x)",
+        borderTop: "1px solid var(--white-07)",
+        padding: "var(--gap-xl) var(--page-x)",
       }}
     >
       <div style={{maxWidth: "1200px", margin: "0 auto"}}>
@@ -57,56 +60,61 @@ export default function StatsSection() {
           ref={labelRef}
           style={{
             display: "block",
-            fontFamily: "var(--font-mono)",
-            fontSize: "var(--text-label)",
-            letterSpacing: "0.2em",
+            fontFamily: "var(--font-sans)",
+            fontSize: "var(--size-label)",
+            letterSpacing: "var(--track-label)",
             textTransform: "uppercase",
-            color: "var(--text-muted)",
+            color: "var(--white-60)",
             marginBottom: "var(--gap-lg)",
-            opacity: 0,
           }}
         >
           04 &mdash; PROOF
         </span>
 
-        <hr style={{border: "none", borderTop: "1px solid var(--border)", margin: 0}} />
+        <hr style={{border: "none", borderTop: "1px solid var(--white-07)", margin: 0}} />
 
         <div
-          ref={rowRef}
+          ref={tableRef}
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(2, 1fr)",
+            gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(4, 1fr)",
           }}
         >
-          {stats.map((stat, i) => (
+          {STATS.map((stat, i) => (
             <div
               key={i}
               style={{
-                padding: isMobile ? "var(--gap-md) var(--gap-sm)" : "var(--gap-lg) var(--gap-md)",
-                borderRight: i === 0 ? "1px solid var(--border)" : "none",
+                padding: isMobile ? "var(--gap-md) var(--gap-sm)" : "36px 0 36px 28px",
+                borderRight: !isMobile && i < STATS.length - 1
+                  ? "1px solid var(--white-07)"
+                  : isMobile && i % 2 === 0
+                    ? "1px solid var(--white-07)"
+                    : "none",
+                borderBottom: "1px solid var(--white-07)",
               }}
             >
               <div
                 style={{
                   fontFamily: "var(--font-display)",
-                  fontSize: isMobile ? "clamp(28px, 8vw, 40px)" : "clamp(36px, 4vw, 56px)",
+                  fontSize: isMobile ? "clamp(28px, 8vw, 40px)" : "clamp(32px, 4.5vw, 60px)",
                   fontWeight: 700,
-                  letterSpacing: "-0.02em",
+                  letterSpacing: "var(--track-head)",
                   lineHeight: 1,
-                  color: "var(--accent)",
-                  marginBottom: "var(--gap-xs)",
+                  color: "var(--white)",
+                  marginBottom: "10px",
                 }}
               >
                 {stat.number}
               </div>
               <div
                 style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: "clamp(10px, 1.2vw, 12px)",
-                  letterSpacing: "0.12em",
+                  fontFamily: "var(--font-sans)",
+                  fontSize: "var(--size-label)",
+                  letterSpacing: "var(--track-label)",
                   textTransform: "uppercase",
-                  color: "var(--text-muted)",
+                  color: "var(--white-60)",
                   lineHeight: 1.6,
+                  whiteSpace: "pre-line",
                 }}
               >
                 {stat.label}
@@ -115,14 +123,14 @@ export default function StatsSection() {
           ))}
         </div>
 
-        <hr style={{border: "none", borderTop: "1px solid var(--border)", margin: 0}} />
+        <hr style={{border: "none", borderTop: "1px solid var(--white-07)", margin: 0}} />
 
         <div
           style={{
             display: "flex",
             justifyContent: "flex-end",
-            gap: "var(--gap-md)",
-            paddingTop: "var(--gap-md)",
+            gap: "28px",
+            paddingTop: "20px",
           }}
         >
           {[
@@ -135,18 +143,18 @@ export default function StatsSection() {
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "var(--text-label)",
-                letterSpacing: "0.12em",
+                fontFamily: "var(--font-sans)",
+                fontSize: "var(--size-label)",
+                letterSpacing: "var(--track-label)",
                 textTransform: "uppercase",
-                color: "var(--text-muted)",
+                color: "var(--white-60)",
                 textDecoration: "none",
-                transition: "color 200ms var(--ease-out)",
+                transition: "color 150ms",
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--accent)")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--white)")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--white-60)")}
             >
-              {link.label}
+              {link.label} &nearr;
             </a>
           ))}
         </div>

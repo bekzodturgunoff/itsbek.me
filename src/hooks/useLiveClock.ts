@@ -16,8 +16,6 @@ export function useLiveClock(timezone: string): string {
   const [time, setTime] = useState(() => getTimeInZone(timezone));
 
   useEffect(() => {
-    setTime(getTimeInZone(timezone));
-
     const now = Date.now();
     const msUntilNextSecond = 1000 - (now % 1000);
 

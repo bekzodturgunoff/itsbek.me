@@ -10,19 +10,17 @@ export default function Footer({t}: Props) {
   return (
     <footer
       style={{
-        borderTop: "1px solid var(--border)",
+        borderTop: "1px solid var(--white-07)",
         padding: "32px var(--page-x)",
       }}
     >
       <div
         style={{
-          maxWidth: "1200px",
-          margin: "0 auto",
           display: "flex",
-          alignItems: "center",
           justifyContent: "space-between",
+          alignItems: "center",
           flexWrap: "wrap",
-          gap: "12px",
+          gap: "16px",
         }}
       >
         <div style={{display: "flex", alignItems: "center", gap: "12px"}}>
@@ -31,22 +29,22 @@ export default function Footer({t}: Props) {
               fontFamily: "var(--font-display)",
               fontSize: "15px",
               fontWeight: 700,
-              color: "var(--text)",
+              color: "var(--white)",
             }}
           >
-            {t.footer.bandName}
+            BT
           </span>
           <span
             style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: "10px",
-              color: "var(--text-muted)",
+              fontFamily: "var(--font-sans)",
+              fontSize: "var(--size-label)",
+              color: "var(--white-60)",
             }}
           >
             &copy; 2026
           </span>
         </div>
-        <div style={{display: "flex", gap: "20px", alignItems: "center"}}>
+        <div style={{display: "flex", gap: "20px", alignItems: "center", flexWrap: "wrap"}}>
           {[
             {label: t.footer.email, href: "mailto:bekzodturgunoff@gmail.com"},
             {label: t.footer.github, href: "https://github.com/bekzodturgunoff"},
@@ -56,16 +54,17 @@ export default function Footer({t}: Props) {
             <a
               key={link.label}
               href={link.href}
+              target={link.href.startsWith("mailto") ? undefined : "_blank"}
+              rel="noopener noreferrer"
               style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "10px",
-                letterSpacing: "0.08em",
-                color: "var(--text-muted)",
+                fontFamily: "var(--font-sans)",
+                fontSize: "var(--size-label)",
+                color: "var(--white-60)",
                 textDecoration: "none",
-                transition: "color 200ms",
+                transition: "color 150ms",
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--accent)")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--white)")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--white-60)")}
             >
               {link.label}
             </a>
@@ -74,16 +73,15 @@ export default function Footer({t}: Props) {
       </div>
       <div
         style={{
-          maxWidth: "1200px",
-          margin: "16px auto 0",
-          fontFamily: "var(--font-mono)",
-          fontSize: "9px",
+          marginTop: "16px",
+          fontFamily: "var(--font-sans)",
+          fontSize: "10px",
           fontStyle: "italic",
-          color: "var(--text-muted)",
-          opacity: 0.35,
+          color: "var(--white-60)",
+          opacity: 0.3,
         }}
       >
-        Built with Next.js, Framer Motion, GSAP, Lenis &mdash; no template, no boilerplate.
+        {t.footer.builtWith}
       </div>
     </footer>
   );

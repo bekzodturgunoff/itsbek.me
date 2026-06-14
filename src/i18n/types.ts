@@ -39,31 +39,28 @@ export interface I18n {
   };
   hero: {
     name: string;
-    titleTop: string;
     headlineLine1: string;
     headlineLine2: string;
-    description: string;
+    subtextLine1: string;
+    subtextLine2: string;
     availability: string;
-  };
-  about: {
-    intro: string;
-    basedIn: string;
-    languagesLine: string;
   };
   origin: {
     grewUp: string;
     country: string;
     studied: string;
     building: string;
+    body: string;
+    info: string;
   };
   contact: {
     heading: string;
     intro: string;
     availability: string;
     ctas: {
-      call: string;
       email: string;
       telegram: string;
+      phone: string;
     };
     form: {
       name: string;
@@ -87,11 +84,10 @@ export interface I18n {
     groups: {title: string; items: string[]}[];
   };
   footer: {
-    reserved: string;
     email: string;
     github: string;
     telegram: string;
     resume: string;
-    bandName: string;
+    builtWith: string;
   };
 }
