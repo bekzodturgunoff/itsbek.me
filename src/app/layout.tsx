@@ -4,10 +4,10 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://itsbek.me"),
   title: {
-    default: "itsbek.me — Software Engineer",
+    default: "itsbek.me — Product Builder & Software Engineer",
     template: "%s — itsbek.me",
   },
-  description: "Software engineer focused on user experience. React, Astro, TypeScript, and C-level problem solving.",
+  description: "Product builder and software engineer. Frontend, full-stack, AI, cloud — shipping products people actually use.",
   icons: {
     icon: [{url: "/favicon.ico"}, {url: "/icon.png", type: "image/png"}],
     apple: "/apple-icon.png",

@@ -13,10 +13,10 @@ const en: I18n = {
   },
   hero: {
     name: "Bekzod Turgunov",
-    headlineLine1: "I build",
-    headlineLine2: "interfaces.",
-    subtextLine1: "From Uzbekistan to Seoul \u2014",
-    subtextLine2: "shipping products that actually get used.",
+    headlineLine1: "I build products",
+    headlineLine2: "people actually use.",
+    subtextLine1: "Frontend \u00B7 Full-stack \u00B7 AI \u00B7 Cloud",
+    subtextLine2: "Tashkent \u2192 Seoul. Shipping since 2021.",
     availability: "Available for work",
   },
   origin: {
@@ -26,6 +26,32 @@ const en: I18n = {
     building: "Still building.",
     body: "I was born in Uzbekistan and taught myself to code back when finding good internet was harder than finding bugs. No bootcamps, no shortcuts \u2014 just tough problems and enough stubbornness to keep at it.\n\nIn 2023 I moved to Seoul to study security at Sejong University. Now I\u2019m back, building for markets that most people haven\u2019t looked at yet.",
     info: "Based in Uzbekistan \u00B7 EN \u00B7 RU \u00B7 KO \u00B7 UZ \u00B7 UTC+5",
+  },
+  about: {
+    title: "Behind the code",
+    body: "I\u2019m a software engineer who thinks like a product builder. I started coding in Uzbekistan when finding a good tutorial was harder than fixing the bugs it taught you. I moved to Seoul in 2023 to study security at Sejong University. Now I build for markets most people haven\u2019t looked at yet.\n\nI speak four languages, work across the full stack, and believe the best code is the code that ships.",
+    philosophy: [
+      "Production beats perfection. Code that runs is worth more than code that\u2019s elegant but idle.",
+      "Security isn\u2019t a layer you add at the end. It\u2019s in the architecture from day one.",
+      "Fast doesn\u2019t mean fragile. Good systems are quick and resilient.",
+      "The best products solve real problems. Everything else is just features.",
+    ],
+  },
+  proof: {
+    metrics: [
+      {value: "4+", label: "Years shipping\nproduction systems"},
+      {value: "10+", label: "Products live\nand in use"},
+      {value: "3 days", label: "Blank folder\nto deployed"},
+      {value: "4", label: "Languages\nEN \u00B7 RU \u00B7 KO \u00B7 UZ"},
+      {value: "15+", label: "Technologies\nacross the stack"},
+    ],
+  },
+  ending: {
+    headlineLine1: "Not the best developer",
+    headlineLine2: "in the room.",
+    headlineLine3: "The one who makes the room better.",
+    body: "Building toward distributed systems, security-first architecture, and products that matter in markets most people haven\u2019t looked at yet. If that sounds like your next project \u2014 let\u2019s talk.",
+    cta: "Let\u2019s build something that matters.",
   },
   contact: {
     heading: "Let\u2019s talk.",
@@ -51,7 +77,7 @@ const en: I18n = {
   },
   bronUzCaseStudy: {
     badge: "Case Study",
-    title: "BronUz — Booking Rooms & Venues",
+    title: "BronUz \u2014 Booking Rooms & Venues",
     subtitle:
       "How I built a fully functional multi-vendor booking platform for Uzbekistan from a blank folder in just 3 days.",
     meta: [
@@ -133,7 +159,7 @@ const en: I18n = {
     ],
     problem: {
       title: "The Problem",
-      body: "Running online projects means my Telegram is always blowing up with messages across different time zones. Answering pricing questions, tracking tasks, and switching constantly between English, Russian, and Uzbek became a massive time sink. I built an AI assistant to stand in for me—not to sound like a generic bot, but to reply in my actual tone and save me hours of manual texting.",
+      body: "Running online projects means my Telegram is always blowing up with messages across different time zones. Answering pricing questions, tracking tasks, and switching constantly between English, Russian, and Uzbek became a massive time sink. I built an AI assistant to stand in for me\u2014not to sound like a generic bot, but to reply in my actual tone and save me hours of manual texting.",
     },
     research: {
       title: "How I Built It",
@@ -176,7 +202,7 @@ const en: I18n = {
   },
   octoposAppsCaseStudy: {
     badge: "Case Study",
-    title: "Octopos — Tech for Restaurants",
+    title: "Octopos \u2014 Tech for Restaurants",
     subtitle:
       "Rewriting a massive restaurant management suite and digital point-of-sale terminal for real speed.",
     meta: [
@@ -264,8 +290,8 @@ const en: I18n = {
     subtitle: "Turning a complex restaurant management platform into a clear, conversion-focused product experience.",
     meta: [
       {label: "Client", value: "Octopos"},
-      {label: "Role", value: "Frontend Engineer · Product Implementation"},
-      {label: "Timeline", value: "4 weeks · 2026"},
+      {label: "Role", value: "Frontend Engineer \u00B7 Product Implementation"},
+      {label: "Timeline", value: "4 weeks \u00B7 2026"},
       {label: "Stack", value: "Astro, Tailwind CSS, Resend"},
     ],
     problem: {
@@ -295,7 +321,7 @@ const en: I18n = {
       {
         src: "/images/projects/octopos/octopos_before.webp",
         alt: "Original Octopos landing page before redesign",
-        caption: "Original MVP screen before the redesign — dense copy, low contrast, and no clear call to action.",
+        caption: "Original MVP screen before the redesign \u2014 dense copy, low contrast, and no clear call to action.",
       },
       {
         src: "/images/projects/octopos/octopos.webp",

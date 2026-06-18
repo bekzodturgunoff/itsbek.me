@@ -10,7 +10,8 @@ const PROJECTS = [
     id: "octopos-apps",
     index: "001",
     title: "Octopos Apps",
-    hook: "Three screens. One kitchen. Zero downtime.",
+    challenge: "Legacy restaurant software was slow, lost orders, and frustrated staff.",
+    impact: "Live in real restaurants. Instant sync. Runs on low-end tablets.",
     tags: ["React", "TanStack", "Go"],
     year: "2026",
     href: "https://octopos.uz",
@@ -20,7 +21,8 @@ const PROJECTS = [
     id: "bronuz",
     index: "002",
     title: "BronUz",
-    hook: "Uzbekistan had no venue booking platform. I built one in 3 days.",
+    challenge: "Uzbekistan had no centralized venue booking platform.",
+    impact: "Multi-vendor marketplace built in 3 days. Real users, real bookings.",
     tags: ["React", "Supabase", "Leaflet"],
     year: "3 days \u00B7 2026",
     href: "https://bronuz.vercel.app",
@@ -30,7 +32,8 @@ const PROJECTS = [
     id: "assistant-bot",
     index: "003",
     title: "Personal Assistant",
-    hook: "An AI that answers as me. Three languages. Zero cost.",
+    challenge: "Managing multi-language business messages across time zones was overwhelming.",
+    impact: "AI handles 3 languages daily. Zero hosting cost. Saves hours every day.",
     tags: ["TypeScript", "Workers", "Gemini"],
     year: "2026",
     href: "https://github.com/bekzodturgunoff/personal-assistant",
@@ -40,7 +43,8 @@ const PROJECTS = [
     id: "octopos-landing",
     index: "004",
     title: "Octopos Landing",
-    hook: "A restaurant platform that needed a proper homepage.",
+    challenge: "Powerful product ecosystem had no clear, conversion-focused homepage.",
+    impact: "Fast SaaS landing page with trial onboarding. Shipped in 4 weeks.",
     tags: ["Astro", "Tailwind", "Resend"],
     year: "4 weeks \u00B7 2026",
     href: "https://octopos.uz",
@@ -181,41 +185,44 @@ export default function ProjectsSection() {
               }}
               onClick={() => goToCaseStudy(project.id)}
               style={{
-                display: "flex",
+                display: "grid",
+                gridTemplateColumns: isMobile ? "1fr" : "auto 1fr auto",
                 alignItems: "center",
-                justifyContent: "space-between",
-                padding: isMobile ? "20px var(--page-x)" : "28px var(--page-x)",
+                padding: isMobile ? "20px var(--page-x)" : "24px var(--page-x)",
                 borderBottom: "1px solid var(--white-07)",
                 cursor: "pointer",
                 transition: "background 200ms",
                 maxWidth: "1400px",
                 margin: "0 auto",
+                gap: isMobile ? "8px" : "24px",
               }}
             >
-              {/* Left side */}
-              <div style={{display: "flex", alignItems: "baseline", gap: "24px"}}>
+              {/* Index */}
+              <span
+                style={{
+                  fontFamily: "var(--font-sans)",
+                  fontSize: "var(--size-label)",
+                  letterSpacing: "var(--track-label)",
+                  textTransform: "uppercase",
+                  color: "var(--white-60)",
+                  width: isMobile ? "auto" : "40px",
+                  flexShrink: 0,
+                }}
+              >
+                {project.index}
+              </span>
+
+              {/* Center content */}
+              <div>
                 <span
-                  style={{
-                    fontFamily: "var(--font-sans)",
-                    fontSize: "var(--size-label)",
-                    letterSpacing: "var(--track-label)",
-                    textTransform: "uppercase",
-                    color: "var(--white-60)",
-                    width: "40px",
-                    flexShrink: 0,
-                  }}
-                >
-                  {project.index}
-                </span>
-                <span
-                  data-project-title
                   style={{
                     fontFamily: "var(--font-display)",
-                    fontSize: isMobile ? "clamp(20px, 6vw, 32px)" : "var(--size-project)",
+                    fontSize: isMobile ? "clamp(20px, 6vw, 28px)" : "var(--size-project)",
                     fontWeight: 700,
                     letterSpacing: "var(--track-head)",
                     color: "var(--white)",
                     transition: "color 200ms",
+                    display: "block",
                   }}
                   onMouseEnter={(e) => {
                     if (!isMobile) e.currentTarget.style.color = "var(--accent)";
@@ -226,12 +233,56 @@ export default function ProjectsSection() {
                 >
                   {project.title}
                 </span>
+
+                {/* Challenge + Impact — visible on desktop, collapsible on mobile */}
+                {!isMobile && (
+                  <div
+                    style={{
+                      marginTop: "6px",
+                      display: "flex",
+                      gap: "24px",
+                      flexWrap: "wrap",
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontFamily: "var(--font-sans)",
+                        fontSize: "12px",
+                        lineHeight: 1.5,
+                        color: "var(--white-60)",
+                        maxWidth: "340px",
+                      }}
+                    >
+                      <span style={{color: "var(--white-15)", letterSpacing: "0.1em", textTransform: "uppercase", fontSize: "10px"}}>Challenge </span>
+                      {project.challenge}
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: "var(--font-sans)",
+                        fontSize: "12px",
+                        lineHeight: 1.5,
+                        color: "var(--accent)",
+                        maxWidth: "300px",
+                      }}
+                    >
+                      <span style={{color: "var(--white-15)", letterSpacing: "0.1em", textTransform: "uppercase", fontSize: "10px"}}>Impact </span>
+                      {project.impact}
+                    </span>
+                  </div>
+                )}
               </div>
 
               {/* Right side */}
-              <div style={{display: "flex", alignItems: "center", gap: isMobile ? "16px" : "32px"}}>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: isMobile ? "12px" : "24px",
+                  flexShrink: 0,
+                }}
+              >
                 {!isMobile && (
-                  <div style={{display: "flex", gap: "8px"}}>
+                  <div style={{display: "flex", gap: "6px"}}>
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
@@ -242,7 +293,7 @@ export default function ProjectsSection() {
                           textTransform: "uppercase",
                           color: "var(--white-60)",
                           border: "1px solid var(--white-15)",
-                          padding: "4px 10px",
+                          padding: "3px 8px",
                           borderRadius: "2px",
                         }}
                       >
@@ -257,6 +308,7 @@ export default function ProjectsSection() {
                     fontFamily: "var(--font-sans)",
                     fontSize: "var(--size-label)",
                     color: "var(--white-60)",
+                    whiteSpace: "nowrap",
                   }}
                 >
                   {project.year}
@@ -288,6 +340,40 @@ export default function ProjectsSection() {
                 </a>
               </div>
             </div>
+
+            {/* Mobile challenge/impact */}
+            {isMobile && (
+              <div
+                style={{
+                  padding: "0 var(--page-x) 16px",
+                  borderBottom: "1px solid var(--white-07)",
+                }}
+              >
+                <div
+                  style={{
+                    fontFamily: "var(--font-sans)",
+                    fontSize: "12px",
+                    lineHeight: 1.5,
+                    color: "var(--white-60)",
+                    marginBottom: "4px",
+                  }}
+                >
+                  <span style={{color: "var(--white-15)", letterSpacing: "0.1em", textTransform: "uppercase", fontSize: "10px"}}>Challenge </span>
+                  {project.challenge}
+                </div>
+                <div
+                  style={{
+                    fontFamily: "var(--font-sans)",
+                    fontSize: "12px",
+                    lineHeight: 1.5,
+                    color: "var(--accent)",
+                  }}
+                >
+                  <span style={{color: "var(--white-15)", letterSpacing: "0.1em", textTransform: "uppercase", fontSize: "10px"}}>Impact </span>
+                  {project.impact}
+                </div>
+              </div>
+            )}
           </div>
         ))}
       </div>

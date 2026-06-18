@@ -3,6 +3,30 @@
 import {useRef, useEffect, useState} from "react";
 import {gsap, ScrollTrigger} from "@/lib/gsap";
 
+const SKILL_GROUPS = [
+  {
+    title: "Frontend & Product",
+    items: ["React", "Next.js", "TypeScript", "Tailwind v4", "Framer Motion", "TanStack", "Astro"],
+  },
+  {
+    title: "Backend & Infrastructure",
+    items: ["Node.js", "Go", "Python", "PostgreSQL", "Supabase", "Cloudflare Workers", "Edge"],
+  },
+  {
+    title: "AI & Systems",
+    items: ["Gemini", "LLM Integration", "CI/CD", "System Design", "Security", "Performance"],
+  },
+];
+
+const TECH_STRIP = [
+  "React", "Next.js", "TypeScript", "TanStack", "Supabase", "Tailwind v4",
+  "GSAP", "Framer Motion", "Go", "Cloudflare Workers", "Python",
+  "PostgreSQL", "Node.js", "Edge Computing", "System Design",
+  "React", "Next.js", "TypeScript", "TanStack", "Supabase", "Tailwind v4",
+  "GSAP", "Framer Motion", "Go", "Cloudflare Workers", "Python",
+  "PostgreSQL", "Node.js", "Edge Computing", "System Design",
+];
+
 export default function ChapterCraft() {
   const sectionRef = useRef<HTMLElement>(null);
   const labelRef = useRef<HTMLSpanElement>(null);
@@ -50,13 +74,6 @@ export default function ChapterCraft() {
     ScrollTrigger.refresh();
     return () => ctx.revert();
   }, []);
-
-  const techItems = [
-    "React", "Next.js", "TypeScript", "TanStack", "Supabase", "Tailwind v4",
-    "GSAP", "Framer Motion", "Go", "Cloudflare Workers", "Python", "C",
-    "React", "Next.js", "TypeScript", "TanStack", "Supabase", "Tailwind v4",
-    "GSAP", "Framer Motion", "Go", "Cloudflare Workers", "Python", "C",
-  ];
 
   const colStyle: React.CSSProperties = {
     fontFamily: "var(--font-sans)",
@@ -134,12 +151,65 @@ export default function ChapterCraft() {
               marginTop: isMobile ? 0 : "48px",
             }}
           >
-            Next.js because performance isn&apos;t a feature &mdash; it&apos;s the baseline.
-            If it&apos;s slow, nothing else matters. Security isn&apos;t a layer I add
-            at the end. I think about what can go wrong before I write the happy path.
+            The stack changes with the problem. Sometimes it&apos;s Go and
+            Cloudflare Workers for an edge API. Sometimes it&apos;s a full
+            Supabase backend with RLS. The constant is shipping fast without
+            cutting corners. Security isn&apos;t added at the end &mdash; it&apos;s
+            in the architecture from day one.
           </p>
         </div>
 
+        {/* Skill groups */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
+            gap: isMobile ? "var(--gap-md)" : "var(--gap-lg)",
+            marginBottom: "var(--gap-xl)",
+            padding: "var(--gap-lg) 0",
+            borderTop: "1px solid var(--white-07)",
+            borderBottom: "1px solid var(--white-07)",
+          }}
+        >
+          {SKILL_GROUPS.map((group) => (
+            <div key={group.title}>
+              <span
+                style={{
+                  display: "block",
+                  fontFamily: "var(--font-sans)",
+                  fontSize: "var(--size-label)",
+                  letterSpacing: "var(--track-label)",
+                  textTransform: "uppercase",
+                  color: "var(--accent)",
+                  marginBottom: "var(--gap-sm)",
+                }}
+              >
+                {group.title}
+              </span>
+              <div style={{display: "flex", flexWrap: "wrap", gap: "6px"}}>
+                {group.items.map((item) => (
+                  <span
+                    key={item}
+                    style={{
+                      fontFamily: "var(--font-sans)",
+                      fontSize: "var(--size-label)",
+                      letterSpacing: "var(--track-label)",
+                      textTransform: "uppercase",
+                      color: "var(--white-60)",
+                      border: "1px solid var(--white-15)",
+                      padding: "4px 10px",
+                      borderRadius: "2px",
+                    }}
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Tech strip */}
         <div className="tech-strip-wrapper">
           <div
             className="tech-strip"
@@ -149,7 +219,7 @@ export default function ChapterCraft() {
               padding: "18px 0",
             }}
           >
-            {techItems.map((item, i) => (
+            {TECH_STRIP.map((item, i) => (
               <span
                 key={i}
                 style={{

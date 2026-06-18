@@ -1,29 +1,17 @@
 "use client";
 
-import {useRef, useEffect, useState} from "react";
+import {useRef, useEffect} from "react";
 import {gsap, ScrollTrigger} from "@/lib/gsap";
+import type {I18n} from "@/i18n/types";
 
-const STATS = [
-  {number: "3+", label: "Years\nin production"},
-  {number: "3 days", label: "Blank folder\nto deployed"},
-  {number: "$0/mo", label: "Full AI infra\non edge"},
-  {number: "10+", label: "Projects\nlive and used"},
-];
+interface Props {
+  t: I18n;
+}
 
-export default function StatsSection() {
+export default function ProofSection({t}: Props) {
   const sectionRef = useRef<HTMLElement>(null);
   const labelRef = useRef<HTMLSpanElement>(null);
-  const tableRef = useRef<HTMLDivElement>(null);
-  const [isMobile, setIsMobile] = useState(() =>
-    typeof window !== "undefined" ? window.matchMedia("(max-width: 767px)").matches : false
-  );
-
-  useEffect(() => {
-    const mq = window.matchMedia("(max-width: 767px)");
-    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
-    mq.addEventListener("change", handler);
-    return () => mq.removeEventListener("change", handler);
-  }, []);
+  const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -36,7 +24,7 @@ export default function StatsSection() {
         {opacity: 1, y: 0, duration: 0.4, ease: "expo.out", scrollTrigger: {trigger: section, start: "top 80%", toggleActions: "play none none reverse"}},
       );
       gsap.fromTo(
-        tableRef.current,
+        gridRef.current,
         {opacity: 0, y: 24},
         {opacity: 1, y: 0, duration: 0.6, ease: "expo.out", scrollTrigger: {trigger: section, start: "top 80%", toggleActions: "play none none reverse"}},
       );
@@ -45,6 +33,8 @@ export default function StatsSection() {
     ScrollTrigger.refresh();
     return () => ctx.revert();
   }, []);
+
+  const metrics = t.proof.metrics;
 
   return (
     <section
@@ -71,32 +61,27 @@ export default function StatsSection() {
           04 &mdash; PROOF
         </span>
 
-        <hr style={{border: "none", borderTop: "1px solid var(--white-07)", margin: 0}} />
-
         <div
-          ref={tableRef}
+          ref={gridRef}
           style={{
             display: "grid",
-            gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(4, 1fr)",
+            gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+            gap: "0",
           }}
         >
-          {STATS.map((stat, i) => (
+          {metrics.map((stat, i) => (
             <div
               key={i}
               style={{
-                padding: isMobile ? "var(--gap-md) var(--gap-sm)" : "36px 0 36px 28px",
-                borderRight: !isMobile && i < STATS.length - 1
-                  ? "1px solid var(--white-07)"
-                  : isMobile && i % 2 === 0
-                    ? "1px solid var(--white-07)"
-                    : "none",
+                padding: "36px 24px",
+                borderRight: i < metrics.length - 1 ? "1px solid var(--white-07)" : "none",
                 borderBottom: "1px solid var(--white-07)",
               }}
             >
               <div
                 style={{
                   fontFamily: "var(--font-display)",
-                  fontSize: isMobile ? "clamp(28px, 8vw, 40px)" : "clamp(32px, 4.5vw, 60px)",
+                  fontSize: "clamp(32px, 4.5vw, 60px)",
                   fontWeight: 700,
                   letterSpacing: "var(--track-head)",
                   lineHeight: 1,
@@ -104,7 +89,7 @@ export default function StatsSection() {
                   marginBottom: "10px",
                 }}
               >
-                {stat.number}
+                {stat.value}
               </div>
               <div
                 style={{
@@ -122,8 +107,6 @@ export default function StatsSection() {
             </div>
           ))}
         </div>
-
-        <hr style={{border: "none", borderTop: "1px solid var(--white-07)", margin: 0}} />
 
         <div
           style={{

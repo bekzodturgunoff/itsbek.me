@@ -3,6 +3,7 @@
 import {useRef, useEffect} from "react";
 import {gsap, ScrollTrigger} from "@/lib/gsap";
 import type {I18n} from "@/i18n/types";
+import JourneyMap from "@/components/JourneyMap";
 
 interface Props {
   t: I18n;
@@ -135,6 +136,8 @@ export default function ChapterOrigin({t}: Props) {
         >
           {t.origin.info}
         </div>
+
+        <JourneyMap />
       </div>
     </section>
   );

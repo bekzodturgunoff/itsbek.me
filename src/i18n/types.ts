@@ -26,6 +26,11 @@ interface CaseStudySection {
   cta: CTA;
 }
 
+interface ProofMetric {
+  value: string;
+  label: string;
+}
+
 export interface I18n {
   nav: {
     links: {
@@ -52,6 +57,21 @@ export interface I18n {
     building: string;
     body: string;
     info: string;
+  };
+  about: {
+    title: string;
+    body: string;
+    philosophy: string[];
+  };
+  proof: {
+    metrics: ProofMetric[];
+  };
+  ending: {
+    headlineLine1: string;
+    headlineLine2: string;
+    headlineLine3: string;
+    body: string;
+    cta: string;
   };
   contact: {
     heading: string;

@@ -27,6 +27,32 @@ const ru: I18n = {
     body: "Я родился в Узбекистане и научился кодить, когда найти хороший интернет было сложнее, чем найти баг. Ни буткемпов, ни коротких путей \u2014 только сложные задачи и достаточно упрямства, чтобы продолжать.\n\nВ 2023 году я переехал в Сеул, чтобы изучать безопасность в университете Седжон. Теперь я вернулся и создаю продукты для рынков, на которые большинство ещё не посмотрело.",
     info: "Based in Uzbekistan \u00B7 EN \u00B7 RU \u00B7 KO \u00B7 UZ \u00B7 UTC+5",
   },
+  about: {
+    title: "Behind the code",
+    body: "I\u2019m a software engineer who thinks like a product builder. I started coding in Uzbekistan when finding a good tutorial was harder than fixing the bugs it taught you. I moved to Seoul in 2023 to study security at Sejong University. Now I build for markets most people haven\u2019t looked at yet.\n\nI speak four languages, work across the full stack, and believe the best code is the code that ships.",
+    philosophy: [
+      "Production beats perfection. Code that runs is worth more than code that\u2019s elegant but idle.",
+      "Security isn\u2019t a layer you add at the end. It\u2019s in the architecture from day one.",
+      "Fast doesn\u2019t mean fragile. Good systems are quick and resilient.",
+      "The best products solve real problems. Everything else is just features.",
+    ],
+  },
+  proof: {
+    metrics: [
+      {value: "4+", label: "Years shipping\nproduction systems"},
+      {value: "10+", label: "Products live\nand in use"},
+      {value: "3 days", label: "Blank folder\nto deployed"},
+      {value: "4", label: "Languages\nEN \u00B7 RU \u00B7 KO \u00B7 UZ"},
+      {value: "15+", label: "Technologies\nacross the stack"},
+    ],
+  },
+  ending: {
+    headlineLine1: "Not the best developer",
+    headlineLine2: "in the room.",
+    headlineLine3: "The one who makes the room better.",
+    body: "Building toward distributed systems, security-first architecture, and products that matter in markets most people haven\u2019t looked at yet. If that sounds like your next project \u2014 let\u2019s talk.",
+    cta: "Let\u2019s build something that matters.",
+  },
   contact: {
     heading: "Давай поговорим.",
     intro: "Есть проект или вопрос? Я в Узбекистане (GMT+5). Обычно отвечаю в тот же день.",

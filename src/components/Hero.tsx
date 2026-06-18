@@ -124,7 +124,7 @@ export default function Hero({t}: Props) {
               fontWeight: 300,
               color: "var(--white-60)",
               margin: "40px 0 0 0",
-              maxWidth: "480px",
+              maxWidth: "540px",
               lineHeight: 1.6,
             }}
           >
@@ -134,12 +134,13 @@ export default function Hero({t}: Props) {
             className="hero-sub-line"
             style={{
               fontFamily: "var(--font-sans)",
-              fontSize: "var(--size-lg)",
+              fontSize: "var(--size-md)",
               fontWeight: 300,
               color: "var(--white-60)",
-              margin: 0,
-              maxWidth: "480px",
+              margin: "4px 0 0 0",
+              maxWidth: "540px",
               lineHeight: 1.6,
+              opacity: 0.6,
             }}
           >
             {t.hero.subtextLine2}

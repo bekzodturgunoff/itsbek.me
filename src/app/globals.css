@@ -261,3 +261,21 @@ textarea.form-input {
     display: none !important;
   }
 }
+
+.journey-dot-pulse {
+  animation: journey-pulse 3s ease-in-out infinite;
+}
+
+@keyframes journey-pulse {
+  0%, 100% { opacity: 0.15; transform: scale(1); }
+  50% { opacity: 0.06; transform: scale(1.5); }
+}
+
+.portrait-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--white-07);
+  width: 100%;
+  aspect-ratio: 3 / 4;
+}

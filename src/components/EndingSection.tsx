@@ -2,12 +2,19 @@
 
 import {useRef, useEffect, useState} from "react";
 import {gsap, ScrollTrigger} from "@/lib/gsap";
+import type {I18n} from "@/i18n/types";
 
-export default function VisionSection() {
+interface Props {
+  t: I18n;
+}
+
+export default function EndingSection({t}: Props) {
   const sectionRef = useRef<HTMLElement>(null);
   const labelRef = useRef<HTMLSpanElement>(null);
   const h2Refs = useRef<(HTMLHeadingElement | null)[]>([null, null, null]);
-  const [isMobile, setIsMobile] = useState(() =>
+  const bodyRef = useRef<HTMLParagraphElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(
     typeof window !== "undefined" ? window.matchMedia("(max-width: 767px)").matches : false
   );
 
@@ -37,6 +44,18 @@ export default function VisionSection() {
           {y: "0%", duration: 0.7, ease: "expo.out", delay: i * 0.1, scrollTrigger: {trigger: section, start: "top 80%", toggleActions: "play none none reverse"}},
         );
       });
+
+      gsap.fromTo(
+        bodyRef.current,
+        {opacity: 0, y: 24},
+        {opacity: 1, y: 0, duration: 0.6, ease: "expo.out", delay: 0.3, scrollTrigger: {trigger: section, start: "top 72%", toggleActions: "play none none reverse"}},
+      );
+
+      gsap.fromTo(
+        ctaRef.current,
+        {opacity: 0, y: 12},
+        {opacity: 1, y: 0, duration: 0.5, ease: "expo.out", delay: 0.5, scrollTrigger: {trigger: section, start: "top 72%", toggleActions: "play none none reverse"}},
+      );
     }, section);
 
     ScrollTrigger.refresh();
@@ -50,7 +69,7 @@ export default function VisionSection() {
       style={{
         borderTop: "1px solid var(--white-07)",
         padding: isMobile ? "var(--gap-2xl) 24px" : "var(--gap-2xl) var(--page-x)",
-        minHeight: "70vh",
+        minHeight: "80vh",
         display: "flex",
         alignItems: "center",
       }}
@@ -68,7 +87,7 @@ export default function VisionSection() {
             marginBottom: "var(--gap-lg)",
           }}
         >
-          05 &mdash; VISION
+          06 &mdash; VISION
         </span>
 
         <div className="clip-reveal" style={{marginBottom: 0}}>
@@ -85,7 +104,7 @@ export default function VisionSection() {
               margin: 0,
             }}
           >
-            Not the best developer
+            {t.ending.headlineLine1}
           </h2>
         </div>
         <div className="clip-reveal" style={{marginBottom: 0}}>
@@ -102,10 +121,10 @@ export default function VisionSection() {
               margin: 0,
             }}
           >
-            in the room.
+            {t.ending.headlineLine2}
           </h2>
         </div>
-        <div className="clip-reveal" style={{marginBottom: "var(--gap-md)"}}>
+        <div className="clip-reveal" style={{marginBottom: "var(--gap-lg)"}}>
           <h2
             ref={(el) => { h2Refs.current[2] = el; }}
             className="clip-child"
@@ -119,49 +138,81 @@ export default function VisionSection() {
               margin: 0,
             }}
           >
-            The one who makes the room better.
+            {t.ending.headlineLine3}
           </h2>
         </div>
 
         <p
+          ref={bodyRef}
           style={{
             fontFamily: "var(--font-sans)",
             fontSize: "var(--size-lg)",
             fontWeight: 300,
             lineHeight: 1.75,
             color: "var(--white-60)",
-            margin: "0 0 var(--gap-md) 0",
+            margin: "0 0 var(--gap-lg) 0",
             maxWidth: "560px",
           }}
         >
-          Building toward distributed systems, security-first architecture,
-          and products that matter in markets most people haven&apos;t looked at yet.
+          {t.ending.body}
         </p>
 
-        <span
+        <div
+          ref={ctaRef}
           style={{
-            display: "inline-flex",
+            borderTop: "1px solid var(--white-07)",
+            paddingTop: "var(--gap-md)",
+            display: "flex",
             alignItems: "center",
-            gap: "8px",
-            fontFamily: "var(--font-sans)",
-            fontSize: "var(--size-label)",
-            letterSpacing: "var(--track-label)",
-            textTransform: "uppercase",
-            color: "var(--accent)",
+            gap: "16px",
+            flexWrap: "wrap",
           }}
         >
+          <a
+            href="#contact"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "10px",
+              fontFamily: "var(--font-display)",
+              fontSize: isMobile ? "20px" : "24px",
+              fontWeight: 600,
+              color: "var(--white)",
+              textDecoration: "none",
+              letterSpacing: "-0.01em",
+              transition: "color 200ms var(--ease-out)",
+              borderBottom: "2px solid var(--accent)",
+              paddingBottom: "4px",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = "var(--accent)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = "var(--white)";
+            }}
+          >
+            {t.ending.cta}
+            <span style={{fontSize: "28px", lineHeight: 1, display: "inline-block", transition: "transform 200ms"}}
+              onMouseEnter={(e) => { e.currentTarget.style.transform = "translate(4px, -2px)"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.transform = "translate(0, 0)"; }}
+            >
+              &rarr;
+            </span>
+          </a>
+
           <span
             style={{
-              width: "6px",
-              height: "6px",
-              borderRadius: "50%",
-              background: "var(--accent)",
-              display: "inline-block",
-              animation: "pulse-dot 2s ease-in-out infinite",
+              fontFamily: "var(--font-sans)",
+              fontSize: "var(--size-label)",
+              letterSpacing: "var(--track-label)",
+              textTransform: "uppercase",
+              color: "var(--white-60)",
+              opacity: 0.6,
             }}
-          />
-          OPEN TO REMOTE CONTRACTS + FULL-TIME
-        </span>
+          >
+            Scroll down to get in touch
+          </span>
+        </div>
       </div>
     </section>
   );

@@ -9,8 +9,9 @@ import Hero from "@/components/Hero";
 import ChapterOrigin from "@/components/ChapterOrigin";
 import ChapterCraft from "@/components/ChapterCraft";
 import ProjectsSection from "@/components/ProjectsSection";
-import StatsSection from "@/components/StatsSection";
-import VisionSection from "@/components/VisionSection";
+import ProofSection from "@/components/ProofSection";
+import ChapterAbout from "@/components/ChapterAbout";
+import EndingSection from "@/components/EndingSection";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import type {I18n} from "@/i18n/types";
@@ -36,8 +37,9 @@ export default function MainContent({t}: Props) {
         <ChapterOrigin t={t} />
         <ChapterCraft />
         <ProjectsSection />
-        <StatsSection />
-        <VisionSection />
+        <ProofSection t={t} />
+        <ChapterAbout t={t} />
+        <EndingSection t={t} />
         <Contact t={t} />
       </main>
 
