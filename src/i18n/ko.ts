@@ -24,6 +24,11 @@ const ko: I18n = {
     country: "자랐습니다.",
     studied: "서울에서 공부했습니다.",
     building: "계속 만들고 있습니다.",
+    timeline: [
+      {year: "2016", description: "Wrote first line of code in Uzbekistan. Self-taught, slow internet, stubborn."},
+      {year: "2023", description: "Moved to Seoul. Studied security at Sejong University."},
+      {year: "Now", description: "Back in Tashkent, shipping products for markets nobody else is looking at."},
+    ],
     body: "우즈베키스탄에서 태어나 좋은 인터넷을 찾는 것이 버그를 찾는 것보다 어렵던 시절에 스스로 코딩을 배웠습니다. 부트캠프도, 지름길도 없었습니다 \u2014 그저 어려운 문제들과 포기하지 않는 고집뿐이었습니다.\n\n2023년 서울로 이주하여 세종대학교에서 보안을 공부했습니다. 지금은 돌아와서, 대부분이 아직 살펴보지 않은 시장을 위해 만들고 있습니다.",
     info: "Based in Uzbekistan \u00B7 EN \u00B7 RU \u00B7 KO \u00B7 UZ \u00B7 UTC+5",
   },
@@ -55,7 +60,7 @@ const ko: I18n = {
   },
   contact: {
     heading: "이야기해요.",
-    intro: "프로젝트나 질문이 있으신가요? 우즈베키스탄에 있습니다 (GMT+5). 보통 당일에 답변드립니다.",
+    intro: "프로젝트나 질문이 있으신가요?",
     availability: "24시간 이내에 답변드립니다.",
     ctas: {
       email: "이메일",

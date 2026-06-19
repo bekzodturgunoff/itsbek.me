@@ -92,15 +92,14 @@ export default function ChapterAbout({t}: Props) {
           >
             {!imgError ? (
               <Image
-                src="/images/portrait.jpg"
+                src="/images/portrait.jpg?v=2"
                 alt="Bekzod Turgunov"
                 fill
                 sizes="280px"
                 style={{
                   objectFit: "cover",
                   objectPosition: "center",
-                  filter: "grayscale(100%)",
-                  mixBlendMode: "luminosity",
+
                 }}
                 onError={() => setImgError(true)}
               />

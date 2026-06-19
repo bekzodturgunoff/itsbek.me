@@ -55,6 +55,7 @@ export interface I18n {
     country: string;
     studied: string;
     building: string;
+    timeline: {year: string; description: string}[];
     body: string;
     info: string;
   };

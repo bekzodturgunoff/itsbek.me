@@ -314,30 +314,7 @@ export default function ProjectsSection() {
                   {project.year}
                 </span>
 
-                <a
-                  href={project.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()}
-                  style={{
-                    fontFamily: "var(--font-sans)",
-                    fontSize: "var(--size-label)",
-                    color: "var(--white-60)",
-                    textDecoration: "none",
-                    transition: "color 200ms, transform 200ms",
-                    display: "inline-flex",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.color = "var(--white)";
-                    e.currentTarget.style.transform = "translate(3px, -3px)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.color = "var(--white-60)";
-                    e.currentTarget.style.transform = "translate(0, 0)";
-                  }}
-                >
-                  &nearr;
-                </a>
+
               </div>
             </div>
 

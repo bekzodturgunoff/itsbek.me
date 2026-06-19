@@ -24,6 +24,11 @@ const uz: I18n = {
     country: "O'zbekiston.",
     studied: "Seulda o'qidim.",
     building: "Hali qurishda davom.",
+    timeline: [
+      {year: "2016", description: "Wrote first line of code in Uzbekistan. Self-taught, slow internet, stubborn."},
+      {year: "2023", description: "Moved to Seoul. Studied security at Sejong University."},
+      {year: "Now", description: "Back in Tashkent, shipping products for markets nobody else is looking at."},
+    ],
     body: "Men O'zbekistonda tug'ilib, yaxshi internet topish xatolarni topishdan qiyinroq bo'lgan paytda dasturlashni o'zim o'rgandim. Hech qanday bootcamp, qisqa yo'llar yo'q edi \u2014 faqat qiyin muammolar va davom etish uchun yetarlicha qaysarlik.\n\n2023 yilda Seulga ko'chib, Sejong Universitetida xavfsizlikni o'qidim. Endi qaytib kelib, ko'pchilik hali qaramagan bozorlar uchun mahsulotlar yaratmoqdaman.",
     info: "Based in Uzbekistan \u00B7 EN \u00B7 RU \u00B7 KO \u00B7 UZ \u00B7 UTC+5",
   },
@@ -55,7 +60,7 @@ const uz: I18n = {
   },
   contact: {
     heading: "Gaplashamiz.",
-    intro: "Loyiha yoki savolingiz bormi? Men O'zbekistondaman (GMT+5). Odatda shu kunning o'zida javob beraman.",
+    intro: "Loyiha yoki savolingiz bormi?",
     availability: "24 soat ichida javob beraman.",
     ctas: {
       email: "Email",

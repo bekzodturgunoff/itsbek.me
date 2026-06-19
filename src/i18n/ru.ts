@@ -24,6 +24,11 @@ const ru: I18n = {
     country: "Узбекистане.",
     studied: "Учился в Сеуле.",
     building: "Продолжаю строить.",
+    timeline: [
+      {year: "2016", description: "Wrote first line of code in Uzbekistan. Self-taught, slow internet, stubborn."},
+      {year: "2023", description: "Moved to Seoul. Studied security at Sejong University."},
+      {year: "Now", description: "Back in Tashkent, shipping products for markets nobody else is looking at."},
+    ],
     body: "Я родился в Узбекистане и научился кодить, когда найти хороший интернет было сложнее, чем найти баг. Ни буткемпов, ни коротких путей \u2014 только сложные задачи и достаточно упрямства, чтобы продолжать.\n\nВ 2023 году я переехал в Сеул, чтобы изучать безопасность в университете Седжон. Теперь я вернулся и создаю продукты для рынков, на которые большинство ещё не посмотрело.",
     info: "Based in Uzbekistan \u00B7 EN \u00B7 RU \u00B7 KO \u00B7 UZ \u00B7 UTC+5",
   },
@@ -55,7 +60,7 @@ const ru: I18n = {
   },
   contact: {
     heading: "Давай поговорим.",
-    intro: "Есть проект или вопрос? Я в Узбекистане (GMT+5). Обычно отвечаю в тот же день.",
+    intro: "Есть проект или вопрос?",
     availability: "Отвечаю в течение 24 часов.",
     ctas: {
       email: "Email",

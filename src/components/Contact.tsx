@@ -173,31 +173,12 @@ export default function Contact({t}: Props) {
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.color = "var(--accent)";
-                  const arrow = e.currentTarget.querySelector(".arrow") as HTMLElement;
-                  if (arrow) {
-                    arrow.style.transform = "translate(3px, -3px)";
-                    arrow.style.opacity = "1";
-                  }
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.color = "var(--white)";
-                  const arrow = e.currentTarget.querySelector(".arrow") as HTMLElement;
-                  if (arrow) {
-                    arrow.style.transform = "translate(0, 0)";
-                    arrow.style.opacity = "0.4";
-                  }
                 }}
               >
                 {item.value}
-                <span
-                  className="arrow"
-                  style={{
-                    transition: "transform 150ms, opacity 150ms",
-                    opacity: 0.4,
-                  }}
-                >
-                  &nearr;
-                </span>
               </span>
             </a>
           ))}

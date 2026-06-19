@@ -123,7 +123,7 @@ export default function Hero({t}: Props) {
               fontSize: "var(--size-lg)",
               fontWeight: 300,
               color: "var(--white-60)",
-              margin: "40px 0 0 0",
+              margin: "24px 0 0 0",
               maxWidth: "540px",
               lineHeight: 1.6,
             }}
@@ -200,7 +200,6 @@ export default function Hero({t}: Props) {
               borderRadius: "50%",
               background: "var(--accent)",
               display: "inline-block",
-              animation: "pulse-dot 2s ease-in-out infinite",
             }}
           />
           <span

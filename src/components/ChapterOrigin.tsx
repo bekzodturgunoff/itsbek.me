@@ -3,7 +3,6 @@
 import {useRef, useEffect} from "react";
 import {gsap, ScrollTrigger} from "@/lib/gsap";
 import type {I18n} from "@/i18n/types";
-import JourneyMap from "@/components/JourneyMap";
 
 interface Props {
   t: I18n;
@@ -13,6 +12,7 @@ export default function ChapterOrigin({t}: Props) {
   const sectionRef = useRef<HTMLElement>(null);
   const labelRef = useRef<HTMLSpanElement>(null);
   const headingRefs = useRef<(HTMLDivElement | null)[]>([null, null, null]);
+  const timelineRef = useRef<HTMLDivElement>(null);
   const bodyRef = useRef<HTMLParagraphElement>(null);
   const infoRef = useRef<HTMLDivElement>(null);
 
@@ -34,6 +34,11 @@ export default function ChapterOrigin({t}: Props) {
           {y: "0%", duration: 0.7, ease: "expo.out", delay: i * 0.08, scrollTrigger: {trigger: section, start: "top 80%", toggleActions: "play none none reverse"}},
         );
       });
+      gsap.fromTo(
+        timelineRef.current,
+        {opacity: 0, y: 16},
+        {opacity: 1, y: 0, duration: 0.5, ease: "expo.out", delay: 0.15, scrollTrigger: {trigger: section, start: "top 75%", toggleActions: "play none none reverse"}},
+      );
       gsap.fromTo(
         bodyRef.current,
         {opacity: 0, y: 24},
@@ -105,6 +110,54 @@ export default function ChapterOrigin({t}: Props) {
           </div>
         ))}
 
+        {/* Timeline */}
+        <div
+          ref={timelineRef}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "var(--gap-sm)",
+            padding: "0 0 var(--gap-lg) 0",
+            marginBottom: "var(--gap-lg)",
+            borderBottom: "1px solid var(--white-07)",
+          }}
+        >
+          {t.origin.timeline.map((entry, i) => (
+            <div
+              key={i}
+              style={{
+                display: "grid",
+                gridTemplateColumns: "60px 1fr",
+                gap: "var(--gap-sm)",
+                padding: "12px 0",
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "12px",
+                  color: "var(--accent)",
+                  letterSpacing: "0.05em",
+                  paddingTop: "1px",
+                }}
+              >
+                {entry.year}
+              </span>
+              <span
+                style={{
+                  fontFamily: "var(--font-sans)",
+                  fontSize: "var(--size-md)",
+                  color: "var(--white-60)",
+                  lineHeight: 1.6,
+                }}
+              >
+                {entry.description}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        {/* Body */}
         <p
           ref={bodyRef}
           style={{
@@ -137,7 +190,6 @@ export default function ChapterOrigin({t}: Props) {
           {t.origin.info}
         </div>
 
-        <JourneyMap />
       </div>
     </section>
   );

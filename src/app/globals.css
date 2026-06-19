@@ -76,15 +76,14 @@
   --text: var(--white);
   --bg: var(--black);
   --nav-bg: rgba(14, 14, 14, 0.88);
-  --grain-opacity: 0.035;
 
   --page-x: clamp(24px, 5vw, 80px);
   --gap-xs: 8px;
   --gap-sm: 16px;
   --gap-md: 32px;
-  --gap-lg: 64px;
-  --gap-xl: 120px;
-  --gap-2xl: 200px;
+  --gap-lg: 40px;
+  --gap-xl: 80px;
+  --gap-2xl: 120px;
 
   --size-hero:    clamp(52px, 9.5vw, 136px);
   --size-h2:      clamp(36px, 5.5vw, 80px);
@@ -115,7 +114,6 @@
     --text: var(--white);
     --bg: var(--black);
     --nav-bg: rgba(242, 239, 233, 0.88);
-    --grain-opacity: 0.018;
     --accent: #00A882;
   }
 }
@@ -209,17 +207,6 @@ body {
   to   { transform: translateX(-50%); }
 }
 
-.noise-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  pointer-events: none;
-  opacity: var(--grain-opacity);
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 128px 128px;
-}
-
 .form-input {
   width: 100%;
   background: transparent;
@@ -246,11 +233,6 @@ textarea.form-input {
   resize: none;
 }
 
-@keyframes pulse-dot {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
-}
-
 @keyframes menu-item-in {
   from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -260,22 +242,4 @@ textarea.form-input {
   .custom-cursor {
     display: none !important;
   }
-}
-
-.journey-dot-pulse {
-  animation: journey-pulse 3s ease-in-out infinite;
-}
-
-@keyframes journey-pulse {
-  0%, 100% { opacity: 0.15; transform: scale(1); }
-  50% { opacity: 0.06; transform: scale(1.5); }
-}
-
-.portrait-placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--white-07);
-  width: 100%;
-  aspect-ratio: 3 / 4;
 }

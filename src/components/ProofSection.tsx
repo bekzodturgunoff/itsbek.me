@@ -137,7 +137,7 @@ export default function ProofSection({t}: Props) {
               onMouseEnter={(e) => (e.currentTarget.style.color = "var(--white)")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "var(--white-60)")}
             >
-              {link.label} &nearr;
+              {link.label}
             </a>
           ))}
         </div>
