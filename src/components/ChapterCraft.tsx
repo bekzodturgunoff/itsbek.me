@@ -3,21 +3,6 @@
 import {useRef, useEffect, useState} from "react";
 import {gsap, ScrollTrigger} from "@/lib/gsap";
 
-const SKILL_GROUPS = [
-  {
-    title: "Frontend & Product",
-    items: ["React", "Next.js", "TypeScript", "Tailwind v4", "Framer Motion", "TanStack", "Astro"],
-  },
-  {
-    title: "Backend & Infrastructure",
-    items: ["Node.js", "Go", "Python", "PostgreSQL", "Supabase", "Cloudflare Workers", "Edge"],
-  },
-  {
-    title: "AI & Systems",
-    items: ["Gemini", "LLM Integration", "CI/CD", "System Design", "Security", "Performance"],
-  },
-];
-
 const TECH_STRIP = [
   "React", "Next.js", "TypeScript", "TanStack", "Supabase", "Tailwind v4",
   "GSAP", "Framer Motion", "Go", "Cloudflare Workers", "Python",
@@ -146,10 +131,7 @@ export default function ChapterCraft() {
           </p>
           <p
             ref={p2Ref}
-            style={{
-              ...colStyle,
-              marginTop: isMobile ? 0 : "48px",
-            }}
+            style={colStyle}
           >
             The stack changes with the problem. Sometimes it&apos;s Go and
             Cloudflare Workers for an edge API. Sometimes it&apos;s a full
@@ -157,56 +139,6 @@ export default function ChapterCraft() {
             cutting corners. Security isn&apos;t added at the end &mdash; it&apos;s
             in the architecture from day one.
           </p>
-        </div>
-
-        {/* Skill groups */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: isMobile ? "1fr" : "repeat(3, 1fr)",
-            gap: isMobile ? "var(--gap-md)" : "var(--gap-lg)",
-            marginBottom: "var(--gap-xl)",
-            padding: "var(--gap-lg) 0",
-            borderTop: "1px solid var(--white-07)",
-            borderBottom: "1px solid var(--white-07)",
-          }}
-        >
-          {SKILL_GROUPS.map((group) => (
-            <div key={group.title}>
-              <span
-                style={{
-                  display: "block",
-                  fontFamily: "var(--font-sans)",
-                  fontSize: "var(--size-label)",
-                  letterSpacing: "var(--track-label)",
-                  textTransform: "uppercase",
-                  color: "var(--accent)",
-                  marginBottom: "var(--gap-sm)",
-                }}
-              >
-                {group.title}
-              </span>
-              <div style={{display: "flex", flexWrap: "wrap", gap: "6px"}}>
-                {group.items.map((item) => (
-                  <span
-                    key={item}
-                    style={{
-                      fontFamily: "var(--font-sans)",
-                      fontSize: "var(--size-label)",
-                      letterSpacing: "var(--track-label)",
-                      textTransform: "uppercase",
-                      color: "var(--white-60)",
-                      border: "1px solid var(--white-15)",
-                      padding: "4px 10px",
-                      borderRadius: "2px",
-                    }}
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
         </div>
 
         {/* Tech strip */}

@@ -25,11 +25,11 @@ const en: I18n = {
     studied: "Studied in Seoul.",
     building: "Still building.",
     timeline: [
-      {year: "2016", description: "Wrote first line of code in Uzbekistan. Self-taught, slow internet, stubborn."},
+      {year: "2021", description: "Wrote first line of code in Uzbekistan. Self-taught, slow internet, stubborn."},
       {year: "2023", description: "Moved to Seoul. Studied security at Sejong University."},
       {year: "Now", description: "Back in Tashkent, shipping products for markets nobody else is looking at."},
     ],
-    body: "I started coding in 2016. There was no \u201clearn to code\u201D movement in Uzbekistan back then \u2014 just me, an unstable connection, and problems I wanted to solve. I\u2019d build something, break it, fix it, and learn more from the failures than any tutorial could teach.\n\nBy 2023 I had shipped enough projects to know what I didn\u2019t know. I moved to Seoul to study security at Sejong University \u2014 not for the degree, but to understand systems at a deeper level. Now I\u2019m back in Tashkent, building products that people actually use, for markets most developers haven\u2019t noticed yet.",
+    body: "I started coding in 2021. There was no \u201clearn to code\u201D movement in Uzbekistan back then \u2014 just me, an unstable connection, and problems I wanted to solve. I\u2019d build something, break it, fix it, and learn more from the failures than any tutorial could teach.\n\nBy 2023 I had shipped enough projects to know what I didn\u2019t know. I moved to Seoul to study security at Sejong University \u2014 not for the degree, but to understand systems at a deeper level. Now I\u2019m back in Tashkent, building products that people actually use, for markets most developers haven\u2019t noticed yet.",
     info: "Based in Uzbekistan \u00B7 EN \u00B7 RU \u00B7 KO \u00B7 UZ \u00B7 UTC+5",
   },
   about: {
@@ -45,8 +45,7 @@ const en: I18n = {
   proof: {
     metrics: [
       {value: "4+", label: "Years shipping\nproduction systems"},
-      {value: "10+", label: "Products live\nand in use"},
-      {value: "3 days", label: "Blank folder\nto deployed"},
+      {value: "10+", label: "Products live"},
       {value: "4", label: "Languages\nEN \u00B7 RU \u00B7 KO \u00B7 UZ"},
       {value: "15+", label: "Technologies\nacross the stack"},
     ],

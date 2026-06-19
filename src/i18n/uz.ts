@@ -25,7 +25,7 @@ const uz: I18n = {
     studied: "Seulda o'qidim.",
     building: "Hali qurishda davom.",
     timeline: [
-      {year: "2016", description: "Wrote first line of code in Uzbekistan. Self-taught, slow internet, stubborn."},
+      {year: "2021", description: "Wrote first line of code in Uzbekistan. Self-taught, slow internet, stubborn."},
       {year: "2023", description: "Moved to Seoul. Studied security at Sejong University."},
       {year: "Now", description: "Back in Tashkent, shipping products for markets nobody else is looking at."},
     ],
@@ -45,8 +45,7 @@ const uz: I18n = {
   proof: {
     metrics: [
       {value: "4+", label: "Years shipping\nproduction systems"},
-      {value: "10+", label: "Products live\nand in use"},
-      {value: "3 days", label: "Blank folder\nto deployed"},
+      {value: "10+", label: "Products live"},
       {value: "4", label: "Languages\nEN \u00B7 RU \u00B7 KO \u00B7 UZ"},
       {value: "15+", label: "Technologies\nacross the stack"},
     ],
