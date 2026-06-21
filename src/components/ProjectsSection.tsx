@@ -24,12 +24,12 @@ const PROJECTS = [
     challenge: "Uzbekistan had no centralized venue booking platform.",
     impact: "Multi-vendor marketplace built in 3 days. Real users, real bookings.",
     tags: ["React", "Supabase", "Leaflet"],
-    year: "3 days \u00B7 2026",
+    year: "2026",
     href: "https://bronuz.vercel.app",
     image: "/images/projects/bronuz/bronuz_homepage_2.webp",
   },
   {
-    id: "assistant-bot",
+    id: "telegram-bot",
     index: "003",
     title: "Personal Assistant",
     challenge: "Managing multi-language business messages across time zones was overwhelming.",
@@ -317,40 +317,6 @@ export default function ProjectsSection() {
 
               </div>
             </div>
-
-            {/* Mobile challenge/impact */}
-            {isMobile && (
-              <div
-                style={{
-                  padding: "0 var(--page-x) 16px",
-                  borderBottom: "1px solid var(--white-07)",
-                }}
-              >
-                <div
-                  style={{
-                    fontFamily: "var(--font-sans)",
-                    fontSize: "12px",
-                    lineHeight: 1.5,
-                    color: "var(--white-60)",
-                    marginBottom: "4px",
-                  }}
-                >
-                  <span style={{color: "var(--white-15)", letterSpacing: "0.1em", textTransform: "uppercase", fontSize: "10px"}}>Challenge </span>
-                  {project.challenge}
-                </div>
-                <div
-                  style={{
-                    fontFamily: "var(--font-sans)",
-                    fontSize: "12px",
-                    lineHeight: 1.5,
-                    color: "var(--accent)",
-                  }}
-                >
-                  <span style={{color: "var(--white-15)", letterSpacing: "0.1em", textTransform: "uppercase", fontSize: "10px"}}>Impact </span>
-                  {project.impact}
-                </div>
-              </div>
-            )}
           </div>
         ))}
       </div>

@@ -152,8 +152,18 @@ const ru: I18n = {
       ],
     },
     images: [
-      {src: "/images/projects/3d-device-with-ai-assistant.webm", alt: "Интеграция Telegram Business API — бот перехватывает входящие сообщения и отвечает AI-генерированными ответами от имени владельца.", caption: "Интеграция Telegram Business API — бот перехватывает входящие деловые сообщения и отвечает как владелец с AI-генерированными ответами, соответствующими языку и тону отправителя."},
-      {src: "/images/projects/ai-assistant-on-digital-screen-smart-device.webm", alt: "Трёхуровневая система памяти — бот хранит историю разговоров, профили и долгосрочные факты для каждого контакта через Cloudflare KV.", caption: "Трёхуровневая система памяти — бот хранит историю разговоров, профили и долгосрочные факты для каждого контакта через Cloudflare KV."},
+      {
+        src: "/images/projects/tg-bot/3d-stickle-retro-tablet-with-pixel-ai-chatbot-1.png",
+        alt: "Ретро планшет с пиксельным AI-чатом",
+        caption:
+          "Интерфейс чат-бота в пиксельном стиле.",
+      },
+      {
+        src: "/images/projects/tg-bot/3d-stickle-robot-assistant-device-with-smiling-pixel-face-and-control-knobs.png",
+        alt: "Робот-ассистент с улыбающимся пиксельным лицом и ручками управления",
+        caption:
+          "Дружелюбный персонаж робота-ассистента с ретро-панелью управления.",
+      },
     ],
     cta: {label: "Исходный код", href: "https://github.com/bekzodturgunoff/personal-assistant"},
   },

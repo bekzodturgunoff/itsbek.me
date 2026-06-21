@@ -20,10 +20,27 @@ interface Props {
 }
 
 export default function MainContent({t}: Props) {
-  useLenis();
+  const lenisRef = useLenis();
 
   useEffect(() => {
     ScrollTrigger.refresh();
+  }, []);
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (!hash) return;
+
+    const el = document.querySelector(hash) as HTMLElement | null;
+    if (!el) return;
+
+    const tryScroll = () => {
+      if (lenisRef.current) {
+        lenisRef.current.scrollTo(el, {immediate: true});
+      } else {
+        requestAnimationFrame(tryScroll);
+      }
+    };
+    requestAnimationFrame(tryScroll);
   }, []);
 
   return (

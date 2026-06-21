@@ -1,6 +1,7 @@
 "use client";
 
-import {useRef, useEffect} from "react";
+import {useRef, useEffect, useState} from "react";
+import {useRouter} from "next/navigation";
 import {gsap, ScrollTrigger} from "@/lib/gsap";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -26,11 +27,26 @@ interface Props {
 }
 
 export default function CaseStudyClient({t, lang, slug, data}: Props) {
+  const router = useRouter();
   const mainRef = useRef<HTMLElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
   const problemRef = useRef<HTMLElement>(null);
   const researchRef = useRef<HTMLElement>(null);
   const designRef = useRef<HTMLElement>(null);
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== "undefined" ? window.matchMedia("(max-width: 767px)").matches : false
+  );
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)");
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -79,8 +95,8 @@ export default function CaseStudyClient({t, lang, slug, data}: Props) {
       <Nav t={t} currentSlug={slug} />
 
       {/* Fixed back button — always visible, out of content flow */}
-      <a
-        href={`/${lang}`}
+      <button
+        onClick={() => router.push(`/${lang}#work`)}
         style={{
           position: "fixed",
           top: "calc(52px + var(--gap-sm))",
@@ -101,6 +117,7 @@ export default function CaseStudyClient({t, lang, slug, data}: Props) {
           border: "1px solid var(--border)",
           transition: "color 200ms var(--ease-out), border-color 200ms var(--ease-out)",
           lineHeight: 1,
+          cursor: "pointer",
         }}
         onMouseEnter={(e) => {
           e.currentTarget.style.color = "var(--accent)";
@@ -113,7 +130,7 @@ export default function CaseStudyClient({t, lang, slug, data}: Props) {
       >
         <span style={{fontSize: "20px", lineHeight: 1}}>&larr;</span>
         Back
-      </a>
+      </button>
 
       <main ref={mainRef} style={{paddingTop: "56px"}}>
 
@@ -121,7 +138,7 @@ export default function CaseStudyClient({t, lang, slug, data}: Props) {
         <section
           ref={heroRef}
           style={{
-            padding: "var(--gap-2xl) var(--gap-lg)",
+            padding: isMobile ? "100px 24px var(--gap-lg)" : "var(--gap-2xl) var(--gap-lg)",
             maxWidth: "800px",
             margin: "0 auto",
           }}
@@ -141,12 +158,12 @@ export default function CaseStudyClient({t, lang, slug, data}: Props) {
             {data.badge}
           </span>
 
-          <div className="clip-reveal" style={{marginBottom: "var(--gap-md)"}}>
+          <div className="clip-reveal" style={{marginBottom: isMobile ? "var(--gap-sm)" : "var(--gap-md)"}}>
             <h1
               className="clip-child"
               style={{
                 fontFamily: "var(--font-display)",
-                fontSize: "var(--text-display)",
+                fontSize: "clamp(36px, 6.5vw, 88px)",
                 fontWeight: 700,
                 lineHeight: 0.92,
                 letterSpacing: "-0.025em",
@@ -165,7 +182,7 @@ export default function CaseStudyClient({t, lang, slug, data}: Props) {
               fontWeight: 300,
               lineHeight: 1.7,
               color: "var(--text-secondary)",
-              margin: "0 0 var(--gap-lg) 0",
+              margin: isMobile ? "0 0 var(--gap-md) 0" : "0 0 var(--gap-lg) 0",
             }}
           >
             {data.subtitle}
@@ -175,7 +192,7 @@ export default function CaseStudyClient({t, lang, slug, data}: Props) {
             className="reveal-up"
             style={{
               display: "flex",
-              gap: "var(--gap-xl)",
+              gap: isMobile ? "var(--gap-md)" : "var(--gap-xl)",
               flexWrap: "wrap",
               borderTop: "1px solid var(--border)",
               borderBottom: "1px solid var(--border)",
@@ -215,7 +232,7 @@ export default function CaseStudyClient({t, lang, slug, data}: Props) {
         <section
           ref={problemRef}
           style={{
-            padding: "var(--gap-2xl) var(--gap-lg)",
+            padding: isMobile ? "var(--gap-md) 24px" : "var(--gap-2xl) var(--gap-lg)",
             maxWidth: "800px",
             margin: "0 auto",
             borderTop: "1px solid var(--border)",
@@ -229,7 +246,7 @@ export default function CaseStudyClient({t, lang, slug, data}: Props) {
               letterSpacing: "0.2em",
               textTransform: "uppercase",
               color: "var(--text-muted)",
-              marginBottom: "var(--gap-md)",
+              marginBottom: isMobile ? "var(--gap-sm)" : "var(--gap-md)",
               display: "block",
             }}
           >
@@ -253,7 +270,7 @@ export default function CaseStudyClient({t, lang, slug, data}: Props) {
         <section
           ref={researchRef}
           style={{
-            padding: "var(--gap-2xl) var(--gap-lg)",
+            padding: isMobile ? "var(--gap-md) 24px" : "var(--gap-2xl) var(--gap-lg)",
             maxWidth: "800px",
             margin: "0 auto",
             borderTop: "1px solid var(--border)",
@@ -267,7 +284,7 @@ export default function CaseStudyClient({t, lang, slug, data}: Props) {
               letterSpacing: "0.2em",
               textTransform: "uppercase",
               color: "var(--text-muted)",
-              marginBottom: "var(--gap-md)",
+              marginBottom: isMobile ? "var(--gap-sm)" : "var(--gap-md)",
               display: "block",
             }}
           >
@@ -310,7 +327,7 @@ export default function CaseStudyClient({t, lang, slug, data}: Props) {
         <section
           ref={designRef}
           style={{
-            padding: "var(--gap-2xl) var(--gap-lg)",
+            padding: isMobile ? "var(--gap-md) 24px" : "var(--gap-2xl) var(--gap-lg)",
             maxWidth: "800px",
             margin: "0 auto",
             borderTop: "1px solid var(--border)",
@@ -324,7 +341,7 @@ export default function CaseStudyClient({t, lang, slug, data}: Props) {
               letterSpacing: "0.2em",
               textTransform: "uppercase",
               color: "var(--text-muted)",
-              marginBottom: "var(--gap-md)",
+              marginBottom: isMobile ? "var(--gap-sm)" : "var(--gap-md)",
               display: "block",
             }}
           >
@@ -367,13 +384,13 @@ export default function CaseStudyClient({t, lang, slug, data}: Props) {
         {data.images.length > 0 && (
           <section
             style={{
-              padding: "var(--gap-2xl) var(--gap-lg)",
+              padding: isMobile ? "var(--gap-md) 24px" : "var(--gap-2xl) var(--gap-lg)",
               maxWidth: "1000px",
               margin: "0 auto",
               borderTop: "1px solid var(--border)",
             }}
           >
-            <div style={{display: "grid", gap: "var(--gap-xl)"}}>
+            <div style={{display: "grid",             gap: isMobile ? "var(--gap-md)" : "var(--gap-xl)"}}>
               {data.images.map((img, i) => (
                 <div key={i} className="reveal-up">
                   {img.src.endsWith(".webm") ? (
@@ -420,7 +437,7 @@ export default function CaseStudyClient({t, lang, slug, data}: Props) {
         {/* CTA */}
         <div
           style={{
-            padding: "var(--gap-xl) var(--gap-lg) var(--gap-2xl)",
+            padding: isMobile ? "var(--gap-md) 24px var(--gap-lg)" : "var(--gap-xl) var(--gap-lg) var(--gap-2xl)",
             maxWidth: "800px",
             margin: "0 auto",
             textAlign: "center",

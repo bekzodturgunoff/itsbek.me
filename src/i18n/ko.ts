@@ -152,8 +152,18 @@ const ko: I18n = {
       ],
     },
     images: [
-      {src: "/images/projects/3d-device-with-ai-assistant.webm", alt: "Telegram Business API 통합 — 봇이 수신 비즈니스 메시지를 가로채 AI 생성 응답으로 소유자처럼 응답합니다.", caption: "Telegram Business API 통합 — 봇이 수신 비즈니스 메시지를 가로채 발신자의 언어와 톤에 맞는 AI 생성 응답으로 소유자처럼 응답합니다."},
-      {src: "/images/projects/ai-assistant-on-digital-screen-smart-device.webm", alt: "3계층 메모리 시스템 — 봇이 Cloudflare KV를 사용하여 연락처별로 대화 기록, 페르소나 프로필, 장기 사실을 유지합니다.", caption: "3계층 메모리 시스템 — 봇이 Cloudflare KV를 사용하여 연락처별로 대화 기록, 페르소나 프로필, 장기 사실을 유지합니다."},
+      {
+        src: "/images/projects/tg-bot/3d-stickle-retro-tablet-with-pixel-ai-chatbot-1.png",
+        alt: "픽셀 AI 챗봇이 있는 레트로 태블릿",
+        caption:
+          "픽셀 아트 스타일의 챗봇 인터페이스.",
+      },
+      {
+        src: "/images/projects/tg-bot/3d-stickle-robot-assistant-device-with-smiling-pixel-face-and-control-knobs.png",
+        alt: "웃는 픽셀 얼굴과 컨트롤 노브가 있는 로봇 어시스턴트",
+        caption:
+          "레트로 스타일 컨트롤 패널이 있는 친근한 로봇 어시스턴트.",
+      },
     ],
     cta: {label: "소스 코드 보기", href: "https://github.com/bekzodturgunoff/personal-assistant"},
   },

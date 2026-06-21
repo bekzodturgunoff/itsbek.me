@@ -182,16 +182,16 @@ const en: I18n = {
     },
     images: [
       {
-        src: "/images/projects/bot/bot_chat.webp",
-        alt: "Telegram chat screenshot with the bot",
+        src: "/images/projects/tg-bot/3d-stickle-retro-tablet-with-pixel-ai-chatbot-1.png",
+        alt: "Retro tablet with pixel AI chatbot interface",
         caption:
-          "A real conversation showing the bot fluidly handling context and changing languages.",
+          "The pixel-art chatbot interface showing the assistant in action.",
       },
       {
-        src: "/images/projects/bot/bot_dash.webp",
-        alt: "Web dashboard for managing the bot",
+        src: "/images/projects/tg-bot/3d-stickle-robot-assistant-device-with-smiling-pixel-face-and-control-knobs.png",
+        alt: "Robot assistant device with smiling pixel face and control knobs",
         caption:
-          "The clean, password-protected web view I use to check logs and tweak AI settings.",
+          "The friendly robot assistant character with a retro-styled control panel.",
       },
     ],
     cta: {label: "Ping My Bot", href: "https://t.me/itsbek_bot"},
