@@ -78,7 +78,7 @@ export default function ChapterCraft() {
         padding: "var(--gap-2xl) var(--page-x)",
       }}
     >
-      <div style={{maxWidth: "1000px", margin: "0 auto"}}>
+      <div style={{maxWidth: "1400px", margin: "0 auto"}}>
         <span
           ref={labelRef}
           style={{

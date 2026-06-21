@@ -42,14 +42,6 @@ const en: I18n = {
       "The best products solve real problems. Everything else is just features.",
     ],
   },
-  proof: {
-    metrics: [
-      {value: "4+", label: "Years shipping\nproduction systems"},
-      {value: "10+", label: "Products live"},
-      {value: "4", label: "Languages\nEN \u00B7 RU \u00B7 KO \u00B7 UZ"},
-      {value: "15+", label: "Technologies\nacross the stack"},
-    ],
-  },
   ending: {
     headlineLine1: "Not the best developer",
     headlineLine2: "in the room.",

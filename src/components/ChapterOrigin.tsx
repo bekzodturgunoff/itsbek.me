@@ -70,7 +70,7 @@ export default function ChapterOrigin({t}: Props) {
         padding: "var(--gap-2xl) var(--page-x)",
       }}
     >
-      <div style={{maxWidth: "900px", margin: "0 auto"}}>
+      <div style={{maxWidth: "1400px", margin: "0 auto"}}>
         <span
           ref={labelRef}
           style={{

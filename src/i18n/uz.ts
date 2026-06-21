@@ -42,14 +42,6 @@ const uz: I18n = {
       "Eng yaxshi mahsulotlar haqiqiy muammolarni hal qiladi. Qolgan hamma narsa — shunchaki funksiyalar.",
     ],
   },
-  proof: {
-    metrics: [
-      {value: "4+", label: "Yil\nishlab chiqarish tizimlari"},
-      {value: "10+", label: "Ishlayotgan\nmahsulotlar"},
-      {value: "4", label: "Til\nEN \u00B7 RU \u00B7 KO \u00B7 UZ"},
-      {value: "15+", label: "Texnologiya\nbutun stack bo'ylab"},
-    ],
-  },
   ending: {
     headlineLine1: "Xonadagi eng yaxshi",
     headlineLine2: "dasturchi emas.",

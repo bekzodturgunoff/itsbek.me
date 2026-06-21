@@ -83,7 +83,7 @@ export default function Contact({t}: Props) {
         justifyContent: "center",
       }}
     >
-      <div style={{maxWidth: "720px", width: "100%"}}>
+      <div style={{maxWidth: "1400px", width: "100%"}}>
         <span
           style={{
             display: "block",

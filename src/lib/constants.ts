@@ -26,7 +26,6 @@ export const CHAPTER_SCENES: ChapterScene[] = [
   { id: "origin", label: "ORIGIN", index: 1 },
   { id: "craft", label: "THE CRAFT", index: 2 },
   { id: "work", label: "THE WORK", index: 3 },
-  { id: "proof", label: "PROOF", index: 4 },
   { id: "vision", label: "VISION", index: 5 },
   { id: "contact", label: "CONTACT", index: 6 },
 ];

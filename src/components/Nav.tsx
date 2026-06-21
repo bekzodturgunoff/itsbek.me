@@ -15,13 +15,12 @@ const CHAPTER_LABELS: Record<string, string> = {
   origin:  '01 \u2014 ORIGIN',
   craft:   '02 \u2014 THE CRAFT',
   work:    '03 \u2014 THE WORK',
-  proof:   '04 \u2014 PROOF',
   about:   '05 \u2014 ABOUT',
   vision:  '06 \u2014 VISION',
   contact: '07 \u2014 CONTACT',
 };
 
-const SECTION_IDS = ["hero", "origin", "craft", "work", "proof", "about", "vision", "contact"];
+const SECTION_IDS = ["hero", "origin", "craft", "work", "about", "vision", "contact"];
 
 export default function Nav({t, currentSlug}: Props) {
   const lang = useLang();

@@ -42,14 +42,6 @@ const ko: I18n = {
       "최고의 제품은 실제 문제를 해결합니다. 나머지는 그저 기능일 뿐입니다.",
     ],
   },
-  proof: {
-    metrics: [
-      {value: "4+", label: "프로덕션 시스템\n출시 경력"},
-      {value: "10+", label: "운영 중인\n제품"},
-      {value: "4", label: "사용 언어\nEN \u00B7 RU \u00B7 KO \u00B7 UZ"},
-      {value: "15+", label: "보유 기술\n전 스택"},
-    ],
-  },
   ending: {
     headlineLine1: "가장 뛰어난 개발자가",
     headlineLine2: "아니라,",
