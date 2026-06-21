@@ -234,42 +234,6 @@ export default function ProjectsSection() {
                   {project.title}
                 </span>
 
-                {/* Challenge + Impact — visible on desktop, collapsible on mobile */}
-                {!isMobile && (
-                  <div
-                    style={{
-                      marginTop: "6px",
-                      display: "flex",
-                      gap: "24px",
-                      flexWrap: "wrap",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily: "var(--font-sans)",
-                        fontSize: "12px",
-                        lineHeight: 1.5,
-                        color: "var(--white-60)",
-                        maxWidth: "340px",
-                      }}
-                    >
-                      <span style={{color: "var(--white-15)", letterSpacing: "0.1em", textTransform: "uppercase", fontSize: "10px"}}>Challenge </span>
-                      {project.challenge}
-                    </span>
-                    <span
-                      style={{
-                        fontFamily: "var(--font-sans)",
-                        fontSize: "12px",
-                        lineHeight: 1.5,
-                        color: "var(--accent)",
-                        maxWidth: "300px",
-                      }}
-                    >
-                      <span style={{color: "var(--white-15)", letterSpacing: "0.1em", textTransform: "uppercase", fontSize: "10px"}}>Impact </span>
-                      {project.impact}
-                    </span>
-                  </div>
-                )}
               </div>
 
               {/* Right side */}
