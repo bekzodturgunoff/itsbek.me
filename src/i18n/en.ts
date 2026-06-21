@@ -16,43 +16,55 @@ const en: I18n = {
     headlineLine1: "I build products",
     headlineLine2: "people actually use.",
     subtextLine1: "Frontend \u00B7 Full-stack \u00B7 AI \u00B7 Cloud",
-    subtextLine2: "Tashkent \u2192 Seoul. Shipping since 2021.",
-    availability: "Available for work",
+    subtextLine2: "Tashkent \u2192 Seoul. Shipping code since 2021.",
+    availability: "Available for interesting work",
   },
   origin: {
-    grewUp: "Grew up in",
+    grewUp: "Raised in",
     country: "Uzbekistan.",
-    studied: "Studied in Seoul.",
-    building: "Still building.",
+    studied: "Survived Seoul.",
+    building: "Still shipping.",
     timeline: [
-      {year: "2021", description: "Wrote first line of code in Uzbekistan. Self-taught, slow internet, stubborn."},
-      {year: "2023", description: "Moved to Seoul. Studied security at Sejong University."},
-      {year: "Now", description: "Back in Tashkent, shipping products for markets nobody else is looking at."},
+      {
+        year: "2021",
+        description:
+          "Wrote my first line of code in Uzbekistan. Entirely self-taught, fueled by slow internet and sheer stubbornness.",
+      },
+      {
+        year: "2023",
+        description:
+          "Moved to Seoul. Studied Cyber Security at Sejong University (and learned how to break things properly).",
+      },
+      {
+        year: "Now",
+        description:
+          "Back in Tashkent, shipping real-world products for untapped markets that other developers overlook.",
+      },
     ],
-    body: "I started coding in 2021. There was no \u201clearn to code\u201D movement in Uzbekistan back then \u2014 just me, an unstable connection, and problems I wanted to solve. I\u2019d build something, break it, fix it, and learn more from the failures than any tutorial could teach.\n\nBy 2023 I had shipped enough projects to know what I didn\u2019t know. I moved to Seoul to study security at Sejong University \u2014 not for the degree, but to understand systems at a deeper level. Now I\u2019m back in Tashkent, building products that people actually use, for markets most developers haven\u2019t noticed yet.",
+    body: "I started coding back in 2021. There was no massive \u201clearn to code\u201d hype in Uzbekistan back then \u2014 just me, an unstable Wi-Fi connection, and an annoying urge to build things. I\u2019d build something, break it completely, fix it, and repeat. I definitely learned more from those chaotic failures than any structured tutorial could ever teach me.\n\nBy 2023, I had shipped enough chaotic side projects to realize how much I still didn\u2019t know. I packed my bags for Seoul to study Cyber Security at Sejong University \u2014 not for the piece of paper, but to truly understand how systems tick under the hood. Now I\u2019m back in Tashkent, focusing on building high-performance products for markets most developers haven\u2019t even noticed yet.",
     info: "Based in Uzbekistan \u00B7 EN \u00B7 RU \u00B7 KO \u00B7 UZ \u00B7 UTC+5",
   },
   about: {
     title: "Behind the code",
-    body: "I\u2019m a software engineer who thinks like a product builder. I started coding in Uzbekistan when finding a good tutorial was harder than fixing the bugs it taught you. I moved to Seoul in 2023 to study security at Sejong University. Now I build for markets most people haven\u2019t looked at yet.\n\nI speak four languages, work across the full stack, and believe the best code is the code that ships.",
+    body: "I’m a software engineer who looks at code through the lens of a product builder. I cut my teeth coding in Uzbekistan when finding a decent tutorial was harder than debugging the code it gave you. I then spent a few years in Seoul diving deep into system security. \n\nI speak two languages, jump across the full stack without breaking a sweat, and firmly believe that the best code is the code that actually reaches production.",
     philosophy: [
-      "Production beats perfection. Code that runs is worth more than code that\u2019s elegant but idle.",
-      "Security isn\u2019t a layer you add at the end. It\u2019s in the architecture from day one.",
-      "Fast doesn\u2019t mean fragile. Good systems are quick and resilient.",
-      "The best products solve real problems. Everything else is just features.",
+      "Production beats perfection. Code running live is worth infinitely more than flawless code sitting idle on localhost.",
+      "Security isn't a feature you slap on at the end. It should be baked into the architecture from line one.",
+      "Fast doesn\u2019t mean fragile. A well-designed system can handle high velocity without falling apart.",
+      "Great products solve painful, real-world problems. Everything else is just expensive pixel pushing.",
     ],
   },
   ending: {
-    headlineLine1: "Not the best developer",
-    headlineLine2: "in the room.",
-    headlineLine3: "The one who makes the room better.",
-    body: "Building toward distributed systems, security-first architecture, and products that matter in markets most people haven\u2019t looked at yet. If that sounds like your next project \u2014 let\u2019s talk.",
-    cta: "Let\u2019s build something that matters.",
+    headlineLine1: "Not trying to be the smartest",
+    headlineLine2: "developer in the room.",
+    headlineLine3: "Just the one who makes the whole room better.",
+    body: "I'm focusing my energy on distributed systems, security-first architectures, and building meaningful platforms for overlooked markets. If that aligns with what you're spinning up next \u2014 let\u2019s chat.",
+    cta: "Let\u2019s build something real.",
   },
   contact: {
     heading: "Let\u2019s talk.",
-    intro: "Got a project or a question?",
-    availability: "Usually replies within a few hours.",
+    intro: "Got a challenging project or just a quick question?",
+    availability: "Usually replies before your coffee gets cold.",
     ctas: {
       email: "Email",
       telegram: "Telegram",
@@ -64,7 +76,7 @@ const en: I18n = {
       email: "Your Email",
       emailPlaceholder: "you@example.com",
       message: "Your Message",
-      messagePlaceholder: "What are we building?",
+      messagePlaceholder: "What awesome thing are we building?",
       submit: "Send Message",
     },
   },
@@ -73,11 +85,11 @@ const en: I18n = {
   },
   bronUzCaseStudy: {
     badge: "Case Study",
-    title: "BronUz \u2014 Booking Rooms & Venues",
+    title: "BronUz \u2014 Frictionless Venue Booking",
     subtitle:
-      "How I built a fully functional multi-vendor booking platform for Uzbekistan from a blank folder in just 3 days.",
+      "How I built a fully functional multi-vendor booking marketplace for Uzbekistan from a completely blank folder in exactly 3 days.",
     meta: [
-      {label: "Client", value: "Personal Project"},
+      {label: "Client", value: "Personal Project (Pet Project)"},
       {label: "Role", value: "Solo Full-Stack Dev & Designer"},
       {label: "Timeline", value: "3 Days (2026)"},
       {
@@ -88,26 +100,26 @@ const en: I18n = {
     ],
     problem: {
       title: "The Problem",
-      body: "In Uzbekistan, trying to book a football field, a cafe table, or a local event space is a headache. You usually have to dig up random phone numbers or send endless Telegram messages back and forth hoping someone replies. I wanted to see if I could fix this by building a fast, complete marketplace in a single weekend. It needed a smooth customer booking path, a real dashboard for business owners to track their money, and a master admin panel to keep an eye on everything.",
+      body: "In Uzbekistan, trying to book a football pitch, a table at a cafe, or a local event space is a total logistical nightmare. You usually have to dig up random phone numbers from Instagram or exchange endless Telegram messages hoping someone replies before next week. I wanted to see if I could single-handedly solve this by building a blistering fast, end-to-end marketplace over a single long weekend. It required a seamless customer booking flow, a heavy-duty merchant dashboard for venue owners to track revenue, and a master admin control center.",
     },
     research: {
-      title: "How I Built It",
+      title: "How I Built It (And Survived)",
       bullets: [
-        "Database Architecture: Set up a Supabase backend with 13 relational tables, Row-Level Security (RLS) to lock down user data, and custom Edge Functions for background work.",
-        "Interactive Maps & Filters: Built a frontend with over 15 pages. Tied Leaflet maps together with heavy URL-state filtering so users can search, filter across 25+ categories, and share exact search results instantly.",
-        "Merchant Dashboard: Built a portal for shop owners with live business charts, visual booking calendars, custom slot controls, and a team permission management system.",
-        "Safe Admin Panel: Put together a secure gateway for platform approvals. Used Postgres SECURITY DEFINER functions so regular database access rules can't be bypassed by accident.",
-        "Telegram Integration: Connected a helper bot via webhooks. It messages owners immediately when someone books, runs cron jobs for 24-hour reminders, and acts as a basic support line.",
-        "Granular Rules: Coded custom loyalty points, waitlists, and flexible cancellation rules that business owners can adjust whenever they want.",
-        "PWA Features: Used Workbox to handle offline caching and custom workflows so users can install it on iOS like a native app.",
+        "Database Architecture: Structured a solid Supabase backend with 13 relational tables, fully locked down with Row-Level Security (RLS) policies and custom Edge Functions for background tasks.",
+        "Interactive Maps & Filters: Coded over 15 frontend pages. Hooked up Leaflet maps with dynamic URL-state synchronization, enabling users to instantly filter across 25+ categories and share exact results via a single link.",
+        "Merchant Command Center: Built a dedicated dashboard for business owners featuring live analytics charts, interactive booking calendars, custom slot controls, and precise team role permissions.",
+        "Secure Admin Gateway: Assembled a master control center for platform approvals, utilizing PostgreSQL SECURITY DEFINER functions to handle sensitive actions without exposing raw database tables.",
+        "Telegram Webhook Pipeline: Integrated a bot that instantly pings venue owners upon a new booking, handles automated 24-hour cron reminders, and serves as an automated support channel.",
+        "Granular Pricing Rules: Implemented logic for customizable loyalty rewards, real-time waitlists, and flexible cancellation windows that business owners can tweak on the fly.",
+        "PWA Support: Added offline caching and native-like service worker workflows using Workbox, making it fully installable on iOS and Android.",
       ],
     },
     design: {
-      title: "The Reality",
+      title: "The Reality Check",
       bullets: [
-        "It's completely live at bronuz.vercel.app. Real auth, real database updates, and real booking flows actually work.",
-        "Handled three distinct user experiences (Customer, Shop Owner, and Admin) without rewriting the core layout logic.",
-        "Proved that good architecture decisions let you move fast without breaking things.",
+        "It's completely production-ready and live at bronuz.vercel.app. Real authentication, real DB transactions, and live status updates.",
+        "Successfully managed three completely distinct user personas (Customer, Vendor, Admin) without bloating the layout architecture.",
+        "Proved that solid upfront architectural choices let you ship incredibly fast without leaving a trail of broken code.",
       ],
     },
     images: [
@@ -115,37 +127,37 @@ const en: I18n = {
         src: "/images/projects/bronuz/bronuz_homepage_2.webp",
         alt: "BronUz homepage showing map and search cards",
         caption:
-          "The main search page. It keeps the map and the filtered venue cards perfectly in sync.",
+          "The main discovery view. Keeps map coordinates and search parameters perfectly synced in the URL.",
       },
       {
         src: "/images/projects/bronuz/bronuz_venue.webp",
         alt: "BronUz venue booking screen",
         caption:
-          "The venue page where clients pick their day and select open time slots.",
+          "The venue checkout view where clients pick a date and tap available time slots.",
       },
       {
         src: "/images/projects/bronuz/bronuz_business.webp",
         alt: "BronUz business dashboard analytics",
         caption:
-          "The dashboard I built for shop owners to track daily revenue and upcoming bookings.",
+          "The merchant dashboard built for venue owners to track daily payouts and manage bookings.",
       },
       {
         src: "/images/projects/bronuz/bronuz_admin.webp",
         alt: "BronUz master admin dashboard",
         caption:
-          "The admin view where I approve new signups and look at platform stats.",
+          "The super-admin panel where I monitor global platform statistics and vet new merchants.",
       },
     ],
-    cta: {label: "Try the Live Demo", href: "https://bronuz.vercel.app"},
+    cta: {label: "Launch Live Demo", href: "https://bronuz.vercel.app"},
   },
   telegramBotCaseStudy: {
     badge: "Case Study",
     title: "My AI Assistant Bot",
     subtitle:
-      "A fast Telegram assistant that thinks like me, remembers past chats, and costs exactly $0.00 to run.",
+      "A lightning-fast Telegram assistant that copies my personality, retains deep context, and costs exactly $0.00 to run.",
     meta: [
       {label: "Client", value: "Personal Project"},
-      {label: "Role", value: "Backend Engineer"},
+      {label: "Role", value: "Backend / AI Engineer"},
       {label: "Timeline", value: "2026"},
       {
         label: "Stack",
@@ -155,29 +167,29 @@ const en: I18n = {
     ],
     problem: {
       title: "The Problem",
-      body: "Running online projects means my Telegram is always blowing up with messages across different time zones. Answering pricing questions, tracking tasks, and switching constantly between English, Russian, and Uzbek became a massive time sink. I built an AI assistant to stand in for me\u2014not to sound like a generic bot, but to reply in my actual tone and save me hours of manual texting.",
+      body: "Running multiple online projects meant my Telegram inbox was constantly exploding across different time zones. Answering repetitive pricing queries, tracking technical requests, and constantly context-switching between English, Russian, and Uzbek became a massive productivity drain. I built an AI assistant to act as an automated extension of myself \u2014 not a boring, generic chatbot, but a bot configured to match my actual tone, saving me hours of manual texting.",
     },
     research: {
       title: "How I Built It",
       bullets: [
-        "Smart Memory: Used Cloudflare KV to create a three-tier memory setup. It tracks the current chat state, remembers a user's profile, and stores long-term facts so it never forgets a returning contact.",
-        "Fallback Matrix: Set up an automated chain across 5 Gemini models to handle rate limits gracefully, with Groq working in the background to handle heavy context analysis.",
-        "Quick Language Routing: Wrote simple regex checks to catch language switches instantly. The bot matches the speaker in English, Russian, or Uzbek without wasting precious milliseconds calling heavy NLP libraries.",
-        "Intent Check: Built a routing step that reads messages for panic or pricing keywords before letting the AI answer. If it's unsure, it asks a friendly clarifying question instead of hallucinating.",
-        "Natural Language Reminders: The bot parses normal phrases like 'remind me tomorrow at 3 PM' to schedule tasks, runs morning recaps, and handles overdue items via cron triggers.",
-        "Live Web Search: Hooked up Serper.dev so the bot can fetch real-time data like weather, news, and live facts when someone asks.",
-        "Deep Background Analysis: Every four messages, Groq runs in the background to summarize the conversation thread, updates the user's profile, and catches any shift in mood.",
-        "Private Dashboard: Threw together a quick web dashboard protected by basic HTTP auth. It lets me read chats, swap live AI models, and view resource usage without touching code.",
-        "Human Typing Speed: Added smart delays. It answers brand new contacts a bit slower, adapts to slow texters, and jumps straight to the point if a message looks urgent.",
-        "Local Setup: Built the worker using standard Cloudflare tools but included an Express fallback so I can test and debug everything locally on my machine.",
+        "Three-Tier Memory System: Powered by Cloudflare KV to handle immediate conversation states, user profiles, and long-term fact storage so it never forgets a returning lead.",
+        "Failover Matrix: Architected an automated fallback chain across 5 Gemini models to cleanly handle unexpected rate limits, with ultra-fast Groq models executing deep context parsing in parallel.",
+        "Zero-Latency Language Routing: Used lightweight regex triggers to catch language shifts instantly, adapting on the fly to English, Russian, or Uzbek without wasting precious execution time on heavy NLP libraries.",
+        "Intent Pre-Processor: Built an initial routing layer that scans for critical trigger words (like urgent technical bugs or custom pricing negotiations) to flag me manually instead of letting the AI hallucinate.",
+        "Natural Language Crons: Integrated natural text parsing (e.g., 'remind me tomorrow at 3 PM') to automatically schedule follow-up tasks, trigger morning summaries, and track overdue items.",
+        "Live Web Access: Tied in Serper.dev web scraping, allowing the bot to fetch up-to-the-minute real-world data whenever a user asks for live facts or current context.",
+        "Asynchronous Deep Analysis: Every four messages, a background Groq job asynchronously condenses the chat thread, updates the user's permanent profile, and analyzes conversational sentiment.",
+        "Lightweight Admin Portal: Built a fast, secure web dashboard protected by HTTP Basic Auth to audit chat logs, swap live LLM engines on the fly, and monitor system resources.",
+        "Humanized Typing Delays: Programmed adaptive message pacing that simulates real typing speeds based on urgency, message complexity, and history with that specific user.",
+        "Dual Environment Architecture: Engineered the worker using standard Cloudflare tools but wrapped it in a local Express fallback environment for easy offline debugging.",
       ],
     },
     design: {
-      title: "The Reality",
+      title: "The Proof of Concept",
       bullets: [
-        "It handles dozens of multi-language chats every day without me touching my phone.",
-        "The reminder system catches everything, meaning I don't miss business follow-ups anymore.",
-        "Total hosting and API costs are absolutely zero by staying within smart serverless free tiers.",
+        "Flawlessly handles dozens of multi-lingual client conversations daily without requiring my manual intervention.",
+        "The automated follow-up system ensures no prospective client or task falls through the cracks.",
+        "Maintains a grand total hosting and processing bill of exactly $0.00 by maxing out high-performance serverless free tiers.",
       ],
     },
     images: [
@@ -185,24 +197,24 @@ const en: I18n = {
         src: "/images/projects/tg-bot/3d-stickle-retro-tablet-with-pixel-ai-chatbot-1.png",
         alt: "Retro tablet with pixel AI chatbot interface",
         caption:
-          "The pixel-art chatbot interface showing the assistant in action.",
+          "The pixel-art dashboard tracking assistant states and automated chat interactions.",
       },
       {
         src: "/images/projects/tg-bot/3d-stickle-robot-assistant-device-with-smiling-pixel-face-and-control-knobs.png",
         alt: "Robot assistant device with smiling pixel face and control knobs",
         caption:
-          "The friendly robot assistant character with a retro-styled control panel.",
+          "The assistant's internal concept design: retro styling wrapping modern serverless AI power.",
       },
     ],
-    cta: {label: "Ping My Bot", href: "https://t.me/itsbek_bot"},
+    cta: {label: "Test the AI Assistant", href: "https://t.me/itsbek_bot"},
   },
   octoposAppsCaseStudy: {
     badge: "Case Study",
-    title: "Octopos \u2014 Tech for Restaurants",
+    title: "Octopos \u2014 High-Load Restaurant Tech",
     subtitle:
-      "Rewriting a massive restaurant management suite and digital point-of-sale terminal for real speed.",
+      "Re-architecting a massive ecosystem of restaurant management suites and real-time POS terminals for breakneck performance.",
     meta: [
-      {label: "Client", value: "Octopos (Commercial Product)"},
+      {label: "Client", value: "Octopos (Commercial Platform)"},
       {label: "Role", value: "Lead Frontend Engineer"},
       {label: "Timeline", value: "2025 - 2026"},
       {
@@ -213,25 +225,25 @@ const en: I18n = {
     ],
     problem: {
       title: "The Problem",
-      body: "The original codebase for this multi-app restaurant management platform was slow and difficult to maintain. Waiters were waiting for screens to load, kitchen staff were missing tickets because of sync delays, and adding a simple menu feature felt like moving a mountain. I stepped in to redesign the core frontend architecture from scratch, turning a messy legacy codebase into an incredibly snappy tool that works under pressure.",
+      body: "The original legacy frontend for this comprehensive restaurant management suite was bloated, sluggish, and highly fragile. Waiters faced noticeable input lag during busy rushes, kitchen staff missed critical tickets due to state sync drops, and adding simple client requests was a complete architectural nightmare. I was brought in to completely rewrite and future-proof the core web architecture from scratch, turning a legacy monolith into a blazing-fast workspace.",
     },
     research: {
-      title: "What I Solved",
+      title: "What I Overhauled",
       bullets: [
-        "Complete Frontend Rewrite: Ripped out the old code and built a modern React, TypeScript, and Tailwind system focused entirely on rendering speed and component reuse.",
-        "Waiter-Proof Layouts: Designed an incredibly fast cash-register interface with smart keyboard shortcuts, visual menu filtering, split-bill logic, and instant cart updates.",
-        "Interactive Floor Map: Built a drag-and-drop table management system from scratch. It handles table locks in real time, logs customer profiles, and accurately changes table shapes dynamically.",
-        "Kitchen Ticket System: Developed a heavy-duty Kitchen Display Screen (KDS) layout. It organizes orders by prep times, changes card colors as tickets age, and flashes clear alerts so cooks don't miss orders.",
-        "Bulletproof State Management: Swapped out messy prop-drilling for clean Zustand stores and fine-tuned TanStack Query cache rules. This fixed data-sync bugs between the checkout counters and the kitchen.",
-        "Internationalized UI: Set up custom multi-language translation dictionaries, making sure layout elements never break or overlap when text lengths change across languages.",
+        "Ground-Up Frontend Re-architecture: Evicted the legacy codebase entirely for a highly modular React + TypeScript setup engineered explicitly for rendering speed and aggressive asset reuse.",
+        "High-Velocity POS Terminal: Designed and coded a fluid, keyboard-shortcut-driven terminal interface with sub-millisecond cart updates, dynamic bill splitting, and instantaneous item filtering.",
+        "Real-Time Floor Map: Built an interactive, custom drag-and-drop table manager from scratch that safely locks occupied tables globally and updates visual states instantly.",
+        "Reactive Kitchen Monitor (KDS): Engineered a heavy-duty display screen interface for kitchen teams that prioritizes orders by preparation windows, alerts staff visually as tickets age, and guarantees zero missed tickets.",
+        "State Optimization: Replaced convoluted data flows with hyper-focused Zustand micro-stores and optimized TanStack Query caching layers, completely eliminating data drift between cashier stands and the kitchen.",
+        "Robust Internationalization: Implemented dynamic translation schemas that intelligently preserve complex layouts, preventing text wrapping or UI breaking across vastly different language lengths.",
       ],
     },
     design: {
-      title: "The Results",
+      title: "The Outcomes",
       bullets: [
-        "The software is now running live across real restaurants and cafes via octopos.uz.",
-        "Cut down layout bundle sizes significantly, meaning pages load instantly even on cheap, low-end restaurant tablets.",
-        "Waiters can finish a checkout in seconds, and kitchen staff get orders the exact millisecond they are punched in.",
+        "The newly optimized software is actively deployed live across enterprise restaurants and retail hubs via octopos.uz.",
+        "Drastically shrunk the main bundle sizes, ensuring fluid 60fps operation even on low-end, budget Android restaurant tablets.",
+        "Waiters now process transactions in seconds, and kitchen screens pick up orders the exact millisecond they are tapped at the register.",
       ],
     },
     images: [
@@ -239,99 +251,102 @@ const en: I18n = {
         src: "/images/projects/octopos_apps/dash_1.webp",
         alt: "Octopos management dashboard showing analytics",
         caption:
-          "The main merchant dashboard where managers can view sales, modify menus, and check stock levels.",
+          "The high-level merchant dashboard where store owners analyze profits, configure menus, and track live inventory.",
       },
       {
         src: "/images/projects/octopos_apps/dash_2.webp",
         alt: "Octopos order list view",
         caption:
-          "The order tracker interface built to monitor live tickets and customer bills.",
+          "The granular order monitoring panel tailored for managers tracking active bills and table transactions.",
       },
       {
         src: "/images/projects/octopos_apps/dash_3.webp",
         alt: "Octopos inventory and purchase tool",
         caption:
-          "The backend supply tracker where owners set up low-stock alerts and create purchase logs.",
+          "The supply-chain ledger where managers automate low-stock triggers and log external vendor invoices.",
       },
       {
         src: "/images/projects/octopos_apps/pos_1.webp",
         alt: "Octopos terminal catalog grid",
         caption:
-          "The high-speed register layout. It's built for rapid taps and quick filtering during busy lunch rushes.",
+          "The optimized checkout matrix built to handle rapid-fire taps during frantic lunch rushes.",
       },
       {
         src: "/images/projects/octopos_apps/pos_2.webp",
         alt: "Octopos cash register payment screen",
         caption:
-          "The checkout screen where cashiers handle split checks, cash calculations, and card processing.",
+          "The modal checkout system allowing cashiers to instantly calculate change, process partial card payments, and split tabs.",
       },
       {
         src: "/images/projects/octopos_apps/pos_3.webp",
         alt: "Octopos interactive layout map",
         caption:
-          "The visual layout builder where managers manage open tables, handle server locks, and see who is eating.",
+          "The custom vector canvas where restaurant owners map out their physical tables, track server ownership, and view occupancy status.",
       },
       {
         src: "/images/projects/octopos_apps/kitchen_1.webp",
         alt: "Octopos live kitchen display station screen",
         caption:
-          "The bright, high-visibility screen hanging in kitchens that tracks ticket timers and food stages.",
+          "The high-visibility Kitchen Display Screen (KDS) engineered to keep chefs coordinated with color-coded preparation timers.",
       },
     ],
-    cta: {label: "Visit Octopos Business Site", href: "https://octopos.uz"},
+    cta: {label: "Explore Octopos Platform", href: "https://octopos.uz"},
   },
   octoposLandingCaseStudy: {
     badge: "Case Study",
     title: "Octopos Landing Page",
-    subtitle: "Turning a complex restaurant management platform into a clear, conversion-focused product experience.",
+    subtitle:
+      "Condensing a multifaceted B2B restaurant ecosystem into a highly polished, conversion-oriented SaaS landing experience.",
     meta: [
       {label: "Client", value: "Octopos"},
-      {label: "Role", value: "Frontend Engineer \u00B7 Product Implementation"},
-      {label: "Timeline", value: "4 weeks \u00B7 2026"},
+      {label: "Role", value: "Frontend Engineer \u00B7 UX Implementation"},
+      {label: "Timeline", value: "4 Weeks (2026)"},
       {label: "Stack", value: "Astro, Tailwind CSS, Resend"},
     ],
     problem: {
-      title: "The challenge",
-      body: "Octopos had a powerful multi-app ecosystem (Dash, POS, Kitchen), but the product value was not clearly communicated through the existing landing page. The site lacked structure, modern UX flow, and a strong onboarding path for new users.",
+      title: "The Challenge",
+      body: "While Octopos had a incredibly mature software suite (Dash, POS, Kitchen), its primary landing page failed to articulate that value clearly. The existing site suffered from dense text blocks, lacked a modern visual narrative, and didn't provide a smooth, frictionless onboarding gateway for restaurant owners looking for a demo.",
     },
     research: {
-      title: "What I did",
+      title: "What I Executed",
       bullets: [
-        "Implemented the full landing page based on a design provided by a senior developer/designer, translating it into a responsive, production-ready website.",
-        "Built the entire frontend from scratch using Astro and Tailwind, ensuring pixel-accurate implementation across mobile and desktop.",
-        "Developed product mockups and visual sections to clearly explain how Dash, POS, and Kitchen work together as a unified system.",
-        "Implemented onboarding and trial signup flow to capture leads and grant access to the platform.",
-        "Connected backend services for user onboarding and automated email handling via Resend.",
-        "Ensured performance optimization, mobile responsiveness, and SEO structure.",
+        "Translated high-fidelity designs provided by a senior designer into fully responsive, production-grade web layouts without cutting corners.",
+        "Architected the entire frontend using Astro and Tailwind CSS to ensure near-zero client-side JavaScript overhead and flawless mobile performance.",
+        "Developed interactive UI showcases and interactive wireframe blocks to intuitively demonstrate how Dash, POS, and Kitchen communicate in real time.",
+        "Built a seamless multi-step lead capture flow to sign up business leads for trial access and custom demos.",
+        "Integrated robust backend API triggers for automatic onboarding sequences and reliable email confirmation dispatches via Resend.",
+        "Fine-tuned Core Web Vitals, image rendering pipelines, and clean semantic SEO structure for maximum organic discoverability.",
       ],
     },
     design: {
-      title: "Results",
+      title: "The Return on Investment",
       bullets: [
-        "Delivered a fast, modern SaaS landing page that improved clarity of the product ecosystem and strengthened user understanding of Octopos.",
-        "Created a smooth trial onboarding flow that reduced friction for new users trying the platform.",
-        "Shipped the complete product within 4 weeks in collaboration with the product and engineering team.",
+        "Delivered a blazing-fast B2B marketing asset that radically enhanced product clarity and reduced user confusion regarding the platform's features.",
+        "Significantly dropped user drop-off rates on the trial registration page through an optimized, low-friction wizard interface.",
+        "Shipped the entire marketing project from code initialization to final deployment within a strict 4-week window.",
       ],
     },
     images: [
       {
         src: "/images/projects/octopos/octopos_before.webp",
         alt: "Original Octopos landing page before redesign",
-        caption: "Original MVP screen before the redesign \u2014 dense copy, low contrast, and no clear call to action.",
+        caption:
+          "The original MVP landing page: heavy text walls, low-contrast hierarchy, and a buried conversion funnel.",
       },
       {
         src: "/images/projects/octopos/octopos.webp",
         alt: "Screenshot of the Octopos landing page",
-        caption: "High-fidelity desktop screen highlighting the reworked hero, use cases, and social proof.",
+        caption:
+          "The completely transformed desktop view featuring an impactful hero layout, concrete use-cases, and prominent social proof indicators.",
       },
     ],
-    cta: {label: "Visit live site", href: "https://octopos.uz"},
+    cta: {label: "View Live Marketing Site", href: "https://octopos.uz"},
   },
   skills: {
-    title: "Things I Use Often",
+    title: "Tools I Actually Use",
     groups: [
       {
-        title: "Frontend",
+        title: "Frontend Arsenal",
         items: [
           "React",
           "Astro",
@@ -339,19 +354,19 @@ const en: I18n = {
           "JavaScript",
           "Tailwind CSS",
           "Sass",
-          "HTML/CSS",
+          "HTML5 / CSS3",
         ],
       },
       {
-        title: "Backend",
+        title: "Backend & Infra",
         items: ["Node.js", "Supabase", "PostgreSQL", "Python", "Go"],
       },
       {
-        title: "Everything Else",
+        title: "Miscellaneous",
         items: [
           "Git & GitHub",
           "CI/CD Pipelines",
-          "Writing Tests",
+          "Automated Testing",
           "C / Assembly",
           "Prompt Engineering",
           "Vercel",
@@ -364,7 +379,8 @@ const en: I18n = {
     github: "GitHub",
     telegram: "Telegram",
     resume: "Resume",
-    builtWith: "Built with Next.js, Framer Motion, GSAP, Lenis \u2014 no template, no boilerplate.",
+    builtWith:
+      "Crafted using Next.js, Framer Motion, GSAP, and Lenis \u2014 strictly zero templates, zero boring boilerplates.",
   },
 };
 

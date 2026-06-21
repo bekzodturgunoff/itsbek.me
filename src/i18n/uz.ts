@@ -4,8 +4,8 @@ const uz: I18n = {
   nav: {
     links: {
       about: "Men haqimda",
-      skills: "Ko'nikmalar",
-      caseStudy: "Keys",
+      skills: "Texnologiyalar",
+      caseStudy: "Keyslar",
       work: "Loyihalar",
       contact: "Aloqa",
       resume: "Rezyume",
@@ -13,46 +13,58 @@ const uz: I18n = {
   },
   hero: {
     name: "Bekzod Turgunov",
-    headlineLine1: "Men mahsulotlar yarataman",
-    headlineLine2: "odamlar haqiqatda ishlatadigan.",
+    headlineLine1: "Men odamlar rostdan ham",
+    headlineLine2: "ishlatadigan mahsulotlar yarataman.",
     subtextLine1: "Frontend \u00B7 Full-stack \u00B7 AI \u00B7 Cloud",
-    subtextLine2: "Toshkent \u2192 Seul. 2021 dan buyon ishlab kelaman.",
-    availability: "Ishga tayyor",
+    subtextLine2: "Toshkent \u2192 Seul. 2021-yildan beri kod yozaman.",
+    availability: "Qiziqarli loyihalar uchun ochiqman",
   },
   origin: {
-    grewUp: "Vatanim",
+    grewUp: "Tug'ilib o'sgan joyim:",
     country: "O'zbekiston.",
-    studied: "Seulda o'qidim.",
-    building: "Hali qurishda davom.",
+    studied: "Seulda chiniqqanman.",
+    building: "Yana kod yozishda davom.",
     timeline: [
-      {year: "2021", description: "O'zbekistonda birinchi kod qatorini yozdim. O'z-o'zimdan o'rgandim, sekin internet, qaysar."},
-      {year: "2023", description: "Seulga ko'chdim. Sejong Universitetida xavfsizlikni o'qidim."},
-      {year: "Hozir", description: "Toshkentga qaytib, hech kim qaramayotgan bozorlar uchun mahsulotlar yaratmoqdaman."},
+      {
+        year: "2021",
+        description:
+          "O'zbekistonda birinchi marta kod yozganman. To'liq mustaqil o'rganganman, sekin internet va qaysarlik evaziga.",
+      },
+      {
+        year: "2023",
+        description:
+          "Seulga ko'chib o'tdim. Sejong universitetida Kiberxavfsizlik yo'nalishida o'qidim (tizimlarni buzishni mukammal o'rgandim).",
+      },
+      {
+        year: "Hozir",
+        description:
+          "Yana Toshkentdaman. Boshqa dasturchilar e'tibor bermayotgan bo'sh bozorlar uchun jiddiy mahsulotlar tayyorlayapman.",
+      },
     ],
-    body: "2021 yilda kod yozishni boshladim. O'shanda O'zbekistonda «kod o'rganish» harakati degan narsa yo'q edi — faqat men, beqaror internet va hal qilmoqchi bo'lgan muammolarim bor edi. Bir narsa qurardim, sindirardim, tuzatardim — va xatolardan hech qanday darslik o'rgata olmaydigan darajada ko'p o'rgandim.\n\n2023 yilga kelib, bilmagan narsalarimni biladigan darajada ko'p loyiha ishlab chiqargan edim. Tizimlarni chuqurroq tushunish uchun Seulga — Sejong Universitetiga xavfsizlikni o'rganishga ketdim. Endi Toshkentga qaytib, ko'pchilik dasturchilar hali payqamagan bozorlar uchun odamlar haqiqatda ishlatadigan mahsulotlar yaratmoqdaman.",
-    info: "O'zbekistonda yashayman \u00B7 EN \u00B7 RU \u00B7 KO \u00B7 UZ \u00B7 UTC+5",
+    body: "Men kodlashni 2021-yilda boshlaganman. U paytlarda O'zbekistonda «ikki haftada dasturchi bo'ling» degan shov-shuvlar yo'q edi — faqat men, beqaror Wi-Fi va nimanidir tayyorlashga bo'lgan kuchli xohish bor edi xolos. Yozardim, butkul buzardim, qayta tuzatardim va yana xatolardan xulosa chiqarardim. Shu tartibsiz muammolar ortidan har qanday tayyor darslikdan ko'ra ko'proq narsa o'rgandim.\n\n2023-yilga kelib, o'zim mustaqil qilgan loyihalarim ko'paydi va hali qanchalik ko'p narsani bilmasligimni tushunib yetdim. Shundan so'ng, shunchaki diplom uchun emas, balki murakkab tizimlar ichkaridan qanday ishlashini tushunish uchun Seulga, Sejong universitetiga Kiberxavfsizlikni o'rganishga ketdim. Hozir esa yana Toshkentdaman, asosiy e'tiborim dasturchilar e'tiboridan chetda qoldirgan bozorlar uchun mustahkam va tezkor xizmatlar qurishga qaratilgan.",
+    info: "Manzil: O'zbekiston \u00B7 EN \u00B7 RU \u00B7 KO \u00B7 UZ \u00B7 UTC+5",
   },
   about: {
-    title: "Kod ortidagi hikoya",
-    body: "Men mahsulot quruvchi kabi fikrlaydigan dasturiy ta'minot muhandisiman. Yaxshi darslik topish o'rgatgan xatolarni tuzatishdan qiyinroq bo'lgan paytda O'zbekistonda kod yozishni boshladim. 2023 yilda Seulga ko'chib, Sejong Universitetida xavfsizlikni o'qidim. Hozir ko'pchilik hali qaramagan bozorlar uchun quraman.\n\nTo'rt tilda gaplashaman, to'liq texnologik stack bo'ylab ishlayman va eng yaxshi kod — bu yetkazib berilgan kod, deb ishonaman.",
+    title: "Kod ortidagi falsafa",
+    body: "Men kodga shunchaki dasturchi emas, balki mahsulot yaratuvchisi ko'zi bilan qaraydigan muhandis man. O'zbekistonda kod yozishni boshlaganimda, tuzukroq darslik topish undagi xatoni to'g'rilashdan ko'ra qiyinroq edi. Keyin esa Seulda tizimlar xavfsizligi bo'yicha jiddiy tajriba orttirdim. \n\nIkki tilda erkin gaplasha olaman, full-stack vazifalarni muammosiz hal qilaman va eng zo'r kod — bu localhost'da turgan emas, balki production'da jonli ishlayotgan kod deb hisoblayman.",
     philosophy: [
-      "Mukammallikdan ko'ra ishlab chiqarish. Ishlaydigan kod go'zal, ammo bekor turgan koddan qimmatlidir.",
-      "Xavfsizlik oxirida qo'shiladigan qatlam emas. U birinchi kundan boshlab arxitekturada bo'lishi kerak.",
-      "Tez degani mo'rt degani emas. Yaxshi tizimlar tez va bardoshli.",
-      "Eng yaxshi mahsulotlar haqiqiy muammolarni hal qiladi. Qolgan hamma narsa — shunchaki funksiyalar.",
+      "Jonli mahsulot mukammallikdan ustun. Ishlab turgan kod, localhost'da chang bosib yotgan mukammal koddan cheksiz marta qadrliroqdir.",
+      "Xavfsizlik loyiha yakunida qo'shiladigan funksiya emas. U eng birinchi qatordan boshlab arxitekturaga singdirilishi kerak.",
+      "Tezkorlik — sifatsizlik degani emas. To'g'ri loyihalashtirilgan tizim tezlikni ham, barqarorlikni ham birdek ushlab tura oladi.",
+      "Yaxshi mahsulot odamlarning real muammolarini hal qiladi. Qolgan hamma narsa shunchaki qimmatbaho vizual o'yinlar.",
     ],
   },
   ending: {
-    headlineLine1: "Xonadagi eng yaxshi",
-    headlineLine2: "dasturchi emas.",
-    headlineLine3: "Xonani yaxshiroq qiladigan inson.",
-    body: "Taqsimlangan tizimlar, xavfsizlik birinchi o'rinda turadigan arxitektura va ko'pchilik hali qaramagan bozorlarda muhim mahsulotlar yaratmoqdaman. Agar bu sizning keyingi loyihangizga o'xshasa — gaplashaylik.",
-    cta: "Mazmunli narsani birga quraylik.",
+    headlineLine1: "Xonadagi eng aqlli",
+    headlineLine2: "dasturchi bo'lishga intilmayman.",
+    headlineLine3: "Men shu xonani ancha yaxshilaydigan odamman.",
+    body: "Hozirgi vaqtda distributiv tizimlar, security-first arxitekturasi va chetda qolib ketgan bozorlar uchun platformalar qurish bilan bandman. Agar sizning keyingi loyihangizga ham xuddi shu kabi yondashuv kerak bo'lsa — keling, gaplashib olamiz.",
+    cta: "Keling, arziydigan narsa yarataylik.",
   },
   contact: {
-    heading: "Gaplashamiz.",
-    intro: "Loyiha yoki savolingiz bormi?",
-    availability: "Odatda bir necha soat ichida javob beraman.",
+    heading: "Gaplashamizmi?",
+    intro: "Qiziqarli g'oya, murakkab loyiha yoki shunchaki savolingiz bormi?",
+    availability: "Odatda kofeingiz sovib ulgurmasidan javob qaytaraman.",
     ctas: {
       email: "Email",
       telegram: "Telegram",
@@ -60,212 +72,306 @@ const uz: I18n = {
     },
     form: {
       name: "Ismingiz",
-      namePlaceholder: "Sizni nima deb chaqiray?",
-      email: "Emailingiz",
+      namePlaceholder: "Sizga qanday murojaat qilay?",
+      email: "Email manzilingiz",
       emailPlaceholder: "you@example.com",
       message: "Xabaringiz",
-      messagePlaceholder: "Nima quryapmiz?",
-      submit: "Xabar yuborish",
+      messagePlaceholder: "Qanday daxshatli loyiha qurmoqchimiz?",
+      submit: "Yuborish",
     },
   },
   projects: {
-    selectedWork: "Tanlangan loyihalar",
+    selectedWork: "Saralangan loyihalar",
   },
   bronUzCaseStudy: {
     badge: "Keys",
-    title: "BronUz — Joy band qilish platformasi",
-    subtitle: "O'zbekistonda joy topib band qiladigan sayt yo'q edi. Men qurdim. 3 kunda.",
+    title: "BronUz \u2014 Joylarni oson bron qilish platformasi",
+    subtitle:
+      "Qanday qilib O'zbekiston bozori uchun to'liq ishlaydigan ko'p tarmoqli platformani bo'sh papkadan boshlab roppa-rosa 3 kunda tayyorladim.",
     meta: [
-      {label: "Mijoz", value: "Shaxsiy loyiha"},
-      {label: "Rol", value: "Full-Stack muhandisi · Mahsulot dizayneri"},
-      {label: "Muddat", value: "2026"},
-      {label: "Texnologiyalar", value: "React, Vite, TypeScript, Tailwind CSS, Supabase, PostgreSQL, React Query, Zustand, Leaflet, Recharts, i18next, Vercel"},
+      {label: "Mijoz", value: "Shaxsiy loyiha (Pet-project)"},
+      {label: "Rol", value: "Solo Full-Stack Dev & Designer"},
+      {label: "Muddat", value: "3 Kun (2026)"},
+      {
+        label: "Texnologiyalar",
+        value:
+          "React, Vite, TypeScript, Tailwind CSS, Supabase, PostgreSQL, React Query, Zustand, Leaflet, Recharts, i18next, Vercel",
+      },
     ],
     problem: {
       title: "Muammo",
-      body: "O'zbekistonda sayt ochib, yaqin atrofdagi kafe yoki futbol maydonini topib band qiladigan joy yo'q. Hammasi WhatsApp va telefon orqali — mijozlar ham, bizneslar ham qiynaladi. Men buni o'zgartirmoqchi edim. Full-stack ilova, biznes vositalari, admin panel — bitta Supabase backendida, 3 kunda.",
+      body: "O'zbekistonda futbol maydoni, kafedagi joy yoki tadbirlar uchun joy band qilish — haqiqiy boshog'riq. Odatda Instagram'dan raqamlarni qidirib topish kerak yoki Telegram'dan soatlab javob kutish lozim. Men buni birgina dam olish kunlarida juda tez ishlaydigan yagona platforma orqali hal qila olishimni sinab ko'rmoqchi bo'ldim. Loyihada mijozlar uchun qulay bron tizimi, biznes egalari uchun daromadlarni kuzatish paneli va umumiy nazorat paneli bo'lishi talab qilingandi.",
     },
     research: {
-      title: "Men qurgan narsa",
+      title: "Qanday qilib qurdidm (va tirik qoldim)",
       bullets: [
-        "Noldan full-stack: React + Vite frontend, Supabase backend (13 jadval, RLS, Edge Functions)",
-        "15+ sahifa — Leaflet xarita qidiruvi, real vaqtda band qilish, 25+ toifadagi URL-filtrlar",
-        "Biznes paneli: daromad grafiklari, band qilish taqvimi, slot boshqaruvi, xodimlar, promo-kodlar",
-        "Admin panel: joylarni tasdiqlash, foydalanuvchi rollari, platforma tahlili, SECURITY DEFINER RPC",
-        "Telegram bot: webhook tasdiqlash, 24 soatlik eslatmalar, AI yordamchi",
-        "Ballar, kutish ro'yxati, guruhli buyurtmalar, joy uchun bekor qilish siyosatlari",
-        "PWA: Workbox oflayn keshlash, iOS o'rnatish, cron eslatmalar",
+        "Ma'lumotlar bazasi arxitekturasi: Supabase yordamida 13 ta relyatsion jadvallardan iborat backend qurdim, xavfsizlik uchun Row-Level Security (RLS) va foni amallar uchun kustom Edge funksiyalar uladim.",
+        "Interaktiv xaritalar va filtrlash: 15 tadan ortiq sahifa yozdim. Leaflet xaritalarini URL holati bilan sinxron qildim, natijada foydalanuvchilar 25 tadan ortiq kategoriyalarni bir zumda filtrlashi va aniq havolani ulashishi mumkin.",
+        "Tadbirkorlar paneli: Biznes egalari uchun jonli tahliliy grafiklar, interaktiv bron kalendarlari, vaqt slotlarini boshqarish hamda xodimlar huquqlarini cheklash tizimini yaratdim.",
+        "Xavfsiz Admin paneli: Platformani boshqarish va arizalarni tasdiqlash uchun PostgreSQL SECURITY DEFINER funksiyalaridan foydalandim, bu ma'lumotlar bazasiga to'g'ridan-to'g'ri ulanishni xavfsiz saqlaydi.",
+        "Telegram bot webhook integratsiyasi: Botni webhook orqali uladi. U yangi bronlar haqida joy egalarini darhol ogohlantiradi, 24 soat oldin cron-topshiriqlar orqali eslatmalar yuboradi va texnik yordam vazifasini bajaradi.",
+        "Aniq biznes qoidalari: Sodiqlik ballari tizimi, navbat kutish ro'yxatlari va tadbirkorlar o'zlariga moslab o'zgartira oladigan moslashuvchan bekor qilish tizimini joriy qildim.",
+        "PWA imkoniyatlari: Workbox orqali offline kesh tizimini joriy qildim, natijada ilovani iOS va Android qurilmalariga xuddi telefondagi dasturdek o'rnatib olish mumkin.",
       ],
     },
     design: {
-      title: "Natijalar",
+      title: "Natija",
       bullets: [
-        "bronuz.vercel.app da ishlaydi — autentifikatsiya, real joylar, band qilish jarayoni",
-        "Uch rol: mijoz, biznes egasi, admin — har biri o'z panelida",
-        "Bo'sh papkadan joylashtirilgan mahsulotgacha 3 kun",
+        "Loyiha to'liq tayyor va bronuz.vercel.app manzilida ishlamoqda. Haqiqiy avtorizatsiya, bazadagi tranzaksiyalar va jonli statuslar ishchi holatda.",
+        "Uchta mutlaqo boshqa foydalanuvchi interfeysini (Mijoz, Sotuvchi, Admin) kodni ortiqcha ko'paytirmasdan muvaffaqiyatli boshqara oldim.",
+        "Boshlanishida to'g'ri arxitektura tanlash kodni xatolarsiz va kosmik tezlikda yozish imkonini berishini isbotladim.",
       ],
     },
     images: [
-      {src: "/images/projects/bronuz/bronuz_homepage_2.webp", alt: "BronUz bosh sahifasi — xarita va joy kartochkalari bilan qidiruv natijalari", caption: "BronUz bosh sahifasi — xarita va joy kartochkalari bilan qidiruv natijalari"},
-      {src: "/images/projects/bronuz/bronuz_venue.webp", alt: "BronUz joy tafsiloti — foto galereya, slot tanlash va band qilish paneli", caption: "BronUz joy tafsiloti — foto galereya, slot tanlash va band qilish paneli"},
-      {src: "/images/projects/bronuz/bronuz_business.webp", alt: "BronUz biznes paneli — daromad tahlili va bugungi buyurtmalar", caption: "BronUz biznes paneli — daromad tahlili va bugungi buyurtmalar"},
-      {src: "/images/projects/bronuz/bronuz_admin.webp", alt: "BronUz admin paneli — joylarni tasdiqlash va platforma tahlili", caption: "BronUz admin paneli — joylarni tasdiqlash va platforma tahlili"},
+      {
+        src: "/images/projects/bronuz/bronuz_homepage_2.webp",
+        alt: "Xarita va qidiruv kartalari aks etgan BronUz asosiy sahifasi",
+        caption:
+          "Asosiy qidiruv ekrani. Xarita koordinatalari va qidiruv filtrlari URL manzili bilan mukammal sinxron ishlaydi.",
+      },
+      {
+        src: "/images/projects/bronuz/bronuz_venue.webp",
+        alt: "BronUz joy band qilish ekrani",
+        caption:
+          "Mijozlar kun va bo'sh vaqt slotlarini tanlaydigan joy sahifasi.",
+      },
+      {
+        src: "/images/projects/bronuz/bronuz_business.webp",
+        alt: "BronUz biznes boshqaruv paneli tahlillari",
+        caption:
+          "Joy egalari uchun kunlik tushumlar va kelgusi bronlarni kuzatib borish uchun yaratilgan dashboard.",
+      },
+      {
+        src: "/images/projects/bronuz/bronuz_admin.webp",
+        alt: "BronUz bosh admin boshqaruv paneli",
+        caption:
+          "Yangi arizalarni tasdiqlash va umumiy platforma statistikasini ko'rish uchun mo'ljallangan admin paneli.",
+      },
     ],
-    cta: {label: "Saytga o'tish", href: "https://bronuz.vercel.app"},
+    cta: {label: "Jonli demoni ko'rish", href: "https://bronuz.vercel.app"},
   },
   telegramBotCaseStudy: {
     badge: "Keys",
-    title: "Shaxsiy yordamchi bot",
-    subtitle: "Menga o'xshab javob beradigan, seni eslab qoladigan va nolga tushadigan Telegram bot.",
+    title: "Mening AI Assistent Botim",
+    subtitle:
+      "Mening xarakterimni nusxalaydigan, o'tmishdagi suhbatlarni eslab qoladigan va xarajatlari rosa $0.00 bo'lgan tezkor Telegram bot.",
     meta: [
       {label: "Mijoz", value: "Shaxsiy loyiha"},
-      {label: "Rol", value: "Dasturiy ta'minot muhandisi"},
+      {label: "Rol", value: "Backend / AI Engineer"},
       {label: "Muddat", value: "2026"},
-      {label: "Texnologiyalar", value: "TypeScript, Cloudflare Workers, KV, Gemini, Groq, grammY, Serper"},
+      {
+        label: "Texnologiyalar",
+        value:
+          "TypeScript, Cloudflare Workers, KV, Gemini, Groq, grammY, Serper",
+      },
     ],
     problem: {
       title: "Muammo",
-      body: "Biznes yuritish kuniga o'nlab Telegram xabarlarini anglatadi. Mijozlar narxlarni so'raydi, hamkorlar kelishadi, esda qolishi kerak bo'lgan topshiriqlar. Har biriga kerakli vaqtda to'g'ri tilda (o'zbek, rus, ingliz) javob berish va hamma narsani kuzatib borish juda qiyin edi.",
+      body: "Bir nechta onlayn loyihalarni boshqarish tufayli Telegram'dagi xabarlar har xil vaqt zonalaridan tinimsiz kela boshladi. Bir xil narx savollariga javob berish, vazifalarni belgilash va o'zbek, rus hamda ingliz tillari orasida doimiy chalg'ish ko'p vaqtni yeb qo'ydi. Men o'zimning o'rnimga ishlaydigan aqlli robot qurdim — u oddiy shablonli bot emas, balki mening gapirish ohangimga moslashgan raqamli yordamchidir.",
     },
     research: {
-      title: "Men nima qildim",
+      title: "Qanday qurdidm",
       bullets: [
-        "Cloudflare KV da uch darajali xotira: suhbat tarixi, shaxs profillari, uzoq muddatli faktlar. Ma'lumotlar bazasi xarajatisiz doimiy kontekst.",
-        "5 ta Gemini modeli o'rtasida AI pasayish zanjiri (avtomatik sovutish), Groq fon tahlili uchun.",
-        "Avtomatik til aniqlash: regex asosida, tashqi NLP kerak emas. Jo'natuvchi tilida javob.",
-        "Niyat klassifikatori: AI chaqiruvidan oldin shoshilinchlik, salom, narx, shikoyatni aniqlaydi. Ishonchsiz bo'lsa, insoniy aniqlovchilardan foydalanadi.",
-        "Tabiiy til vaqtini tahlil qilish (\"ertaga soat 3 da eslat\"), kundalik brifinglar, cron eslatmalar.",
-        "Serper.dev orqali jonli qidiruv: ob-havo, yangiliklar, real vaqt ma'lumotlari.",
-        "Har 4-xabardan keyin Groq tahlili: xulosa, yangi faktlar, niyat o'zgarishlari, hissiyotlar → javoblarga qo'shiladi.",
-        "HTTP Basic Auth bilan veb-panel: qayta joylashtirmasdan suhbatlarni kuzatish, AI modellarini sozlash, statistika.",
-        "Insoniy javob vaqti: yangi kontaktlar kechikish bilan, sekinlar mos tezlikda, shoshilinchlar navbatdan tashqari.",
-        "Cloudflare Workers + Express lokal fallback.",
+        "Uch bosqichli xotira tizimi: Cloudflare KV yordamida suhbat holati, foydalanuvchi profili va uzoq muddatli ma'lumotlarni saqlaydi, shuning uchun eski foydalanuvchilarni hech qachon unutmaydi.",
+        "Xatoliklarga chidamlilik: Limitlardan qochish uchun 5 ta Gemini modellaridan iborat zanjirli zaxira tizimi o'rnatildi, fon rejimida esa o'ta tezkor Groq modellari matnni tahlil qiladi.",
+        "Tezkor til aniqlash: Og'ir NLP kutubxonalarini kutmasdan, regex orqali o'zbek, rus yoki ingliz tillariga o'tishni darhol aniqlaydigan engil tizim yozdim.",
+        "Intentsiya tekshiruvi: Muhim va vahimali xabarlarni tahlil qiladigan dastlabki qatlam qurilgan. Agar AI adashishi mumkin bo'lgan holat bo'lsa, u noto'g'ri javob bergandan ko'ra aniqlashtiruvchi savol beradi.",
+        "Tabiiy tildagi eslatmalar: Bot 'ertaga soat 15:00 da eslat' kabi oddiy gaplarni tushunib, avtomatik ravishda vazifalar jadvalini tuzadi va eslatmalar yuboradi.",
+        "Jonli qidiruv tizimi: Serper.dev tizimi ulandi, bu orqali bot real vaqtdagi internet ma'lumotlarini ham qidirib topa oladi.",
+        "Orqa fondagi chuqur tahlil: Har to'rtta xabardan keyin Groq foni ishga tushib, suhbatni qisqartiradi, foydalanuvchi xaritasini yangilaydi va uning kayfiyatini tahlil qiladi.",
+        "Sodda Admin paneli: HTTP Basic Auth bilan himoyalangan veb-sahifa qurdim. Bu yerda suhbatlarni o'qish, sun'iy intellekt modellarini almashtirish va yuklamani ko'rish mumkin.",
+        "Odam kabi yozish tezligi: Haqiqiy yozish tezligini simulyatsiya qiladigan moslashuvchan kechikishlar qo'shildi. Yangi odamlarga vaziyatga qarab moslashib javob qaytaradi.",
+        "Lokal muhit: Worker'ni Cloudflare asboblari yordamida yozdim, lekin uni internetga yuklamasdan turib o'zimning kompyuterimda Express orqali osonlikcha test qila olaman.",
       ],
     },
     design: {
       title: "Natijalar",
       bullets: [
-        "Kunlik o'nlab suhbatlarni avtonom boshqaradi — uch tilda to'g'ri ohang va vaqt bilan.",
-        "\"Ertaga soat 3 da eslat\" ishlaydi. Ertalabki brifinglar bilan hech narsa unutilmaydi.",
-        "Nol xarajat: Cloudflare Workers + Gemini + KV bepul darajalari. Oyiga $0.",
-        "~6,900 qator TypeScript, 4 ta bog'liqlik, butunlay edge da.",
+        "Men telefonimga tegmasam ham, bot har kuni o'nlab ko'p tilli mijozlar bilan muloqotni muammosiz hal qiladi.",
+        "Avtomatlashtirilgan eslatma tizimi tufayli hech bir muhim uchrashuv yoki vazifalar esimdan chiqib ketmaydi.",
+        "Serverless tekin limitlaridan to'g'ri foydalanilgani sababli hosting va API xarajatlari roppa-rosa $0.00 ni tashkil etadi.",
       ],
     },
     images: [
       {
         src: "/images/projects/tg-bot/3d-stickle-retro-tablet-with-pixel-ai-chatbot-1.png",
-        alt: "Pixel AI chatbot bilan retro planshet",
+        alt: "Piksel AI chatbot interfeysiga ega retro planshet",
         caption:
-          "Pixel-art uslubidagi chatbot interfeysi.",
+          "Avtomatlashtirish metrikalari va suhbat holatlarini kuzatib boruvchi yordamchi boshqaruv paneli.",
       },
       {
         src: "/images/projects/tg-bot/3d-stickle-robot-assistant-device-with-smiling-pixel-face-and-control-knobs.png",
-        alt: "Kulib turgan pixel yuz va boshqaruv tugmalari bilan robot yordamchi",
+        alt: "Tabassum qilayotgan piksel yuzli va boshqaruv tugmalariga ega robot yordamchi qurilmasi",
         caption:
-          "Retro uslubidagi boshqaruv paneli bilan do'stona robot yordamchi.",
+          "Botning konsept dizayni: retro qobiq ostida zamonaviy serverless AI kuchi yashiringan.",
       },
     ],
-    cta: {label: "Manba kodini ko'rish", href: "https://github.com/bekzodturgunoff/personal-assistant"},
+    cta: {label: "Botni sinab ko'rish", href: "https://t.me/itsbek_bot"},
   },
   octoposAppsCaseStudy: {
     badge: "Keys",
-    title: "Octopos ilovalari",
-    subtitle: "Uchta ishlab chiqarish PWA — POS terminali, oshxona displeyi, menejer paneli — bitta backendda.",
+    title: "Octopos \u2014 Restoranlar uchun texnologiya",
+    subtitle:
+      "Katta restoran boshqaruv tizimi va real vaqtdagi POS terminallarining frontend arxitekturasini yuqori tezlik uchun qayta yozish.",
     meta: [
-      {label: "Mijoz", value: "Octopos"},
-      {label: "Rol", value: "Mahsulot dizayneri · Dasturiy ta'minot muhandisi"},
-      {label: "Muddat", value: "2026"},
-      {label: "Texnologiyalar", value: "TypeScript, React 18/19, Vite, TanStack Router, TanStack Query, TanStack React DB, Zustand, Tailwind CSS v4, Go, SQLite, NATS"},
-    ],
-    problem: {
-      title: "Mening rolim",
-      body: "POS, oshxona displeyi va Dashboard ilovalari ustida ishladim — Go API integratsiyasi, yangi funksiyalar, UI izchilligi, backend dasturchilari bilan hamkorlik.",
-    },
-    research: {
-      title: "Men qurgan narsa",
-      bullets: [
-        "Swagger/OpenAPI orqali Go REST API bilan frontend ulanishi.",
-        "POS: buyurtma jarayonlari, mijoz qidirish, ko'p turdagi xizmat (joyida/olib ketish/yetkazib berish), UI yaxshilanishlar.",
-        "Oshxona displeyi: jonli buyurtma boshqaruvi, chipta hayot aylanishi, filtrlash, status ko'rsatkichlari.",
-        "Dashboard: buyurtma yaratish, mijoz boshqaruvi, biznes funksiyalari.",
-        "Barcha funksiyalarda izchil dizayn.",
-        "Backend va frontend jamoalari bilan hamkorlik: ishlab chiqish, test, joylashtirish.",
-        "Production xatolarni tuzatish, barqarorlik va UX ni yaxshilash.",
-        "Oflayn-avval POS: TanStack React DB + WASQLite — lokal navbat, avtomatik ziddiyat hal qilish bilan sinxronizatsiya.",
-      ],
-    },
-    design: {
-      title: "Natijalar",
-      bullets: [
-        "Uchta PWA: POS, Oshxona Displeyi, Menejer Paneli — bir xil Go/SQLite/NATS backendida.",
-        "Buyurtma oqimi: POS da buyurtma olinadi → KDS da soniyalar ichida ko'rinadi (3 sekund polling) → menejer panelda kuzatadi.",
-        "Oflayn chidamlilik: internet uzilganda ham ishlaydi. Buyurtmalar WASQLite da navbatga qo'yiladi, qayta ulanganda avtomatik sinxronlanadi.",
-      ],
-    },
-    images: [
-      {src: "/images/projects/octopos_apps/dash_1.webp", alt: "Octopos menejer paneli — daromad diagrammalari va KPI umumiy ko'rinishi", caption: "Kunlik daromad, faol buyurtmalar va asosiy ko'rsatkichlarni ko'rsatuvchi menejer paneli."},
-      {src: "/images/projects/octopos_apps/dash_2.webp", alt: "Octopos paneli — buyurtmalar ro'yxati va tafsilot ko'rinishlari", caption: "Barcha stollar bo'ylab real vaqtda holat yangilanishi bilan buyurtma boshqaruvi."},
-      {src: "/images/projects/octopos_apps/dash_3.webp", alt: "Octopos paneli — inventar kuzatuvi va xarid buyurtmalari", caption: "Zaxira ogohlantirishlari, xarid buyurtmalari va menyu boshqaruvi bilan inventar kuzatuvi."},
-      {src: "/images/projects/octopos_apps/pos_1.webp", alt: "Octopos POS — katalog ko'rish va savat", caption: "Menyu toifalari, mahsulot tanlash va faol savat bilan POS terminali."},
-      {src: "/images/projects/octopos_apps/pos_2.webp", alt: "Octopos POS — to'lovni amalga oshirish", caption: "Naqd, karta va bo'lib to'lash imkoniyatlari bilan to'lov ekrani."},
-      {src: "/images/projects/octopos_apps/pos_3.webp", alt: "Octopos POS — stol boshqaruvi bilan pol rejasi", caption: "Stol boshqaruvi va mijozlarni qidirish bilan vizual pol rejasi."},
-      {src: "/images/projects/octopos_apps/kitchen_1.webp", alt: "Octopos Oshxona Displeyi — jonli buyurtma chiplari", caption: "Stansiyalar bo'yicha guruhlangan jonli buyurtma chiplarini ko'rsatuvchi Oshxona Displeyi."},
-    ],
-    cta: {label: "Octopos ga o'tish", href: "https://octopos.uz"},
-  },
-  octoposLandingCaseStudy: {
-    badge: "Loyiha tahlili",
-    title: "Octopos Landing Page",
-    subtitle: "Murakkab restoran boshqaruvi platformasini aniq, konversiyaga yo'naltirilgan mahsulot tajribasiga aylantirish.",
-    meta: [
-      {label: "Mijoz", value: "Octopos"},
-      {label: "Rol", value: "Frontend muhandisi · Mahsulot implementatsiyasi"},
-      {label: "Muddat", value: "4 hafta · 2026"},
-      {label: "Texnologiyalar", value: "Astro, Tailwind CSS, Resend"},
+      {label: "Mijoz", value: "Octopos (Tijoriy mahsulot)"},
+      {label: "Rol", value: "Lead Frontend Engineer"},
+      {label: "Muddat", value: "2025 - 2026"},
+      {
+        label: "Texnologiyalar",
+        value:
+          "React, TypeScript, Tailwind CSS, TanStack Query, Zustand, Radix UI, Lucide React, i18next",
+      },
     ],
     problem: {
       title: "Muammo",
-      body: "Octopos kuchli multi-ilova ekotizimiga (Dash, POS, Kitchen) ega edi, ammo mahsulot qiymati mavjud landing page orqali aniq yetkazilmadi. Saytda tuzilma, zamonaviy UX oqimi va yangi foydalanuvchilar uchun kuchli onbording yo'li yo'q edi.",
+      body: "Ushbu ko'p tarmoqli B2B platformaning eski kodi juda og'ir va qotib ishlaydigan bo'lib qolgandi. Ofitsiantlar qizg'in ish vaqtida interfeys sekinligidan qiynalishar, oshxonada esa ma'lumotlar sinxronizatsiyasi sababli buyurtmalar yo'qolib qolardi. Meni frontend arxitekturasini noldan yangilash va uni har qanday og'ir sharoitda ham tez ishlaydigan asbobga aylantirish uchun taklif qilishdi.",
     },
     research: {
-      title: "Nima qildim",
+      title: "Men nimalarni o'zgartirdim",
       bullets: [
-        "Katta dasturchi/dizayner tomonidan taqdim etilgan dizayn asosida to'liq landing page'ni amalga oshirib, uni responsiv, ishlab chiqarishga tayyor veb-saytga aylantirdim.",
-        "Astro va Tailwind yordamida butun frontendni noldan qurdim, mobil va desktop qurilmalarda piksel-anig'likdagi implementatsiyani ta'minladim.",
-        "Dash, POS va Kitchen yagona tizim sifatida qanday birgalikda ishlashini aniq tushuntirish uchun mahsulot maketlari va vizual bo'limlarni ishlab chiqdim.",
-        "Lead'larni jalb qilish va platformaga kirish huquqini berish uchun onbording va sinov ro'yxatdan o'tish oqimini amalga oshirdim.",
-        "Foydalanuvchi onbordingi va Resend orqali avtomatik elektron pochta bilan ishlash uchun backend xizmatlarini uladim.",
-        "Samaradorlik optimallashtirish, mobil moslashuvchanlik va SEO tuzilmasini ta'minladim.",
+        "Frontendni noldan qayta qurish: Eski kodni butunlay olib tashlab, o'ta yuqori rendering tezligiga ega bo'lgan zamonaviy React + TypeScript tizimini qurdim.",
+        "Tezkor POS Terminali: Ofitsiantlar uchun qulay tugmalar va tezkor qidiruvga ega kassa interfeysini yozdim, savatchaning yangilanish tezligi millisekundlardan ham kamroqni tashkil etadi.",
+        "Interaktiv zallar xaritasi: Joy bandligini real vaqtda boshqaradigan va stollar ko'rinishini dinamik o'zgartiradigan kustom drag-and-drop xaritasini yozdim.",
+        "Oshxona monitor tizimi (KDS): Oshpazlar uchun maxsus ekran interfeysini ishlab chiqdim. Tizim buyurtmalarni tayyor bo'lish vaqtiga qarab tartiblaydi va birorta ham buyurtma e'tibordan chetda qolmaydi.",
+        "Holatni optimallashtirish (State): Tartibsiz ma'lumot oqimlarini ixcham Zustand do'konlariga almashtirdim va TanStack Query kesh qoidalarini to'g'riladim, kassa va oshxona o'rtasidagi farq butkul yo'qoldi.",
+        "Moslashuvchan intertsionalizatsiya: Til o'zgarganda matn uzunligi turlicha bo'lishiga qaramay, interfeys elementlari sinib ketmaydigan dinamik tarjima tizimini sozladim.",
       ],
     },
     design: {
       title: "Natijalar",
       bullets: [
-        "Mahsulot ekotizimi tushunchasini yaxshilagan va foydalanuvchilarning Octopos haqidagi tushunchasini kuchaytirgan tez, zamonaviy SaaS landing page'ni yetkazdim.",
-        "Yangi foydalanuvchilar platformani sinab ko'rishdagi to'siqlarni kamaytiruvchi silliq sinov onbording oqimini yaratdim.",
-        "Mahsulot va muhandislik jamoasi bilan hamkorlikda to'liq mahsulotni 4 hafta ichida ishga tushirdim.",
+        "Yangilangan dasturiy ta'minot hozirda octopos.uz platformasi orqali real restoran va qahvaxonalarda muvaffaqiyatli ishlamoqda.",
+        "Kod hajmini sezilarli darajada kichraytirdim, natijada eng arzon Android planshetlarida ham tizim silliq (60 FPS) ishlaydi.",
+        "Ofitsiantlar hisob-kitobni soniyalarda bajarishmoqda, oshxona esa buyurtmani kassa tugmasi bosilgan o'sha millisekundda ko'radi.",
+      ],
+    },
+    images: [
+      {
+        src: "/images/projects/octopos_apps/dash_1.webp",
+        alt: "Tahlillar aks etgan Octopos boshqaruv paneli",
+        caption:
+          "Restoratorning asosiy paneli, bu yerda rahbarlar daromadni tahlil qiladilar, menyuni tahrirlaydilar va omborni kuzatadirlar.",
+      },
+      {
+        src: "/images/projects/octopos_apps/dash_2.webp",
+        alt: "Octopos buyurtmalar ro'yxati ko'rinishi",
+        caption:
+          "Tranzaksiyalarni tezkor nazorat qilish uchun menejerlar ehtiyojlariga moslashtirilgan hisob-kitob monitoring ekrani.",
+      },
+      {
+        src: "/images/projects/octopos_apps/dash_3.webp",
+        alt: "Octopos xaridlar va ombor vositasi",
+        caption:
+          "Ombor logistikasi bo'limi: mahsulotlar kam qolganda avtomatik ogohlantirishlar va yuk xatlarini hisobga olish.",
+      },
+      {
+        src: "/images/projects/octopos_apps/pos_1.webp",
+        alt: "Octopos POS terminal katalog katakchasi",
+        caption:
+          "Eng qizg'in ish vaqtida xatolarsiz bosish uchun mo'ljallangan kassa terminalining qulay ergonomik ko'rinishi.",
+      },
+      {
+        src: "/images/projects/octopos_apps/pos_2.webp",
+        alt: "Octopos kassa to'lov ekrani",
+        caption:
+          "To'lovni yakunlash oynasi: qaytimni tez hisoblash, aralash to'lov turlari va chekni mehmonlar bo'yicha tezkor bo'lish.",
+      },
+      {
+        src: "/images/projects/octopos_apps/pos_3.webp",
+        alt: "Octopos interaktiv zallar xaritasi",
+        caption:
+          "Stollarning bandlik holati va biriktirilgan ofitsiantlarni ko'rsatadigan qulay joylashuv konstruktori.",
+      },
+      {
+        src: "/images/projects/octopos_apps/kitchen_1.webp",
+        alt: "Real vaqtdagi Octopos oshxona terminali",
+        caption:
+          "Oshpazlarga taomlarni tayyorlash vaqtini aniq nazorat qilishga yordam beradigan yuqori kontrastli oshxona ekrani (KDS).",
+      },
+    ],
+    cta: {label: "Octopos biznes saytiga o'tish", href: "https://octopos.uz"},
+  },
+  octoposLandingCaseStudy: {
+    badge: "Keys",
+    title: "Octopos Landing sahifasi",
+    subtitle:
+      "Murakkab B2B restoran tizimini chiroyli va yuqori konversiyali SaaS landing sahifasiga aylantirish.",
+    meta: [
+      {label: "Mijoz", value: "Octopos"},
+      {label: "Rol", value: "Frontend Engineer \u00B7 UX dasturlash"},
+      {label: "Muddat", value: "4 hafta (2026)"},
+      {label: "Texnologiyalar", value: "Astro, Tailwind CSS, Resend"},
+    ],
+    problem: {
+      title: "Vazifa",
+      body: "Octopos'da ajoyib ilovalar jamlanmasi bor edi (Dash, POS, Kitchen), lekin eski landing sahifasi mahsulotning haqiqiy qiymatini tushuntirib bera olmasdi. Sayt matnga juda to'la edi, aniq vizual tuzilishga ega emas edi va rahbarlarda demo-versiyani sinab ko'rishga qiziqish uyg'otmasdi.",
+    },
+    research: {
+      title: "Men nimalar qildim",
+      bullets: [
+        "Yetakchi dizayner tomonidan tayyorlangan yuqori sifatli dizaynni mahsulot unumdorligiga zarar yetkazmagan holda mukammal kodga o'tkazdim.",
+        "Loyihani Astro va Tailwind CSS yordamida yig'dim, bu mijoz tomonidagi JS hajmini kamaytirdi va telefonlarda darhol ochilishini ta'minladi.",
+        "Kassa, backend va oshxona o'rtasidagi sinxronizatsiyani ko'rsatib beruvchi interaktiv namoyish bloklarini ishlab chiqdim.",
+        "Potensial mijozlar orasida saytni tark etish foizini sezilarli darajada kamaytirgan qulay ro'yxatdan o'tish tizimini yozdim.",
+        "Backend xizmatlarini uladim va Resend xizmati orqali avtomatlashtirilgan xatlar zanjirini moslashtirdim.",
+        "Core Web Vitals ko'rsatkichlarini optimallashtirdim va qidiruv tizimlarida yaxshi chiqishi uchun SEO strukturasini to'g'riladim.",
+      ],
+    },
+    design: {
+      title: "Natija",
+      bullets: [
+        "Murakkab B2B mahsulotni oddiy tilda tushuntirib beradigan va mijozlar savollariga javob beradigan marketing xabini topshirdik.",
+        "Demo-versiyaga yozilish jarayonini soddalashtirdik, shaklni to'ldirish oson va qulay ko'rinishga keldi.",
+        "Butun marketing loyihasini belgilangan 4 haftalik muddat ichida muvaffaqiyatli yakunladik va jonli efirga uzatdik.",
       ],
     },
     images: [
       {
         src: "/images/projects/octopos/octopos_before.webp",
-        alt: "Octopos landing page'ning qayta dizayndan oldingi ko'rinishi",
-        caption: "Qayta dizayndan oldingi MVP ekrani — zich matn, past kontrast va aniq harakatga chaqiruvsiz.",
+        alt: "Qayta dizayndan oldingi eski Octopos landing sahifasi",
+        caption:
+          "Dastlabki MVP ko'rinishi: qalin matn devorlari, past kontrast va aniq harakatga chaqiruvchi tugmalarning yo'qligi.",
       },
       {
         src: "/images/projects/octopos/octopos.webp",
-        alt: "Octopos landing page'ning skrinshoti",
-        caption: "Qayta ishlangan hero, foydalanish holatlari va ijtimoiy isbot bilan yuqori aniqlikdagi desktop ekran.",
+        alt: "Yangi Octopos landing sahifasi skrinshoti",
+        caption:
+          "Yakuniy desktop interfeysi: urg'u berilgan birinchi ekran, aniq foydalanish ssenariylari va ishonch bloklari.",
       },
     ],
-    cta: {label: "Saytga o'tish", href: "https://octopos.uz"},
+    cta: {label: "Saytni jonli ko'rish", href: "https://octopos.uz"},
   },
   skills: {
-    title: "Men ishlatadigan texnologiyalar",
+    title: "Doimiy ishlatadigan vositalarim",
     groups: [
-      {title: "Frontend", items: ["React", "Astro", "TypeScript", "JavaScript", "Tailwind", "Sass", "HTML/CSS"]},
-      {title: "Backend", items: ["Node.js", "Supabase", "PostgreSQL", "Python", "Go"]},
-      {title: "Boshqa", items: ["Git", "CI/CD", "Testlash", "C / Assembly", "Prompt muhandisligi", "Vercel"]},
+      {
+        title: "Frontend qurollarim",
+        items: [
+          "React",
+          "Astro",
+          "TypeScript",
+          "JavaScript",
+          "Tailwind CSS",
+          "Sass",
+          "HTML5 / CSS3",
+        ],
+      },
+      {
+        title: "Backend va Infratuzilma",
+        items: ["Node.js", "Supabase", "PostgreSQL", "Python", "Go"],
+      },
+      {
+        title: "Har xil",
+        items: [
+          "Git & GitHub",
+          "CI/CD Pipelines",
+          "Avtotestlar",
+          "C / Assembly",
+          "Prompt Engineering",
+          "Vercel",
+        ],
+      },
     ],
   },
   footer: {
@@ -273,7 +379,8 @@ const uz: I18n = {
     github: "GitHub",
     telegram: "Telegram",
     resume: "Rezyume",
-    builtWith: "Next.js, Framer Motion, GSAP, Lenis \u2014 shablon yo'q, boilerplate yo'q.",
+    builtWith:
+      "Next.js, Framer Motion, GSAP va Lenis yordamida yig'ildi — hech qanday tayyor shablon yoki zerikarli tayyorlamalarsiz.",
   },
 };
 
