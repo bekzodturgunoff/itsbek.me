@@ -92,7 +92,7 @@ const ko: I18n = {
     meta: [
       {label: "클라이언트", value: "개인 프로젝트 (Pet Project)"},
       {label: "역할", value: "솔로 풀스택 개발 및 디자인"},
-      {label: "기간", value: "3일 (2026)"},
+      {label: "기간", value: "(2026)"},
       {
         label: "기술 스택",
         value:

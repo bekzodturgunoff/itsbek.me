@@ -87,11 +87,11 @@ const uz: I18n = {
     badge: "Keys",
     title: "BronUz \u2014 Joylarni oson bron qilish platformasi",
     subtitle:
-      "Qanday qilib O'zbekiston bozori uchun to'liq ishlaydigan ko'p tarmoqli platformani bo'sh papkadan boshlab roppa-rosa 3 kunda tayyorladim.",
+      "Qanday qilib O'zbekiston bozori uchun to'liq ishlaydigan ko'p tarmoqli platformani bo'sh papkadan boshlab tayyorladim.",
     meta: [
       {label: "Mijoz", value: "Shaxsiy loyiha (Pet-project)"},
       {label: "Rol", value: "Solo Full-Stack Dev & Designer"},
-      {label: "Muddat", value: "3 Kun (2026)"},
+      {label: "Muddat", value: "(2026)"},
       {
         label: "Texnologiyalar",
         value:

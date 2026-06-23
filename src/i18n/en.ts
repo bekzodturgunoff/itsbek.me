@@ -87,11 +87,11 @@ const en: I18n = {
     badge: "Case Study",
     title: "BronUz \u2014 Frictionless Venue Booking",
     subtitle:
-      "How I built a fully functional multi-vendor booking marketplace for Uzbekistan from a completely blank folder in exactly 3 days.",
+      "How I built a fully functional multi-vendor booking marketplace for Uzbekistan from a completely blank folder.",
     meta: [
       {label: "Client", value: "Personal Project (Pet Project)"},
       {label: "Role", value: "Solo Full-Stack Dev & Designer"},
-      {label: "Timeline", value: "3 Days (2026)"},
+      {label: "Timeline", value: "(2026)"},
       {
         label: "Stack",
         value:
