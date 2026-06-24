@@ -1,7 +1,7 @@
 "use client";
 
 import {useRef, useEffect, useState} from "react";
-import {gsap, ScrollTrigger} from "@/lib/gsap";
+import {gsap} from "@/lib/gsap";
 import Image from "next/image";
 import type {I18n} from "@/i18n/types";
 
@@ -42,7 +42,6 @@ export default function ChapterAbout({t}: Props) {
       );
     }, section);
 
-    ScrollTrigger.refresh();
     return () => ctx.revert();
   }, []);
 

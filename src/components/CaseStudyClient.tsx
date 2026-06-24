@@ -2,7 +2,7 @@
 
 import {useRef, useEffect, useState} from "react";
 import {useRouter} from "next/navigation";
-import {gsap, ScrollTrigger} from "@/lib/gsap";
+import {gsap} from "@/lib/gsap";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import type {I18n} from "@/i18n/types";
@@ -84,7 +84,6 @@ export default function CaseStudyClient({t, lang, slug, data}: Props) {
         {opacity: 1, y: 0, duration: 0.6, ease: "expo.out", stagger: 0.08, scrollTrigger: {trigger: designRef.current, start: "top 80%", toggleActions: "play none none reverse"}},
       );
 
-      ScrollTrigger.refresh();
     });
 
     return () => ctx.revert();

@@ -1,7 +1,7 @@
 "use client";
 
 import {useRef, useEffect, useState} from "react";
-import {gsap, ScrollTrigger} from "@/lib/gsap";
+import {gsap} from "@/lib/gsap";
 
 const TECH_STRIP = [
   "React", "Next.js", "TypeScript", "TanStack", "Supabase", "Tailwind v4",
@@ -56,7 +56,6 @@ export default function ChapterCraft() {
       );
     }, section);
 
-    ScrollTrigger.refresh();
     return () => ctx.revert();
   }, []);
 

@@ -8,11 +8,15 @@ export function useLenis() {
   const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+
     const lenis = new Lenis({
-      duration: 1.1,
+      duration: isMobile ? 0.8 : 1.1,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
+      orientation: "vertical",
       smoothWheel: true,
+      syncTouch: isMobile,
+      syncTouchLerp: 0.075,
     });
 
     lenisRef.current = lenis;
@@ -20,7 +24,6 @@ export function useLenis() {
     gsap.ticker.add((time: number) => {
       lenis.raf(time * 1000);
     });
-    gsap.ticker.lagSmoothing(0);
 
     return () => {
       lenis.destroy();
