@@ -2,6 +2,11 @@
 
 import {useRef, useEffect, useState} from "react";
 import {gsap} from "@/lib/gsap";
+import type {I18n} from "@/i18n/types";
+
+interface Props {
+  t: I18n;
+}
 
 const TECH_STRIP = [
   "React", "Next.js", "TypeScript", "TanStack", "Supabase", "Tailwind v4",
@@ -12,7 +17,7 @@ const TECH_STRIP = [
   "PostgreSQL", "Node.js", "Edge Computing", "System Design",
 ];
 
-export default function ChapterCraft() {
+export default function ChapterCraft({t}: Props) {
   const sectionRef = useRef<HTMLElement>(null);
   const labelRef = useRef<HTMLSpanElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
@@ -90,7 +95,7 @@ export default function ChapterCraft() {
             marginBottom: "var(--gap-lg)",
           }}
         >
-          02 &mdash; THE CRAFT
+          {t.craft.label}
         </span>
 
         <div style={{maxWidth: "840px", marginBottom: "var(--gap-lg)"}}>
@@ -108,8 +113,7 @@ export default function ChapterCraft() {
                 margin: 0,
               }}
             >
-              Technology is the material.{" "}
-              <span style={{color: "var(--accent)"}}>The product</span> is the point.
+              {t.craft.headline}
             </h2>
           </div>
         </div>
@@ -123,20 +127,13 @@ export default function ChapterCraft() {
           }}
         >
           <p ref={p1Ref} style={colStyle}>
-            I think in systems. A component isn&apos;t just a UI element &mdash;
-            it&apos;s a contract between the product and the person using it.
-            React is how I write that contract. TypeScript is the discipline
-            that makes night deployments boring. Boring is good in production.
+            {t.craft.body1}
           </p>
           <p
             ref={p2Ref}
             style={colStyle}
           >
-            The stack changes with the problem. Sometimes it&apos;s Go and
-            Cloudflare Workers for an edge API. Sometimes it&apos;s a full
-            Supabase backend with RLS. The constant is shipping fast without
-            cutting corners. Security isn&apos;t added at the end &mdash; it&apos;s
-            in the architecture from day one.
+            {t.craft.body2}
           </p>
         </div>
 

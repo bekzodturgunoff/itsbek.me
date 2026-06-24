@@ -51,7 +51,7 @@ export default function MainContent({t}: Props) {
       <main>
         <Hero t={t} />
         <ChapterOrigin t={t} />
-        <ChapterCraft />
+        <ChapterCraft t={t} />
         <ProjectsSection />
         <ChapterAbout t={t} />
         <EndingSection t={t} />

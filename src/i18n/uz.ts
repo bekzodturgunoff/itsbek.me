@@ -44,6 +44,12 @@ const uz: I18n = {
     body: "Men kodlashni 2021-yilda boshlaganman. U paytlarda O'zbekistonda «ikki haftada dasturchi bo'ling» degan shov-shuvlar yo'q edi — faqat men, beqaror Wi-Fi va nimanidir tayyorlashga bo'lgan kuchli xohish bor edi xolos. Yozardim, butkul buzardim, qayta tuzatardim va yana xatolardan xulosa chiqarardim. Shu tartibsiz muammolar ortidan har qanday tayyor darslikdan ko'ra ko'proq narsa o'rgandim.\n\n2023-yilga kelib, o'zim mustaqil qilgan loyihalarim ko'paydi va hali qanchalik ko'p narsani bilmasligimni tushunib yetdim. Shundan so'ng, shunchaki diplom uchun emas, balki murakkab tizimlar ichkaridan qanday ishlashini tushunish uchun Seulga, Sejong universitetiga Kiberxavfsizlikni o'rganishga ketdim. Hozir esa yana Toshkentdaman, asosiy e'tiborim dasturchilar e'tiboridan chetda qoldirgan bozorlar uchun mustahkam va tezkor xizmatlar qurishga qaratilgan.",
     info: "Manzil: O'zbekiston \u00B7 EN \u00B7 RU \u00B7 KO \u00B7 UZ \u00B7 UTC+5",
   },
+  craft: {
+    label: "02 — THE CRAFT",
+    headline: "Texnologiya — bu faqat vosita. Mahsulot — asosiy maqsad.",
+    body1: "Men tizimlar bilan fikrlayman. Komponent — bu shunchaki UI element emas, bu mahsulot va foydalanuvchi o'rtasidagi shartnoma. React — bu shartnomani yozadigan tilim. TypeScript — tungi deploy'larni zerikarli qiladigan intizom. Zerikarli — bu production'da yaxshi narsa.",
+    body2: "Texnologiyalar muammoga qarab o'zgaradi. Ba'zan edge API uchun Go va Cloudflare Workers, ba'zan RLS bilan to'liq Supabase backend. O'zgarmas narsa — sifatni yo'qotmasdan tez yetkazish. Xavfsizlik oxirida qo'shilmaydi — u birinchi kundanoq arxitekturaga singdirilgan.",
+  },
   about: {
     title: "Kod ortidagi falsafa",
     body: "Men kodga shunchaki dasturchi emas, balki mahsulot yaratuvchisi ko'zi bilan qaraydigan muhandis man. O'zbekistonda kod yozishni boshlaganimda, tuzukroq darslik topish undagi xatoni to'g'rilashdan ko'ra qiyinroq edi. Keyin esa Seulda tizimlar xavfsizligi bo'yicha jiddiy tajriba orttirdim. \n\nIkki tilda erkin gaplasha olaman, full-stack vazifalarni muammosiz hal qilaman va eng zo'r kod — bu localhost'da turgan emas, balki production'da jonli ishlayotgan kod deb hisoblayman.",

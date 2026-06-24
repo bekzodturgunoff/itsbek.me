@@ -44,6 +44,12 @@ const en: I18n = {
     body: "I started coding back in 2021. There was no massive \u201clearn to code\u201d hype in Uzbekistan back then \u2014 just me, an unstable Wi-Fi connection, and an annoying urge to build things. I\u2019d build something, break it completely, fix it, and repeat. I definitely learned more from those chaotic failures than any structured tutorial could ever teach me.\n\nBy 2023, I had shipped enough chaotic side projects to realize how much I still didn\u2019t know. I packed my bags for Seoul to study Cyber Security at Sejong University \u2014 not for the piece of paper, but to truly understand how systems tick under the hood. Now I\u2019m back in Tashkent, focusing on building high-performance products for markets most developers haven\u2019t even noticed yet.",
     info: "Based in Uzbekistan \u00B7 EN \u00B7 RU \u00B7 KO \u00B7 UZ \u00B7 UTC+5",
   },
+  craft: {
+    label: "02 — THE CRAFT",
+    headline: "Technology is the material. The product is the point.",
+    body1: "I think in systems. A component isn't just a UI element — it's a contract between the product and the person using it. React is how I write that contract. TypeScript is the discipline that makes night deployments boring. Boring is good in production.",
+    body2: "The stack changes with the problem. Sometimes it's Go and Cloudflare Workers for an edge API. Sometimes it's a full Supabase backend with RLS. The constant is shipping fast without cutting corners. Security isn't added at the end — it's in the architecture from day one.",
+  },
   about: {
     title: "Behind the code",
     body: "I’m a software engineer who looks at code through the lens of a product builder. I cut my teeth coding in Uzbekistan when finding a decent tutorial was harder than debugging the code it gave you. I then spent a few years in Seoul diving deep into system security. \n\nI speak two languages, jump across the full stack without breaking a sweat, and firmly believe that the best code is the code that actually reaches production.",

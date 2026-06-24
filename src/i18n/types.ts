@@ -54,6 +54,12 @@ export interface I18n {
     body: string;
     info: string;
   };
+  craft: {
+    label: string;
+    headline: string;
+    body1: string;
+    body2: string;
+  };
   about: {
     title: string;
     body: string;
